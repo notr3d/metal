@@ -1,3 +1,4 @@
+//слайдеры
 $(document).ready(function(){
 	$('.main-slider').slick({
 		slidesToShow: 1,
@@ -7,11 +8,16 @@ $(document).ready(function(){
 		asNavFor: '.nav-slider'
 	});
 	$('.nav-slider').slick({
-		slidesToShow: 3,
+		slidesToShow: 4,
 		slidesToScroll: 1,
 		asNavFor: '.main-slider',
 		dots: true,
-		centerMode: true,
+		//centerMode: true,
 		focusOnSelect: true
 	});
+	$('.showcase__slider').slick({
+	  infinite: true,
+	  slidesToShow: 3,
+	  slidesToScroll: 2
+	});	
 });

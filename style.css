@@ -7119,8 +7119,24 @@ Entry Footer
 .navbar-collapse {
   padding: 0;
 }
-.site-header {
-  background: #ddd;
+/* bootstrap hack: fix content width inside hidden tabs */
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: block;
+  /* undo display:none          */
+  height: 0;
+  /* height:0 is also invisible */
+  overflow: hidden;
+  /* no-overflow                */
+}
+.tab-content > .active,
+.pill-content > .active {
+  height: auto;
+  /* let the content decide it  */
+}
+/* bootstrap hack end */
+.navbar-brand {
+  margin-right: 50px;
 }
 .site-footer {
   background: #000;
