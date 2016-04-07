@@ -7109,16 +7109,15 @@ Entry Footer
 .site {
   padding: 0;
 }
-.content-area {
-  padding: 15px;
-}
-.widget-area {
-  padding: 15px;
-  background: #eee;
+.container {
+  padding: 0;
 }
 .navbar {
   border-radius: 0;
   margin: 0;
+}
+.navbar-collapse {
+  padding: 0;
 }
 .site-header {
   background: #ddd;

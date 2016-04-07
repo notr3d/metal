@@ -23,8 +23,9 @@
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost/metal/wp-content/themes/metal/js/slick.js"></script>
+<script type="text/javascript" src="http://localhost/metal/wp-content/themes/metal/js/script.js"></script>
 <?php wp_footer(); ?>
-
 </body>
 </html>

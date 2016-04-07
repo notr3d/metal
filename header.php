@@ -20,7 +20,8 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-
+<link rel="stylesheet" type="text/css" href="http://localhost/metal/wp-content/themes/metal/css/slick.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/metal/wp-content/themes/metal/css/slick-theme.css">
 <?php wp_head(); ?>
 </head>
 
@@ -28,18 +29,13 @@
 <div id="page" class="site container-fluid">
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-header__wrapper container">
-			<div class="site-branding">
-				<?php if ( is_front_page() || is_home() ) : ?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-					<h3 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h3>
-				<?php endif;
-
-				$description = get_bloginfo( 'description', 'display' );
-				if ( $description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-				<?php endif; ?>
-			</div><!-- .site-branding -->
+			<div class="top-panel">
+				<div class="top-panel__wrapper container">
+					<button class="callback">Заказать звонок</button>
+					<button class="letter">Написать письмо</button>
+					<a href="tel:+74955555555" class="phone">+7 (495) 555-55-55</a>
+				</div>
+			</div>
 			<nav id="site-navigation" class="main-navigation navbar navbar-default" role="navigation">
 				<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_s' ); ?></a>
 							<div class="navbar-header">
@@ -49,7 +45,7 @@
 											<span class="icon-bar"></span>
 											<span class="icon-bar"></span>
 									</button>
-									<a class="navbar-brand visible-xs" href="#">Brand</a>
+									<a class="navbar-brand" href="#">Brand</a>
 							</div>
 
 							<div class="collapse navbar-collapse" id="navbar-collapse-main">
@@ -73,7 +69,7 @@
 											);
 									endif; ?>
 								</ul>
-								<!--<?php get_search_form(); ?>-->
+								<?php get_search_form(); ?>
 							</div><!-- /.navbar-collapse -->
 
 			</nav><!-- #site-navigation -->
