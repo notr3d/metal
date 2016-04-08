@@ -24,6 +24,7 @@
 <![endif]-->
 		<link rel="stylesheet" type="text/css" href="http://localhost/metal/wp-content/themes/metal/css/slick.css">
 		<link rel="stylesheet" type="text/css" href="http://localhost/metal/wp-content/themes/metal/css/slick-theme.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 		<?php wp_head(); ?>
 	</head>
 

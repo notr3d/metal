@@ -7138,6 +7138,9 @@ Entry Footer
   /* let the content decide it  */
 }
 /* bootstrap hack end */
+.slick-slide:focus {
+  outline: none;
+}
 .my-link {
   display: inline-block;
   background: #fbc02d;
@@ -7166,6 +7169,9 @@ Entry Footer
 .my-link:visited {
   color: #5a565a;
 }
+.top-panel {
+  margin-bottom: 30px;
+}
 .top-panel__container {
   display: -webkit-flex;
   display: -moz-flex;
@@ -7191,6 +7197,38 @@ Entry Footer
 .site-nav .navbar {
   background: none;
   border: none;
+}
+.site-nav .navbar-nav .page_item a {
+  transition: all .1s;
+}
+.site-nav .navbar-nav .page_item:hover a {
+  color: #cc3300;
+}
+.site-nav .navbar-nav .page_item.active a {
+  background: none;
+  border-bottom: 2px solid #cc3300;
+}
+.site-nav .navbar-nav .page_item .dropdown-toggle:focus {
+  background: none;
+}
+.site-nav .navbar-nav .page_item .dropdown-menu {
+  padding: 15px 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none;
+  border-top: 2px solid #cc3300;
+}
+.site-nav .navbar-nav .page_item .dropdown-menu::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  position: absolute;
+  top: -8px;
+  left: 23px;
+  border-top: 2px solid #cc3300;
+  border-left: 2px solid #cc3300;
+  transform: rotate(45deg);
 }
 .site-nav .search-form {
   border: 1px solid #eee;
@@ -7235,7 +7273,20 @@ Entry Footer
   height: 400px;
 }
 .site-footer__copy {
-  padding: 15px 0;
+  padding: 25px 0;
+}
+.scrollup {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  z-index: 1000;
+  opacity: 0;
+  transition: .3s;
+}
+.scrollup--visible {
+  opacity: 1;
 }
 .home .main-slider__item {
   min-height: 300px;
@@ -7344,10 +7395,14 @@ Entry Footer
 }
 .home .showcase__item {
   text-align: center;
+  padding: 15px 0;
 }
 .home .showcase__img {
   width: 70px;
   height: 100px;
   background: #eee;
   display: inline-block;
+}
+* {
+  font-family: 'Roboto Slab', serif;
 }

@@ -59,6 +59,7 @@
 				© 2016 Lorem. All rights reserved.
 			</div>
 		</div>
+		<button class="scrollup"></button>
 	</footer>
 	<!-- #colophon -->
 	</div>

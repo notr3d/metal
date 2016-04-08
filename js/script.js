@@ -46,3 +46,27 @@ $(document).ready(function () {
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 }
+
+$('.scrollup').click(function(){
+	$('body').animate({scrollTop: 0}, 300);
+	return false;
+});
+
+{
+	function init() {
+		window.addEventListener('scroll', function(e){
+			var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+				shrinkOn = 200,
+				scrollup = $('.scrollup');
+			if (distanceY > shrinkOn) {
+				$(scrollup).addClass('scrollup--visible');
+				
+			} else {
+				if (scrollup.hasClass('scrollup--visible')) {
+					scrollup.removeClass('scrollup--visible');
+				}
+			}
+		});
+	}
+	window.onload = init();
+}

@@ -3,6 +3,7 @@
 }
 
 .top-panel {
+	margin-bottom: 30px;
 	&__container {
 		display: -webkit-flex;
 		display: -moz-flex;
@@ -31,6 +32,48 @@
 	.navbar {
 		background: none;
 		border: none;
+	}
+	.navbar-nav {
+		.page_item {
+			a {
+				transition: all .1s;
+			}
+			&:hover {				
+				a {
+					color: @red;
+				}
+			}
+			&.active {
+				a {
+					background: none;
+					border-bottom: 2px solid @red;
+				}
+			}
+			.dropdown-toggle {
+				&:focus {
+					background: none;
+				}
+			}
+			.dropdown-menu {
+				padding: 15px 0 !important;
+				border-radius: 0 !important;
+				box-shadow: none;
+				border-top: 2px solid @red;
+				&::before {
+					content: '';
+					display: block;
+					width: 14px;
+					height: 14px;
+					background: #fff;
+					position: absolute;
+					top: -8px;
+    				left: 23px;
+					border-top: 2px solid @red;
+					border-left: 2px solid @red;
+					transform: rotate(45deg);
+				}
+			}
+		}
 	}
 	.search-form {
 		border: 1px solid #eee;
