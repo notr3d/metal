@@ -80,10 +80,20 @@ and Bootstrap https://github.com/twbs/bootstrap
 
 // YOUR CUSTOM STYLES
 // ------------------
+@mobile: ~ "(max-width: 767px)";
+@desktop: ~ "(min-width: 768px)";
+
+@yellow: #fbc02d;
+@black: #262426;
+@white: #fff;
+
 .site {
 	padding: 0;
 }
 .container {
+	padding: 0;
+}
+.container-fluid {
 	padding: 0;
 }
 .navbar {
@@ -104,5 +114,37 @@ and Bootstrap https://github.com/twbs/bootstrap
     height: auto;      /* let the content decide it  */
 } /* bootstrap hack end */
 
+.my {
+	&-link {
+		display: inline-block;
+		background: @yellow;
+		padding: 5px 15px;
+		font-weight: bold;
+		color: @black;
+		transition: all .1s;
+		border-radius: 5px;
+		box-shadow: 0 5px 0 0 darken(@yellow, 15%);
+		margin-bottom: 5px;
+		&:hover {
+			text-decoration: none;
+			color: lighten(@black, 15%);
+			background: lighten(@yellow, 5%);
+		}
+		&:active {
+			box-shadow: none;
+			transform: translateY(5px);
+			background: lighten(@yellow, 10%);
+		}
+		&:focus {
+			outline: none;
+			text-decoration: none;
+		}
+		&:visited {
+			color: lighten(@black, 20%);
+		}
+	}
+}
+
 @import "less/site-header.less";
 @import "less/site-footer.less";
+@import "less/home.less";

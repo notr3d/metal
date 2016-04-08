@@ -1,4 +1,62 @@
-.navbar-brand {
-	margin-right: 50px;
+.site-header {
+	
 }
 
+.top-panel {
+	&__container {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		padding: 15px 0;
+	}
+	&__item {
+		@media @mobile {
+			flex-basis: 100%;
+			text-align: center;
+			margin: 15px 0;
+		}
+	}
+	.navbar-brand {
+		float: none;
+		padding: 0;
+	}
+}
+
+.site-nav {
+	.navbar {
+		background: none;
+		border: none;
+	}
+	.search-form {
+		border: 1px solid #eee;
+		input {
+		border: none;
+		background: none;
+		border-radius: 0;
+		//border-bottom: 1px solid #eee;
+		margin-right: 0;
+		padding: 0;
+		box-shadow: none;
+		}
+		button {
+			border: none;
+			background: none;
+			border-radius: 0;
+			position: absolute;
+			right: 0;
+			top: 10px;
+			padding-right: 0;
+			outline: none;
+			span {
+				&::before {
+					color: #aaa;
+				}
+			}
+		}
+	}
+}

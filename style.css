@@ -7112,6 +7112,9 @@ Entry Footer
 .container {
   padding: 0;
 }
+.container-fluid {
+  padding: 0;
+}
 .navbar {
   border-radius: 0;
   margin: 0;
@@ -7135,9 +7138,216 @@ Entry Footer
   /* let the content decide it  */
 }
 /* bootstrap hack end */
-.navbar-brand {
-  margin-right: 50px;
+.my-link {
+  display: inline-block;
+  background: #fbc02d;
+  padding: 5px 15px;
+  font-weight: bold;
+  color: #262426;
+  transition: all .1s;
+  border-radius: 5px;
+  box-shadow: 0 5px 0 0 #d79b04;
+  margin-bottom: 5px;
 }
-.site-footer {
+.my-link:hover {
+  text-decoration: none;
+  color: #4d494d;
+  background: #fbc846;
+}
+.my-link:active {
+  box-shadow: none;
+  transform: translateY(5px);
+  background: #fccf5f;
+}
+.my-link:focus {
+  outline: none;
+  text-decoration: none;
+}
+.my-link:visited {
+  color: #5a565a;
+}
+.top-panel__container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+@media (max-width: 767px) {
+  .top-panel__item {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 15px 0;
+  }
+}
+.top-panel .navbar-brand {
+  float: none;
+  padding: 0;
+}
+.site-nav .navbar {
+  background: none;
+  border: none;
+}
+.site-nav .search-form {
+  border: 1px solid #eee;
+}
+.site-nav .search-form input {
+  border: none;
+  background: none;
+  border-radius: 0;
+  margin-right: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.site-nav .search-form button {
+  border: none;
+  background: none;
+  border-radius: 0;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  padding-right: 0;
+  outline: none;
+}
+.site-nav .search-form button span::before {
+  color: #aaa;
+}
+.site-footer__info {
+  padding: 15px 0;
   background: #000;
+}
+.site-footer__nav ul {
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+}
+.site-footer__nav ul li {
+  margin-bottom: 5px;
+}
+.site-footer__address {
+  color: #fff;
+}
+.site-footer__map {
+  height: 400px;
+}
+.site-footer__copy {
+  padding: 15px 0;
+}
+.home .main-slider__item {
+  min-height: 300px;
+}
+.home .main-slider__header {
+  margin-bottom: 25px;
+}
+.home .main-slider__text {
+  border-left: 2px solid #aaa;
+  border-right: 2px solid #aaa;
+  padding: 5px;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+.home .main-slider__img {
+  background: #eee;
+  height: 300px;
+  width: 100%;
+}
+.home .main-slider__panel {
+  padding: 0;
+}
+.home .main-slider__panel--left {
+  padding-right: 15px;
+}
+.home .main-slider__panel--right {
+  padding-left: 15px;
+}
+.home .nav-slider__item {
+  text-align: center;
+  margin: 0 5px;
+  padding: 5px;
+  background: #aaa;
+}
+.home .nav-slider__img {
+  width: 100%;
+  height: 80px;
+  background: #eee;
+}
+.home .nav-slider__header {
+  font-size: 12px;
+  margin: 0;
+  background: #eee;
+  border: 1px solid #aaa;
+  padding: 5px;
+}
+.home .nav-slider .slick-list {
+  margin: 0 -5px;
+}
+.home .nav-slider .slick-current {
+  background: #000;
+}
+.home .nav-slider .slick-arrow {
+  background: #aaa;
+  height: 100%;
+}
+.home .nav-slider .slick-prev {
+  left: -30px;
+}
+.home .nav-slider .slick-next {
+  right: -30px;
+}
+.home .main-features__header {
+  text-align: center;
+  font-size: 36px;
+}
+.home .main-features__note {
+  text-align: center;
+  font-size: 20px;
+}
+.home .main-features__container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+}
+.home .main-features__item {
+  padding: 15px 0;
+  flex-basis: 20%;
+  flex-grow: 1;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .home .main-features__item {
+    flex-basis: 50%;
+  }
+}
+.home .main-features__img {
+  width: 120px;
+  height: 80px;
+  background: #eee;
+  margin-bottom: 15px;
+}
+.home .main-features__text {
+  margin: 0;
+}
+.home .main-features__link:hover {
+  text-decoration: none !important;
+}
+.home .main-features__more-link {
+  float: right;
+}
+.home .showcase__item {
+  text-align: center;
+}
+.home .showcase__img {
+  width: 70px;
+  height: 100px;
+  background: #eee;
+  display: inline-block;
 }
