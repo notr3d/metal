@@ -14,29 +14,12 @@
 	</div>
 	<!-- #content -->
 
-	<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
+	<footer class="site-footer" role="contentinfo">
 		<div class="site-footer__info">
 			<div class="container">
 				<div class="site-footer__nav col-sm-4">
 					<ul class="site-footer__nav">
-						<?php if( has_nav_menu( 'primary' ) ) :
-							wp_nav_menu( array(
-												'theme_location'  => 'primary',
-												'container'       => false,
-												//'menu_class'      => 'nav navbar-nav',//  'nav navbar-right'
-												'walker'          => new Bootstrap_Nav_Menu(),
-												'fallback_cb'     => null,
-										'items_wrap'      => '%3$s',// skip the containing <ul>
-										)
-								);
-							else :
-								wp_list_pages( array(
-										'menu_class'      => 'nav navbar-nav',//  'nav navbar-right'
-										'walker'          => new Bootstrap_Page_Menu(),
-										'title_li'        => null,
-									)
-								);
-						endif; ?>
+						<?php wp_page_menu(); ?>						
 					</ul>
 				</div>
 				<div class="site-footer__address col-sm-4">

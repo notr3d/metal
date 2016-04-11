@@ -29,46 +29,18 @@
 	</head>
 
 	<body <?php body_class(); ?>>
-		<div id="page" class="site container-fluid">
+		<div id="page" class="site">
 			<header id="masthead" class="site-header" role="banner">
-				<div class="site-header__wrapper container-fluid">
+				<div class="site-header__wrapper">
 					<div class="top-panel">
 						<div class="top-panel__wrapper container">
 							<div class="top-panel__container">
 								<div class="top-panel__item hidden-xs">
 									<a class="navbar-brand" href="home">Brand</a>	
-								</div>								
-								<div class="top-panel__item callback">
-									<button type="button" class="" data-toggle="modal" data-target="#callback">Обратный звонок</button>
-									<div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-													<h4 class="modal-title" id="myModalLabel">Обратный звонок</h4>
-												</div>
-												<div class="modal-body">
-													<div class="form-group">
-														<input type="text" class="form-control" placeholder="Имя*" required>
-													</div>
-													<div class="form-group">
-														<input type="tel" class="form-control" placeholder="Телефон*" required>
-													</div>
-													<div class="form-group">
-														<textarea class="form-control" placeholder="Сообщение..."></textarea>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary">Отправить</button>
-													<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
-								<div class="top-panel__item mail">
-									<button type="button" class="" data-toggle="modal" data-target="#mail">Написать письмо</button>
-									<div class="modal fade" id="mail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="top-panel__item email">
+									<button type="button" class="top-panel__button" data-toggle="modal" data-target="#email">Написать письмо</button>
+									<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -87,7 +59,7 @@
 													</div>
 
 													<div class="form-group">
-														<textarea class="form-control" placeholder="Сообщение..."></textarea>
+														<textarea rows="10" class="form-control" placeholder="Сообщение..."></textarea>
 													</div>
 												</div>
 												<div class="modal-footer">
@@ -97,9 +69,37 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>								
+								<div class="top-panel__item callback">
+									<button type="button" class="top-panel__button" data-toggle="modal" data-target="#callback">Обратный звонок</button>
+									<div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="myModalLabel">Обратный звонок</h4>
+												</div>
+												<div class="modal-body">
+													<div class="form-group">
+														<input type="text" class="form-control" placeholder="Имя*" required>
+													</div>
+													<div class="form-group">
+														<input type="tel" class="form-control" placeholder="Телефон*" required>
+													</div>
+													<div class="form-group">
+														<textarea rows="3" class="form-control" placeholder="Сообщение..."></textarea>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary">Отправить</button>
+													<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>								
 								<div class="top-panel__item">
-									<a href="tel:+74955555555" class="phone">+7 (495) 555-55-55</a>	
+									<a href="tel:+74955555555" class="top-panel__button phone">+7 (495)<span class="phone__number"> 555-55-55</span></a>	
 								</div>								
 							</div>
 						</div>
@@ -152,5 +152,5 @@
 			</header>
 			<!-- #masthead -->
 
-			<div id="content" class="site-content">
-				<div class="site-content__wrapper container-fluid">
+			<div class="site-content">
+				<div class="site-content__wrapper">

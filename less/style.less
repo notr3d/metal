@@ -83,26 +83,30 @@ and Bootstrap https://github.com/twbs/bootstrap
 @mobile: ~ "(max-width: 767px)";
 @desktop: ~ "(min-width: 768px)";
 
-@yellow: #fbc02d;
 @black: #262426;
 @white: #fff;
-@red: #cc3300;
 
-.site {
-	padding: 0;
-}
+@red: #cc3300;
+@blue: #2474d0;
+@yellow: #fbc02d;
+
 .container {
 	padding: 0;
 }
 .container-fluid {
 	padding: 0;
 }
+
 .navbar {
 	border-radius: 0;
 	margin: 0;
 }
 .navbar-collapse {
 	padding: 0;
+}
+
+.widget-area {
+	background: #eee;
 }
 
 /* bootstrap hack: fix content width inside hidden tabs */
@@ -147,6 +151,42 @@ and Bootstrap https://github.com/twbs/bootstrap
 		&:visited {
 			color: lighten(@black, 20%);
 		}
+	}
+}
+
+.scrollup {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	width: 45px;
+	height: 45px;
+	z-index: 1000;
+	opacity: 0;
+	transition: .3s;
+	background: rgba(0, 0, 0, 0.3);
+	border: none;
+	border-radius: 50%;
+	outline: none;
+	&::before {
+		content: '';
+		display: block;
+		width: 14px;
+		height: 14px;
+		border-left: 1px solid #fff;
+		border-top: 1px solid #fff;
+		transform: rotate(45deg);
+		position: absolute;
+		top: 18px;
+    	left: 15px;
+	}
+	&:hover {
+		background: rgba(0, 0, 0, 0.6);
+		&:before {
+			border-color: @yellow;
+		}
+	}
+	&--visible {
+		opacity: 1;
 	}
 }
 

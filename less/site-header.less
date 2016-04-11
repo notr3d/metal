@@ -22,9 +22,53 @@
 			margin: 15px 0;
 		}
 	}
+	&__button {
+		background: none;
+		border: none;
+		padding: 0;
+		color: @blue;
+		outline: none;
+		&:hover {
+			text-decoration: none;			
+			border-bottom: 1px dotted @blue;
+		}
+	}
+	.callback {
+		background: url(img/phone.png) no-repeat 0 50%;
+		background-size: 12px;
+		padding-left: 16px;		
+	}
+	.email {
+		background: url(img/email.png) no-repeat 0 50%;
+		background-size: 12px;
+		padding-left: 16px;
+	}
+	.phone {
+		&__number {
+			font-weight: bold;
+		}
+	}
 	.navbar-brand {
 		float: none;
 		padding: 0;
+	}
+	.modal-dialog {
+		margin: 60px auto;
+		.modal-content {
+			border-radius: 0;
+		}
+		.btn-primary {
+			background-color: @blue;
+		}
+		input {
+			border-radius: 0;
+			padding: 20px 12px;
+		}
+		textarea {
+			resize: vertical;
+			border-radius: 0;
+			padding: 12px;
+		}
 	}
 }
 
@@ -48,6 +92,11 @@
 					background: none;
 					border-bottom: 2px solid @red;
 				}
+				.dropdown-menu {
+					a {
+						border-bottom: none;
+					}
+				}
 			}
 			.dropdown-toggle {
 				&:focus {
@@ -59,6 +108,7 @@
 				border-radius: 0 !important;
 				box-shadow: none;
 				border-top: 2px solid @red;
+				top: 50px;
 				&::before {
 					content: '';
 					display: block;
@@ -76,15 +126,16 @@
 		}
 	}
 	.search-form {
-		border: 1px solid #eee;
-		input {
-		border: none;
-		background: none;
-		border-radius: 0;
-		//border-bottom: 1px solid #eee;
 		margin-right: 0;
 		padding: 0;
-		box-shadow: none;
+		input {
+			border: none;
+			background: none;
+			border-radius: 0;
+			border-bottom: 1px solid #aaa;
+			margin-right: 0;
+			padding: 0;
+			box-shadow: none;
 		}
 		button {
 			border: none;

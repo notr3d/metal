@@ -14,8 +14,8 @@
 
 get_header(); ?>
 
-	<div class="content-area col-sm-9">
-		<main id="main" class="site-main" role="main">
+	<div class="content-area container">
+		<main id="main" class="site-main col-sm-9" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -29,9 +29,8 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; // End of the loop. ?>
-
 		</main><!-- #main -->
+		<?php get_sidebar($name = 'company'); ?>
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

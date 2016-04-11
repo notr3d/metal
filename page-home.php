@@ -5,73 +5,52 @@
 			<div class="main-slider-area__wrapper container">
 				<div class="main-slider">
 					<div class="main-slider__item">					
-						<div class="col-sm-6 main-slider__panel main-slider__panel--left">
+						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Полнокомплектные здания</h2>
-							<p class="main-slider__text">ЗАО «Стальинвест» проектирует, производит и поставляет полнокомплектные быстровозводимые здания</p>
+							<p class="main-slider__text">ЗАО «Lorem» проектирует, производит и поставляет полнокомплектные быстровозводимые здания</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
-						</div>
-						<div class="col-sm-6 main-slider__panel main-slider__panel--right">
-							<img src="" alt="" class="main-slider__img">
 						</div>
 					</div>
 					<div class="main-slider__item">					
-						<div class="col-sm-6 main-slider__panel main-slider__panel--left">
+						<div class="main-slider__panel main-slider__panel--right">
 							<h2 class="main-slider__header">Профнастил</h2>
 							<p class="main-slider__text">Профнастил используется в качестве материала для стенового и кровельного покрытия, изготовления заборов, для отделки производственных помещений.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
-						<div class="col-sm-6 main-slider__panel main-slider__panel--right">
-							<img src="" alt="" class="main-slider__img">
-						</div>
 					</div>
 					<div class="main-slider__item">					
-						<div class="col-sm-6 main-slider__panel main-slider__panel--left">
+						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Металлоконструкции</h2>
 							<p class="main-slider__text">Металлоконструкции применяются в качестве несущих конструкций каркасов, перекрытий и покрытий при строительстве и реконструкции зданий.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
-						<div class="col-sm-6 main-slider__panel main-slider__panel--right">
-							<img src="" alt="" class="main-slider__img">
-						</div>
 					</div>
 					<div class="main-slider__item">					
-						<div class="col-sm-6 main-slider__panel main-slider__panel--left">
+						<div class="main-slider__panel main-slider__panel--right">
 							<h2 class="main-slider__header">Сталь в рулонах</h2>
 							<p class="main-slider__text">Сталь с покрытиями в рулонах применяется для профилирования, штамповки и производства плоских изделий.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
-						<div class="col-sm-6 main-slider__panel main-slider__panel--right">
-							<img src="" alt="" class="main-slider__img">
-						</div>
 					</div>
 					<div class="main-slider__item">					
-						<div class="col-sm-6 main-slider__panel main-slider__panel--left">
+						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Теплоизоляционная плита</h2>
 							<p class="main-slider__text">Используется в качестве теплоизоляционного материала при строительстве зданий, а также при изготовлении сэндвич-панелей.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
-						<div class="col-sm-6 main-slider__panel main-slider__panel--right">
-							<img src="" alt="" class="main-slider__img">
-						</div>
 					</div>
 					<div class="main-slider__item">					
-						<div class="col-sm-6 main-slider__panel main-slider__panel--left">
+						<div class="main-slider__panel main-slider__panel--right">
 							<h2 class="main-slider__header">Сэндвич-панели</h2>
 							<p class="main-slider__text">Трехслойные сэндвич-панели используются в качестве ограждающих конструкций стен и кровли зданий различного назначения.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
-						<div class="col-sm-6 main-slider__panel main-slider__panel--right">
-							<img src="" alt="" class="main-slider__img">
-						</div>
 					</div>
 					<div class="main-slider__item">					
-						<div class="col-sm-6 main-slider__panel main-slider__panel--left">
+						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Частным клиентам</h2>
 							<p class="main-slider__text">Строительные материалы для устройства кровли, фасада, водосточной системы, забора для частного дома.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
-						</div>
-						<div class="col-sm-6 main-slider__panel main-slider__panel--right">
-							<img src="" alt="" class="main-slider__img">
 						</div>
 					</div>
 				</div>
