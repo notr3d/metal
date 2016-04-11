@@ -1,5 +1,6 @@
 //слайдеры
 $(document).ready(function () {
+	//home
 	$('.main-slider').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -13,7 +14,7 @@ $(document).ready(function () {
 		slidesToShow: 5,
 		slidesToScroll: 1,
 		asNavFor: '.main-slider',
-		dots: true,
+		dots: false,
 		//centerMode: true,
 		focusOnSelect: true
 	});
@@ -25,8 +26,27 @@ $(document).ready(function () {
 		autoplay: true,
   		autoplaySpeed: 10000
 	});
+	//about
+	$('.about-main-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.about-nav-slider',
+		autoplay: true,
+		autoplaySpeed: 10000
+	});
+	$('.about-nav-slider').slick({
+		slidesToShow: 6,
+		slidesToScroll: 1,
+		asNavFor: '.about-main-slider',
+		dots: false,
+		//centerMode: true,
+		focusOnSelect: true
+	});
 });
 
+//карта
 {	
     var myCenter=new google.maps.LatLng(54.212438, 37.646569);
     function initialize(){
@@ -52,6 +72,7 @@ $('.scrollup').click(function(){
 	return false;
 });
 
+//кнопка вверх
 {
 	function init() {
 		window.addEventListener('scroll', function(e){
@@ -70,3 +91,9 @@ $('.scrollup').click(function(){
 	}
 	window.onload = init();
 }
+
+//aside
+$('.page_item_has_children>a').click(function(){
+	event.preventDefault();
+	//$('.page_item_has_children>ul').slideToggle();
+});

@@ -16,19 +16,8 @@ get_header(); ?>
 
 	<main class="container" role="main">
 		<div class="content-area col-sm-9">
+			<?php the_title( sprintf( '<h1 class="page-header">', esc_url( get_permalink() ) ), '</h1>' ); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
-
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
-
-			<?php endwhile; // End of the loop. ?>
 		</div><!-- #primary -->
 		<?php get_sidebar($name = 'test'); ?>
 	</main><!-- #main -->

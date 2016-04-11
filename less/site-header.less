@@ -90,11 +90,11 @@
 			&.active {
 				a {
 					background: none;
-					border-bottom: 2px solid @red;
+					border-top: 2px solid @red;
 				}
 				.dropdown-menu {
 					a {
-						border-bottom: none;
+						border: none;
 					}
 				}
 			}
@@ -136,6 +136,10 @@
 			margin-right: 0;
 			padding: 0;
 			box-shadow: none;
+			width: 292px;
+			&:focus {
+				border-color: @yellow;
+			}
 		}
 		button {
 			border: none;
@@ -145,10 +149,22 @@
 			right: 0;
 			top: 10px;
 			padding-right: 0;
-			outline: none;
+			padding-left: 0;
+			outline: none !important;
+			&:active {
+				background: none;
+				box-shadow: none !important;
+			}
+			&:hover {
+				span {
+					&::before {
+						color: @blue;
+					}
+				}
+			}
 			span {
 				&::before {
-					color: #aaa;
+					color: #ddd;
 				}
 			}
 		}
