@@ -86,73 +86,122 @@
 				</div>
 			</div>
 		</div>
-		<div class="main-features">
-			<div class="main-features__wrapper container">
-				<h2 class="main-features__header">Наши услуги</h2>
-				<p class="main-features__note">ЗАО «Lorem» проектирует, производит и поставляет быстровозводимые полнокомплектные здания:</p>
-				<div class="main-features__container">
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/1.png" alt="" class="main-features__img">
-							<p class="main-features__text">Промышленные здания</p>
+		<div class="main-services">
+			<div class="main-services__wrapper container">
+				<h2 class="main-services__header">Наши услуги</h2>
+				<p class="main-services__note">ЗАО «Lorem» проектирует, производит и поставляет быстровозводимые полнокомплектные здания:</p>
+				<div class="main-services__container">
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/1.png" alt="" class="main-services__img">
+							<p class="main-services__text">Промышленные здания</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/2.png" alt="" class="main-features__img">
-							<p class="main-features__text">Логистические комплексы</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/2.png" alt="" class="main-services__img">
+							<p class="main-services__text">Логистические комплексы</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/3.png" alt="" class="main-features__img">
-							<p class="main-features__text">Торговые центры</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/3.png" alt="" class="main-services__img">
+							<p class="main-services__text">Торговые центры</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/4.png" alt="" class="main-features__img">
-							<p class="main-features__text">Спортивные сооружения</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/4.png" alt="" class="main-services__img">
+							<p class="main-services__text">Спортивные сооружения</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/5.png" alt="" class="main-features__img">
-							<p class="main-features__text">Нестандартные здания</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/5.png" alt="" class="main-services__img">
+							<p class="main-services__text">Нестандартные здания</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/6.png" alt="" class="main-features__img">
-							<p class="main-features__text">Автосалоны и СТО</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/6.png" alt="" class="main-services__img">
+							<p class="main-services__text">Автосалоны и СТО</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/7.png" alt="" class="main-features__img">
-							<p class="main-features__text">Многоэтажные паркинги</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/7.png" alt="" class="main-services__img">
+							<p class="main-services__text">Многоэтажные паркинги</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/8.png" alt="" class="main-features__img">
-							<p class="main-features__text">Административные и офисные здания</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/8.png" alt="" class="main-services__img">
+							<p class="main-services__text">Административные и офисные здания</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/9.png" alt="" class="main-features__img">
-							<p class="main-features__text">Склады и ангары</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/9.png" alt="" class="main-services__img">
+							<p class="main-services__text">Склады и ангары</p>
 						</a>
 					</div>
-					<div class="main-features__item">
-						<a href="#" class="main-features__link">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/10.png" alt="" class="main-features__img">
-							<p class="main-features__text">Сельскохозяйственные здания</p>
+					<div class="main-services__item">
+						<a href="#" class="main-services__link">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/10.png" alt="" class="main-services__img">
+							<p class="main-services__text">Сельскохозяйственные здания</p>
 						</a>
 					</div>
 				</div>
-				<a href="#" class="main-features__more-link my-link">Узнать подробнее</a>
+				<a href="#" class="main-services__more-link my-link">Узнать подробнее</a>
+			</div>
+		</div>
+		<div class="home-features">
+			<div class="home-features__wrapper container">
+				<h2 class="home-features__heading">Наши преимущества</h2>
+				<div class="home-features__item col-sm-4">
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/features/1.png" alt="" class="home-features__img">
+					<h3 class="home-features__header">Индивидуальный подход</h3>
+					<ul class="home-features__list">
+						<li>Индивидуальный менеджер.
+						<li>Менеджер проекта.
+						<li>Комплексный подход.
+						<li>Богатый портфель услуг.
+						<li>Индивидуальное проектирование.
+						<li>Серийные решения.
+						<li>Анализ конкурентов и подбор индивидуальных решений.
+						<li>Сопровождение проекта на всех стадиях.
+						<li>Комплекс услуг из одних рук.
+						<li>Поставка 100% комплектующих.
+					</ul>
+				</div>
+				<div class="home-features__item col-sm-4">
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/features/2.png" alt="" class="home-features__img">
+					<h3 class="home-features__header">Ресурсы компании</h3>
+					<ul class="home-features__list">
+						<li>Собственный Инженерный центр.
+						<li>Современные заводы, оснащенные новым высокотехнологичным <li>оборудованием от ведущих мировых производителей.
+						<li>Производственные и складские площади превышают 100 000 м².
+						<li>Производство комплектных мостовых кранов.
+						<li>Собственные офисы продаж.
+						<li>Монтаж каркаса зданий и ограждающих конструкций <li>собственными силами.
+					</ul>
+				</div>
+				<div class="home-features__item col-sm-4">
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/features/3.png" alt="" class="home-features__img">
+					<h3 class="home-features__header">Гарантия качества</h3>
+					<ul class="home-features__list">
+						<li>Система менеджмента качества ISO 9001:2008, <li>сертифицированная в компании TUV (Германия).
+						<li>Наличие собственных лабораторий.
+						<li>Обязательный входной контроль поступающих сырья и материалов.
+						<li>Тесное сотрудничество с поставщиками стали и другого сырья и материалов.
+						<li>Многоступенчатый контроль качества.
+						<li>Постоянный контроль и мониторинг технологических процессов.
+						<li>Контроль отгрузки и транспортировки.
+						<li>Постоянная обратная связь с потребителями продукции.
+						<li>Обязательное и постоянное улучшение процессов в компании.
+					</ul>
+				</div>
+				
 			</div>
 		</div>
 		<div class="showcase">

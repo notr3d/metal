@@ -6,6 +6,7 @@ $(document).ready(function () {
 		slidesToScroll: 1,
 		arrows: false,
 		fade: true,
+		dots: true,
 		asNavFor: '.nav-slider',
 		autoplay: true,
 		autoplaySpeed: 10000

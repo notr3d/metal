@@ -49,6 +49,22 @@
 				right: 30px;
 			}
 		}
+		.slick-dots {
+			bottom: -15px;
+			li button:before {
+				content: '';
+				display: block;
+				width: 20px;
+				height: 2px;
+				background: #fff;
+				opacity: 1;				
+			}
+			li.slick-active {
+				button:before {
+					background: @red;
+				}				
+			}
+		}
 	}
 	.nav-slider {
 		&__item {
@@ -100,7 +116,7 @@
 			right: -70px;
 		}
 	}
-	.main-features {
+	.main-services {
 		background: #eee;
 		padding-bottom: 15px;
 		margin: 15px 0 25px;
@@ -163,5 +179,39 @@
 			background: #eee;
 			display: inline-block;
 		}		
+	}
+	&-features {
+		text-align: center;
+		margin: 15px 0;
+		&__heading {
+			margin-bottom: 45px;
+		}
+		&__item {
+			margin-bottom: 30px;
+		}
+		&__header {
+			
+		}
+		&__img {			
+			width: 80px;
+		}
+		&__list {
+			list-style: none;
+			text-align: left;
+			li {
+				position: relative;
+				padding: 5px 0;
+				&::before {
+					content: '';
+					display: block;
+					width: 10px;
+					height: 2px;
+					background: @blue;
+					position: absolute;
+					top: 15px;
+					left: -20px;
+				}
+			}
+		}
 	}
 }
