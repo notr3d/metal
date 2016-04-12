@@ -4,12 +4,26 @@
 		background: #000;
 	}
 	&__nav {
-		ul {
-			list-style: none !important;
-			padding: 0;
-			margin: 0;
-			li {
-				margin-bottom: 5px;
+		.menu {
+			ul {
+				list-style: none;				
+				padding: 0;
+				margin: 0;
+				.page_item {		
+					a {
+						color: #eee;
+						display: block;
+						padding: 5px 0;
+					}
+					&_has_children > a {
+						display: none;
+					}
+				}
+				.current_page_item {
+					a {
+						color: @yellow;
+					}
+				}
 			}
 		}
 	}

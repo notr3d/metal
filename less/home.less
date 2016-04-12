@@ -2,8 +2,31 @@
 	.main-slider {
 		&__item {
 			min-height: 400px;
-			background: #eee;
-			position: relative;
+			background: #eee no-repeat center;
+			background-size: cover;
+			position: relative;			
+			&:nth-child(1) {
+				background-image: url(img/home/main-slider/1.jpg);
+			}
+			&:nth-child(2) {
+				background-image: url(img/home/main-slider/2.jpg);
+			}
+			&:nth-child(3) {
+				background-image: url(img/home/main-slider/3.jpg);
+			}
+			&:nth-child(4) {
+				background-image: url(img/home/main-slider/4.jpg);
+			}
+			&:nth-child(5) {
+				background-image: url(img/home/main-slider/5.jpg);
+			}
+			&:nth-child(6) {
+				background-image: url(img/home/main-slider/6.jpg);
+			}
+			&:nth-child(7) {
+				background-image: url(img/home/main-slider/7.jpg);
+			}
+			
 		}
 		&__header {
 			margin-bottom: 25px;
@@ -32,11 +55,12 @@
 			text-align: center;
 			margin: 0 5px;
 			padding: 5px;
-			background: #aaa;
+			background: #eee;
+			border: 1px solid #ddd;
 		}
 		&__img {
 			width: 100%;
-			height: 80px;
+			height: 100px;
 			background: #eee;
 		}
 		&__header {
@@ -50,20 +74,36 @@
 			margin: 0 -5px;
 		}
 		.slick-current {
-			background: #000;
+			background: @blue;
 		}
 		.slick-arrow {
-			background: #aaa;
 			height: 100%;
+			width: 50px;
+			&::before {
+				content: '';
+				display: block;
+				width: 40px;
+				height: 40px;
+				border-top: 2px solid @blue;
+				border-right: 2px solid @blue;
+				transform:rotate(45deg);				
+				margin: 0;
+			}
 		}
 		.slick-prev {
-			left: -30px;
+			left: -70px;
+			&::before {
+				transform:rotate(225deg);
+			}
 		}
 		.slick-next {
-			right: -30px;
+			right: -70px;
 		}
 	}
 	.main-features {
+		background: #eee;
+		padding-bottom: 15px;
+		margin: 15px 0 25px;
 		&__wrapper {
 			
 		}
@@ -95,9 +135,9 @@
 			}
 		}
 		&__img {
-			width: 120px;
-			height: 80px;
-			background: #eee;
+			//width: 120px;
+			height: 60px;
+			//background: #eee;
 			margin-bottom: 15px;
 		}
 		&__text {
@@ -122,6 +162,6 @@
 			height: 100px;
 			background: #eee;
 			display: inline-block;
-		}
+		}		
 	}
 }

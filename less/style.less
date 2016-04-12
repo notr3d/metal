@@ -109,6 +109,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/home.less";
 @import "less/about.less";
 @import "less/products.less";
+@import "less/production.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -125,12 +126,23 @@ and Bootstrap https://github.com/twbs/bootstrap
 	padding: 0;
 }
 .content-area {
-	padding-left: 0;
+	padding: 15px 15px 15px 0;
 }
 .widget-area {
 	padding: 0;
 	background: #eee;	
 	margin: 15px 0;
+}
+.nav-tabs {
+	li {
+		a {
+			border-radius: 0 !important;	
+			border-bottom-color: #ddd !important;
+		}
+	}
+}
+.tab-content {
+	padding: 15px;
 }
 .slick-slide:focus { 
 	outline: none; 
@@ -225,19 +237,20 @@ and Bootstrap https://github.com/twbs/bootstrap
 
 //боковое меню
 .aside-nav {
+	border: 1px solid #ddd;
 	ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		.page_item {
+		.page_item {			
 			a {
-				display: inline-block;
+				display: block;
 				padding: 10px 15px;
 			}
-		}
-		&.children {
-			a {
-				padding: 5px 15px 5px 30px;
+			&_has_children {
+				& > a {
+					display: none;
+				}
 			}
 		}
 	}	
@@ -257,5 +270,25 @@ and Bootstrap https://github.com/twbs/bootstrap
 		position: absolute;
 		top: 100%;
 		left: 0;
+	}
+}
+
+.article {
+	padding: 15px 0;
+	ul {
+		list-style: none;
+		li {
+			position: relative;
+			&::before {
+				content: '';
+				display: block;
+				width: 10px;
+				height: 2px;
+				background: @blue;
+				position: absolute;
+				top: 50%;
+				left: -20px;
+			}
+		}
 	}
 }

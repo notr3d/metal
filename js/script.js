@@ -15,7 +15,7 @@ $(document).ready(function () {
 		slidesToScroll: 1,
 		asNavFor: '.main-slider',
 		dots: false,
-		//centerMode: true,
+		centerMode: true,
 		focusOnSelect: true
 	});
 	$('.showcase__slider').slick({
@@ -93,7 +93,8 @@ $('.scrollup').click(function(){
 }
 
 //aside
-$('.page_item_has_children>a').click(function(){
+var asideLink = $('.aside-nav>ul>.page_item_has_children>a'),
+	asideUl = $('.aside-nav>ul>.page_item_has_children>a+ul');
+asideLink.click(function(){
 	event.preventDefault();
-	//$('.page_item_has_children>ul').slideToggle();
 });

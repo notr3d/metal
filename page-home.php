@@ -56,31 +56,31 @@
 				</div>
 				<div class="nav-slider">
 					<div class="nav-slider__item">
-						<img src="" alt="" class="nav-slider__img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/1.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Полнокомплектные здания</h3>
 					</div>
 					<div class="nav-slider__item">					
-						<img src="" alt="" class="nav-slider__img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/2.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Профнастил</h3>
 					</div>
 					<div class="nav-slider__item">
-						<img src="" alt="" class="nav-slider__img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/3.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Металлоконструкции</h3>
 					</div>
 					<div class="nav-slider__item">
-						<img src="" alt="" class="nav-slider__img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/4.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Сталь в рулонах</h3>
 					</div>
 					<div class="nav-slider__item">
-						<img src="" alt="" class="nav-slider__img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/5.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Теплоизоляционная плита</h3>
 					</div>
 					<div class="nav-slider__item">
-						<img src="" alt="" class="nav-slider__img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/6.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Сэндвич-панели</h3>
 					</div>
 					<div class="nav-slider__item">
-						<img src="" alt="" class="nav-slider__img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/7.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Частным клиентам</h3>
 					</div>
 				</div>
@@ -93,61 +93,61 @@
 				<div class="main-features__container">
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/1.png" alt="" class="main-features__img">
 							<p class="main-features__text">Промышленные здания</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/2.png" alt="" class="main-features__img">
 							<p class="main-features__text">Логистические комплексы</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/3.png" alt="" class="main-features__img">
 							<p class="main-features__text">Торговые центры</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/4.png" alt="" class="main-features__img">
 							<p class="main-features__text">Спортивные сооружения</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/5.png" alt="" class="main-features__img">
 							<p class="main-features__text">Нестандартные здания</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/6.png" alt="" class="main-features__img">
 							<p class="main-features__text">Автосалоны и СТО</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/7.png" alt="" class="main-features__img">
 							<p class="main-features__text">Многоэтажные паркинги</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/8.png" alt="" class="main-features__img">
 							<p class="main-features__text">Административные и офисные здания</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/9.png" alt="" class="main-features__img">
 							<p class="main-features__text">Склады и ангары</p>
 						</a>
 					</div>
 					<div class="main-features__item">
 						<a href="#" class="main-features__link">
-							<img src="" alt="" class="main-features__img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/features/10.png" alt="" class="main-features__img">
 							<p class="main-features__text">Сельскохозяйственные здания</p>
 						</a>
 					</div>
@@ -155,9 +155,9 @@
 				<a href="#" class="main-features__more-link my-link">Узнать подробнее</a>
 			</div>
 		</div>
-		<div class="main-showcase">
-			<div class="main-showcase__wrapper container">
-				<ul class="nav nav-tabs" role="tablist">
+		<div class="showcase">
+			<div class="showcase__wrapper container">
+				<ul class="nav nav-tabs nav-justified" role="tablist">
 					<li role="presentation" class="active"><a href="#certificates" aria-controls="certificates" role="tab" data-toggle="tab" class="showcase__tab-link">Сертификаты</a></li>
 					<li role="presentation"><a href="#diplomas" aria-controls="diplomas" role="tab" data-toggle="tab" class="showcase__tab-link">Дипломы</a></li>
 					<li role="presentation"><a href="#awards" aria-controls="awards" role="tab" data-toggle="tab" class="showcase__tab-link">Награды</a></li>
@@ -166,84 +166,84 @@
 					<div role="tabpanel" class="tab-pane fade in active" id="certificates">
 						<div class="showcase__slider">
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>							
 						</div>
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="diplomas">
 						<div class="showcase__slider">
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>	
 						</div>
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="awards">
 						<div class="showcase__slider">
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>
 							<div class="showcase__item">
-								<img src="" alt="" class="showcase__img">
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/showcase/1.jpg" alt="" class="showcase__img">
 							</div>	
 						</div>
 					</div>

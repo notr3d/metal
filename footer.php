@@ -18,9 +18,7 @@
 		<div class="site-footer__info">
 			<div class="container">
 				<div class="site-footer__nav col-sm-4">
-					<ul class="site-footer__nav">
-						<?php wp_page_menu(); ?>						
-					</ul>
+					<?php wp_page_menu(); ?>
 				</div>
 				<div class="site-footer__address col-sm-4">
 					<address>
@@ -44,14 +42,12 @@
 		</div>
 		<button class="scrollup"></button>
 	</footer>
-	<!-- #colophon -->
 	</div>
-	<!-- #page -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="http://localhost/metal/wp-content/themes/metal/js/slick.js"></script>
 	<script type="text/javascript" src="http://localhost/metal/wp-content/themes/metal/js/script.js"></script>
 	<?php wp_footer(); ?>
-		</body>
+	</body>
 
-		</html>
+</html>
