@@ -126,11 +126,11 @@ and Bootstrap https://github.com/twbs/bootstrap
 	padding: 0;
 }
 .content-area {
-	padding: 15px 15px 15px 0;
+	//padding: 15px 15px 15px 0;
 }
 .widget-area {
 	padding: 0;
-	background: #eee;	
+	//background: #eee;	
 	margin: 15px 0;
 }
 .nav-tabs {
@@ -200,6 +200,39 @@ and Bootstrap https://github.com/twbs/bootstrap
 			color: lighten(@black, 20%);
 		}
 	}
+	&-hover {
+		position: relative;
+		&::before {
+			content: '';
+			width: 0;
+			height: 2px;
+			background: @red;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transition: all .3s;
+		}
+		&::after {
+			content: '';
+			width: 0;
+			height: 2px;
+			background: @red;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform:rotate(180deg);
+			transform-origin: left;
+			transition: all .3s;
+		}
+		&:hover {
+			&::before {
+				width: 50%;
+			}
+			&::after {
+				width: 50%;
+			}			
+		}
+	}
 }
 
 //кнопка "вверх"
@@ -240,12 +273,32 @@ and Bootstrap https://github.com/twbs/bootstrap
 }
 
 //боковое меню
+.aside-header {
+	margin: 0;
+	background: #ccc;
+	color: #fff;
+	padding: 15px;
+	font-size: 18px;
+	position: relative;
+	&::before {
+		content: '';
+		display: block;
+		width: 14px;
+		height: 14px;
+		background: #ccc;
+		position: absolute;
+		bottom: -7px;
+		left: 21px;
+		transform: rotate(45deg);
+	}
+}
 .aside-nav {
 	border: 1px solid #ddd;
 	ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		padding-top: 5px;
 		.page_item {			
 			a {
 				display: block;
@@ -255,6 +308,9 @@ and Bootstrap https://github.com/twbs/bootstrap
 				& > a {
 					display: none;
 				}
+			}
+			&:not(:last-child) {
+				border-bottom: 1px solid #ddd;
 			}
 		}
 	}	

@@ -17,10 +17,10 @@
 	<footer class="site-footer" role="contentinfo">
 		<div class="site-footer__info">
 			<div class="container">
-				<div class="site-footer__nav col-sm-4">
+				<div class="site-footer__nav">
 					<?php wp_page_menu(); ?>
 				</div>
-				<div class="site-footer__address col-sm-4">
+				<div class="site-footer__address">
 					<address>
 						<strong>Twitter, Inc.</strong><br>
 						1355 Market Street, Suite 900<br>
@@ -45,8 +45,8 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
-	<script type="text/javascript" src="http://localhost/metal/wp-content/themes/metal/js/slick.js"></script>
-	<script type="text/javascript" src="http://localhost/metal/wp-content/themes/metal/js/script.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/slick.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 	<?php wp_footer(); ?>
 	</body>
 

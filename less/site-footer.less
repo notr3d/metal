@@ -4,20 +4,24 @@
 		background: #000;
 	}
 	&__nav {
+		padding: 0;
 		.menu {
 			ul {
 				list-style: none;				
 				padding: 0;
 				margin: 0;
-				.page_item {		
+				.page_item {
+					display: inline-block;
+					padding: 10px 15px 10px 0;
 					a {
 						color: #eee;
-						display: block;
-						padding: 5px 0;
 					}
-					&_has_children > a {
-						display: none;
-					}
+					&_has_children {
+						padding: 0;
+						& > a {
+							display: none;
+						}
+					}					
 				}
 				.current_page_item {
 					a {
@@ -28,6 +32,7 @@
 		}
 	}
 	&__address {
+		padding: 0;
 		color: #fff;
 	}
 	&__map {

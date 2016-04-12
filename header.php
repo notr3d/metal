@@ -22,8 +22,8 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-		<link rel="stylesheet" type="text/css" href="http://localhost/metal/wp-content/themes/metal/css/slick.css">
-		<link rel="stylesheet" type="text/css" href="http://localhost/metal/wp-content/themes/metal/css/slick-theme.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick-theme.css">
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 		<?php wp_head(); ?>
 	</head>
@@ -39,7 +39,7 @@
 									<a class="navbar-brand" href="home">Brand</a>	
 								</div>
 								<div class="top-panel__item email">
-									<button type="button" class="top-panel__button" data-toggle="modal" data-target="#email">Написать письмо</button>
+									<button type="button" class="top-panel__button my-hover" data-toggle="modal" data-target="#email">Написать письмо</button>
 									<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
@@ -71,7 +71,7 @@
 									</div>
 								</div>								
 								<div class="top-panel__item callback">
-									<button type="button" class="top-panel__button" data-toggle="modal" data-target="#callback">Обратный звонок</button>
+									<button type="button" class="top-panel__button my-hover" data-toggle="modal" data-target="#callback">Обратный звонок</button>
 									<div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
@@ -99,7 +99,7 @@
 									</div>
 								</div>								
 								<div class="top-panel__item">
-									<a href="tel:+74955555555" class="top-panel__button phone">+7 (495)<span class="phone__number"> 555-55-55</span></a>	
+									<a href="tel:+74955555555" class="top-panel__button phone my-hover">+7 (495)<span class="phone__number"> 555-55-55</span></a>	
 								</div>								
 							</div>
 						</div>
