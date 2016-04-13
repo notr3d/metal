@@ -110,6 +110,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/about.less";
 @import "less/products.less";
 @import "less/production.less";
+@import "less/contacts.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -118,7 +119,9 @@ and Bootstrap https://github.com/twbs/bootstrap
 	}
 }
 .container-fluid {
-	padding: 0;
+	@media @desktop {
+		padding: 0;
+	}
 }
 .navbar {
 	border-radius: 0;
@@ -128,12 +131,14 @@ and Bootstrap https://github.com/twbs/bootstrap
 	padding: 0;
 }
 .content-area {
-	//padding: 15px 15px 15px 0;
+	padding: 0;
 }
 .widget-area {
-	padding: 0;
+	padding-right: 0;
 	//background: #eee;	
-	margin: 15px 0;
+}
+main {
+	margin-bottom: 15px;
 }
 .nav-tabs {
 	li {
@@ -163,11 +168,11 @@ and Bootstrap https://github.com/twbs/bootstrap
 	}
 	input, textarea {
 		&::-webkit-input-placeholder {
-			color: #ddd !important;
+			color: #ccc !important;
 		}
 		&:focus {
 			&::-webkit-input-placeholder {
-				color: #aaa !important;
+				color: transparent !important;
 			}
 		}
 	}
@@ -246,6 +251,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 		outline: none;
 		position: relative;
 		overflow: hidden;
+		transition: all .3s;
 		&::before {
 			content: '';
 			display: block;

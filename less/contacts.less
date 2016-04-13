@@ -1,0 +1,36 @@
+.contacts {
+	&__map {
+		height: 400px;
+		border-bottom: 1px solid #5D5555;
+	}
+	&__item {
+		padding: 0;
+		margin-bottom: 15px;
+		&:nth-child(2) {
+			padding: 0 15px;
+			@media @mobile {
+				padding: 0;
+			}
+		}
+	}
+	input, textarea {
+		padding: 15px 0;
+		height: auto;
+		border-radius: 0;
+		border: none;
+		border-bottom: 1px solid @blue;
+		box-shadow: none;
+		resize: vertical;
+		&:focus {
+			box-shadow: none;
+			border-color: @yellow;
+		}
+	}
+	button {
+		font-size: 18px;
+		background: @blue;
+		&:hover {
+			background: @yellow;
+		}
+	}
+}

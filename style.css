@@ -7278,9 +7278,6 @@ Entry Footer
 .site-nav .search-form button span::before {
   color: #ddd;
 }
-.site-footer {
-  border-bottom: 1px solid #000;
-}
 .site-footer__wrapper {
   background: #343234;
 }
@@ -7696,13 +7693,53 @@ Entry Footer
   border: 1px solid #ddd;
   border-top: none;
 }
+.contacts__map {
+  height: 400px;
+  border-bottom: 1px solid #5D5555;
+}
+.contacts__item {
+  padding: 0;
+  margin-bottom: 15px;
+}
+.contacts__item:nth-child(2) {
+  padding: 0 15px;
+}
+@media (max-width: 767px) {
+  .contacts__item:nth-child(2) {
+    padding: 0;
+  }
+}
+.contacts input,
+.contacts textarea {
+  padding: 15px 0;
+  height: auto;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #2474d0;
+  box-shadow: none;
+  resize: vertical;
+}
+.contacts input:focus,
+.contacts textarea:focus {
+  box-shadow: none;
+  border-color: #fbc02d;
+}
+.contacts button {
+  font-size: 18px;
+  background: #2474d0;
+}
+.contacts button:hover {
+  background: #fbc02d;
+}
 @media (min-width: 768px) {
   .container {
     padding: 0;
   }
 }
-.container-fluid {
-  padding: 0;
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: 0;
+  }
 }
 .navbar {
   border-radius: 0;
@@ -7711,9 +7748,14 @@ Entry Footer
 .navbar-collapse {
   padding: 0;
 }
-.widget-area {
+.content-area {
   padding: 0;
-  margin: 15px 0;
+}
+.widget-area {
+  padding-right: 0;
+}
+main {
+  margin-bottom: 15px;
 }
 .nav-tabs li a {
   border-radius: 0 !important;
@@ -7738,11 +7780,11 @@ Entry Footer
 }
 * input::-webkit-input-placeholder,
 * textarea::-webkit-input-placeholder {
-  color: #ddd !important;
+  color: #ccc !important;
 }
 * input:focus::-webkit-input-placeholder,
 * textarea:focus::-webkit-input-placeholder {
-  color: #aaa !important;
+  color: transparent !important;
 }
 .my-link {
   display: inline-block;
@@ -7814,6 +7856,7 @@ Entry Footer
   outline: none;
   position: relative;
   overflow: hidden;
+  transition: all .3s;
 }
 .my-fancy-button::before {
   content: '';

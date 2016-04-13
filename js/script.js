@@ -82,7 +82,7 @@ $(document).ready(function () {
             zoom:16,
             mapTypeId:google.maps.MapTypeId.ROADMAP
         };
-        var map=new google.maps.Map(document.getElementById("footerMap"), mapProp);
+        var map=new google.maps.Map(document.getElementById("map"), mapProp);
         var marker=new google.maps.Marker({
             position:myCenter,
             icon:'/wp-content/themes/steel_wp/img/map-icon.png',

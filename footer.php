@@ -13,7 +13,9 @@
 		</div>
 	</div>
 	<!-- #content -->
-
+	<?php if ( is_page($page = "contacts") ) : ?>
+		<div class="contacts__map" id="map"></div>
+	<?php endif; ?>
 	<footer class="site-footer" role="contentinfo">
 		<div class="site-footer__wrapper">
 			<div class="container">
@@ -39,7 +41,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="site-footer__map" id="footerMap"></div>
+		<?php if (! is_page($page = "contacts") ) : ?>
+			<div class="site-footer__map" id="map"></div>
+		<?php endif; ?>		
 		<div class="site-footer__copy container">
 			© 2016 Lorem. All rights reserved.
 		</div>	
