@@ -15,31 +15,34 @@
 	<!-- #content -->
 
 	<footer class="site-footer" role="contentinfo">
-		<div class="site-footer__info">
+		<div class="site-footer__wrapper">
 			<div class="container">
 				<div class="site-footer__nav">
-					<?php wp_page_menu(); ?>
+					<?php wp_page_menu(); ?>					
 				</div>
-				<div class="site-footer__address">
-					<address>
-						<strong>Twitter, Inc.</strong><br>
-						1355 Market Street, Suite 900<br>
-						San Francisco, CA 94103<br>
-						<abbr title="Phone">P:</abbr> (123) 456-7890
-					</address>
-					<address>
-						<strong>Full Name</strong><br>
+				<div class="site-footer__info">
+					<div class="site-footer__item col-sm-3">
 						<a href="mailto:#">first.last@example.com</a>
-					</address>
+						<button type="button" class="top-panel__button" data-toggle="modal" data-target="#email">Написать письмо</button>
+					</div>
+					<div class="site-footer__item col-sm-3">
+						<a href="tel:+74955555555" class="top-panel__button phone">+7 (495)<span class="phone__number"> 555-55-55</span></a>
+						<button type="button" class="top-panel__button" data-toggle="modal" data-target="#callback">Обратный звонок</button>
+					</div>
+					<div class="site-footer__item col-sm-6">
+						<address>
+							<strong>Lorem, Inc.</strong>
+							<br>1355 Market Street, Suite 900
+							<br>San Francisco, CA 94103
+						</address>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="site-footer__map" id="footerMap"></div>
-		<div class="site-footer__copy">
-			<div class="container">
-				© 2016 Lorem. All rights reserved.
-			</div>
-		</div>
+		<div class="site-footer__copy container">
+			© 2016 Lorem. All rights reserved.
+		</div>	
 		<button class="scrollup"></button>
 	</footer>
 	</div>
@@ -49,5 +52,4 @@
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 	<?php wp_footer(); ?>
 	</body>
-
 </html>

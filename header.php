@@ -99,7 +99,7 @@
 									</div>
 								</div>								
 								<div class="top-panel__item">
-									<a href="tel:+74955555555" class="top-panel__button phone my-hover">+7 (495)<span class="phone__number"> 555-55-55</span></a>	
+									<a href="tel:+74955555555" class="top-panel__button phone my-hover">+7 (495)<span class="phone__number"> 555-55-55</span></a>
 								</div>								
 							</div>
 						</div>
