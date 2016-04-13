@@ -131,7 +131,7 @@ get_header(); ?>
 				</div>
 			</div>
 		</div><!-- #primary -->
-		<?php get_sidebar($name = 'test'); ?>
+		<?php get_sidebar(); ?>
 	</main><!-- #main -->
 
 <?php get_footer(); ?>

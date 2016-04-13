@@ -45,14 +45,16 @@
 		.btn-primary {
 			background-color: @blue;
 		}
-		input {
-			border-radius: 0;
-			padding: 20px 12px;
-		}
-		textarea {
-			resize: vertical;
+		input, textarea {
 			border-radius: 0;
 			padding: 12px;
+			height: auto;
+			resize: vertical;
+			border-radius: 0;
+			border-left: 4px solid lighten(@blue, 15%);
+		}
+		button {
+			border-radius: 0;
 		}
 	}
 }
@@ -173,6 +175,7 @@
 			}
 			span {
 				&::before {
+					transition: all .3s;
 					color: #ddd;
 				}
 			}

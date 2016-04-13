@@ -7165,14 +7165,16 @@ Entry Footer
 .top-panel .modal-dialog .btn-primary {
   background-color: #2474d0;
 }
-.top-panel .modal-dialog input {
-  border-radius: 0;
-  padding: 20px 12px;
-}
+.top-panel .modal-dialog input,
 .top-panel .modal-dialog textarea {
+  padding: 12px;
+  height: auto;
   resize: vertical;
   border-radius: 0;
-  padding: 12px;
+  border-left: 4px solid #5d9ce3;
+}
+.top-panel .modal-dialog button {
+  border-radius: 0;
 }
 .site-nav .navbar-toggle {
   border-radius: 0;
@@ -7276,6 +7278,7 @@ Entry Footer
   color: #2474d0;
 }
 .site-nav .search-form button span::before {
+  transition: all .3s;
   color: #ddd;
 }
 .site-footer__wrapper {
@@ -7711,7 +7714,7 @@ Entry Footer
 }
 .contacts input,
 .contacts textarea {
-  padding: 15px 0;
+  padding: 10px 0;
   height: auto;
   border-radius: 0;
   border: none;
@@ -7728,8 +7731,8 @@ Entry Footer
   font-size: 18px;
   background: #2474d0;
 }
-.contacts button:hover {
-  background: #fbc02d;
+.news__item {
+  border: 1px solid #eee;
 }
 @media (min-width: 768px) {
   .container {
@@ -7821,7 +7824,7 @@ main {
   content: '';
   width: 0;
   height: 2px;
-  background: #cc3300;
+  background: #2474d0;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -7831,7 +7834,7 @@ main {
   content: '';
   width: 0;
   height: 2px;
-  background: #cc3300;
+  background: #2474d0;
   position: absolute;
   bottom: 0;
   left: 50%;
