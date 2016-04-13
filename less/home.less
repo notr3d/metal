@@ -30,6 +30,7 @@
 		&__header {
 			margin: 0;
 			margin-bottom: 25px;
+			font-size: 20px;
 		}
 		&__text {
 			border-left: 2px solid @red;
@@ -48,6 +49,12 @@
 				left: auto;
 				right: 30px;
 			}
+			@media @mobile {
+				width: 100%;
+				left: 0;
+				bottom: 0;
+				background: rgba(255, 255, 255, 0.6);
+			}
 		}
 		.slick-dots {
 			bottom: -15px;
@@ -57,7 +64,10 @@
 				width: 20px;
 				height: 2px;
 				background: #fff;
-				opacity: 1;				
+				opacity: 1;	
+				@media @mobile {
+					background: #000;
+				}
 			}
 			li.slick-active {
 				button:before {
@@ -166,6 +176,7 @@
 		}
 		&__more-link {
 			float: right;
+			margin-right: 15px;
 		}
 	}
 	.showcase {

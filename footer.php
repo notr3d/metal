@@ -21,15 +21,15 @@
 					<?php wp_page_menu(); ?>					
 				</div>
 				<div class="site-footer__info">
-					<div class="site-footer__item col-sm-3">
-						<a href="mailto:#">first.last@example.com</a>
-						<button type="button" class="top-panel__button" data-toggle="modal" data-target="#email">Написать письмо</button>
+					<div class="site-footer__item col-sm-4">
+							<a href="mailto:#" class="email__button">first.last@example.com</a>		
+						<button type="button" class="my-fancy-button" data-toggle="modal" data-target="#email">Написать письмо</button>
 					</div>
-					<div class="site-footer__item col-sm-3">
-						<a href="tel:+74955555555" class="top-panel__button phone">+7 (495)<span class="phone__number"> 555-55-55</span></a>
-						<button type="button" class="top-panel__button" data-toggle="modal" data-target="#callback">Обратный звонок</button>
+					<div class="site-footer__item col-sm-4">
+							<a href="tel:+74955555555" class="callback__button">+7 (495)<span class="phone__number"> 555-55-55</span></a>					
+						<button type="button" class="my-fancy-button" data-toggle="modal" data-target="#callback">Обратный звонок</button>
 					</div>
-					<div class="site-footer__item col-sm-6">
+					<div class="site-footer__item col-sm-4">
 						<address>
 							<strong>Lorem, Inc.</strong>
 							<br>1355 Market Street, Suite 900

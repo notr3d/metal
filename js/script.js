@@ -34,7 +34,23 @@ $(document).ready(function () {
 		slidesToScroll: 5,
 		arrows: true,
 		autoplay: true,
-  		autoplaySpeed: 10000
+  		autoplaySpeed: 10000,
+		responsive: [
+			{
+				breakpoint: 964,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			}			
+		]		
 	});
 	//about
 	$('.about-main-slider').slick({

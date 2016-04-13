@@ -4,9 +4,10 @@
 		background: #343234;
 	}
 	&__nav {
-		padding: 0;		
+		padding: 0;	
+		border-bottom: 1px solid #5D5555;
 		.menu {
-			display: inline-block;
+			//display: inline-block;
 			ul {
 				list-style: none;				
 				padding: 0;
@@ -22,6 +23,12 @@
 						& > a {
 							display: none;
 						}
+					}
+					@media @mobile {
+						display: block;
+						text-align: center;
+						font-size: 20px;
+						padding-right: 0;
 					}
 				}
 				.current_page_item {
@@ -41,8 +48,11 @@
 	}
 	&__copy {
 		//float: right;
-		padding: 25px 0  !important;
+		padding: 25px 0 !important;
 		color: #000;
+		@media @mobile {
+			padding: 25px 15px !important;
+		}
 	}
 	&__item {
 		padding: 15px;		
@@ -52,12 +62,29 @@
 			color: #fff;
 			font-size: 14px;
 		}
-		&:first-child {
-			padding-left: 0;
-		}
 		&:not(:last-child) {			
 			border-right: 1px solid #5D5555;
+			text-align: center;	
+			@media @mobile {
+				border-right: none;
+				border-bottom: 1px solid #5D5555;
+			}
 		}
+	}	
+	.callback {
+		&__button {
+			color: #fff;
+			font-size: 20px;
+		}
+	}
+	.email {
+		&__button {
+			color: #fff;
+			font-size: 20px;
+		}
+	}
+	.my-fancy-button {
+		margin-top: 15px;
 	}
 }
 

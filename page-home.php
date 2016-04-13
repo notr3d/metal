@@ -54,7 +54,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="nav-slider">
+				<!--<div class="nav-slider">
 					<div class="nav-slider__item">
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/1.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Полнокомплектные здания</h3>
@@ -83,7 +83,7 @@
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/7.jpg" alt="" class="nav-slider__img">
 						<h3 class="nav-slider__header">Частным клиентам</h3>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</div>
 		<div class="main-services">
@@ -152,7 +152,7 @@
 						</a>
 					</div>
 				</div>
-				<a href="#" class="main-services__more-link my-link">Узнать подробнее</a>
+				<a href="catalog" class="main-services__more-link my-link">Узнать подробнее</a>
 			</div>
 		</div>
 		<div class="home-features">

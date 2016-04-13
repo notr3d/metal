@@ -39,7 +39,7 @@
 									<a class="navbar-brand" href="home">Brand</a>	
 								</div>
 								<div class="top-panel__item email">
-									<button type="button" class="top-panel__button my-hover" data-toggle="modal" data-target="#email">Написать письмо</button>
+									<button type="button" class="top-panel__button my-hover email__button" data-toggle="modal" data-target="#email">Написать письмо</button>
 									<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
@@ -71,7 +71,7 @@
 									</div>
 								</div>								
 								<div class="top-panel__item callback">
-									<button type="button" class="top-panel__button my-hover" data-toggle="modal" data-target="#callback">Обратный звонок</button>
+									<button type="button" class="top-panel__button my-hover callback__button" data-toggle="modal" data-target="#callback">Обратный звонок</button>
 									<div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">

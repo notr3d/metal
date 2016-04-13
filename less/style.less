@@ -113,7 +113,9 @@ and Bootstrap https://github.com/twbs/bootstrap
 
 //сброс стандартных отступов и стилей
 .container {
-	padding: 0;
+	@media @desktop {
+		padding: 0;
+	}
 }
 .container-fluid {
 	padding: 0;
@@ -233,13 +235,60 @@ and Bootstrap https://github.com/twbs/bootstrap
 			}			
 		}
 	}
+	&-fancy-button {
+		width: 260px;
+		height: 55px;
+		background: @red;
+		color: #fff;
+		border-radius: 3px;
+		border: none;
+		padding: 15px;
+		outline: none;
+		position: relative;
+		overflow: hidden;
+		&::before {
+			content: '';
+			display: block;
+			width: 110%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.1);
+			position: absolute;
+			top: 0;
+			left: -5px;
+			transform: rotate(10deg) translateY(-55px);
+			transform-origin: bottom right;
+			transition: all .3s;
+		}
+		&::after {
+			content: '';
+			display: block;
+			width: 110%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.1);
+			position: absolute;
+			bottom: 0;
+			right: -5px;
+			transform: rotate(10deg) translateY(55px);
+			transform-origin: top left;
+			transition: all .3s;
+		}
+
+		&:hover {
+			&::before {
+				transform: rotate(10deg) translateY(-1px);
+			}
+			&::after {
+				transform: rotate(10deg) translateY(1px);
+			}
+		}
+	}
 }
 
 //кнопка "вверх"
 .scrollup {
 	position: fixed;
 	bottom: 15px;
-	right: 15px;
+	right: 45px;
 	width: 45px;
 	height: 45px;
 	z-index: 1000;
@@ -269,6 +318,9 @@ and Bootstrap https://github.com/twbs/bootstrap
 	}
 	&--visible {
 		opacity: 1;
+	}
+	@media @mobile {
+		right: 15px;
 	}
 }
 
@@ -350,5 +402,25 @@ and Bootstrap https://github.com/twbs/bootstrap
 				left: -20px;
 			}
 		}
+	}
+}
+
+.callback {
+	&__button {
+		background: url(img/phone.png) no-repeat 0 50%;
+		background-size: 12px;
+		padding-left: 16px;	
+	}	
+}
+.email {
+	&__button {
+		background: url(img/email.png) no-repeat 0 50%;
+		background-size: 12px;
+		padding-left: 16px;
+	}
+}
+.phone {
+	&__number {
+		font-weight: bold;
 	}
 }
