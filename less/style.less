@@ -242,42 +242,44 @@ main {
 		}
 	}
 	&-fancy-button {
-		width: 260px;
-		height: 55px;
-		background: @red;
+		@color: @red;
+		background: @color;
 		color: #fff;
 		border-radius: 3px;
 		border: none;
-		padding: 15px;
+		padding: 25px;
 		outline: none;
 		position: relative;
 		overflow: hidden;
 		transition: all .3s;
+		z-index: 1;
 		&::before {
 			content: '';
 			display: block;
-			width: 110%;
+			width: 120%;
 			height: 100%;
-			background: rgba(255, 255, 255, 0.1);
+			background: lighten(@color, 5%);
 			position: absolute;
 			top: 0;
-			left: -5px;
-			transform: rotate(10deg) translateY(-55px);
+			left: -15px;
+			transform: rotate(10deg) translateY(-80px);
 			transform-origin: bottom right;
 			transition: all .3s;
+			z-index: -1;
 		}
 		&::after {
 			content: '';
 			display: block;
-			width: 110%;
+			width: 120%;
 			height: 100%;
-			background: rgba(255, 255, 255, 0.1);
+			background: lighten(@color, 5%);
 			position: absolute;
 			bottom: 0;
-			right: -5px;
-			transform: rotate(10deg) translateY(55px);
+			right: -15px;
+			transform: rotate(10deg) translateY(80px);
 			transform-origin: top left;
 			transition: all .3s;
+			z-index: -1;
 		}
 
 		&:hover {

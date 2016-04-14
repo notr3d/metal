@@ -7249,7 +7249,7 @@ Entry Footer
   margin-right: 0;
   padding: 0;
   box-shadow: none;
-  width: 292px;
+  width: 278px;
 }
 .site-nav .search-form input:focus {
   border-color: #fbc02d;
@@ -7416,6 +7416,7 @@ Entry Footer
     left: 0;
     bottom: 0;
     background: rgba(255, 255, 255, 0.6);
+    padding-bottom: 30px;
   }
 }
 .home .main-slider .slick-dots {
@@ -7727,12 +7728,47 @@ Entry Footer
   box-shadow: none;
   border-color: #fbc02d;
 }
-.contacts button {
+.contacts .my-fancy-button {
   font-size: 18px;
   background: #2474d0;
 }
+.contacts .my-fancy-button::before {
+  background: #3281dc;
+}
+.contacts .my-fancy-button::after {
+  background: #3281dc;
+}
 .news__item {
-  border: 1px solid #eee;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+.news__item .entry-title {
+  margin-bottom: 15px;
+}
+.news__item .entry-meta {
+  margin-bottom: 15px;
+}
+.nav-links {
+  margin-top: 15px;
+}
+.nav-links a {
+  display: inline-block;
+  background: #eee;
+  padding: 15px;
+  transition: all .3s;
+}
+.nav-links a:hover {
+  text-decoration: none;
+  background: #2474d0;
+  color: #fff;
+}
+.nav-links .nav-previous a::before {
+  content: '← ';
+  padding-right: 10px;
+}
+.nav-links .nav-next a::after {
+  content: ' →';
+  padding-left: 10px;
 }
 @media (min-width: 768px) {
   .container {
@@ -7849,43 +7885,44 @@ main {
   width: 50%;
 }
 .my-fancy-button {
-  width: 260px;
-  height: 55px;
   background: #cc3300;
   color: #fff;
   border-radius: 3px;
   border: none;
-  padding: 15px;
+  padding: 25px;
   outline: none;
   position: relative;
   overflow: hidden;
   transition: all .3s;
+  z-index: 1;
 }
 .my-fancy-button::before {
   content: '';
   display: block;
-  width: 110%;
+  width: 120%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: #e63900;
   position: absolute;
   top: 0;
-  left: -5px;
-  transform: rotate(10deg) translateY(-55px);
+  left: -15px;
+  transform: rotate(10deg) translateY(-80px);
   transform-origin: bottom right;
   transition: all .3s;
+  z-index: -1;
 }
 .my-fancy-button::after {
   content: '';
   display: block;
-  width: 110%;
+  width: 120%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: #e63900;
   position: absolute;
   bottom: 0;
-  right: -5px;
-  transform: rotate(10deg) translateY(55px);
+  right: -15px;
+  transform: rotate(10deg) translateY(80px);
   transform-origin: top left;
   transition: all .3s;
+  z-index: -1;
 }
 .my-fancy-button:hover::before {
   transform: rotate(10deg) translateY(-1px);
