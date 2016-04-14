@@ -70,6 +70,15 @@ $(document).ready(function () {
 		//centerMode: true,
 		focusOnSelect: true
 	});
+	$('.reviews__slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows:true,
+		fade: true,
+		autoplay: true,
+		autoplaySpeed: 10000
+	});
+	
 });
 
 //карта
@@ -123,3 +132,4 @@ var asideLink = $('.aside-nav>ul>.page_item_has_children>a');
 asideLink.click(function(){
 	event.preventDefault();
 });
+

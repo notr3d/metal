@@ -1,31 +1,12 @@
 .home {
 	.main-slider {
 		&__item {
-			min-height: 400px;
-			background: #eee no-repeat center;
-			background-size: cover;
-			position: relative;
-			&:nth-child(1) {
-				background-image: url(img/home/main-slider/1.jpg);
-			}
-			&:nth-child(2) {
-				background-image: url(img/home/main-slider/2.jpg);
-			}
-			&:nth-child(3) {
-				background-image: url(img/home/main-slider/3.jpg);
-			}
-			&:nth-child(4) {
-				background-image: url(img/home/main-slider/4.jpg);
-			}
-			&:nth-child(5) {
-				background-image: url(img/home/main-slider/5.jpg);
-			}
-			&:nth-child(6) {
-				background-image: url(img/home/main-slider/6.jpg);
-			}
-			&:nth-child(7) {
-				background-image: url(img/home/main-slider/7.jpg);
-			}			
+			min-height: 250px;
+			background: #eee;
+			position: relative;			
+		}
+		&__img {
+			width: 100%;
 		}
 		&__header {
 			margin: 0;
@@ -225,5 +206,75 @@
 				}
 			}
 		}
+	}
+	.reviews {
+		margin-bottom: 25px;
+		&__header {
+			text-align: center;
+			margin-bottom: 25px;
+		}
+		&__container {
+			background: #3b393e;
+			padding: 25px;
+			margin: 25px;			
+			position: relative;
+			&::before {
+				content: '';
+				display: block;
+				border: 25px solid transparent;
+				border-left-color: #3b393e;
+				position: absolute;
+				bottom: -25px;
+				left: 25px;
+			}			
+		}
+		&__text {
+			color: #fff;
+			text-align: center;
+			font-style: italic;
+			font-size: 16px;
+			font-weight: lighter;
+		}
+		&__author {
+			padding: 0 25px;
+			font-size: 20px;
+			color: @blue;			
+		}
+		&__quotation-mark {
+			position: absolute;
+			font-size: 35px;
+			color: #3b393e;
+			font-family: fantasy;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			background: @yellow;
+			top: 15px;
+			left: -15px;
+		}
+	}
+	.slick-arrow {
+		height: 50px;
+		width: 50px;
+		top: 70px;
+		&::before {
+			content: '';
+			display: block;
+			width: 20px;
+			height: 20px;
+			border-top: 2px solid @blue;
+			border-right: 2px solid @blue;
+			transform:rotate(45deg);				
+			margin: 0;
+		}
+	}
+	.slick-prev {
+		left: -15px;
+		&::before {
+			transform:rotate(225deg);
+		}
+	}
+	.slick-next {
+		right: -35px;
 	}
 }

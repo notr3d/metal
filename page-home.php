@@ -1,52 +1,59 @@
 <?php get_header(); ?>
 <div class="content-area">
 	<main id="home" class="home" role="main">
-		<div class="main-slider-area">
+		<div class="main-slider-area hidden-xs">
 			<div class="main-slider-area__wrapper container">
 				<div class="main-slider">
-					<div class="main-slider__item">					
+					<div class="main-slider__item">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/1.jpg" alt="" class="main-slider__img">
 						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Полнокомплектные здания</h2>
 							<p class="main-slider__text">ЗАО «Lorem» проектирует, производит и поставляет полнокомплектные быстровозводимые здания</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
-					<div class="main-slider__item">					
+					<div class="main-slider__item">	
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/2.jpg" alt="" class="main-slider__img">
 						<div class="main-slider__panel main-slider__panel--right">
 							<h2 class="main-slider__header">Профнастил</h2>
 							<p class="main-slider__text">Профнастил используется в качестве материала для стенового и кровельного покрытия, изготовления заборов, для отделки производственных помещений.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
-					<div class="main-slider__item">					
+					<div class="main-slider__item">		
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/3.jpg" alt="" class="main-slider__img">			
 						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Металлоконструкции</h2>
 							<p class="main-slider__text">Металлоконструкции применяются в качестве несущих конструкций каркасов, перекрытий и покрытий при строительстве и реконструкции зданий.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
-					<div class="main-slider__item">					
+					<div class="main-slider__item">	
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/4.jpg" alt="" class="main-slider__img">				
 						<div class="main-slider__panel main-slider__panel--right">
 							<h2 class="main-slider__header">Сталь в рулонах</h2>
 							<p class="main-slider__text">Сталь с покрытиями в рулонах применяется для профилирования, штамповки и производства плоских изделий.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
-					<div class="main-slider__item">					
+					<div class="main-slider__item">	
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/5.jpg" alt="" class="main-slider__img">				
 						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Теплоизоляционная плита</h2>
 							<p class="main-slider__text">Используется в качестве теплоизоляционного материала при строительстве зданий, а также при изготовлении сэндвич-панелей.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
-					<div class="main-slider__item">					
+					<div class="main-slider__item">	
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/6.jpg" alt="" class="main-slider__img">				
 						<div class="main-slider__panel main-slider__panel--right">
 							<h2 class="main-slider__header">Сэндвич-панели</h2>
 							<p class="main-slider__text">Трехслойные сэндвич-панели используются в качестве ограждающих конструкций стен и кровли зданий различного назначения.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
-					<div class="main-slider__item">					
+					<div class="main-slider__item">		
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/7.jpg" alt="" class="main-slider__img">			
 						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Частным клиентам</h2>
 							<p class="main-slider__text">Строительные материалы для устройства кровли, фасада, водосточной системы, забора для частного дома.</p>
@@ -92,9 +99,10 @@
 				<p class="main-services__note">ЗАО «Lorem» проектирует, производит и поставляет быстровозводимые полнокомплектные здания:</p>
 				<div class="main-services__container scrollme animateme" 
 					data-when="enter"
-					data-from="1"
-					data-to=".1"
+					data-from=".6"
+					data-to=".3"
 					data-opacity="0"
+					data-translatey="150"
 				>
 					<div class="main-services__item">
 						<a href="#" class="main-services__link">
@@ -162,9 +170,10 @@
 		</div>
 		<div class="home-features scrollme animateme" 
 			data-when="enter"
-			data-from="1"
-			data-to=".1"
+			data-from=".6"
+			data-to=".3"
 			data-opacity="0"
+			data-translatey="150"
 		>
 			<div class="home-features__wrapper container">
 				<h2 class="home-features__heading">Наши преимущества</h2>
@@ -214,11 +223,47 @@
 				
 			</div>
 		</div>
+		<div class="reviews scrollme animateme" 
+			data-when="enter"
+			data-from=".6"
+			data-to=".3"
+			data-opacity="0"
+			data-translatey="150"
+		>
+			<div class="reviews__wrapper container">
+				<h2 class="reviews__header">Отзывы</h2>
+				<div class="reviews__slider">
+					<div class="reviews__item">
+						<div class="reviews__container">
+							<p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim reiciendis deleniti, error necessitatibus pariatur ab sit provident rerum eos fugit beatae ipsa ipsum deserunt, blanditiis mollitia quae iusto qui fuga!</p>
+							<div class="reviews__quotation-mark">“</div>
+						</div>
+						<p class="reviews__author">ЗАО "LOREM"</p>
+					</div>
+					<div class="reviews__item">
+						<div class="reviews__container">
+							<p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem ab omnis, officia eum. Tenetur fugit alias, temporibus nulla, doloribus doloremque minus natus atque esse obcaecati, id perspiciatis distinctio voluptates iste.</p>
+							<div class="reviews__quotation-mark">“</div>
+						</div>
+						<p class="reviews__author">ОАО "MEROL"</p>
+					</div>
+					<div class="reviews__item">
+						<div class="reviews__container">
+							<p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem non minus dicta aliquam odio fugit repellendus quod, autem suscipit ducimus sequi. Illo doloribus dolores, possimus architecto fuga aliquid magni nulla!!</p>
+							<div class="reviews__quotation-mark">“</div>
+						</div>
+						<p class="reviews__author">ООО "MOREL"</p>
+					</div>
+				</div>
+				<a href="reviews" class="main-services__more-link my-link">Все отзывы</a>
+			</div>
+		</div>
 		<div class="showcase scrollme animateme" 
 			data-when="enter"
-			data-from="1"
-			data-to=".1"
+			data-from=".6"
+			data-to=".3"
 			data-opacity="0"
+			data-translatey="150"
 		>
 			<div class="showcase__wrapper container">
 				<ul class="nav nav-tabs nav-justified" role="tablist">
@@ -311,7 +356,7 @@
 							</div>	
 						</div>
 					</div>
-				</div>
+				</div>				
 			</div>
 		</div>
 	</main><!-- #main -->

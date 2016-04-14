@@ -7197,6 +7197,16 @@ Entry Footer
 @media (min-width: 768px) {
   .site-nav .navbar-nav .page_item.active a {
     border-top: 2px solid #cc3300;
+    /*position: relative;
+						&::before {
+							content: '';
+							display: block;
+							border: 5px solid transparent;
+							border-top-color: @red;						position: absolute;
+							top: 0;
+							left: 50%;
+							margin-left: -5px;
+						}*/
   }
 }
 .site-nav .navbar-nav .page_item.active .dropdown-menu a {
@@ -7241,7 +7251,7 @@ Entry Footer
   margin-right: 0;
   padding: 0;
 }
-.site-nav .search-form input {
+.site-nav .search-form__search-field {
   border: none;
   background: none;
   border-radius: 0;
@@ -7251,15 +7261,15 @@ Entry Footer
   box-shadow: none;
   width: 278px;
 }
-.site-nav .search-form input:focus {
-  border-color: #fbc02d;
+.site-nav .search-form__search-field:focus {
+  border-color: #2474d0;
 }
 @media (max-width: 767px) {
-  .site-nav .search-form input {
+  .site-nav .search-form__search-field {
     width: 100%;
   }
 }
-.site-nav .search-form button {
+.site-nav .search-form__button {
   border: none;
   background: none;
   border-radius: 0;
@@ -7270,14 +7280,17 @@ Entry Footer
   padding-left: 0;
   outline: none !important;
 }
-.site-nav .search-form button:active {
+.site-nav .search-form__button--search {
+  display: none;
+}
+.site-nav .search-form__button:active {
   background: none;
   box-shadow: none !important;
 }
-.site-nav .search-form button:hover span::before {
+.site-nav .search-form__button:hover span::before {
   color: #2474d0;
 }
-.site-nav .search-form button span::before {
+.site-nav .search-form__button span::before {
   transition: all .3s;
   color: #ddd;
 }
@@ -7361,31 +7374,12 @@ Entry Footer
   margin-top: 15px;
 }
 .home .main-slider__item {
-  min-height: 400px;
-  background: #eee no-repeat center;
-  background-size: cover;
+  min-height: 250px;
+  background: #eee;
   position: relative;
 }
-.home .main-slider__item:nth-child(1) {
-  background-image: url(img/home/main-slider/1.jpg);
-}
-.home .main-slider__item:nth-child(2) {
-  background-image: url(img/home/main-slider/2.jpg);
-}
-.home .main-slider__item:nth-child(3) {
-  background-image: url(img/home/main-slider/3.jpg);
-}
-.home .main-slider__item:nth-child(4) {
-  background-image: url(img/home/main-slider/4.jpg);
-}
-.home .main-slider__item:nth-child(5) {
-  background-image: url(img/home/main-slider/5.jpg);
-}
-.home .main-slider__item:nth-child(6) {
-  background-image: url(img/home/main-slider/6.jpg);
-}
-.home .main-slider__item:nth-child(7) {
-  background-image: url(img/home/main-slider/7.jpg);
+.home .main-slider__img {
+  width: 100%;
 }
 .home .main-slider__header {
   margin: 0;
@@ -7575,6 +7569,76 @@ Entry Footer
   top: 15px;
   left: -20px;
 }
+.home .reviews {
+  margin-bottom: 25px;
+}
+.home .reviews__header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.home .reviews__container {
+  background: #3b393e;
+  padding: 25px;
+  margin: 25px;
+  position: relative;
+}
+.home .reviews__container::before {
+  content: '';
+  display: block;
+  border: 25px solid transparent;
+  border-left-color: #3b393e;
+  position: absolute;
+  bottom: -25px;
+  left: 25px;
+}
+.home .reviews__text {
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: lighter;
+}
+.home .reviews__author {
+  padding: 0 25px;
+  font-size: 20px;
+  color: #2474d0;
+}
+.home .reviews__quotation-mark {
+  position: absolute;
+  font-size: 35px;
+  color: #3b393e;
+  font-family: fantasy;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #fbc02d;
+  top: 15px;
+  left: -15px;
+}
+.home .slick-arrow {
+  height: 50px;
+  width: 50px;
+  top: 70px;
+}
+.home .slick-arrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #2474d0;
+  border-right: 2px solid #2474d0;
+  transform: rotate(45deg);
+  margin: 0;
+}
+.home .slick-prev {
+  left: -15px;
+}
+.home .slick-prev::before {
+  transform: rotate(225deg);
+}
+.home .slick-next {
+  right: -35px;
+}
 .about-main-slider__item {
   height: 335px;
   background: #eee;
@@ -7690,7 +7754,8 @@ Entry Footer
   }
 }
 .production__showcase .nav-tabs a {
-  height: 196px;
+  min-height: 80px;
+  margin-bottom: 0 !important;
 }
 .production__showcase .tab-content {
   background: #eee;
@@ -7756,6 +7821,7 @@ Entry Footer
   background: #eee;
   padding: 15px;
   transition: all .3s;
+  border: 1px solid #2474d0;
 }
 .nav-links a:hover {
   text-decoration: none;

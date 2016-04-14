@@ -37,6 +37,8 @@
 		float: none;
 		padding: 0;
 	}
+	.modal {
+	}
 	.modal-dialog {
 		margin: 60px auto;
 		.modal-content {
@@ -84,9 +86,18 @@
 			}
 			&.active {
 				a {
-					//background: none;
 					@media @desktop {
 						border-top: 2px solid @red;
+						/*position: relative;
+						&::before {
+							content: '';
+							display: block;
+							border: 5px solid transparent;
+							border-top-color: @red;						position: absolute;
+							top: 0;
+							left: 50%;
+							margin-left: -5px;
+						}*/
 					}
 				}
 				.dropdown-menu {
@@ -136,7 +147,7 @@
 		position: relative;
 		margin-right: 0;
 		padding: 0;
-		input {
+		&__search-field {
 			border: none;
 			background: none;
 			border-radius: 0;
@@ -146,13 +157,13 @@
 			box-shadow: none;
 			width: 278px;
 			&:focus {
-				border-color: @yellow;
+				border-color: @blue;
 			}
 			@media @mobile {
 				width: 100%;
 			}
 		}
-		button {
+		&__button {
 			border: none;
 			background: none;
 			border-radius: 0;
@@ -162,6 +173,9 @@
 			padding-right: 0;
 			padding-left: 0;
 			outline: none !important;
+			&--search {
+				display: none;
+			}
 			&:active {
 				background: none;
 				box-shadow: none !important;

@@ -8,9 +8,8 @@
 	<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search" class="search-form <?php echo bootstrap_searchform_class( debug_backtrace() ); ?>">
         <div class="form-group">
             <!--<input type="text" class="form-control" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php esc_attr_e( 'Search &hellip;', '_s' ); ?>" />-->
-            <input type="text" class="form-control" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="Поиск..." />
+            <input type="text" class="form-control search-form__search-field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="Поиск..." />
         </div>
-        <button type="submit" class="btn btn-default  search-form__search"><span class="glyphicon glyphicon-search"></span></button>
-        <button class="btn btn-default search-form__open"><span class="glyphicon glyphicon-search"></span></button>
+        <button type="submit" class="btn btn-default search-form__button"><span class="glyphicon glyphicon-search"></span></button>
 	</form>
 

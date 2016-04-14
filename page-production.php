@@ -16,7 +16,7 @@ get_header(); ?>
 
 	<main class="production container" role="main">
 		<?php the_title( sprintf( '<h1 class="page-header">', esc_url( get_permalink() ) ), '</h1>' ); ?>
-		<div class="content-area col-sm-9">			
+		<div class="content-area col-sm-10">			
 			<article class="article production__article">
 				<p>Мы проектируем и производим для наших клиентов:</p>
 				<ul>
@@ -42,14 +42,14 @@ get_header(); ?>
 				<div>
 					<ul class="nav nav-tabs nav-justified" role="tablist">
 						<li role="presentation" class="active"><a href="#prod-1" aria-controls="prod-1" role="tab" data-toggle="tab">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/1.jpg" alt="">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/1.jpg" alt="" class="hidden-xs">
 						<h5>Завод профнастила</h5>
 						</a></li>
 						<li role="presentation"><a href="#prod-2" aria-controls="prod-2" role="tab" data-toggle="tab">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/2.jpg" alt="">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/2.jpg" alt="" class="hidden-xs">
 						<h5>Завод металлоконструкций</h5></a></li>
 						<li role="presentation"><a href="#prod-3" aria-controls="prod-3" role="tab" data-toggle="tab">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/3.jpg" alt="">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/3.jpg" alt="" class="hidden-xs">
 						<h5>Завод теплоизоляционных изделий</h5></a></li>
 					</ul>
 					<div class="tab-content">

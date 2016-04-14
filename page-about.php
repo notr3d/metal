@@ -16,7 +16,7 @@ get_header(); ?>
 
 	<main class="about container" role="main">
 		<?php the_title( sprintf( '<h1 class="page-header">', esc_url( get_permalink() ) ), '</h1>' ); ?>
-		<div class="content-area col-sm-9">		
+		<div class="content-area col-sm-10">		
 			<div class="about__slider-area">
 				<div class="about-main-slider">
 					<div class="about-main-slider__item">1</div>
