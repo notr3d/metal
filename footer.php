@@ -53,6 +53,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/slick.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.scrollme.js"></script>	
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 	<?php wp_footer(); ?>
 	</body>
