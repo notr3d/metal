@@ -132,4 +132,3 @@ var asideLink = $('.aside-nav>ul>.page_item_has_children>a');
 asideLink.click(function(){
 	event.preventDefault();
 });
-

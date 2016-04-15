@@ -7135,6 +7135,12 @@ Entry Footer
   flex-wrap: wrap;
   padding: 15px 0;
 }
+.top-panel__item {
+  font-size: 20px;
+  /*&:first-child {
+			flex-grow: 1;
+		}*/
+}
 @media (max-width: 767px) {
   .top-panel__item {
     flex-basis: 100%;
@@ -7155,6 +7161,7 @@ Entry Footer
 .top-panel .navbar-brand {
   float: none;
   padding: 0;
+  font-size: 20px;
 }
 .top-panel .modal-dialog {
   margin: 60px auto;
@@ -7192,11 +7199,11 @@ Entry Footer
   transition: all .1s;
 }
 .site-nav .navbar-nav .page_item:hover a {
-  color: #cc3300;
+  color: #2474d0;
 }
 @media (min-width: 768px) {
   .site-nav .navbar-nav .page_item.active a {
-    border-top: 2px solid #cc3300;
+    border-top: 2px solid #2474d0;
     /*position: relative;
 						&::before {
 							content: '';
@@ -7213,7 +7220,7 @@ Entry Footer
   border: none;
 }
 .site-nav .navbar-nav .page_item.active .dropdown-menu .active a {
-  background: #cc3300;
+  background: #2474d0;
   color: #fff;
 }
 .site-nav .navbar-nav .page_item .dropdown-toggle:focus {
@@ -7234,7 +7241,7 @@ Entry Footer
   top: -20px;
   left: 20px;
   border: 10px solid transparent;
-  border-bottom-color: #cc3300;
+  border-bottom-color: #2474d0;
 }
 @media (max-width: 767px) {
   .site-nav .navbar-nav .page_item .dropdown-menu::before {
@@ -7243,7 +7250,7 @@ Entry Footer
 }
 @media (min-width: 768px) {
   .site-nav .navbar-nav .page_item .dropdown-menu {
-    border-top: 2px solid #cc3300;
+    border-top: 2px solid #2474d0;
   }
 }
 .site-nav .search-form {
@@ -7387,7 +7394,7 @@ Entry Footer
   font-size: 20px;
 }
 .home .main-slider__text {
-  border-left: 2px solid #cc3300;
+  border-left: 2px solid #2474d0;
   padding: 5px 15px;
   margin-bottom: 25px;
   text-align: justify;
@@ -7430,7 +7437,7 @@ Entry Footer
   }
 }
 .home .main-slider .slick-dots li.slick-active button:before {
-  background: #cc3300;
+  background: #2474d0;
 }
 .home .nav-slider__item {
   text-align: center;
@@ -7793,16 +7800,6 @@ Entry Footer
   box-shadow: none;
   border-color: #fbc02d;
 }
-.contacts .my-fancy-button {
-  font-size: 18px;
-  background: #2474d0;
-}
-.contacts .my-fancy-button::before {
-  background: #3281dc;
-}
-.contacts .my-fancy-button::after {
-  background: #3281dc;
-}
 .news__item {
   margin-bottom: 15px;
   padding: 15px;
@@ -7835,6 +7832,87 @@ Entry Footer
 .nav-links .nav-next a::after {
   content: ' →';
   padding-left: 10px;
+}
+.constructor {
+  /*Hide all except first fieldset*/
+  /*inputs*/
+  /*buttons*/
+  /*headings*/
+  /*progressbar*/
+  /*progressbar connectors*/
+  /*marking active/completed steps green*/
+  /*The number of the step and the connector before it = green*/
+}
+.constructor .constructor__form {
+  position: relative;
+  min-height: 730px;
+}
+.constructor .constructor__form fieldset {
+  position: absolute;
+}
+.constructor .constructor__form fieldset:not(:first-of-type) {
+  display: none;
+}
+.constructor .constructor__form input,
+.constructor .constructor__form textarea {
+  margin-bottom: 10px;
+}
+.constructor .constructor__form .control-button {
+  width: 100px;
+}
+.constructor .step__title {
+  margin-bottom: 10px;
+}
+.constructor .step__subtitle {
+  margin-bottom: 20px;
+}
+.constructor .progress__bar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+}
+.constructor .progress__bar li {
+  list-style-type: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 16px;
+  width: 20%;
+  float: left;
+  position: relative;
+  text-align: center;
+}
+.constructor .progress__bar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 16px;
+  color: #333;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+}
+.constructor .progress__bar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1;
+  /*put it behind the numbers*/
+}
+.constructor .progress__bar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none;
+}
+.constructor .progress__bar li.active:before,
+.constructor .progress__bar li.active:after {
+  background: #27AE60;
+  color: white;
 }
 @media (min-width: 768px) {
   .container {
@@ -7877,7 +7955,7 @@ main {
   outline: none;
 }
 * {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Exo 2', sans-serif;
 }
 *::selection {
   background-color: #fbc02d;
@@ -7951,7 +8029,7 @@ main {
   width: 50%;
 }
 .my-fancy-button {
-  background: #cc3300;
+  background: #2474d0;
   color: #fff;
   border-radius: 3px;
   border: none;
@@ -7967,7 +8045,7 @@ main {
   display: block;
   width: 120%;
   height: 100%;
-  background: #e63900;
+  background: #3281dc;
   position: absolute;
   top: 0;
   left: -15px;
@@ -7981,7 +8059,7 @@ main {
   display: block;
   width: 120%;
   height: 100%;
-  background: #e63900;
+  background: #3281dc;
   position: absolute;
   bottom: 0;
   right: -15px;
@@ -8085,7 +8163,7 @@ main {
   display: block;
   width: 50px;
   height: 2px;
-  background: #cc3300;
+  background: #2474d0;
   position: absolute;
   top: 100%;
   left: 0;
@@ -8111,13 +8189,13 @@ main {
 }
 .callback__button {
   background: url(img/phone.png) no-repeat 0 50%;
-  background-size: 12px;
-  padding-left: 16px;
+  background-size: 14px;
+  padding-left: 18px;
 }
 .email__button {
   background: url(img/email.png) no-repeat 0 50%;
-  background-size: 12px;
-  padding-left: 16px;
+  background-size: 14px;
+  padding-left: 18px;
 }
 .phone__number {
   font-weight: bold;

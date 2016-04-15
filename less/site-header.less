@@ -16,18 +16,22 @@
 		padding: 15px 0;
 	}
 	&__item {
+		font-size: 20px;
 		@media @mobile {
 			flex-basis: 100%;
 			text-align: center;
 			margin: 15px 0;
 		}
+		/*&:first-child {
+			flex-grow: 1;
+		}*/
 	}
 	&__button {
 		background: none;
 		border: none;
 		padding: 0;
 		color: @blue;
-		outline: none;
+		outline: none;		
 		&:hover {
 			text-decoration: none;			
 			//border-bottom: 1px dotted @blue;
@@ -36,6 +40,7 @@
 	.navbar-brand {
 		float: none;
 		padding: 0;
+		font-size: 20px;
 	}
 	.modal {
 	}
@@ -81,13 +86,13 @@
 			}
 			&:hover {				
 				a {
-					color: @red;
+					color: @blue;
 				}
 			}
 			&.active {
 				a {
 					@media @desktop {
-						border-top: 2px solid @red;
+						border-top: 2px solid @blue;
 						/*position: relative;
 						&::before {
 							content: '';
@@ -107,7 +112,7 @@
 					.active {
 						a {
 							
-						background: @red;
+						background: @blue;
 						color: #fff;
 						}
 					}
@@ -132,13 +137,13 @@
 					top: -20px;
 					left: 20px;
 					border: 10px solid transparent;
-					border-bottom-color: @red;
+					border-bottom-color: @blue;
 					@media @mobile {
 						display: none;
 					}
 				}
 				@media @desktop {
-					border-top: 2px solid @red;
+					border-top: 2px solid @blue;
 				}
 			}
 		}

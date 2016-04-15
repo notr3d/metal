@@ -112,6 +112,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/production.less";
 @import "less/contacts.less";
 @import "less/news.less";
+@import "less/constructor.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -162,7 +163,7 @@ main {
 
 //мои стили
 * {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Exo 2', sans-serif;
 	&::selection {
 		background-color: @yellow;
 		color: #fff;
@@ -242,7 +243,7 @@ main {
 		}
 	}
 	&-fancy-button {
-		@color: @red;
+		@color: @blue;
 		background: @color;
 		color: #fff;
 		border-radius: 3px;
@@ -387,7 +388,7 @@ main {
 		display: block;
 		width: 50px;
 		height: 2px;
-		background: @red;
+		background: @blue;
 		position: absolute;
 		top: 100%;
 		left: 0;
@@ -417,15 +418,15 @@ main {
 .callback {
 	&__button {
 		background: url(img/phone.png) no-repeat 0 50%;
-		background-size: 12px;
-		padding-left: 16px;	
+		background-size: 14px;
+		padding-left: 18px;	
 	}	
 }
 .email {
 	&__button {
 		background: url(img/email.png) no-repeat 0 50%;
-		background-size: 12px;
-		padding-left: 16px;
+		background-size: 14px;
+		padding-left: 18px;
 	}
 }
 .phone {

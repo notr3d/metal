@@ -1,0 +1,79 @@
+.constructor {
+	.constructor__form {
+		position: relative;
+		min-height: 730px;
+	}
+	.constructor__form fieldset {
+		position: absolute;
+	}
+	/*Hide all except first fieldset*/
+	.constructor__form fieldset:not(:first-of-type) {
+		display: none;
+	}
+	/*inputs*/
+	.constructor__form input, .constructor__form textarea {
+		margin-bottom: 10px;
+		//width: 100%;
+	}
+	/*buttons*/
+	.constructor__form .control-button {
+		width: 100px;
+	}
+	/*headings*/
+	.step__title {
+		margin-bottom: 10px;
+	}
+	.step__subtitle {
+		margin-bottom: 20px;
+	}
+	/*progressbar*/
+	.progress__bar {
+		margin-bottom: 30px;
+		overflow: hidden;
+		/*CSS counters to number the steps*/
+		counter-reset: step;
+	}
+	.progress__bar li {
+		list-style-type: none;
+		color: black;
+		text-transform: uppercase;
+		font-size: 16px;
+		width: 20%;
+		float: left;
+		position: relative;
+		text-align: center;
+	}
+	.progress__bar li:before {
+		content: counter(step);
+		counter-increment: step;
+		width: 20px;
+		line-height: 20px;
+		display: block;
+		font-size: 16px;
+		color: #333;
+		background: white;
+		border-radius: 3px;
+		margin: 0 auto 5px auto;
+	}
+	/*progressbar connectors*/
+	.progress__bar li:after {
+		content: '';
+		width: 100%;
+		height: 2px;
+		background: white;
+		position: absolute;
+		left: -50%;
+		top: 9px;
+		z-index: -1; /*put it behind the numbers*/
+	}
+	.progress__bar li:first-child:after {
+		/*connector not needed before the first step*/
+		content: none; 
+	}
+	/*marking active/completed steps green*/
+	/*The number of the step and the connector before it = green*/
+	.progress__bar li.active:before,  .progress__bar li.active:after{
+		background: #27AE60;
+		color: white;
+	}
+}
