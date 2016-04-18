@@ -79,66 +79,182 @@ $(".submit").click(function(){
 })
 
 $(document).ready(function() {
-	var width = 0, length = 0, height = 0;
-	
-	var widthRange = $('#widthRange'),
+	//находим все элементы на странице
+	//ширина
+	var widthInput = $('#widthInput'), //число, основное поле
+		widthRange = $('#widthRange'), //слайдер
+		widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
+		widthPlusButton = $('#widthPlus'),
+		//длина
+		lengthInput = $('#lengthInput'), 
 		lengthRange = $('#lengthRange'),
-		heightRange = $('#heightRange'),
-
-		widthInput = $('#widthInput'),
-		lengthInput = $('#lengthInput'),
-		heightInput = $('#heightInput');
-
-	widthInput.val(widthRange.val());
-	lengthInput.val(lengthRange.val());
-	heightInput.val(heightRange.val());
+		lengthMinusButton = $('#lengthMinus'),
+		lengthPlusButton = $('#lengthPlus'),
+		//высота
+		heightInput = $('#heightInput'), 
+		heightRange = $('#heightRange'), 
+		heightMinusButton = $('#heightMinus'),
+		heightPlusButton = $('#heightPlus'),
 	
-	width = widthRange.val();
-	length = lengthRange.val();
-	height = heightRange.val();
-
+		volumeOutput = $('#volumeOutput'), //площадь и объем
+		areaOutput = $('#areaOutput'),
+			
+		width = widthInput.val(), //берем изначальные данные из html
+		length = lengthInput.val(), 
+		height = heightInput.val(),
+		
+		area = width * length, //подсчет площади и объема
+		volume = area * height,
+		
+		widthMin = +widthInput.attr('min'), // у слайдеров устанавливаем такие же мин и макс как и у числового ввода (которые выставлены в html)
+		widthMax = +widthInput.attr('max'),
+		
+		lengthMin = +lengthInput.attr('min'),
+		lengthMax = +lengthInput.attr('max'),
+		
+		heightMin = +heightInput.attr('min'),
+		heightMax = +heightInput.attr('max'),			
+		
+		calc = function(){ //основная функция подсчета
+			widthInput.val(width);
+			lengthInput.val(length);
+			heightInput.val(height);
+			
+			widthRange.val(width);
+			lengthRange.val(length);
+			heightRange.val(height);
+			
+			area = width * length;
+			areaOutput.text(area);
+			
+			volume = area * height;
+			volumeOutput.text(volume);
+		};	
+	
+	widthRange.attr('min', widthInput.attr('min'));
+	widthRange.attr('max', widthInput.attr('max'));
+	lengthRange.attr('min', lengthInput.attr('min'));
+	lengthRange.attr('max', lengthInput.attr('max'));
+	heightRange.attr('min', heightInput.attr('min'));
+	heightRange.attr('max', heightInput.attr('max'));	
+	
+	$('#widthMin').text(widthMin);
+	$('#widthMax').text(widthMax);
+	$('#lengthMin').text(lengthMin);
+	$('#lengthMax').text(lengthMax);
+	$('#heightMin').text(heightMin);
+	$('#heightMax').text(heightMax);
+	
+	calc();
+	
+	//number
+	widthInput.change(function(){
+		if (widthInput.val() < 0) {
+			alert('Ширина не может быть меньше нуля. Минимальное значение: ' + widthMin + 'м');			
+			width = widthMin;
+			calc();
+		} else if (widthInput.val() < widthMin) {
+			alert('Ширина не может быть меньше минимального значения (' + widthMin + 'м)');			
+			width = widthMin;
+			calc();
+		} else if (widthInput.val() > widthMax) {
+			alert('Ширина не может превышать максимальное значение (' + widthMax + 'м)');			
+			width = widthMax;
+			calc();
+		} else {
+			width = widthInput.val();
+			calc();
+		}		
+	});
+	lengthInput.change(function(){
+		if (lengthInput.val() < 0) {
+			alert('Длина не может быть меньше нуля. Минимальное значение: ' + lengthMin + 'м');				
+			length = lengthMin;
+			calc();
+		} else if (lengthInput.val() < lengthMin) {
+			alert('Длина не может быть меньше минимального значения (' + lengthMin + 'м)');				
+			length = lengthMin;
+			calc();
+		} else if (lengthInput.val() > lengthMax) {
+			alert('Длина не может превышать максимальное значение (' + lengthMax + 'м)');						
+			length = lengthMax;
+			calc();
+		} else {
+			length = lengthInput.val();
+			calc();
+		}		
+	});
+	heightInput.change(function(){
+		if (heightInput.val() < 0) {
+			alert('Высота не может быть меньше нуля. Минимальное значение: ' + heightMin + 'м');				
+			height = heightMin;
+			calc();
+		} else if (heightInput.val() < heightMin) {
+			alert('Высота не может быть меньше минимального значения (' + heightMin + 'м)');							
+			height = heightMin;
+			calc();
+		} else if (heightInput.val() > heightMax) {
+			alert('Высота не может превышать максимальное значение (' + heightMax + 'м)');									
+			height = heightMax;
+			calc();
+		} else {
+			height = heightInput.val();
+			calc();
+		}		
+	});	
+	
+	//range
 	widthRange.change(function(){
-		widthInput.val(widthRange.val());
 		width = widthRange.val();
 		calc();
 	});
 	lengthRange.change(function(){
-		lengthInput.val(lengthRange.val());
 		length = lengthRange.val();
 		calc();
 	});
 	heightRange.change(function(){
-		heightInput.val(heightRange.val());
 		height = heightRange.val();
 		calc();
 	});
 	
-	widthInput.change(function(){
-		widthRange.val(widthInput.val());
-		width = widthInput.val();
-		calc();
+	//buttons		
+	widthMinusButton.click(function(){
+		if (width > widthMin) {
+			width--;
+			calc();
+		} 
 	});
-	lengthInput.change(function(){
-		lengthRange.val(lengthInput.val());
-		length = lengthInput.val();
-		calc();
+	widthPlusButton.click(function(){
+		if (width < widthMax) {
+			width++;
+			calc();
+		}
 	});
-	heightInput.change(function(){
-		heightRange.val(heightInput.val());
-		height = heightInput.val();
-		calc();
+	lengthMinusButton.click(function(){		
+		if (length > lengthMin) {
+			length--;
+			calc();
+		}
 	});
+	lengthPlusButton.click(function(){
+		if (length < lengthMax) {
+			length++;
+			calc();
+		}
+	});
+	heightMinusButton.click(function(){;
+		if (height > heightMin) {
+			height--;
+			calc();
+		}
+	});
+	heightPlusButton.click(function(){
+		if (height < heightMax) {
+			height++;
+			calc();
+		}
+	});	
 	
-	var volume = 0, area = 0;
-	var volumeOutput = $('#volumeOutput'),
-		areaOutput = $('#areaOutput'),
-		calc = function(){
-			area = width * length;
-			volume = area * height;
-			areaOutput.text(area);
-			volumeOutput.text(volume);
-		};	
-	calc();
 });
 
 
