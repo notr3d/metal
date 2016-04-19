@@ -7994,6 +7994,104 @@ Entry Footer
   flex-grow: 1;
   margin: 0 15px;
 }
+.constructor .color__item {
+  display: inline-block;
+  padding: 0;
+}
+.constructor .color__button {
+  height: 30px;
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+.constructor .color__span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.constructor .color__container {
+  top: 30px;
+  left: 0;
+}
+.constructor .color__input {
+  display: none;
+}
+.constructor .color__label {
+  display: inline-block;
+  width: 32.6%;
+  height: 30px;
+  border: 1px solid #eee;
+  font-size: 0;
+}
+.constructor .color__label--ral-5012 {
+  background: #3B83BD;
+}
+.constructor .color__label--ral-1014 {
+  background: #E1CC4F;
+}
+.constructor .color__label--ral-1015 {
+  background: #E6D690;
+}
+.constructor .color__label--ral-1018 {
+  background: #F8F32B;
+}
+.constructor .color__label--ral-3003 {
+  background: #9B111E;
+}
+.constructor .color__label--ral-5005 {
+  background: #1E2460;
+}
+.constructor .color__label--ral-6002 {
+  background: #2D572C;
+}
+.constructor .color__label--ral-7004 {
+  background: #969992;
+}
+.constructor .color__label--ral-7047 {
+  background: #D0D0D0;
+}
+.constructor .color__label--ral-9002 {
+  background: #E7EBDA;
+}
+.constructor .color__label--ral-9003 {
+  background: #F4F4F4;
+}
+.constructor .color__label--ral-9006 {
+  background: #A5A5A5;
+}
+.constructor .color__label--rr-20 {
+  background: #f1ebe4;
+}
+.constructor .color__label--rr-21 {
+  background: #b7bcbe;
+}
+.constructor .color__label--rr-35 {
+  background: #1c3d5d;
+}
+.constructor .result__value {
+  font-weight: bold;
+  font-size: 16px;
+}
+.constructor .info__item {
+  padding: 0;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.constructor .info__item input {
+  display: block;
+  width: 100%;
+}
+.constructor .info__item input[type="file"] {
+  display: inline;
+}
+.constructor .info__item textarea {
+  width: 100%;
+  resize: vertical;
+}
 .constructor .control-button {
   padding: 15px 25px;
   font-size: 16px;

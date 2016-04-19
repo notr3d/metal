@@ -78,27 +78,33 @@ $(".submit").click(function(){
 	return false;
 })
 
-$(document).ready(function() {
+$(document).ready(function() {	
+	//---------------------------------размеры
 	//находим все элементы на странице
 	//ширина
 	var widthInput = $('#widthInput'), //число, основное поле
 		widthRange = $('#widthRange'), //слайдер
 		widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
 		widthPlusButton = $('#widthPlus'),
+		widthOutput = $('.result__value--width'),
 		//длина
 		lengthInput = $('#lengthInput'), 
 		lengthRange = $('#lengthRange'),
 		lengthMinusButton = $('#lengthMinus'),
 		lengthPlusButton = $('#lengthPlus'),
+		lengthOutput = $('.result__value--length'),
 		//высота
 		heightInput = $('#heightInput'), 
 		heightRange = $('#heightRange'), 
 		heightMinusButton = $('#heightMinus'),
 		heightPlusButton = $('#heightPlus'),
+		heightOutput = $('.result__value--height'),
 	
-		volumeOutput = $('#volumeOutput'), //площадь и объем
-		areaOutput = $('#areaOutput'),
-			
+		areaOutput = $('#areaOutput'), //площадь и объем
+		ResultAreaOutput = $('.result__value--area'),	
+		volumeOutput = $('#volumeOutput'), 
+		ResultVolumeOutput = $('.result__value--volume'),
+		
 		width = widthInput.val(), //берем изначальные данные из html
 		length = lengthInput.val(), 
 		height = heightInput.val(),
@@ -113,7 +119,9 @@ $(document).ready(function() {
 		lengthMax = +lengthInput.attr('max'),
 		
 		heightMin = +heightInput.attr('min'),
-		heightMax = +heightInput.attr('max'),			
+		heightMax = +heightInput.attr('max'),
+		
+		
 		
 		calc = function(){ //основная функция подсчета
 			widthInput.val(width);
@@ -124,11 +132,17 @@ $(document).ready(function() {
 			lengthRange.val(length);
 			heightRange.val(height);
 			
+			widthOutput.text(width);
+			lengthOutput.text(length);
+			heightOutput.text(height);			
+			
 			area = width * length;
 			areaOutput.text(area);
+			ResultAreaOutput.text(area);
 			
 			volume = area * height;
 			volumeOutput.text(volume);
+			ResultVolumeOutput.text(volume);
 		};	
 	
 	widthRange.attr('min', widthInput.attr('min'));
@@ -203,7 +217,7 @@ $(document).ready(function() {
 		}		
 	});	
 	
-	//range
+	//слайдеры
 	widthRange.change(function(){
 		width = widthRange.val();
 		calc();
@@ -217,7 +231,7 @@ $(document).ready(function() {
 		calc();
 	});
 	
-	//buttons		
+	//кнопки + -		
 	widthMinusButton.click(function(){
 		if (width > widthMin) {
 			width--;
@@ -255,7 +269,118 @@ $(document).ready(function() {
 		}
 	});	
 	
+	
+	
+	//--------------выбор цвета
+	var colorButton = $('.color__button'), //кнопка выбора цвета
+	 	colorSpan = $('.color__span'), // элемент внутри кнопки для выбранного цвета
+		
+	 	colorContainer = $('.color__container'), // выпадающее меню с цветами
+		colorInput = $('.color__input'), // скрытые инпуты для цветов
+	 	colorLabel = $('.color__label'), // квадраты для выбора цвета
+		
+		drainYes = $('#drain-yes'), // выбрать цвет нельзя если он не включен
+		drainNo = $('#drain-no'),
+		drainColorButton = $('#drainColorButton'),
+		
+		wallColorOutput = $('.result__value--wall-color'),
+		roofColorOutput = $('.result__value--roof-color'),
+		lippingColorOutput = $('.result__value--lipping-color'),
+		drainColorOutput = $('.result__value--drain-color');
+	
+	colorContainer.slideUp(); //убираем меню
+	//colorLabel.text(''); // убираем текст внутри квадратов
+	drainColorButton.attr('disabled', true); // по умолчанию водосток не включен
+	
+	colorButton.click(function(){ //по нажатию на кнопку появляется блок с цветами
+		$(this).next().slideToggle();
+	});
+	
+	drainYes.click(function(){ //включаем блок с выбором цвета водостока если он вклчюен
+		drainColorButton.removeAttr('disabled');
+	});
+	
+	drainNo.click(function(){ //убираем блок цвета водостока если он выключен
+		drainColorButton.attr('disabled', true);
+		drainColorButton.next().slideUp();	
+		drainColorButton.next().children().removeAttr('checked');
+	});	
+	
+	colorInput.click(function(){ //красим элемент внутри кнопки выбранным цветом
+		var color = $(this).attr('id').split('-'),
+			colorId = 'color__label--' + color[1] + '-' + color[2],
+			colorType = color[0],
+			colorName = $(this).next().text();
+		
+		$(this)
+			.parent()
+			.prev()
+			.children(colorLabel)
+			.attr('class', 'color__span ' + colorId);
+		
+		$(this).parent().slideUp();
+		
+		switch (colorType) {
+			case 'wall':
+				wallColorOutput.text(colorName);
+				break;
+			case 'roof':
+				roofColorOutput.text(colorName);
+				break;
+			case 'lipping':
+				lippingColorOutput.text(colorName);
+				break;
+			case 'drain':
+				drainColorOutput.text(colorName);	
+		}
+	});
+	
+	
+	
+	
+	
+	
+	
+	//------------results------------------
+	//тип и подтип здания
+	var structureTypeInput = $('.structure-type__input'),
+		
+		structureTypeOutput = $('.result__value--type'),
+		structureSubTypeOutput = $('.result__value--subtype');		
+	
+	structureTypeInput.click(function(){
+		var structureType = $(this).next().children('.structure-type__title').text(),
+			structureSubType = $(this).next().children('.structure-type__subtitle').text();
+		
+		structureTypeOutput.text(structureType);
+		structureSubTypeOutput.text(structureSubType);		
+	});
+	
+	
+	//снеговой район и обшивка
+	var snowAreaInput = $('.snow-area-input'),
+		wallShealthingInput = $('#wall-shealthing'),
+		roofShealthingInput = $('#roof-shealthing'),
+		
+	    snowAreaOutput = $('.result__value--snow-area'),
+	    wallShealthingOutput = $('.result__value--wall-shealthing'),
+	    roofShealthingOutput = $('.result__value--roof-shealthing');
+	
+	snowAreaInput.click(function(){
+		var snowAreaValue = $(this).next().text();
+		snowAreaOutput.text(snowAreaValue);
+	});
+	wallShealthingInput.click(function(){
+		var wallShealthingValue = wallShealthingInput.val();
+		wallShealthingOutput.text(wallShealthingValue);
+	});
+	roofShealthingInput.click(function(){
+		var roofShealthingValue = roofShealthingInput.val();
+		roofShealthingOutput.text(roofShealthingValue);
+	});
+	
 });
+
 
 
 
