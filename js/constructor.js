@@ -1,6 +1,6 @@
 //constructor-------------------------------------------------------
 
-var current_fs, next_fs, previous_fs; //fieldsets
+/*var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
@@ -72,7 +72,7 @@ $(".control-button--prev").click(function(){
 		//this comes from the custom easing plugin
 		easing: 'easeInOutBack'
 	});
-});
+});*/
 
 $(".submit").click(function(){
 	return false;

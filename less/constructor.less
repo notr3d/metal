@@ -67,7 +67,7 @@
 		//position: absolute;
 		/*Hide all except first fieldset*/
 		&:not(:first-of-type) {
-			display: none;
+			//display: none;
 		}
 		/*headings*/
 		&__title {
@@ -88,10 +88,12 @@
 		&__item {
 			display: inline-block;
 			text-align: center;
+			margin-bottom: 15px;
 			width: 19.7%;
-			height: 150px;
-			margin-bottom: 36px;
-			border-radius: 5px;
+			vertical-align: top;
+			@media @mobile {
+				width: 100%;
+			}
 			label {
 				padding: 15px;
 				width: 100%;
@@ -108,8 +110,7 @@
 				}
 			}
 			img {
-				height: 100px;
-				width: 150px;
+				width: 100%;
 				margin-bottom: 15px;
 			}
 			input {
@@ -136,16 +137,59 @@
 	.dimension {
 		&__item {
 			padding: 0;	
+			padding: 0 15px;
+			&:first-child {
+				padding-left: 0;
+			}
 			&:nth-child(2) {
-				padding: 0 15px;
+				
+			}
+			&:last-child {
+				padding-right: 0;
 			}
 		}		
 		&__header {
 			text-align: center;
 			margin-bottom: 15px;
+			flex-basis: 100%;
 		}
-		&__input {
-			
+		&__button {
+			width: 40px;
+			height: 40px;
+			position: relative;
+			background: #fff;
+			color: #000;
+			border: 2px solid #eee;
+			border-radius: 3px;
+			transition: all .3s;
+			outline: none;
+			&::before {
+				content: '-';
+				display: block;
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				top: 0;
+				left: -1px;
+				font-size: 50px;
+				line-height: 20px;
+				color: #666;
+			}
+			&:last-child {
+				&::before {
+					content: '+';
+					top: 3px;
+				}
+			}
+			&:hover {
+				background: @blue;
+				&::before {
+					color: #fff;
+				}
+			}
+			&:active {
+				background: lighten(@blue, 15%);
+			}
 		}
 		&__settings {
 			display: -webkit-flex;
@@ -153,9 +197,16 @@
 			display: -ms-flex;
 			display: -o-flex;
 			display: flex;
+			flex-wrap: wrap;
 			margin-bottom: 15px;
 			input[type="number"] {
 				flex-grow: 1;
+				margin: 0 15px;
+				text-align: center;
+				border: 2px solid #eee;
+				border-radius: 3px;
+				outline: none;
+				font-size: 24px;
 			}
 		}
 		&__slider {
@@ -166,10 +217,58 @@
 			display: flex;
 			margin-bottom: 15px;
 			input[type="range"] {
-				display: inline-block;
-				width: 80%;
 				flex-grow: 1;
 				margin: 0 15px;
+				-webkit-appearance: none;
+				outline: none;
+				&::-webkit-slider-thumb {
+					-webkit-appearance: none;
+					width: 20px;
+					height: 20px;
+					background: #ccc;
+					border-radius: 3px;						
+					transition: all .3s;
+				}
+				&::-webkit-slider-runnable-track {
+					-webkit-appearance: none;
+					cursor: pointer;
+					background: #eee;
+					border-radius: 3px;					
+					transition: all .3s;
+				}
+				&:hover {
+					&::-webkit-slider-thumb {
+						background: @blue;
+					}
+					&::-webkit-slider-runnable-track {
+						background: #ddd;
+					}
+				}
+			}
+		}
+		&__limit {
+			display: inline-block;
+			width: 55px;
+			text-align: center;
+		}
+		.snow-area {
+			input {
+				display: none;
+				&:checked + label {
+					background: #fff;
+					border-color: @blue;
+				}
+			}
+			label {
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				background: #eee;
+				border: 2px solid #ddd;
+				border-radius: 3px;
+				text-align: center;
+				line-height: 40px;
+				cursor: pointer;
 			}
 		}
 	}
@@ -289,5 +388,14 @@
 		&--submit {
 			background: @red;
 		}
+	}
+	select {
+		-webkit-appearance: none;
+		padding: 5px 15px;
+		border: 2px solid #eee;
+		border-radius: 3px;
+		box-shadow: none;
+		background: transparent;
+		background-image: none;
 	}
 }

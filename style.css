@@ -7897,9 +7897,6 @@ Entry Footer
   /*Hide all except first fieldset*/
   /*headings*/
 }
-.constructor .step:not(:first-of-type) {
-  display: none;
-}
 .constructor .step__title {
   margin-bottom: 10px;
 }
@@ -7915,10 +7912,14 @@ Entry Footer
 .constructor .structure-type__item {
   display: inline-block;
   text-align: center;
+  margin-bottom: 15px;
   width: 19.7%;
-  height: 150px;
-  margin-bottom: 36px;
-  border-radius: 5px;
+  vertical-align: top;
+}
+@media (max-width: 767px) {
+  .constructor .structure-type__item {
+    width: 100%;
+  }
 }
 .constructor .structure-type__item label {
   padding: 15px;
@@ -7936,8 +7937,7 @@ Entry Footer
   color: #fff;
 }
 .constructor .structure-type__item img {
-  height: 100px;
-  width: 150px;
+  width: 100%;
   margin-bottom: 15px;
 }
 .constructor .structure-type__item input {
@@ -7961,13 +7961,54 @@ Entry Footer
 }
 .constructor .dimension__item {
   padding: 0;
-}
-.constructor .dimension__item:nth-child(2) {
   padding: 0 15px;
+}
+.constructor .dimension__item:first-child {
+  padding-left: 0;
+}
+.constructor .dimension__item:last-child {
+  padding-right: 0;
 }
 .constructor .dimension__header {
   text-align: center;
   margin-bottom: 15px;
+  flex-basis: 100%;
+}
+.constructor .dimension__button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background: #fff;
+  color: #000;
+  border: 2px solid #eee;
+  border-radius: 3px;
+  transition: all .3s;
+  outline: none;
+}
+.constructor .dimension__button::before {
+  content: '-';
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  font-size: 50px;
+  line-height: 20px;
+  color: #666;
+}
+.constructor .dimension__button:last-child::before {
+  content: '+';
+  top: 3px;
+}
+.constructor .dimension__button:hover {
+  background: #2474d0;
+}
+.constructor .dimension__button:hover::before {
+  color: #fff;
+}
+.constructor .dimension__button:active {
+  background: #5d9ce3;
 }
 .constructor .dimension__settings {
   display: -webkit-flex;
@@ -7975,10 +8016,17 @@ Entry Footer
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 15px;
 }
 .constructor .dimension__settings input[type="number"] {
   flex-grow: 1;
+  margin: 0 15px;
+  text-align: center;
+  border: 2px solid #eee;
+  border-radius: 3px;
+  outline: none;
+  font-size: 24px;
 }
 .constructor .dimension__slider {
   display: -webkit-flex;
@@ -7989,10 +8037,54 @@ Entry Footer
   margin-bottom: 15px;
 }
 .constructor .dimension__slider input[type="range"] {
-  display: inline-block;
-  width: 80%;
   flex-grow: 1;
   margin: 0 15px;
+  -webkit-appearance: none;
+  outline: none;
+}
+.constructor .dimension__slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 3px;
+  transition: all .3s;
+}
+.constructor .dimension__slider input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: #eee;
+  border-radius: 3px;
+  transition: all .3s;
+}
+.constructor .dimension__slider input[type="range"]:hover::-webkit-slider-thumb {
+  background: #2474d0;
+}
+.constructor .dimension__slider input[type="range"]:hover::-webkit-slider-runnable-track {
+  background: #ddd;
+}
+.constructor .dimension__limit {
+  display: inline-block;
+  width: 55px;
+  text-align: center;
+}
+.constructor .dimension .snow-area input {
+  display: none;
+}
+.constructor .dimension .snow-area input:checked + label {
+  background: #fff;
+  border-color: #2474d0;
+}
+.constructor .dimension .snow-area label {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
 }
 .constructor .color__item {
   display: inline-block;
@@ -8104,6 +8196,15 @@ Entry Footer
 }
 .constructor .control-button--submit {
   background: #cc3300;
+}
+.constructor select {
+  -webkit-appearance: none;
+  padding: 5px 15px;
+  border: 2px solid #eee;
+  border-radius: 3px;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
 }
 @media (min-width: 768px) {
   .container {

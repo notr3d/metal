@@ -126,11 +126,11 @@ get_header(); ?>
 							<div class="step__input-area">
 								<div>
 									<div class="dimension__item col-sm-4">
-										<h4 class="dimension__header">Ширина</h4>
 										<div class="dimension__settings">
-											<button id="widthMinus" class="dimension__button">-</button>
+											<h4 class="dimension__header">Ширина</h4>
+											<button id="widthMinus" class="dimension__button"></button>
 											<input type="number" name="widthInput" id="widthInput" class="dimension__input" min="6" max="21" value="18">
-											<button id="widthPlus" class="dimension__button">+</button>
+											<button id="widthPlus" class="dimension__button"></button>
 										</div>
 										<div class="dimension__slider">
 											<span id="widthMin" class="dimension__limit"></span>
@@ -139,11 +139,11 @@ get_header(); ?>
 										</div>									
 									</div>
 									<div class="dimension__item col-sm-4">
-										<h4 class="dimension__header">Длина</h4>
 										<div class="dimension__settings">
-											<button id="lengthMinus" class="dimension__button">-</button>
+											<h4 class="dimension__header">Длина</h4>
+											<button id="lengthMinus" class="dimension__button"></button>
 											<input type="number" name="lengthInput" id="lengthInput" class="dimension__input" min="9" max="96" value="40">
-											<button id="lengthPlus" class="dimension__button">+</button>
+											<button id="lengthPlus" class="dimension__button"></button>
 										</div>
 										<div class="dimension__slider">
 											<span id="lengthMin" class="dimension__limit"></span>
@@ -152,11 +152,11 @@ get_header(); ?>
 										</div>
 									</div>
 									<div class="dimension__item col-sm-4">
-										<h4 class="dimension__header">Высота</h4>
 										<div class="dimension__settings">
-											<button id="heightMinus" class="dimension__button">-</button>
+											<h4 class="dimension__header">Высота</h4>
+											<button id="heightMinus" class="dimension__button"></button>
 											<input type="number" name="heightInput" id="heightInput" class="dimension__input" min="3" max="6" value="6">	
-											<button id="heightPlus" class="dimension__button">+</button>
+											<button id="heightPlus" class="dimension__button"></button>
 										</div>
 										<div class="dimension__slider">
 											<span id="heightMin" class="dimension__limit"></span>
@@ -171,7 +171,7 @@ get_header(); ?>
 									<h4>Объем (без учета крыши)</h4>
 									<output id="volumeOutput"></output>
 								</div>
-								<div>
+								<div class="snow-area">
 									<h4>Снеговой район строительства</h4>
 									<input type="radio" name="snow" id="snow-3" class="snow-area-input" checked>
 									<label for="snow-3">3</label>
