@@ -291,6 +291,7 @@ $(document).ready(function() {
 	colorContainer.slideUp(); //убираем меню
 	//colorLabel.text(''); // убираем текст внутри квадратов
 	drainColorButton.attr('disabled', true); // по умолчанию водосток не включен
+	drainColorButton.addClass('color__button--disabled');
 	
 	colorButton.click(function(){ //по нажатию на кнопку появляется блок с цветами
 		$(this).next().slideToggle();
@@ -298,12 +299,14 @@ $(document).ready(function() {
 	
 	drainYes.click(function(){ //включаем блок с выбором цвета водостока если он вклчюен
 		drainColorButton.removeAttr('disabled');
+		drainColorButton.removeClass('color__button--disabled');
 	});
 	
 	drainNo.click(function(){ //убираем блок цвета водостока если он выключен
 		drainColorButton.attr('disabled', true);
 		drainColorButton.next().slideUp();	
 		drainColorButton.next().children().removeAttr('checked');
+		drainColorButton.addClass('color__button--disabled');
 	});	
 	
 	colorInput.click(function(){ //красим элемент внутри кнопки выбранным цветом
