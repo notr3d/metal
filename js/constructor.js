@@ -15,7 +15,7 @@ $(".control-button--next").click(function(){
 	$(".progress__bar li").eq($("fieldset").index(next_fs)).addClass("active");
 	
 	//show the next fieldset
-	next_fs.show(); 
+	next_fs.slideDown(); 
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -31,7 +31,7 @@ $(".control-button--next").click(function(){
 		}, 
 		duration: 600, 
 		complete: function(){
-			current_fs.hide();
+			current_fs.slideUp();
 			animating = false;
 		}, 
 		//this comes from the custom easing plugin
@@ -50,7 +50,7 @@ $(".control-button--prev").click(function(){
 	$(".progress__bar li").eq($("fieldset").index(current_fs)).removeClass("active");
 	
 	//show the previous fieldset
-	previous_fs.show(); 
+	previous_fs.slideDown(); 
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -66,7 +66,7 @@ $(".control-button--prev").click(function(){
 		}, 
 		duration: 600, 
 		complete: function(){
-			current_fs.hide();
+			current_fs.slideUp();
 			animating = false;
 		}, 
 		//this comes from the custom easing plugin
@@ -380,10 +380,32 @@ $(document).ready(function() {
 	roofShealthingInput.click(function(){
 		var roofShealthingValue = roofShealthingInput.val();
 		roofShealthingOutput.text(roofShealthingValue);
-	});
+	});	
 	
 });
 
+var visual = document.getElementById('visual');
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, visual.innerWidth/visual.innerHeight, 0.1, 1000 );
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( visual.innerWidth, visual.innerHeight );
+visual.appendChild( renderer.domElement );
 
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
 
+camera.position.z = 5;
+
+var render = function () {
+	requestAnimationFrame( render );
+
+	cube.rotation.x += 0.1;
+	cube.rotation.y += 0.1;
+
+	renderer.render(scene, camera);
+};
+
+render();
 

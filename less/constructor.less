@@ -1,4 +1,7 @@
 .constructor {	
+	&__container {
+		min-height: 700px;
+	}
 	/*progressbar*/
 	.progress {
 		&__bar {
@@ -65,11 +68,10 @@
 	}	
 	.step {
 		//position: absolute;
-		/*Hide all except first fieldset*/
+		width: 100%;
 		&:not(:first-of-type) {
 			//display: none;
 		}
-		/*headings*/
 		&__title {
 			margin-bottom: 10px;
 		}
@@ -278,7 +280,6 @@
 	}
 	.color {
 		&__item {
-			display: inline-block;
 			padding: 0;
 			margin-left: -1px;
 		}
@@ -380,9 +381,27 @@
 		}
 	}
 	.result {
+		&__column {
+			padding: 0;
+			margin-bottom: 15px;
+		}
+		&__item {
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+		}
+		&__feature {
+			font-size: 16px;
+			margin-right: 15px;
+		}
 		&__value {
 			font-weight: bold;
 			font-size: 16px;
+			border: none;
+			background: none;
+			flex-grow: 1;
 		}
 	}
 	.info {
@@ -514,4 +533,19 @@
 			display: block;
 		}
 	}
+	.visual {
+		width: 480px;
+		height: 320px;
+		padding: 0;
+	}	
+}
+
+canvas {
+	width: 480px;
+	height: 320px;
+}
+
+visual {
+	width: 480px;
+	height: 320px;
 }

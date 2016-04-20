@@ -7836,6 +7836,9 @@ Entry Footer
 .constructor {
   /*progressbar*/
 }
+.constructor__container {
+  min-height: 700px;
+}
 .constructor .progress__bar {
   margin-bottom: 30px;
   overflow: hidden;
@@ -7894,8 +7897,7 @@ Entry Footer
   position: relative;
 }
 .constructor .step {
-  /*Hide all except first fieldset*/
-  /*headings*/
+  width: 100%;
 }
 .constructor .step__title {
   margin-bottom: 10px;
@@ -8091,7 +8093,6 @@ Entry Footer
   font-weight: bold;
 }
 .constructor .color__item {
-  display: inline-block;
   padding: 0;
   margin-left: -1px;
 }
@@ -8191,9 +8192,27 @@ Entry Footer
 .constructor .color__label--rr-35 {
   background: #1c3d5d;
 }
+.constructor .result__column {
+  padding: 0;
+  margin-bottom: 15px;
+}
+.constructor .result__item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+.constructor .result__feature {
+  font-size: 16px;
+  margin-right: 15px;
+}
 .constructor .result__value {
   font-weight: bold;
   font-size: 16px;
+  border: none;
+  background: none;
+  flex-grow: 1;
 }
 .constructor .info__item {
   text-align: center;
@@ -8317,6 +8336,19 @@ Entry Footer
 }
 .constructor input[type="radio"]:checked + .radio-label::after {
   display: block;
+}
+.constructor .visual {
+  width: 480px;
+  height: 320px;
+  padding: 0;
+}
+canvas {
+  width: 480px;
+  height: 320px;
+}
+visual {
+  width: 480px;
+  height: 320px;
 }
 @media (min-width: 768px) {
   .container {

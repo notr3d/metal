@@ -123,8 +123,8 @@ get_header(); ?>
 						<fieldset class="step dimension">
 							<h2 class="step__title">Размеры</h2>
 							<h3 class="step__subtitle">This is step 2</h3>
-							<div class="step__input-area">
-								<div>
+							<div class="step__input-area container">
+								<div class="col-sm-12">
 									<div class="dimension__item col-sm-4">
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Ширина</h4>
@@ -165,53 +165,58 @@ get_header(); ?>
 										</div>									
 									</div>
 								</div>
-								<div>
-									<h4>Площадь:</h4>
-									<output id=areaOutput></output>
-									<h4>Объем (без учета крыши):</h4>
-									<output id="volumeOutput"></output>
+								<div class="col-sm-4">
+									<div>
+										<h4>Площадь:</h4>
+										<output id=areaOutput></output>
+										<h4>Объем (без учета крыши):</h4>
+										<output id="volumeOutput"></output>
+									</div>
+									<div class="snow-area">
+										<h4>Снеговой район строительства:</h4>
+										<input type="radio" name="snow" id="snow-3" class="snow-area-input" checked>
+										<label for="snow-3">3</label>
+										<input type="radio" name="snow" id="snow-4" class="snow-area-input">
+										<label for="snow-4">4</label>
+										<input type="radio" name="snow" id="snow-5" class="snow-area-input">
+										<label for="snow-5">5</label>
+									</div>
+									<div>
+										<h4>Стеновая обшивка</h4>
+										<select name="wall-shealthing" id="wall-shealthing">
+											<option value="Профнастил 18 + утеплитель 100мм">Профнастил 18 + утеплитель 100мм</option>
+											<option value="Профнастил 18 + утеплитель 150мм">Профнастил 18 + утеплитель 150мм</option>
+											<option value="Стеновые 'сэндвич'-панели 200м">Стеновые 'сэндвич'-панели 200мм</option>
+											<option value="Стеновые 'сэндвич'-панели 180мм">Стеновые 'сэндвич'-панели 180мм</option>
+											<option value="Стеновые 'сэндвич'-панели 150мм">Стеновые 'сэндвич'-панели 150мм</option>
+											<option value="Стеновые 'сэндвич'-панели 120мм">Стеновые 'сэндвич'-панели 120мм</option>
+											<option value="Стеновые 'сэндвич'-панели 100мм">Стеновые 'сэндвич'-панели 100мм</option>
+											<option value="Стеновые 'сэндвич'-панели 80мм">Стеновые 'сэндвич'-панели 80мм</option>
+											<option value="Профнастил 18">Профнастил 18</option>
+											<option value="Профнастил 18 + утеплитель 100мм + профнастил 18">Профнастил 18 + утеплитель 100мм + профнастил 18</option>
+											<option value="Профнастил 18 + утеплитель 150мм + профнастил 18">Профнастил 18 + утеплитель 150мм + профнастил 18</option>
+										</select>
+									</div>
+									<div>
+										<h4>Кровельная обшивка</h4>
+										<select name="roof-shealthing" id="roof-shealthing">
+											<option value="Профнастил 45 + утеплитель 150мм">Профнастил 45 + утеплитель 150мм</option>
+											<option value="Профнастил 45 + утеплитель 200мм">Профнастил 45 + утеплитель 200мм</option>
+											<option value="Кровельные 'сэндвич'-панели 200мм">Кровельные 'сэндвич'-панели 200мм</option>
+											<option value="Кровельные 'сэндвич'-панели 180мм">Кровельные 'сэндвич'-панели 180мм</option>
+											<option value="Кровельные 'сэндвич'-панели 150мм">Кровельные 'сэндвич'-панели 150мм</option>
+											<option value="Кровельные 'сэндвич'-панели 120мм">Кровельные 'сэндвич'-панели 120мм</option>
+											<option value="Кровельные 'сэндвич'-панели 100мм">Кровельные 'сэндвич'-панели 100мм</option>
+											<option value="Кровельные 'сэндвич'-панели 80мм">Кровельные 'сэндвич'-панели 80мм</option>
+											<option value="Профнастил 45">Профнастил 45</option>
+											<option value="Профнастил 45 + утеплитель 100мм + профнастил 18">Профнастил 45 + утеплитель 100мм + профнастил 18</option>
+											<option value="Профнастил 45 + утеплитель 150мм + профнастил 18">Профнастил 45 + утеплитель 150мм + профнастил 18</option>
+										</select>
+									</div>	
 								</div>
-								<div class="snow-area">
-									<h4>Снеговой район строительства:</h4>
-									<input type="radio" name="snow" id="snow-3" class="snow-area-input" checked>
-									<label for="snow-3">3</label>
-									<input type="radio" name="snow" id="snow-4" class="snow-area-input">
-									<label for="snow-4">4</label>
-									<input type="radio" name="snow" id="snow-5" class="snow-area-input">
-									<label for="snow-5">5</label>
-								</div>
-								<div>
-									<h4>Стеновая обшивка</h4>
-									<select name="wall-shealthing" id="wall-shealthing">
-										<option value="Профнастил 18 + утеплитель 100мм">Профнастил 18 + утеплитель 100мм</option>
-										<option value="Профнастил 18 + утеплитель 150мм">Профнастил 18 + утеплитель 150мм</option>
-										<option value="Стеновые 'сэндвич'-панели 200м">Стеновые 'сэндвич'-панели 200мм</option>
-										<option value="Стеновые 'сэндвич'-панели 180мм">Стеновые 'сэндвич'-панели 180мм</option>
-										<option value="Стеновые 'сэндвич'-панели 150мм">Стеновые 'сэндвич'-панели 150мм</option>
-										<option value="Стеновые 'сэндвич'-панели 120мм">Стеновые 'сэндвич'-панели 120мм</option>
-										<option value="Стеновые 'сэндвич'-панели 100мм">Стеновые 'сэндвич'-панели 100мм</option>
-										<option value="Стеновые 'сэндвич'-панели 80мм">Стеновые 'сэндвич'-панели 80мм</option>
-										<option value="Профнастил 18">Профнастил 18</option>
-										<option value="Профнастил 18 + утеплитель 100мм + профнастил 18">Профнастил 18 + утеплитель 100мм + профнастил 18</option>
-										<option value="Профнастил 18 + утеплитель 150мм + профнастил 18">Профнастил 18 + утеплитель 150мм + профнастил 18</option>
-									</select>
-								</div>
-								<div>
-									<h4>Кровельная обшивка</h4>
-									<select name="roof-shealthing" id="roof-shealthing">
-										<option value="Профнастил 45 + утеплитель 150мм">Профнастил 45 + утеплитель 150мм</option>
-										<option value="Профнастил 45 + утеплитель 200мм">Профнастил 45 + утеплитель 200мм</option>
-										<option value="Кровельные 'сэндвич'-панели 200мм">Кровельные 'сэндвич'-панели 200мм</option>
-										<option value="Кровельные 'сэндвич'-панели 180мм">Кровельные 'сэндвич'-панели 180мм</option>
-										<option value="Кровельные 'сэндвич'-панели 150мм">Кровельные 'сэндвич'-панели 150мм</option>
-										<option value="Кровельные 'сэндвич'-панели 120мм">Кровельные 'сэндвич'-панели 120мм</option>
-										<option value="Кровельные 'сэндвич'-панели 100мм">Кровельные 'сэндвич'-панели 100мм</option>
-										<option value="Кровельные 'сэндвич'-панели 80мм">Кровельные 'сэндвич'-панели 80мм</option>
-										<option value="Профнастил 45">Профнастил 45</option>
-										<option value="Профнастил 45 + утеплитель 100мм + профнастил 18">Профнастил 45 + утеплитель 100мм + профнастил 18</option>
-										<option value="Профнастил 45 + утеплитель 150мм + профнастил 18">Профнастил 45 + утеплитель 150мм + профнастил 18</option>
-									</select>
-								</div>								
+								<div id="visual" class="visual col-sm-8">
+									
+								</div>	
 							</div>
 							<div class="step__controls-area">
 								<input type="button" name="previous" class="control-button control-button--prev" value="Назначение">
@@ -390,61 +395,77 @@ get_header(); ?>
 							<h3 class="step__subtitle">This is step 4</h3>
 							<div class="step__input-area">
 								<div class="result__container">
-									<div class="result__item">
-										<span class="result__feature">Применение: </span>
-										<span class="result__value result__value--type"></span>
+									<div class="result__column col-sm-6">
+										<div class="result__block">
+											<h3 class="result__header">Тип здания</h3>
+											<div class="result__item">
+												<span class="result__feature">Применение: </span>
+												<span class="result__value result__value--type">Склад</span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Продукт: </span>
+												<span class="result__value result__value--subtype">Спайдер</span>
+											</div>
+										</div>
+										<div class="result__block">
+											<h3 class="result__header">Размеры</h3>
+											<div class="result__item">
+												<span class="result__feature">Ширина: </span>
+												<span class="result__value result__value--width"></span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Длина: </span>
+												<span class="result__value result__value--length"></span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Высота: </span>
+												<span class="result__value result__value--height"></span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Площадь здания: </span>
+												<span class="result__value result__value--area"></span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Объем здания: </span>
+												<span class="result__value result__value--volume"></span>
+											</div>
+										</div>	
 									</div>
-									<div class="result__item">
-										<span class="result__feature">Тип продукта: </span>
-										<span class="result__value result__value--subtype"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Ширина: </span>
-										<span class="result__value result__value--width"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Длина: </span>
-										<span class="result__value result__value--length"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Высота: </span>
-										<span class="result__value result__value--height"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Площадь здания: </span>
-										<span class="result__value result__value--area"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Объем здания: </span>
-										<span class="result__value result__value--volume"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Снеговой район строительства: </span>
-										<span class="result__value result__value--snow-area"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Стеновая обшивка: </span>
-										<span class="result__value result__value--wall-shealthing"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Кровельная обшивка: </span>
-										<span class="result__value result__value--roof-shealthing"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Стены: </span>
-										<span class="result__value result__value--wall-color"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Кровля: </span>
-										<span class="result__value result__value--roof-color"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Нащельники: </span>
-										<span class="result__value result__value--lipping-color"></span>
-									</div>
-									<div class="result__item">
-										<span class="result__feature">Водосток: </span>
-										<span class="result__value result__value--drain-color"></span>
+									<div class="result__column col-sm-6">
+										<div class="result__block">
+											<h3 class="result__header">Характеристики</h3>
+											<div class="result__item">
+												<span class="result__feature">Снеговой район строительства: </span>
+												<span class="result__value result__value--snow-area">3</span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Стеновая обшивка: </span>
+												<span class="result__value result__value--wall-shealthing">Профнастил 18 + утеплитель 100мм</span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Кровельная обшивка: </span>
+												<span class="result__value result__value--roof-shealthing">Профнастил 45 + утеплитель 150мм</span>
+											</div>
+										</div>								
+										<div class="result__block">
+											<h3 class="result__header">Цвета</h3>
+											<div class="result__item">
+												<span class="result__feature">Стены: </span>
+												<span class="result__value result__value--wall-color" value="">Не выбрано</span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Кровля: </span>
+												<span class="result__value result__value--roof-color">Не выбрано</span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Нащельники: </span>
+												<span class="result__value result__value--lipping-color">Не выбрано</span>
+											</div>
+											<div class="result__item">
+												<span class="result__feature">Водосток: </span>
+												<span class="result__value result__value--drain-color">Не выбрано</span>
+											</div>
+										</div>	
 									</div>
 								</div>
 							</div>
