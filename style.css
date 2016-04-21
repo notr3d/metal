@@ -7962,7 +7962,6 @@ Entry Footer
   color: #757575;
 }
 .constructor .dimension__item {
-  padding: 0;
   padding: 0 15px;
 }
 .constructor .dimension__item:first-child {
@@ -8023,7 +8022,7 @@ Entry Footer
 }
 .constructor .dimension__settings input[type="number"] {
   flex-grow: 1;
-  margin: 0 15px;
+  margin: 0 14px;
   text-align: center;
   border: 1px solid #eee;
   border-radius: 3px;
@@ -8091,6 +8090,9 @@ Entry Footer
 .constructor .dimension output {
   font-size: 20px;
   font-weight: bold;
+}
+.constructor .dimension__input-area {
+  padding: 0;
 }
 .constructor .color__item {
   padding: 0;

@@ -43,7 +43,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-2" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-2" value="Логистический центр">
 									<label for="structure-type-2">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/2.png" alt="">
 										<div class="structure-type__title">Логистический центр</div>
@@ -51,7 +51,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-3" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-3" value="Производственное здание">
 									<label for="structure-type-3">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/3.png" alt="">
 										<div class="structure-type__title">Производственное здание</div>
@@ -59,7 +59,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-4" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-4" value="Промышленный корпус">
 									<label for="structure-type-4">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/4.png" alt="">
 										<div class="structure-type__title">Промышленный корпус</div>
@@ -67,7 +67,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-5" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-5" value="Многопролетное здание">
 									<label for="structure-type-5">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/5.png" alt="">
 										<div class="structure-type__title">Многопролетное здание</div>
@@ -75,7 +75,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-6" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-6" value="Здание птицекомплекса">
 									<label for="structure-type-6">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/6.png" alt="">
 										<div class="structure-type__title">Здание птицекомплекса</div>
@@ -83,7 +83,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-7" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-7" value="Здание для КРС">
 									<label for="structure-type-7">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/7.png" alt="">
 										<div class="structure-type__title">Здание для КРС</div>
@@ -91,7 +91,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-8" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-8" value="Сервисный центр">
 									<label for="structure-type-8">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/8.png" alt="">
 										<div class="structure-type__title">Сервисный центр</div>
@@ -99,7 +99,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-9" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-9" value="Гараж">
 									<label for="structure-type-9">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/9.png" alt="">
 										<div class="structure-type__title">Гараж</div>
@@ -107,7 +107,7 @@ get_header(); ?>
 									</label>
 								</div>								
 								<div class="structure-type__item">
-									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-10" value="Склад">
+									<input type="radio" name="structure-type" class="structure-type__input" id="structure-type-10" value="Спортивное помещение">
 									<label for="structure-type-10">
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/constructor/10.png" alt="">
 										<div class="structure-type__title">Спортивное помещение</div>
@@ -116,7 +116,7 @@ get_header(); ?>
 								</div>								
 							</div>	
 							<div class="step__controls-area">
-								<input type="button" name="next" class="control-button control-button--next" value="Размеры">
+								<input type="button" name="next" id="to-dimension-button" class="control-button control-button--next" value="Размеры">
 							</div>							
 						</fieldset>
 												
@@ -129,7 +129,7 @@ get_header(); ?>
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Ширина</h4>
 											<button id="widthMinus" class="dimension__button"></button>
-											<input type="number" name="widthInput" id="widthInput" class="dimension__input" min="6" max="21" value="18">
+											<input type="number" name="widthInput" id="widthInput" class="dimension__input" min="0" max="100">
 											<button id="widthPlus" class="dimension__button"></button>
 										</div>
 										<div class="dimension__slider">
@@ -142,7 +142,7 @@ get_header(); ?>
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Длина</h4>
 											<button id="lengthMinus" class="dimension__button"></button>
-											<input type="number" name="lengthInput" id="lengthInput" class="dimension__input" min="9" max="96" value="40">
+											<input type="number" name="lengthInput" id="lengthInput" class="dimension__input" min="0" max="100">
 											<button id="lengthPlus" class="dimension__button"></button>
 										</div>
 										<div class="dimension__slider">
@@ -155,7 +155,7 @@ get_header(); ?>
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Высота</h4>
 											<button id="heightMinus" class="dimension__button"></button>
-											<input type="number" name="heightInput" id="heightInput" class="dimension__input" min="3" max="6" value="6">	
+											<input type="number" name="heightInput" id="heightInput" class="dimension__input" min="0" max="100">	
 											<button id="heightPlus" class="dimension__button"></button>
 										</div>
 										<div class="dimension__slider">
