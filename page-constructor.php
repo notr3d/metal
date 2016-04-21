@@ -215,7 +215,6 @@ get_header(); ?>
 									</div>	
 								</div>
 								<div id="visual" class="visual col-sm-8">
-									
 								</div>	
 							</div>
 							<div class="step__controls-area">

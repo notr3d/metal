@@ -76,75 +76,73 @@ $(".control-button--prev").click(function(){
 
 $(".submit").click(function(){
 	return false;
-})
+});
+
+//находим все элементы на странице
+//ширина
+var widthInput = $('#widthInput'), //число, основное поле
+	widthRange = $('#widthRange'), //слайдер
+	widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
+	widthPlusButton = $('#widthPlus'),
+	widthOutput = $('.result__value--width'),
+	//длина
+	lengthInput = $('#lengthInput'), 
+	lengthRange = $('#lengthRange'),
+	lengthMinusButton = $('#lengthMinus'),
+	lengthPlusButton = $('#lengthPlus'),
+	lengthOutput = $('.result__value--length'),
+	//высота
+	heightInput = $('#heightInput'), 
+	heightRange = $('#heightRange'), 
+	heightMinusButton = $('#heightMinus'),
+	heightPlusButton = $('#heightPlus'),
+	heightOutput = $('.result__value--height'),
+
+	areaOutput = $('#areaOutput'), //площадь и объем
+	ResultAreaOutput = $('.result__value--area'),	
+	volumeOutput = $('#volumeOutput'), 
+	ResultVolumeOutput = $('.result__value--volume'),
+
+	width = widthInput.val(), //берем изначальные данные из html
+	length = lengthInput.val(), 
+	height = heightInput.val(),
+
+	area = width * length, //подсчет площади и объема
+	volume = area * height,
+
+	widthMin = +widthInput.attr('min'), // у слайдеров устанавливаем такие же мин и макс как и у числового ввода (которые выставлены в html)
+	widthMax = +widthInput.attr('max'),
+
+	lengthMin = +lengthInput.attr('min'),
+	lengthMax = +lengthInput.attr('max'),
+
+	heightMin = +heightInput.attr('min'),
+	heightMax = +heightInput.attr('max'),		
+
+	calc = function(){ //основная функция подсчета
+		widthInput.val(width);
+		lengthInput.val(length);
+		heightInput.val(height);
+
+		widthRange.val(width);
+		lengthRange.val(length);
+		heightRange.val(height);
+
+		widthOutput.text(width);
+		lengthOutput.text(length);
+		heightOutput.text(height);			
+
+		area = width * length;
+		areaOutput.text(area);
+		ResultAreaOutput.text(area);
+
+		volume = area * height;
+		volumeOutput.text(volume);
+		ResultVolumeOutput.text(volume);
+	};
 
 $(document).ready(function() {	
-	//---------------------------------размеры
-	//находим все элементы на странице
-	//ширина
-	var widthInput = $('#widthInput'), //число, основное поле
-		widthRange = $('#widthRange'), //слайдер
-		widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
-		widthPlusButton = $('#widthPlus'),
-		widthOutput = $('.result__value--width'),
-		//длина
-		lengthInput = $('#lengthInput'), 
-		lengthRange = $('#lengthRange'),
-		lengthMinusButton = $('#lengthMinus'),
-		lengthPlusButton = $('#lengthPlus'),
-		lengthOutput = $('.result__value--length'),
-		//высота
-		heightInput = $('#heightInput'), 
-		heightRange = $('#heightRange'), 
-		heightMinusButton = $('#heightMinus'),
-		heightPlusButton = $('#heightPlus'),
-		heightOutput = $('.result__value--height'),
-	
-		areaOutput = $('#areaOutput'), //площадь и объем
-		ResultAreaOutput = $('.result__value--area'),	
-		volumeOutput = $('#volumeOutput'), 
-		ResultVolumeOutput = $('.result__value--volume'),
-		
-		width = widthInput.val(), //берем изначальные данные из html
-		length = lengthInput.val(), 
-		height = heightInput.val(),
-		
-		area = width * length, //подсчет площади и объема
-		volume = area * height,
-		
-		widthMin = +widthInput.attr('min'), // у слайдеров устанавливаем такие же мин и макс как и у числового ввода (которые выставлены в html)
-		widthMax = +widthInput.attr('max'),
-		
-		lengthMin = +lengthInput.attr('min'),
-		lengthMax = +lengthInput.attr('max'),
-		
-		heightMin = +heightInput.attr('min'),
-		heightMax = +heightInput.attr('max'),
-		
-		
-		
-		calc = function(){ //основная функция подсчета
-			widthInput.val(width);
-			lengthInput.val(length);
-			heightInput.val(height);
-			
-			widthRange.val(width);
-			lengthRange.val(length);
-			heightRange.val(height);
-			
-			widthOutput.text(width);
-			lengthOutput.text(length);
-			heightOutput.text(height);			
-			
-			area = width * length;
-			areaOutput.text(area);
-			ResultAreaOutput.text(area);
-			
-			volume = area * height;
-			volumeOutput.text(volume);
-			ResultVolumeOutput.text(volume);
-		};	
-	
+	//---------------------------------размеры	
 	widthRange.attr('min', widthInput.attr('min'));
 	widthRange.attr('max', widthInput.attr('max'));
 	lengthRange.attr('min', lengthInput.attr('min'));
@@ -338,12 +336,6 @@ $(document).ready(function() {
 		}
 	});
 	
-	
-	
-	
-	
-	
-	
 	//------------results------------------
 	//тип и подтип здания
 	var structureTypeInput = $('.structure-type__input'),
@@ -357,8 +349,7 @@ $(document).ready(function() {
 		
 		structureTypeOutput.text(structureType);
 		structureSubTypeOutput.text(structureSubType);		
-	});
-	
+	});	
 	
 	//снеговой район и обшивка
 	var snowAreaInput = $('.snow-area-input'),
@@ -386,26 +377,26 @@ $(document).ready(function() {
 
 var visual = document.getElementById('visual');
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, visual.innerWidth/visual.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 60, visual.offsetWidth/visual.offsetHeight, 1, 10000 ); //fov, aspect ratio, near and far clipping plane
 var renderer = new THREE.WebGLRenderer();
-renderer.setSize( visual.innerWidth, visual.innerHeight );
+
+renderer.setSize( visual.offsetWidth, visual.offsetHeight );
 visual.appendChild( renderer.domElement );
 
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var material = new THREE.MeshBasicMaterial( { color: 0xEEEEEE } );
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
-camera.position.z = 5;
+camera.position.z = 6;
 
 var render = function () {
 	requestAnimationFrame( render );
 
-	cube.rotation.x += 0.1;
-	cube.rotation.y += 0.1;
+	//cube.rotation.x += 0.1;
+	cube.rotation.y += 0.005;
 
 	renderer.render(scene, camera);
 };
 
 render();
-
