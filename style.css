@@ -8388,9 +8388,6 @@ main {
 .slick-slide:focus {
   outline: none;
 }
-* {
-  font-family: 'Exo 2', sans-serif;
-}
 *::selection {
   background-color: #fbc02d;
   color: #fff;
@@ -8402,6 +8399,9 @@ main {
 * input:focus::-webkit-input-placeholder,
 * textarea:focus::-webkit-input-placeholder {
   color: transparent !important;
+}
+body {
+  font-family: 'Exo 2', sans-serif;
 }
 .my-link {
   display: inline-block;
@@ -8633,4 +8633,11 @@ main {
 }
 .phone__number {
   font-weight: bold;
+}
+.close {
+  font-family: 'Helvetica Neue', sans-serif !important;
+  transition: .3s;
+}
+.close:hover {
+  transform: rotate(90deg);
 }

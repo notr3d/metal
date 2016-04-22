@@ -162,8 +162,7 @@ main {
 }
 
 //мои стили
-* {
-	font-family: 'Exo 2', sans-serif;
+* {	
 	&::selection {
 		background-color: @yellow;
 		color: #fff;
@@ -178,6 +177,10 @@ main {
 			}
 		}
 	}
+}
+
+body {
+	font-family: 'Exo 2', sans-serif;
 }
 
 .my {
@@ -432,5 +435,13 @@ main {
 .phone {
 	&__number {
 		font-weight: bold;
+	}
+}
+
+.close {
+	font-family: 'Helvetica Neue', sans-serif !important;
+	transition: .3s;
+	&:hover {
+		transform: rotate(90deg);
 	}
 }
