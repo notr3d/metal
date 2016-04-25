@@ -252,7 +252,17 @@
 			width: 55px;
 			text-align: center;
 		}
-		.snow-area {
+		&__output {
+			h4 {
+				display: inline;
+				margin-right: 15px;
+			}
+			output {
+				display: inline;
+				margin-right: 45px;
+			}
+		}
+		&__snow-area {
 			input {
 				display: none;
 				&:checked + label {
@@ -278,6 +288,28 @@
 		}
 		&__input-area {
 			padding: 0;
+		}
+	}
+	.appearance {
+		.step__input-area {
+		}
+		&__item {
+			position: relative;
+			display: inline-block;
+			width: 24.8%;
+			h4 {
+				text-align: center;
+			}
+			&--disabled {
+				background: red;
+			}
+		}
+		&__inclusion {
+		}
+		&__count {
+			input[type="number"] {
+				width: 40px;
+			}
 		}
 	}
 	.color {

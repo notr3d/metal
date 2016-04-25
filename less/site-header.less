@@ -146,6 +146,14 @@
 					border-top: 2px solid @blue;
 				}
 			}
+			.dropdown-submenu {
+				.dropdown-menu {
+					top: 0;
+					&::before {
+						display: none;
+					}
+				}
+			}
 		}
 	}
 	.search-form {

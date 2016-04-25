@@ -7253,6 +7253,12 @@ Entry Footer
     border-top: 2px solid #2474d0;
   }
 }
+.site-nav .navbar-nav .page_item .dropdown-submenu .dropdown-menu {
+  top: 0;
+}
+.site-nav .navbar-nav .page_item .dropdown-submenu .dropdown-menu::before {
+  display: none;
+}
 .site-nav .search-form {
   position: relative;
   margin-right: 0;
@@ -7658,12 +7664,20 @@ Entry Footer
 .about article p {
   text-align: justify;
 }
+.products__wrapper {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
 .products__item {
   height: 420px;
-  margin-bottom: 15px;
-  width: 33.1%;
+  width: 33.333333%;
   display: inline-block;
   background: url(img/products/1.jpg) no-repeat;
+  background-size: cover;
   position: relative;
 }
 .products__item:nth-child(2) {
@@ -7703,13 +7717,21 @@ Entry Footer
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 50%);
   transition: all .3s;
 }
+.products__item--big {
+  width: 100%;
+  height: 600px;
+}
+@media (max-width: 767px) {
+  .products__item--big {
+    width: 440px;
+  }
+}
 .products__inner {
   display: inline-block;
   padding: 15px;
   position: absolute;
   bottom: 15px;
-  left: 15px;
-  width: 92.5%;
+  width: 100%;
   transition: all .3s;
 }
 .products__inner:hover {
@@ -8069,14 +8091,22 @@ Entry Footer
   width: 55px;
   text-align: center;
 }
-.constructor .dimension .snow-area input {
+.constructor .dimension__output h4 {
+  display: inline;
+  margin-right: 15px;
+}
+.constructor .dimension__output output {
+  display: inline;
+  margin-right: 45px;
+}
+.constructor .dimension__snow-area input {
   display: none;
 }
-.constructor .dimension .snow-area input:checked + label {
+.constructor .dimension__snow-area input:checked + label {
   background: #fff;
   border-color: #2474d0;
 }
-.constructor .dimension .snow-area label {
+.constructor .dimension__snow-area label {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -8093,6 +8123,20 @@ Entry Footer
 }
 .constructor .dimension__input-area {
   padding: 0;
+}
+.constructor .appearance__item {
+  position: relative;
+  display: inline-block;
+  width: 24.8%;
+}
+.constructor .appearance__item h4 {
+  text-align: center;
+}
+.constructor .appearance__item--disabled {
+  background: red;
+}
+.constructor .appearance__count input[type="number"] {
+  width: 40px;
 }
 .constructor .color__item {
   padding: 0;

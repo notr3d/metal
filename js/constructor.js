@@ -82,14 +82,17 @@ $(".submit").click(function(){
 var	width = 18, //ширина, длина и высота
 	widthMin = 0,
 	widthMax = 0,
+	widthStep = 1,
 	
 	length = 40, 
 	lengthMin = 0,
 	lengthMax = 0,
+	lengthStep = 1,
 	
 	height = 6,
 	heightMin = 0,
 	heightMax = 0,
+	heightStep = 1,
 	
 	area = width * length, //подсчет площади и объема
 	volume = area * height,
@@ -123,7 +126,7 @@ var	width = 18, //ширина, длина и высота
 	volumeOutput = $('#volumeOutput'), 
 	ResultVolumeOutput = $('.result__value--volume'),		
 
-	calc = function(){ //основная функция подсчета
+	calc = function(){ //основная функция подсчета	
 		widthInput.val(width);
 		lengthInput.val(length);
 		heightInput.val(height);
@@ -136,157 +139,182 @@ var	width = 18, //ширина, длина и высота
 		lengthOutput.text(length);
 		heightOutput.text(height);			
 
-		area = width * length;
-		areaOutput.text(area);
-		ResultAreaOutput.text(area);
-
-		volume = area * height;
-		volumeOutput.text(volume);
-		ResultVolumeOutput.text(volume);
+		area = Math.round(width * length);
+		areaOutput.text(area + ' м').append('<sup>2</sup>');
+		ResultAreaOutput.text(area + ' м').append('<sup>2</sup>');
 		
-		geometry.parameters.width = width;
-		geometry.parameters.height = height;
-		geometry.parameters.depth = length;
-		render();
-	};
-
-$(document).ready(function(){
-	calc();
-});
-
-//выбираем тип здания
-structureTypeInput.click(function(){
-	currentStructureType = structureTypeInput.filter(':checked').attr('id');
-});
-
-//по типу здания расчитываем все
-toDimensionButton.click(function(){
-	switch (currentStructureType) {
+		volume = Math.round(area * height);
+		volumeOutput.text(volume + ' м').append('<sup>3</sup>');
+		ResultVolumeOutput.text(volume + ' м').append('<sup>3</sup>');
+		
+//		geometry.parameters.width = width;
+//		geometry.parameters.height = height;
+//		geometry.parameters.depth = length;
+//		render();
+	},
+	init = function(){
+		switch (currentStructureType) {
 		case 'structure-type-1':
 			width = 18; 
-			length = 40, 
-			height = 6,
+			length = 40; 
+			height = 6;
 			widthMin = 6;
 			widthMax = 21;
 			lengthMin = 9;
 			lengthMax = 99;
 			heightMin = 3;
 			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 5; //4.5
+			heightStep = 0.5; //0.6
 			break;
 		case 'structure-type-2':
 			width = 48; 
-			length = 77, 
-			height = 10, //9.6
+			length = 77; 
+			height = 9; //9.6
 			widthMin = 6;
 			widthMax = 18;
 			lengthMin = 23;
 			lengthMax = 122;
-			heightMin = 5; //4.8
+			heightMin = 4.5; //4.8
 			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
 			break;
 		case 'structure-type-3':
 			width = 21; 
-			length = 39, 
-			height = 4, //4.2
+			length = 39; 
+			height = 4; //4.2
 			widthMin = 6;
 			widthMax = 21;
 			lengthMin = 9;
 			lengthMax = 99;
 			heightMin = 3;
 			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 3;
+			heightStep = 0.5; //0.6
 			break;
 		case 'structure-type-4':
 			width = 30; 
-			length = 59, 
-			height = 7, //7.2
+			length = 59; 
+			height = 7; //7.2
 			widthMin = 18;
 			widthMax = 60;
 			lengthMin = 23;
 			lengthMax = 122;
-			heightMin = 5; //4.8
+			heightMin = 4.5; //4.8
 			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
 			break;
 		case 'structure-type-5':
 			width = 15; 
-			length = 40, //40.5 
-			height = 6,
+			length = 40; //40
+			height = 6;
 			widthMin = 6;
 			widthMax = 21;
 			lengthMin = 9;
 			lengthMax = 99;
 			heightMin = 3;
 			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 3;
+			heightStep = 0.5; //0.6
 			break;
 		case 'structure-type-6':
-			width = 19; //18.8 
-			length = 42, 
-			height = 3,
-			widthMin = 19; //18.8
-			widthMax = 25; //24.8
+			width = 18; //18.8
+			length = 42; 
+			height = 3;
+			widthMin = 18; //18.8
+			widthMax = 24; //24.8
 			lengthMin = 18;
 			lengthMax = 96;
 			heightMin = 3;
 			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 6;
+			heightStep = 0.5; //0.6
 			break;
 		case 'structure-type-7':
-			width = 29; //28.8 
-			length = 36, 
-			height = 3,
-			widthMin = 29; //28.8
+			width = 28;  //28.8
+			length = 36; 
+			height = 3;
+			widthMin = 28; //28.8
 			widthMax = 35;
-			lengthMin = 11; //10.8
-			lengthMax = 97; //97.2;
+			lengthMin = 10; //10.8
+			lengthMax = 97; //97.2
 			heightMin = 3;
-			heightMax = 5; //4.8
+			heightMax = 5; //5
+			widthStep = 2.5; //2.6
+			lengthStep = 3.5; //3.6
+			heightStep = 0.5; //0.6
 			break;
 		case 'structure-type-8':
 			width = 18; 
-			length = 40, 
-			height = 6,
+			length = 40; 
+			height = 6;
 			widthMin = 6;
 			widthMax = 21;
 			lengthMin = 9;
 			lengthMax = 99;
 			heightMin = 3;
 			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 4;
+			heightStep =0.5; //0.6
 			break;
 		case 'structure-type-9':
 			width = 24; 
-			length = 41, 
-			height = 6,
+			length = 41; 
+			height = 6;
 			widthMin = 18;
 			widthMax = 60;
 			lengthMin = 23;
 			lengthMax = 122;
-			heightMin = 5; //4.8
+			heightMin = 4.5; //4.8
 			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
 			break;
 		case 'structure-type-10':
 			width = 30; 
-			length = 32, 
-			height = 5, //4.8
+			length = 32; 
+			height = 4.5; //4.8
 			widthMin = 18;
 			widthMax = 60;
 			lengthMin = 23;
 			lengthMax = 122;
-			heightMin = 5; //4.8
+			heightMin = 4.5; //4.8
 			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
 			break;
 	};
 	
 	widthInput.attr('min', widthMin);
 	widthInput.attr('max', widthMax);
+	widthInput.attr('step', widthStep);
 	lengthInput.attr('min', lengthMin);
 	lengthInput.attr('max', lengthMax);
+	lengthInput.attr('step', lengthStep);
 	heightInput.attr('min', heightMin);
 	heightInput.attr('max', heightMax);	
+	heightInput.attr('step', heightStep);	
 	
 	widthRange.attr('min', widthMin);
 	widthRange.attr('max', widthMax);
+	widthRange.attr('step', widthStep);
 	lengthRange.attr('min', lengthMin);
 	lengthRange.attr('max', lengthMax);
+	lengthRange.attr('step', lengthStep);
 	heightRange.attr('min', heightMin);
 	heightRange.attr('max', heightMax);	
+	heightRange.attr('step', heightStep);	
 	
 	$('#widthMin').text(widthMin);
 	$('#widthMax').text(widthMax);
@@ -296,6 +324,21 @@ toDimensionButton.click(function(){
 	$('#heightMax').text(heightMax);
 	
 	calc();
+	};
+
+
+$(document).ready(function(){
+	init();
+});
+
+//выбираем тип здания
+structureTypeInput.click(function(){
+	currentStructureType = structureTypeInput.filter(':checked').attr('id');
+});
+
+//по типу здания расчитываем все
+toDimensionButton.click(function(){
+	init();
 })
 	
 //number
@@ -356,52 +399,52 @@ heightInput.change(function(){
 
 //слайдеры
 widthRange.change(function(){
-	width = widthRange.val();
+	width = +widthRange.val();
 	calc();
 });
 lengthRange.change(function(){
-	length = lengthRange.val();
+	length = +lengthRange.val();
 	calc();
 });
 heightRange.change(function(){
-	height = heightRange.val();
+	height = +heightRange.val();
 	calc();
 });
 
 //кнопки + -		
 widthMinusButton.click(function(){
 	if (width > widthMin) {
-		width--;
+		width -=widthStep;
 		calc();
 	} 
 });
 widthPlusButton.click(function(){
 	if (width < widthMax) {
-		width++;
+		width +=widthStep;
 		calc();
 	}
 });
 lengthMinusButton.click(function(){		
 	if (length > lengthMin) {
-		length--;
+		length -=lengthStep;
 		calc();
 	}
 });
 lengthPlusButton.click(function(){
 	if (length < lengthMax) {
-		length++;
+		length +=lengthStep;
 		calc();
 	}
 });
 heightMinusButton.click(function(){;
 	if (height > heightMin) {
-		height--;
+		height -=heightStep;
 		calc();
 	}
 });
 heightPlusButton.click(function(){
 	if (height < heightMax) {
-		height++;
+		height +=heightStep;
 		calc();
 	}
 });	
@@ -414,14 +457,22 @@ var colorButton = $('.color__button'), //кнопка выбора цвета
 	colorInput = $('.color__input'), // скрытые инпуты для цветов
 	colorLabel = $('.color__label'), // квадраты для выбора цвета
 
-	drainYes = $('#drain-yes'), // выбрать цвет нельзя если он не включен
-	drainNo = $('#drain-no'),
+	drainYes = $('#drain-yes'), 
 	drainColorButton = $('#drainColorButton'),
 
 	wallColorOutput = $('.result__value--wall-color'),
 	roofColorOutput = $('.result__value--roof-color'),
 	lippingColorOutput = $('.result__value--lipping-color'),
-	drainColorOutput = $('.result__value--drain-color');
+	drainColorOutput = $('.result__value--drain-color'),
+	
+	appearanceInput = $('.appearance__input');
+
+appearanceInput.click(function(){
+	var appearanceItem = $(this).parent().parent();
+	appearanceItem.toggleClass('appearance__item--disabled');
+	appearanceItem.children('.color__button').toggleClass('color__button--disabled');
+	appearanceItem.children('.appearance__count').children().attr('disabled', false);
+});
 
 colorContainer.slideUp(); //убираем меню
 //colorLabel.text(''); // убираем текст внутри квадратов
@@ -437,12 +488,12 @@ drainYes.click(function(){ //включаем блок с выбором цве�
 	drainColorButton.removeClass('color__button--disabled');
 });
 
-drainNo.click(function(){ //убираем блок цвета водостока если он выключен
-	drainColorButton.attr('disabled', true);
-	drainColorButton.next().slideUp();	
-	drainColorButton.next().children().removeAttr('checked');
-	drainColorButton.addClass('color__button--disabled');
-});	
+//drainNo.click(function(){ //убираем блок цвета водостока если он выключен
+//	drainColorButton.attr('disabled', true);
+//	drainColorButton.next().slideUp();	
+//	drainColorButton.next().children().removeAttr('checked');
+//	drainColorButton.addClass('color__button--disabled');
+//});	
 
 colorInput.click(function(){ //красим элемент внутри кнопки выбранным цветом
 	var color = $(this).attr('id').split('-'),
@@ -548,7 +599,7 @@ var render = function () {
 	renderer.render(scene, camera);
 };*/
 
-var visual = document.getElementById('visual'); 
+/*var visual = document.getElementById('visual'); 
 var scene, geometry, material, structure, roof, camera, renderer, controls;
 
 var WIDTH  = visual.offsetWidth;
@@ -609,7 +660,7 @@ function initLights() {
 
 function initRoof() {
     var loader = new THREE.JSONLoader();
-    loader.load('../../metal/wp-content/themes/metal/js/models/roof.json', function(geometry, materials) {
+    loader.load('../../metal/wp-content/themes/metal/js/models/roof-2.json', function(geometry, materials) {
         roof = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
 		
         roof.translation = THREE.GeometryUtils.center(geometry);
@@ -629,16 +680,16 @@ function rotate() {
 
 function render() {
     requestAnimationFrame(render);
-    //rotate();	
+    rotate();	
 	structure.scale.x = width;
 	structure.scale.y = height; 
 	structure.scale.z = length;
-	roof.scale.x = width;
-	roof.scale.y = height; 
-	roof.scale.z = length;	
+//	roof.scale.x = width;
+//	roof.scale.y = height; 
+//	roof.scale.z = length;	
 
     renderer.render(scene, camera);
 }
 
 init();
-render();
+render();*/
