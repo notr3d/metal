@@ -74,9 +74,9 @@ $(".control-button--prev").click(function(){
 	});
 });*/
 
-$(".submit").click(function(){
-	return false;
-});
+//$(".submit").click(function(){
+//	return false;
+//});
  	
 //главные параметры
 var	width = 18, //ширина, длина и высота
@@ -156,7 +156,7 @@ var	width = 18, //ширина, длина и высота
 		switch (currentStructureType) {
 		case 'structure-type-1':
 			width = 18; 
-			length = 40; 
+			length = 39; 
 			height = 6;
 			widthMin = 6;
 			widthMax = 21;
@@ -449,6 +449,19 @@ heightPlusButton.click(function(){
 	}
 });	
 
+//-------------дополнительные параметры-------------
+var additionalInput = $('#additional-input'),
+	additionalContainer = $('#additional-container');
+
+additionalInput.click(function(){
+	if ($(this).prop('checked') == true) {
+		additionalContainer.slideDown();
+	} else {
+		additionalContainer.slideUp();
+	}
+});
+
+
 //--------------выбор цвета
 var colorButton = $('.color__button'), //кнопка выбора цвета
 	colorSpan = $('.color__span'), // элемент внутри кнопки для выбранного цвета
@@ -456,25 +469,17 @@ var colorButton = $('.color__button'), //кнопка выбора цвета
 	colorContainer = $('.color__container'), // выпадающее меню с цветами
 	colorInput = $('.color__input'), // скрытые инпуты для цветов
 	colorLabel = $('.color__label'), // квадраты для выбора цвета
-
+	colorText = $('.color__text'),
+	
 	drainYes = $('#drain-yes'), 
 	drainColorButton = $('#drainColorButton'),
 
 	wallColorOutput = $('.result__value--wall-color'),
 	roofColorOutput = $('.result__value--roof-color'),
 	lippingColorOutput = $('.result__value--lipping-color'),
-	drainColorOutput = $('.result__value--drain-color'),
-	
-	appearanceInput = $('.appearance__input');
+	drainColorOutput = $('.result__value--drain-color');
 
-appearanceInput.click(function(){
-	var appearanceItem = $(this).parent().parent();
-	appearanceItem.toggleClass('appearance__item--disabled');
-	appearanceItem.children('.color__button').toggleClass('color__button--disabled');
-	appearanceItem.children('.appearance__count').children().attr('disabled', false);
-});
-
-colorContainer.slideUp(); //убираем меню
+colorContainer.slideUp(0); //убираем меню
 //colorLabel.text(''); // убираем текст внутри квадратов
 drainColorButton.attr('disabled', true); // по умолчанию водосток не включен
 drainColorButton.addClass('color__button--disabled');
@@ -504,10 +509,19 @@ colorInput.click(function(){ //красим элемент внутри кноп
 	$(this)
 		.parent()
 		.prev()
-		.children(colorLabel)
+		.children()
+		.first()
 		.attr('class', 'color__span ' + colorId);
 
+	$(this)
+		.parent()
+		.prev()
+		.children()
+		.last()
+		.text($(this).next().text());
+	
 	$(this).parent().slideUp();
+	
 
 	switch (colorType) {
 		case 'wall':
@@ -559,6 +573,36 @@ roofShealthingInput.click(function(){
 	roofShealthingOutput.text(roofShealthingValue);
 });	
 	
+var	appearanceInput = $('.appearance__input'),
+	appearanceItem = $('.appearance__item');
+
+appearanceInput.click(function(){
+	var appearanceItem = $(this).parent().parent();
+	appearanceItem.toggleClass('appearance__item--disabled');
+	appearanceItem.children('.color__button').toggleClass('color__button--disabled');
+	if (appearanceItem.children('.color__button').attr('disabled') == 'disabled') {
+		appearanceItem.children('.color__button').attr('disabled', false);
+	} else {
+		appearanceItem.children('.color__button').attr('disabled', true)
+	};
+	appearanceItem.children('.appearance__count').children().attr('disabled', false);
+});
+
+function call() {
+  var msg = $('#formx').serialize();
+	$.ajax({
+	  type: 'POST',
+	  url: '../../metal/wp-content/themes/metal/res.php',
+	  data: msg,
+	  success: function(data) {
+		$('#results').html(data);
+	  },
+	  error:  function(xhr, str){
+	alert('Возникла ошибка: ' + xhr.responseCode);
+	  }
+	});
+}
+
 //-------------------3d-version-------------------
 /*var visual = document.getElementById('visual'); 
 var scene = new THREE.Scene(); //сцена

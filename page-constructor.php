@@ -29,7 +29,7 @@ get_header(); ?>
 							<li class="progress__item">Контактная информация</li>
 						</ul>
 					</div>					
-					<div class="constructor__container">
+					<form method="POST" id="formx" action="javascript:void(null);" onsubmit="call()" class="constructor__container">
 						<fieldset class="step step--first structure-type">
 							<h2 class="step__title">Назначение</h2>
 							<h3 class="step__subtitle">This is step 1</h3>
@@ -181,6 +181,37 @@ get_header(); ?>
 										<input type="radio" name="snow" id="snow-5" class="snow-area-input">
 										<label for="snow-5">5</label>
 									</div>
+									<div class="additional">
+										<input type="checkbox" id="additional-input">
+										<label for="additional-input">Дополнительные параметры</label>
+										<div id="additional-container" class="additional__container">
+											<div>
+												<label for="">Город</label>
+												<input type="text">
+											</div>
+											<div>
+												<label for="">t<sub>н</sub></label>
+												<input type="number">
+											</div>
+											<div>
+												<label for="">t<sub>в</sub></label>
+												<input type="number">
+											</div>
+											<div>
+												<label for="">Влажность</label>
+												<input type="number">
+											</div>
+											<div>
+												<label for="">R<sub>ст</sub></label>
+												<input type="number">
+											</div>
+											<div>
+												<label for="">R<sub>кр</sub></label>
+												<input type="number">
+											</div>
+											<button>Сбросить</button>
+										</div>
+									</div>
 									<div>
 										<h4>Стеновая обшивка</h4>
 										<select name="wall-shealthing" id="wall-shealthing">
@@ -212,7 +243,7 @@ get_header(); ?>
 											<option value="Профнастил 45 + утеплитель 100мм + профнастил 18">Профнастил 45 + утеплитель 100мм + профнастил 18</option>
 											<option value="Профнастил 45 + утеплитель 150мм + профнастил 18">Профнастил 45 + утеплитель 150мм + профнастил 18</option>
 										</select>
-									</div>	
+									</div>										
 								</div>
 <!--
 								<div id="visual" class="visual col-sm-8">
@@ -230,164 +261,190 @@ get_header(); ?>
 							<div class="step__input-area">
 								<div class="appearance__item">
 									<h4>Стены</h4>
-									<button class="color__button"><span class="color__span"></span>Стены</button>
-									<div class="color__container">
-										<input type="radio" name="wallColor" id="wall-ral-5012" class="color__input" checked>
-										<label for="wall-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
-										<input type="radio" name="wallColor" id="wall-ral-1014" class="color__input">
-										<label for="wall-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
-										<input type="radio" name="wallColor" id="wall-ral-1015" class="color__input">
-										<label for="wall-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
-										<input type="radio" name="wallColor" id="wall-ral-1018" class="color__input">
-										<label for="wall-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
-										<input type="radio" name="wallColor" id="wall-ral-3003" class="color__input">
-										<label for="wall-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
-										<input type="radio" name="wallColor" id="wall-ral-5005" class="color__input">
-										<label for="wall-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
-										<input type="radio" name="wallColor" id="wall-ral-6002" class="color__input">
-										<label for="wall-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
-										<input type="radio" name="wallColor" id="wall-ral-7004" class="color__input">
-										<label for="wall-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
-										<input type="radio" name="wallColor" id="wall-ral-7047" class="color__input">
-										<label for="wall-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
-										<input type="radio" name="wallColor" id="wall-ral-9002" class="color__input">
-										<label for="wall-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
-										<input type="radio" name="wallColor" id="wall-ral-9003" class="color__input">
-										<label for="wall-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
-										<input type="radio" name="wallColor" id="wall-ral-9006" class="color__input">
-										<label for="wall-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
-										<input type="radio" name="wallColor" id="wall-rr-20" class="color__input">
-										<label for="wall-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
-										<input type="radio" name="wallColor" id="wall-rr-21" class="color__input">
-										<label for="wall-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
-										<input type="radio" name="wallColor" id="wall-rr-35" class="color__input">
-										<label for="wall-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>
+									<div class="color">
+										<button class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
+										<div class="color__container">
+											<input type="radio" name="wallColor" id="wall-ral-5012" class="color__input" value="RAL 5012 Голубой" checked>
+											<label for="wall-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
+											<input type="radio" name="wallColor" id="wall-ral-1014" class="color__input" value="RAL 1014 Слоновая кость">
+											<label for="wall-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
+											<input type="radio" name="wallColor" id="wall-ral-1015" class="color__input" value="RAL 1015 Светлая слоновая кость">
+											<label for="wall-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
+											<input type="radio" name="wallColor" id="wall-ral-1018" class="color__input" value="RAL 1018 Цинково-желтый">
+											<label for="wall-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
+											<input type="radio" name="wallColor" id="wall-ral-3003" class="color__input" value="RAL 3003 Рубиново-красный">
+											<label for="wall-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
+											<input type="radio" name="wallColor" id="wall-ral-5005" class="color__input" value="RAL 5005 Сигнальный синий">
+											<label for="wall-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
+											<input type="radio" name="wallColor" id="wall-ral-6002" class="color__input" value="RAL 6002 Лиственно-зеленый">
+											<label for="wall-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
+											<input type="radio" name="wallColor" id="wall-ral-7004" class="color__input" value="RAL 7004 Сигнальный серый">
+											<label for="wall-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
+											<input type="radio" name="wallColor" id="wall-ral-7047" class="color__input" value="RAL 7047 Телегрей 4">
+											<label for="wall-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
+											<input type="radio" name="wallColor" id="wall-ral-9002" class="color__input" value="RAL 9002 Светло-серый">
+											<label for="wall-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
+											<input type="radio" name="wallColor" id="wall-ral-9003" class="color__input" value="RAL 9003 Сигнальный белый">
+											<label for="wall-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
+											<input type="radio" name="wallColor" id="wall-ral-9006" class="color__input" value="RAL 9006 Бело-алюминиевый">
+											<label for="wall-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
+											<input type="radio" name="wallColor" id="wall-rr-20" class="color__input" value="RR 20 Белый">
+											<label for="wall-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
+											<input type="radio" name="wallColor" id="wall-rr-21" class="color__input" value="RR 21 Светло-серый">
+											<label for="wall-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
+											<input type="radio" name="wallColor" id="wall-rr-35" class="color__input" value="RR 35 Синий">
+											<label for="wall-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>
+										</div>
 									</div>
 								</div>
 								<div class="appearance__item">
 									<h4>Кровля</h4>
-									<button class="color__button"><span class="color__span"></span>Кровля</button>
-									<div class="color__container">
-										<input type="radio" name="roofColor" id="roof-ral-5012" class="color__input" checked>
-										<label for="roof-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
-										<input type="radio" name="roofColor" id="roof-ral-1014" class="color__input">
-										<label for="roof-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
-										<input type="radio" name="roofColor" id="roof-ral-1015" class="color__input">
-										<label for="roof-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
-										<input type="radio" name="roofColor" id="roof-ral-1018" class="color__input">
-										<label for="roof-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
-										<input type="radio" name="roofColor" id="roof-ral-3003" class="color__input">
-										<label for="roof-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
-										<input type="radio" name="roofColor" id="roof-ral-5005" class="color__input">
-										<label for="roof-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
-										<input type="radio" name="roofColor" id="roof-ral-6002" class="color__input">
-										<label for="roof-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
-										<input type="radio" name="roofColor" id="roof-ral-7004" class="color__input">
-										<label for="roof-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
-										<input type="radio" name="roofColor" id="roof-ral-7047" class="color__input">
-										<label for="roof-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
-										<input type="radio" name="roofColor" id="roof-ral-9002" class="color__input">
-										<label for="roof-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
-										<input type="radio" name="roofColor" id="roof-ral-9003" class="color__input">
-										<label for="roof-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
-										<input type="radio" name="roofColor" id="roof-ral-9006" class="color__input">
-										<label for="roof-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
-										<input type="radio" name="roofColor" id="roof-rr-20" class="color__input">
-										<label for="roof-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
-										<input type="radio" name="roofColor" id="roof-rr-21" class="color__input">
-										<label for="roof-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
-										<input type="radio" name="roofColor" id="roof-rr-35" class="color__input">
-										<label for="roof-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>
+									<div class="color">
+										<button class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
+										<div class="color__container">
+											<input type="radio" name="roofColor" id="roof-ral-5012" class="color__input" checked>
+											<label for="roof-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
+											<input type="radio" name="roofColor" id="roof-ral-1014" class="color__input">
+											<label for="roof-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
+											<input type="radio" name="roofColor" id="roof-ral-1015" class="color__input">
+											<label for="roof-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
+											<input type="radio" name="roofColor" id="roof-ral-1018" class="color__input">
+											<label for="roof-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
+											<input type="radio" name="roofColor" id="roof-ral-3003" class="color__input">
+											<label for="roof-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
+											<input type="radio" name="roofColor" id="roof-ral-5005" class="color__input">
+											<label for="roof-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
+											<input type="radio" name="roofColor" id="roof-ral-6002" class="color__input">
+											<label for="roof-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
+											<input type="radio" name="roofColor" id="roof-ral-7004" class="color__input">
+											<label for="roof-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
+											<input type="radio" name="roofColor" id="roof-ral-7047" class="color__input">
+											<label for="roof-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
+											<input type="radio" name="roofColor" id="roof-ral-9002" class="color__input">
+											<label for="roof-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
+											<input type="radio" name="roofColor" id="roof-ral-9003" class="color__input">
+											<label for="roof-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
+											<input type="radio" name="roofColor" id="roof-ral-9006" class="color__input">
+											<label for="roof-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
+											<input type="radio" name="roofColor" id="roof-rr-20" class="color__input">
+											<label for="roof-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
+											<input type="radio" name="roofColor" id="roof-rr-21" class="color__input">
+											<label for="roof-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
+											<input type="radio" name="roofColor" id="roof-rr-35" class="color__input">
+											<label for="roof-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>
+										</div>
 									</div>
 								</div>
 								<div class="appearance__item">
 									<h4>Нащельники</h4>
-									<button class="color__button"><span class="color__span"></span>Нащельники</button>
-									<div class="color__container">
-										<input type="radio" name="lippingColor" id="lipping-ral-5012" class="color__input" checked>
-										<label for="lipping-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-1014" class="color__input">
-										<label for="lipping-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-1015" class="color__input">
-										<label for="lipping-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-1018" class="color__input">
-										<label for="lipping-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-3003" class="color__input">
-										<label for="lipping-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-5005" class="color__input">
-										<label for="lipping-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-6002" class="color__input">
-										<label for="lipping-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-7004" class="color__input">
-										<label for="lipping-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-7047" class="color__input">
-										<label for="lipping-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-9002" class="color__input">
-										<label for="lipping-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-9003" class="color__input">
-										<label for="lipping-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
-										<input type="radio" name="lippingColor" id="lipping-ral-9006" class="color__input">
-										<label for="lipping-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
-										<input type="radio" name="lippingColor" id="lipping-rr-20" class="color__input">
-										<label for="lipping-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
-										<input type="radio" name="lippingColor" id="lipping-rr-21" class="color__input">
-										<label for="lipping-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
-										<input type="radio" name="lippingColor" id="lipping-rr-35" class="color__input">
-										<label for="lipping-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>	
+									<div class="color">
+										<button class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
+										<div class="color__container">
+											<input type="radio" name="lippingColor" id="lipping-ral-5012" class="color__input" checked>
+											<label for="lipping-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-1014" class="color__input">
+											<label for="lipping-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-1015" class="color__input">
+											<label for="lipping-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-1018" class="color__input">
+											<label for="lipping-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-3003" class="color__input">
+											<label for="lipping-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-5005" class="color__input">
+											<label for="lipping-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-6002" class="color__input">
+											<label for="lipping-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-7004" class="color__input">
+											<label for="lipping-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-7047" class="color__input">
+											<label for="lipping-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-9002" class="color__input">
+											<label for="lipping-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-9003" class="color__input">
+											<label for="lipping-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
+											<input type="radio" name="lippingColor" id="lipping-ral-9006" class="color__input">
+											<label for="lipping-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
+											<input type="radio" name="lippingColor" id="lipping-rr-20" class="color__input">
+											<label for="lipping-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
+											<input type="radio" name="lippingColor" id="lipping-rr-21" class="color__input">
+											<label for="lipping-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
+											<input type="radio" name="lippingColor" id="lipping-rr-35" class="color__input">
+											<label for="lipping-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>	
+										</div>
 									</div>
 								</div>
 								<div class="appearance__item appearance__item--disabled">
 									<div class="appearance__inclusion">
-										<label>Водосток</label>
-										<input type="checkbox" class="appearance__input">									
+										<input type="checkbox" id="drain" class="appearance__input">
+										<label for="drain">Водосток</label>
 									</div>
-									<button id="drainColorButton" class="color__button color__button--disabled"><span class="color__span"></span>Водосток</button>
+									<div class="color">
+										<button id="drainColorButton" class="color__button color__button--disabled"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
+										<div class="color__container">
+											<input type="radio" name="drainColor" id="drain-ral-5012" class="color__input" checked>
+											<label for="drain-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
+											<input type="radio" name="drainColor" id="drain-ral-1014" class="color__input">
+											<label for="drain-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
+											<input type="radio" name="drainColor" id="drain-ral-1015" class="color__input">
+											<label for="drain-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
+											<input type="radio" name="drainColor" id="drain-ral-1018" class="color__input">
+											<label for="drain-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
+											<input type="radio" name="drainColor" id="drain-ral-3003" class="color__input">
+											<label for="drain-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
+											<input type="radio" name="drainColor" id="drain-ral-5005" class="color__input">
+											<label for="drain-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
+											<input type="radio" name="drainColor" id="drain-ral-6002" class="color__input">
+											<label for="drain-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
+											<input type="radio" name="drainColor" id="drain-ral-7004" class="color__input">
+											<label for="drain-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
+											<input type="radio" name="drainColor" id="drain-ral-7047" class="color__input">
+											<label for="drain-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
+											<input type="radio" name="drainColor" id="drain-ral-9002" class="color__input">
+											<label for="drain-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
+											<input type="radio" name="drainColor" id="drain-ral-9003" class="color__input">
+											<label for="drain-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
+											<input type="radio" name="drainColor" id="drain-ral-9006" class="color__input">
+											<label for="drain-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
+											<input type="radio" name="drainColor" id="drain-rr-20" class="color__input">
+											<label for="drain-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
+											<input type="radio" name="drainColor" id="drain-rr-21" class="color__input">
+											<label for="drain-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
+											<input type="radio" name="drainColor" id="drain-rr-35" class="color__input">
+											<label for="drain-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>	
+										</div>
+									</div>
+								</div>
+								<div class="appearance__item appearance__item--disabled">
+									<div class="appearance__inclusion">
+										<input type="checkbox" id="translucent" class="appearance__input">
+										<label for="translucent">Светопрозрачные участки кровли</label>
+									</div>
 									<div class="appearance__count">
 										<label for="">Количество</label>
 										<button>-</button>
-										<input type="number">
+										<input type="number" value="0">
 										<button>+</button>
-									</div>	
-									<div class="color__container">
-										<input type="radio" name="drainColor" id="drain-ral-5012" class="color__input" checked>
-										<label for="drain-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
-										<input type="radio" name="drainColor" id="drain-ral-1014" class="color__input">
-										<label for="drain-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
-										<input type="radio" name="drainColor" id="drain-ral-1015" class="color__input">
-										<label for="drain-ral-1015" class="color__label color__label--ral-1015">RAL 1015 Светлая слоновая кость</label>
-										<input type="radio" name="drainColor" id="drain-ral-1018" class="color__input">
-										<label for="drain-ral-1018" class="color__label color__label--ral-1018">RAL 1018 Цинково-желтый</label>
-										<input type="radio" name="drainColor" id="drain-ral-3003" class="color__input">
-										<label for="drain-ral-3003" class="color__label color__label--ral-3003">RAL 3003 Рубиново-красный</label>
-										<input type="radio" name="drainColor" id="drain-ral-5005" class="color__input">
-										<label for="drain-ral-5005" class="color__label color__label--ral-5005">RAL 5005 Сигнальный синий</label>
-										<input type="radio" name="drainColor" id="drain-ral-6002" class="color__input">
-										<label for="drain-ral-6002" class="color__label color__label--ral-6002">RAL 6002 Лиственно-зеленый</label>
-										<input type="radio" name="drainColor" id="drain-ral-7004" class="color__input">
-										<label for="drain-ral-7004" class="color__label color__label--ral-7004">RAL 7004 Сигнальный серый</label>
-										<input type="radio" name="drainColor" id="drain-ral-7047" class="color__input">
-										<label for="drain-ral-7047" class="color__label color__label--ral-7047">RAL 7047 Телегрей 4</label>
-										<input type="radio" name="drainColor" id="drain-ral-9002" class="color__input">
-										<label for="drain-ral-9002" class="color__label color__label--ral-9002">RAL 9002 Светло-серый</label>
-										<input type="radio" name="drainColor" id="drain-ral-9003" class="color__input">
-										<label for="drain-ral-9003" class="color__label color__label--ral-9003">RAL 9003 Сигнальный белый</label>
-										<input type="radio" name="drainColor" id="drain-ral-9006" class="color__input">
-										<label for="drain-ral-9006" class="color__label color__label--ral-9006">RAL 9006 Бело-алюминиевый</label>
-										<input type="radio" name="drainColor" id="drain-rr-20" class="color__input">
-										<label for="drain-rr-20" class="color__label color__label--rr-20">RR 20 Белый</label>
-										<input type="radio" name="drainColor" id="drain-rr-21" class="color__input">
-										<label for="drain-rr-21" class="color__label color__label--rr-21">RR 21 Светло-серый</label>
-										<input type="radio" name="drainColor" id="drain-rr-35" class="color__input">
-										<label for="drain-rr-35" class="color__label color__label--rr-35">RR 35 Синий</label>	
-									</div>
+									</div>									
 								</div>
-								<h4>Светопрозрачные участки кровли</h4>
-								<div>
-									<input type="radio" name="translucentRoof" id="translucentRoof-yes">
-									<label for="translucentRoof-yes" class="radio-label">Да</label>
-									<input type="radio" name="translucentRoof" id="translucentRoof-no" checked>
-									<label for="translucentRoof-no" class="radio-label">Нет</label>
+								<div class="appearance__item">
+									<h4>Двери</h4>
+									<div class="appearance__count">
+										<label for="">Количество</label>
+										<button>-</button>
+										<input type="number" value="1">
+										<button>+</button>
+									</div>									
 								</div>
+								<div class="appearance__item">
+									<h4>Ворота</h4>
+									<div class="appearance__count">
+										<label for="">Количество</label>
+										<button>-</button>
+										<input type="number" value="0">
+										<button>+</button>
+									</div>									
+								</div>
+																
 							</div>							
 							<div class="step__controls-area">
 								<input type="button" name="previous" class="control-button control-button--prev" value="Размеры">
@@ -485,19 +542,19 @@ get_header(); ?>
 							<div class="step__input-area container">
 								<div class="info__item info__item--name col-sm-3">
 									<label for="name">Имя: *</label>
-									<input name="name" id="name" required>
+									<input name="name" id="name">
 								</div>
 								<div class="info__item info__item--company col-sm-3">
 									<label for="company-name">Компания: *</label>
-									<input type="text" name="company-name" id="company-name" required>
+									<input type="text" name="company-name" id="company-name">
 								</div>
 								<div class="info__item info__item--phone col-sm-3">
 									<label for="tel">Телефон: *</label>
-									<input name="tel" id="tel" type="tel" required>
+									<input name="tel" id="tel" type="tel">
 								</div>
 								<div class="info__item info__item--mail col-sm-3">
 									<label for="mail">Электронная почта: *</label>
-									<input name="mail" id="mail" type="email" required>
+									<input name="mail" id="mail" type="email">
 								</div>
 <!--
 								<div class="info__item">
@@ -541,8 +598,9 @@ get_header(); ?>
 								<input type="button" name="previous" class="control-button control-button--prev" value="Результат">
 								<input type="submit" name="submit" class="control-button control-button--submit" value="Отправить">
 							</div>
+							<div id="results">вывод</div>
 						</fieldset>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
