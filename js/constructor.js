@@ -588,20 +588,33 @@ appearanceInput.click(function(){
 	appearanceItem.children('.appearance__count').children().attr('disabled', false);
 });
 
-function call() {
-  var msg = $('#formx').serialize();
+function sendMail() {
+	var constructorMail = $('#form').serialize();
 	$.ajax({
-	  type: 'POST',
-	  url: '../../metal/wp-content/themes/metal/res.php',
-	  data: msg,
-	  success: function(data) {
-		$('#results').html(data);
-	  },
-	  error:  function(xhr, str){
-	alert('Возникла ошибка: ' + xhr.responseCode);
-	  }
+		type: 'POST',
+		url: '../../metal/wp-content/themes/metal/mail.php',
+		data: constructorMail,
+		success: function(data) {
+			$('#results').html(data);
+		},
+		error: function(xhr, str){
+			alert(xhr.responseCode);
+		}
 	});
-}
+};
+
+var countBlock = $('.appearance__count'),
+	buttonMinus = countBlock.children('button').first(),
+	buttonPlus = countBlock.children('button').last();
+
+alert(countBlock);
+buttonMinus.click(function(){
+	alert(-1);
+})
+
+buttonPlus.click(function(){
+	alert(1);
+})
 
 //-------------------3d-version-------------------
 /*var visual = document.getElementById('visual'); 

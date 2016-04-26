@@ -8069,10 +8069,11 @@ Entry Footer
 }
 .constructor .dimension__slider input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
+  width: 15px;
   height: 20px;
   background: #ccc;
   border-radius: 3px;
+  transform: translateY(-5px);
   transition: all .3s;
 }
 .constructor .dimension__slider input[type="range"]::-webkit-slider-runnable-track {
@@ -8081,6 +8082,7 @@ Entry Footer
   background: #eee;
   border-radius: 3px;
   transition: all .3s;
+  height: 10px;
 }
 .constructor .dimension__slider input[type="range"]:hover::-webkit-slider-thumb {
   background: #2474d0;
@@ -8443,6 +8445,12 @@ canvas {
   width: 480px;
   height: 320px;
   padding: 0;
+}
+#results {
+  margin-top: 15px;
+}
+#results pre {
+  margin-bottom: 0;
 }
 .product .heading h1 {
   text-align: center;
