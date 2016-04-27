@@ -124,8 +124,8 @@ get_header(); ?>
 							<h2 class="step__title">Размеры</h2>
 							<h3 class="step__subtitle">This is step 2</h3>
 							<div class="step__input-area container">
-								<div class="col-sm-12">
-									<div class="dimension__item col-sm-4">
+								<div class="row">
+									<div class="dimension__item col-sm-3">
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Ширина</h4>
 											<button type="button" id="widthMinus" class="dimension__button"></button>
@@ -138,7 +138,7 @@ get_header(); ?>
 											<span id="widthMax" class="dimension__limit"></span>
 										</div>									
 									</div>
-									<div class="dimension__item col-sm-4">
+									<div class="dimension__item col-sm-3">
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Длина</h4>
 											<button type="button" id="lengthMinus" class="dimension__button"></button>
@@ -151,7 +151,7 @@ get_header(); ?>
 											<span id="lengthMax" class="dimension__limit"></span>	
 										</div>
 									</div>
-									<div class="dimension__item col-sm-4">
+									<div class="dimension__item col-sm-3">
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Высота</h4>
 											<button type="button" id="heightMinus" class="dimension__button"></button>
@@ -164,15 +164,15 @@ get_header(); ?>
 											<span id="heightMax" class="dimension__limit"></span>
 										</div>									
 									</div>
-								</div>
-								<div class="col-sm-12">
-									<div class="dimension__output">
+									<div class="dimension__item dimension__output col-sm-3">
 										<h4>Площадь:</h4>
 										<output id=areaOutput></output>
 										<h4>Объем (без учета крыши):</h4>
 										<output id="volumeOutput"></output>
 									</div>
-									<div class="dimension__snow-area">
+								</div>								
+								<div class="row">									
+									<div class="dimension__snow-area col-sm-4">
 										<h4>Снеговой район строительства:</h4>
 										<input type="radio" name="snow" id="snow-3" class="snow-area-input" value="3" checked>
 										<label for="snow-3">3</label>
@@ -180,39 +180,8 @@ get_header(); ?>
 										<label for="snow-4">4</label>
 										<input type="radio" name="snow" id="snow-5" class="snow-area-input" value="5">
 										<label for="snow-5">5</label>
-									</div>
-									<div class="additional">
-										<input type="checkbox" id="additional-input">
-										<label for="additional-input">Дополнительные параметры</label>
-										<div id="additional-container" class="additional__container">
-											<div>
-												<label for="city">Город</label>
-												<input type="text" name="city" id="city">
-											</div>
-											<div>
-												<label for="t-outside">t<sub>н</sub></label>
-												<input type="number" name="t-outside" id="t-outside">
-											</div>
-											<div>
-												<label for="t-inside">t<sub>в</sub></label>
-												<input type="number" name="t-inside" id="t-inside">
-											</div>
-											<div>
-												<label for="humidity">Влажность</label>
-												<input type="number" name="humidity" id="humidity">
-											</div>
-											<div>
-												<label for="wall-resistance">R<sub>ст</sub></label>
-												<input type="number" name="wall-resistance" id="wall-resistance">
-											</div>
-											<div>
-												<label for="roof-resistance">R<sub>кр</sub></label>
-												<input type="number" name="roof-resistance" id="roof-resistance">
-											</div>
-											<button type="button">Сбросить</button>
-										</div>
-									</div>
-									<div>
+									</div>									
+									<div class="col-sm-4">
 										<h4>Стеновая обшивка</h4>
 										<select name="wall-shealthing" id="wall-shealthing">
 											<option value="Профнастил 18 + утеплитель 100мм">Профнастил 18 + утеплитель 100мм</option>
@@ -228,7 +197,7 @@ get_header(); ?>
 											<option value="Профнастил 18 + утеплитель 150мм + профнастил 18">Профнастил 18 + утеплитель 150мм + профнастил 18</option>
 										</select>
 									</div>
-									<div>
+									<div class="col-sm-4">
 										<h4>Кровельная обшивка</h4>
 										<select name="roof-shealthing" id="roof-shealthing">
 											<option value="Профнастил 45 + утеплитель 150мм">Профнастил 45 + утеплитель 150мм</option>
@@ -245,6 +214,36 @@ get_header(); ?>
 										</select>
 									</div>										
 								</div>
+								<div class="additional row">
+									<input type="checkbox" id="additional-input">
+									<label for="additional-input" class="additional__header">Дополнительные параметры</label>
+									<div id="additional-container" class="additional__container container">
+										<div class="additional__item col-sm-4">
+											<label for="city">Город</label>
+											<input type="text" name="city" id="city" disabled>
+										</div>
+										<div class="additional__item col-sm-4">
+											<label for="t-outside">Внутренняя темпиратура</label>
+											<input type="number" name="t-outside" id="t-outside" disabled>
+										</div>
+										<div class="additional__item col-sm-4">
+											<label for="t-inside">Внешняя темпиратура</label>
+											<input type="number" name="t-inside" id="t-inside" disabled>
+										</div>
+										<div class="additional__item col-sm-4">
+											<label for="humidity">Влажность</label>
+											<input type="number" name="humidity" id="humidity" disabled>
+										</div>
+										<div class="additional__item col-sm-4">
+											<label for="wall-resistance">Сопротивление стен</sub></label>
+											<input type="number" name="wall-resistance" id="wall-resistance" disabled>
+										</div>
+										<div class="additional__item col-sm-4">
+											<label for="roof-resistance">Сопротивление кровли</sub></label>
+											<input type="number" name="roof-resistance" id="roof-resistance" disabled>
+										</div>
+									</div>
+								</div>
 <!--
 								<div id="visual" class="visual col-sm-8">
 								</div>	
@@ -259,7 +258,7 @@ get_header(); ?>
 							<h2 class="step__title">Внешний вид здания</h2>
 							<h3 class="step__subtitle">This is step 3</h3>
 							<div class="step__input-area">
-								<div class="appearance__item">
+								<div class="appearance__item col-sm-3">
 									<h4>Стены</h4>
 									<div class="color">
 										<button type="button" class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
@@ -297,7 +296,7 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-								<div class="appearance__item">
+								<div class="appearance__item col-sm-3">
 									<h4>Кровля</h4>
 									<div class="color">
 										<button type="button" class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
@@ -335,7 +334,7 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-								<div class="appearance__item">
+								<div class="appearance__item col-sm-3">
 									<h4>Нащельники</h4>
 									<div class="color">
 										<button type="button" class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
@@ -373,13 +372,13 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-								<div class="appearance__item appearance__item--disabled">
+								<div class="appearance__item appearance__item--disabled col-sm-3">
 									<div class="appearance__inclusion">
 										<input type="checkbox" id="drain" class="appearance__input">
 										<label for="drain">Водосток</label>
 									</div>
 									<div class="color">
-										<button type="button" id="drainColorButton" class="color__button color__button--disabled"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
+										<button type="button" class="color__button" disabled><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
 										<div class="color__container">
 											<input type="radio" name="drainColor" id="drain-ral-5012" class="color__input" value="RAL 5012 Голубой" checked>
 											<label for="drain-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
@@ -414,46 +413,81 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-								<div class="appearance__item appearance__item--disabled">
+								<div class="appearance__item col-sm-3">
+									<h4>Двери</h4>
+									<div class="appearance__count">
+										<label for="">Количество: </label>
+										<button type="button" class="count-button count-button--minus">-</button>
+										<input type="number" name="door-quantity" min="1" max="10" value="1">
+										<button type="button" class="count-button count-button--plus">+</button>
+									</div>
+									<div>
+										<span>Размеры:</span>
+										<input type="radio" name="door-dim" id="door-2x1" value="2x1" checked>
+										<label for="door-2x1">2x1</label>
+										<input type="radio" name="door-dim" id="door-3x1" value="3x1">
+										<label for="door-3x1">3x1</label>
+										<input type="radio" name="door-dim" id="door-4x1" value="4x1">
+										<label for="door-4x1">4x1</label>
+									</div>
+								</div>
+								<div class="appearance__item col-sm-3">
+									<h4>Ворота</h4>
+									<div class="appearance__count">
+										<label for="">Количество: </label>
+										<button type="button" class="count-button count-button--minus">-</button>
+										<input type="number" name="gate-quantity" min="0" max="10" value="0">
+										<button type="button" class="count-button count-button--plus">+</button>
+									</div>
+									<div>
+										<span>Размеры:</span>
+										<input type="radio" name="gate-dim" id="gate-2x1" value="2x1" checked>
+										<label for="gate-2x1">2x1</label>
+										<input type="radio" name="gate-dim" id="gate-3x1" value="3x1">
+										<label for="gate-3x1">3x1</label>
+										<input type="radio" name="gate-dim" id="gate-4x1" value="4x1">
+										<label for="gate-4x1">4x1</label>
+									</div>
+								</div>
+								<div class="appearance__item col-sm-3">
+									<h4>Окна</h4>
+									<div class="appearance__count">
+										<label for="">Количество: </label>
+										<button type="button" class="count-button count-button--minus">-</button>
+										<input type="number" name="window-quantity" min="0" max="10" value="0">
+										<button type="button" class="count-button count-button--plus">+</button>
+									</div>
+									<div>
+										<span>Размеры:</span>
+										<input type="radio" name="window-dim" id="window-2x1" value="2x1" checked>
+										<label for="window-2x1">2x1</label>
+										<input type="radio" name="window-dim" id="window-3x1" value="3x1">
+										<label for="window-3x1">3x1</label>
+										<input type="radio" name="window-dim" id="window-4x1" value="4x1">
+										<label for="window-4x1">4x1</label>
+									</div>
+								</div>
+								<div class="appearance__item appearance__item--disabled col-sm-3">
 									<div class="appearance__inclusion">
 										<input type="checkbox" id="translucent" class="appearance__input">
 										<label for="translucent">Светопрозрачные участки кровли</label>
 									</div>
 									<div class="appearance__count">
-										<label for="">Количество</label>
-										<button type="button">-</button>
-										<input type="number" value="0">
-										<button type="button">+</button>
-									</div>									
+										<label for="">Количество: </label>
+										<button type="button" class="count-button count-button--minus" disabled>-</button>
+										<input type="number" name="translucent-roof-areas-quantity" min="0" max="10" value="0" disabled>
+										<button type="button" class="count-button count-button--plus" disabled>+</button>
+									</div>	
+									<div>
+										<span>Размеры:</span>
+										<input type="radio" name="tra-dim" id="tra-2x1" value="2x1" checked disabled>
+										<label for="tra-2x1">2x1</label>
+										<input type="radio" name="tra-dim" id="tra-3x1" value="3x1" disabled>
+										<label for="tra-3x1">3x1</label>
+										<input type="radio" name="tra-dim" id="tra-4x1" value="4x1" disabled>
+										<label for="tra-4x1">4x1</label>
+									</div>								
 								</div>
-								<div class="appearance__item">
-									<h4>Двери</h4>
-									<div class="appearance__count">
-										<label for="">Количество</label>
-										<button type="button">-</button>
-										<input type="number" value="1">
-										<button type="button">+</button>
-									</div>									
-								</div>
-								<div class="appearance__item">
-									<h4>Ворота</h4>
-									<div class="appearance__count">
-										<label for="">Количество</label>
-										<button type="button">-</button>
-										<input type="number" value="0">
-										<button type="button">+</button>
-									</div>									
-								</div>
-								<div class="appearance__item">
-									<h4>Окна</h4>
-									<div class="appearance__count">
-										<label for="">Количество</label>
-										<button type="button">-</button>
-										<input type="number" value="0">
-										<button type="button">+</button>
-									</div>									
-								</div>
-																
 							</div>							
 							<div class="step__controls-area">
 								<input type="button" name="previous" class="control-button control-button--prev" value="Размеры">
@@ -607,7 +641,7 @@ get_header(); ?>
 								<input type="button" name="previous" class="control-button control-button--prev" value="Результат">
 								<input type="submit" name="submit" class="control-button control-button--submit" value="Отправить">
 							</div>
-							<div id="results">вывод</div>
+							<!--<div id="results">вывод</div>-->
 						</fieldset>
 					</form>
 				</div>
@@ -615,5 +649,21 @@ get_header(); ?>
 		</div>
 		</div><!-- #primary -->
 	</main><!-- #main -->
-
+	<script>
+		function sendMail() {
+        	var constructorMail = $('#form').serialize();
+        	$.ajax({
+        		type: 'POST',
+        		url: '<?php echo get_template_directory_uri(); ?>/mail.php',
+        		data: constructorMail,
+        		success: function(data) {
+        			$('#results').html(data);
+					alert('Ваше сообщение отправлено');
+        		},
+        		error: function(xhr, str){
+        			alert(xhr.responseCode);
+        		}
+        	});
+        };
+	</script>
 <?php get_footer(); ?>
