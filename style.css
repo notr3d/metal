@@ -8128,7 +8128,6 @@ Entry Footer
   display: block;
 }
 .constructor .additional__container {
-  display: none;
   margin: 0;
 }
 .constructor .additional__container label {
@@ -8447,7 +8446,7 @@ Entry Footer
 }
 .constructor select {
   -webkit-appearance: none;
-  padding: 5px 15px;
+  padding: 5px 45px 5px 5px;
   border: 1px solid #eee;
   box-shadow: none;
   background: #fff url(http://localhost/metal/wp-content/themes/metal/img/arrow-down.png) no-repeat 95% 50%;
@@ -8516,6 +8515,20 @@ canvas {
 *:disabled {
   pointer-events: auto;
   cursor: not-allowed !important;
+}
+.ui-autocomplete {
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  width: 280px;
+  cursor: pointer;
+}
+.ui-menu-item {
+  padding: 15px;
+}
+.ui-menu-item:hover {
+  background: #2474d0;
+  color: #fff;
 }
 .product .heading {
   height: 380px;

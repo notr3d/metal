@@ -299,7 +299,7 @@
 			}
 		}
 		&__container {
-			display: none;
+			//display: none;
 			margin: 0;
 			label {
 				display: block;
@@ -641,7 +641,7 @@
 	}
 	select {
 		-webkit-appearance: none;
-		padding: 5px 15px;
+		padding: 5px 45px 5px 5px;
 		border: 1px solid #eee;
 		//border-radius: 3px;
 		box-shadow: none;
@@ -721,3 +721,21 @@ canvas {
 	pointer-events: auto;
 	cursor: not-allowed !important;
 }
+
+.ui {
+	&-autocomplete {
+		background: #fff;
+		list-style: none;
+		padding: 0;
+		width: 280px;
+		cursor: pointer;
+	}	
+	&-menu-item {
+		padding: 15px;
+		&:hover {
+			background: @blue;
+			color: #fff;
+		}
+	}
+}
+

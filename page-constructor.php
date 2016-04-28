@@ -184,14 +184,12 @@ get_header(); ?>
 									<div class="col-sm-4">
 										<h4>Стеновая обшивка</h4>
 										<select name="wall-shealthing" id="wall-shealthing">
-											<option value="Профнастил 18 + утеплитель 100мм">Профнастил 18 + утеплитель 100мм</option>
-											<option value="Профнастил 18 + утеплитель 150мм">Профнастил 18 + утеплитель 150мм</option>
-											<option value="Стеновые 'сэндвич'-панели 200м">Стеновые 'сэндвич'-панели 200мм</option>
-											<option value="Стеновые 'сэндвич'-панели 180мм">Стеновые 'сэндвич'-панели 180мм</option>
-											<option value="Стеновые 'сэндвич'-панели 150мм">Стеновые 'сэндвич'-панели 150мм</option>
-											<option value="Стеновые 'сэндвич'-панели 120мм">Стеновые 'сэндвич'-панели 120мм</option>
-											<option value="Стеновые 'сэндвич'-панели 100мм">Стеновые 'сэндвич'-панели 100мм</option>
-											<option value="Стеновые 'сэндвич'-панели 80мм">Стеновые 'сэндвич'-панели 80мм</option>
+											<option value="Стеновые сэндвич-панели 200м">Стеновые сэндвич-панели 200мм</option>
+											<option value="Стеновые сэндвич-панели 180мм">Стеновые сэндвич-панели 180мм</option>
+											<option value="Стеновые сэндвич-панели 150мм">Стеновые сэндвич-панели 150мм</option>
+											<option value="Стеновые сэндвич-панели 120мм">Стеновые сэндвич-панели 120мм</option>
+											<option value="Стеновые сэндвич-панели 100мм">Стеновые сэндвич-панели 100мм</option>
+											<option value="Стеновые сэндвич-панели 80мм">Стеновые сэндвич-панели 80мм</option>
 											<option value="Профнастил 18">Профнастил 18</option>
 											<option value="Профнастил 18 + утеплитель 100мм + профнастил 18">Профнастил 18 + утеплитель 100мм + профнастил 18</option>
 											<option value="Профнастил 18 + утеплитель 150мм + профнастил 18">Профнастил 18 + утеплитель 150мм + профнастил 18</option>
@@ -200,14 +198,12 @@ get_header(); ?>
 									<div class="col-sm-4">
 										<h4>Кровельная обшивка</h4>
 										<select name="roof-shealthing" id="roof-shealthing">
-											<option value="Профнастил 45 + утеплитель 150мм">Профнастил 45 + утеплитель 150мм</option>
-											<option value="Профнастил 45 + утеплитель 200мм">Профнастил 45 + утеплитель 200мм</option>
-											<option value="Кровельные 'сэндвич'-панели 200мм">Кровельные 'сэндвич'-панели 200мм</option>
-											<option value="Кровельные 'сэндвич'-панели 180мм">Кровельные 'сэндвич'-панели 180мм</option>
-											<option value="Кровельные 'сэндвич'-панели 150мм">Кровельные 'сэндвич'-панели 150мм</option>
-											<option value="Кровельные 'сэндвич'-панели 120мм">Кровельные 'сэндвич'-панели 120мм</option>
-											<option value="Кровельные 'сэндвич'-панели 100мм">Кровельные 'сэндвич'-панели 100мм</option>
-											<option value="Кровельные 'сэндвич'-панели 80мм">Кровельные 'сэндвич'-панели 80мм</option>
+											<option value="Кровельные сэндвич-панели 200мм">Кровельные сэндвич-панели 200мм</option>
+											<option value="Кровельные сэндвич-панели 180мм">Кровельные сэндвич-панели 180мм</option>
+											<option value="Кровельные сэндвич-панели 150мм">Кровельные сэндвич-панели 150мм</option>
+											<option value="Кровельные сэндвич-панели 120мм">Кровельные сэндвич-панели 120мм</option>
+											<option value="Кровельные сэндвич-панели 100мм">Кровельные сэндвич-панели 100мм</option>
+											<option value="Кровельные сэндвич-панели 80мм">Кровельные сэндвич-панели 80мм</option>
 											<option value="Профнастил 45">Профнастил 45</option>
 											<option value="Профнастил 45 + утеплитель 100мм + профнастил 18">Профнастил 45 + утеплитель 100мм + профнастил 18</option>
 											<option value="Профнастил 45 + утеплитель 150мм + профнастил 18">Профнастил 45 + утеплитель 150мм + профнастил 18</option>
@@ -223,25 +219,30 @@ get_header(); ?>
 											<input type="text" name="city" id="city" disabled>
 										</div>
 										<div class="additional__item col-sm-4">
-											<label for="t-outside">Внутренняя темпиратура</label>
-											<input type="number" name="t-outside" id="t-outside" disabled>
+											<label for="t-in">Внутренняя темпиратура</label>
+											<input type="number" name="t-in" id="t-in" value="18" disabled>
+										</div>
+										<!--<div class="additional__item col-sm-4">
+											<label for="t-out">Внешняя темпиратура</label>
+											<input type="number" name="t-out" id="t-out" disabled>
+										</div>-->										
+										<div class="additional__item col-sm-4">
+											<label for="Rtr">R<sub>тр</sub></label>
+											<input type="text" name="Rtr" id="Rtr" disabled>
 										</div>
 										<div class="additional__item col-sm-4">
-											<label for="t-inside">Внешняя темпиратура</label>
-											<input type="number" name="t-inside" id="t-inside" disabled>
+											<label for="GSOP">ГСОП</label>
+											<input type="text" name="GSOP" id="GSOP" disabled>
 										</div>
 										<div class="additional__item col-sm-4">
-											<label for="humidity">Влажность</label>
-											<input type="number" name="humidity" id="humidity" disabled>
+											<label for="Rpr">R<sub>пр</sub></label>
+											<input type="text" name="Rpr" id="Rpr" disabled>
 										</div>
 										<div class="additional__item col-sm-4">
-											<label for="wall-resistance">Сопротивление стен</sub></label>
-											<input type="number" name="wall-resistance" id="wall-resistance" disabled>
+											<label for="thickness">Толщина</label>
+											<input type="text" name="thickness" id="thickness" disabled>
 										</div>
-										<div class="additional__item col-sm-4">
-											<label for="roof-resistance">Сопротивление кровли</sub></label>
-											<input type="number" name="roof-resistance" id="roof-resistance" disabled>
-										</div>
+										
 									</div>
 								</div>
 <!--
@@ -641,7 +642,7 @@ get_header(); ?>
 								<input type="button" name="previous" class="control-button control-button--prev" value="Результат">
 								<input type="submit" name="submit" class="control-button control-button--submit" value="Отправить">
 							</div>
-							<!--<div id="results">вывод</div>-->
+							<div id="results"></div>
 						</fieldset>
 					</form>
 				</div>
@@ -658,7 +659,7 @@ get_header(); ?>
         		data: constructorMail,
         		success: function(data) {
         			$('#results').html(data);
-					alert('Ваше сообщение отправлено');
+					//alert('Ваше сообщение отправлено');
         		},
         		error: function(xhr, str){
         			alert(xhr.responseCode);
