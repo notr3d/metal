@@ -28,7 +28,7 @@
 					font-size: 16px;
 					color: #333;
 					background: white;
-					//border-radius: 3px;
+					border-radius: 3px;
 					margin: 0 auto 5px auto;
 				}
 				/*progressbar connectors*/
@@ -83,17 +83,25 @@
 			margin-bottom: 15px;
 		}
 		&__controls-area {
-			text-align: center;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
 		}
-	}
-	
+	}	
 	.structure-type {
+		.step__input-area {
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			flex-wrap: wrap;
+		}
 		&__item {
-			display: inline-block;
 			text-align: center;
-			margin-bottom: 15px;
-			width: 19.7%;
-			vertical-align: top;
+			width: 20%;
 			@media @mobile {
 				width: 100%;
 			}
@@ -102,6 +110,7 @@
 				width: 100%;
 				cursor: pointer;
 				transition: all .3s;
+				margin-bottom: 0;
 				&:hover {
 					background: lighten(@blue, 15%);
 					.structure-type__title {
@@ -157,8 +166,7 @@
 			position: relative;
 			background: #fff;
 			color: #000;
-			border: 1px solid #eee;
-			//border-radius: 3px;
+			border: 1px solid #ddd;
 			transition: all .3s;
 			outline: none;
 			&::before {
@@ -173,7 +181,11 @@
 				line-height: 20px;
 				color: #666;
 			}
-			&:last-child {
+			&--minus {
+				border-radius: 20% 0 0 20%;
+			}
+			&--plus {
+				border-radius: 0 20% 20% 0;
 				&::before {
 					content: '+';
 					top: 3px;
@@ -199,9 +211,9 @@
 			margin-bottom: 15px;
 			input[type="number"] {
 				flex-grow: 1;
-				margin: 0 14px;
+				margin: 0 -1px;
 				text-align: center;
-				border: 1px solid #eee;
+				border: 1px solid #ddd;
 				//border-radius: 3px;
 				outline: none;
 				font-size: 24px;
@@ -224,15 +236,15 @@
 					width: 15px;
 					height: 20px;
 					background: #ccc;
-					//border-radius: 3px;
+					border-radius: 3px;
 					transform: translateY(-5px);
 					transition: all .3s;
 				}
 				&::-webkit-slider-runnable-track {
 					-webkit-appearance: none;
 					cursor: pointer;
-					background: #eee;
-					//border-radius: 3px;					
+					background: #ddd;
+					border-radius: 3px;					
 					transition: all .3s;
 					height: 10px;
 				}
@@ -272,9 +284,9 @@
 				display: inline-block;
 				width: 64px;
 				height: 32px;
-				background: #eee;
+				background: #ddd;
 				border: 1px solid #ddd;
-				//border-radius: 3px;
+				border-radius: 3px;
 				text-align: center;
 				line-height: 32px;
 				cursor: pointer;
@@ -299,7 +311,7 @@
 			}
 		}
 		&__container {
-			//display: none;
+			display: none;
 			margin: 0;
 			label {
 				display: block;
@@ -315,7 +327,7 @@
 			input {
 				text-align: center;
 				border: 1px solid #ddd;
-				//border-radius: 3px;
+				border-radius: 3px;
 				outline: none;
 				font-size: 24px;
 			}
@@ -457,14 +469,14 @@
 				outline: none;
 			}
 			&:hover {
-				background: #eee;
+				background: #ddd;
 			}
 		}
 		&__span {
 			display: inline-block;
 			width: 20px;
 			height: 20px;
-			background: #eee;
+			background: #ddd;
 			position: absolute;
 			top: 10px;
 			left: 10px;
@@ -579,7 +591,7 @@
 				width: 100%;
 				border: 1px solid #ddd;
 				padding: 15px;
-				//border-radius: 3px;
+				border-radius: 3px;
 				&[type="file"] {
 					display: none;
 				}
@@ -597,7 +609,7 @@
 				padding: 15px;
 				resize: vertical;
 				border: 1px solid #ddd;
-				//border-radius: 3px;
+				border-radius: 3px;
 				transition: border-color .3s;
 				&:hover {
 					border-color: @blue;
@@ -614,7 +626,7 @@
 					text-align: center;
 					padding: 5px 15px;
 					background: @yellow;
-					//border-radius: 3px;
+					border-radius: 3px;
 					cursor: pointer;
 				}
 			}
@@ -635,15 +647,38 @@
 		border: none;
 		color: #fff;
 		outline: none;
+		border-radius: 3px;
+		transition: .3s;
+		&--prev {
+			&::before {
+				content: '< ';
+			}
+		}
+		&--next {
+			&::after {
+				content: ' >';
+			}
+			margin-left: auto;
+		}
 		&--submit {
 			background: @red;
+			margin-left: auto;
+			&:hover {
+				background: lighten(@red, 10%) !important; 
+			}
+		}
+		&:hover {
+			background: lighten(@blue, 10%);
+		}
+		@media @mobile {
+			width: 50%;
 		}
 	}
 	select {
 		-webkit-appearance: none;
 		padding: 5px 45px 5px 5px;
-		border: 1px solid #eee;
-		//border-radius: 3px;
+		border: 1px solid #ddd;
+		border-radius: 3px;
 		box-shadow: none;
 		background: #fff url(http://localhost/metal/wp-content/themes/metal/img/arrow-down.png) no-repeat 95% 50%;
 		background-size: 20px;
@@ -729,9 +764,11 @@ canvas {
 		padding: 0;
 		width: 280px;
 		cursor: pointer;
+		max-height: 300px;
+		overflow-y: scroll;
 	}	
 	&-menu-item {
-		padding: 15px;
+		padding: 5px;
 		&:hover {
 			background: @blue;
 			color: #fff;

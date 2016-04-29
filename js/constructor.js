@@ -1,8 +1,8 @@
 //constructor-------------------------------------------------------
 
-var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
+var current_fs, next_fs, previous_fs; 
+var left, opacity, scale; 
+var animating; 
 
 $(".control-button--next").click(function(){
 	if(animating) return false;
@@ -546,7 +546,10 @@ appearanceInput.click(function(){
 		inputs.prop('disabled', false);
 	} else {
 		appearanceItem.addClass('appearance__item--disabled');
+		inputs.val('');
+		inputs.prop('checked', false);
 		inputs.prop('disabled', true);
+		
 		appearanceInput.prop('disabled', false);
 	}
 })
@@ -575,7 +578,7 @@ buttonPlus.click(function(){
 //-------------дополнительные параметры-------------
 var additionalInput = $('#additional-input'),
 	additionalContainer = $('#additional-container'),
-	additionalInputs = additionalContainer.find('*');
+	additionalInputs = additionalContainer.find('#t-in');
 
 additionalInput.click(function(){
 	if ($(this).prop('checked') == true) {
@@ -608,23 +611,23 @@ additionalInput.click(function(){
 	}
 });
 
-//------autocomplete------
+//------дополнительные-настройки------
 
-var	cities = [
-		'Актюбинск',
-		'Баку',
-		'Вильнюс',
-		'Омск'
-    ],	
-	
- 	cityInput = $('#city'),	
+var cityInput = $('#city'),	
 	tInInput = $('#t-in'),
-	RtrOutput = $('#Rtr'),
-	GSOPOuput = $('#GSOP'),
-	RprOutput = $('#Rpr'),
-	thicknessoutput  = $('#thickness'),
+	tOutInput = $('#t-out'),
 	
-	tIn = tInInput.val(),
+	RtrWallOutput = $('#Rtr-wall'),
+	RprWallOutput = $('#Rpr-wall'),
+	thicknessWallOutput  = $('#thickness-wall'),
+	
+	RtrRoofOutput = $('#Rtr-roof'),
+	RprRoofOutput = $('#Rpr-roof'),
+	thicknessRoofOutput  = $('#thickness-roof'),
+	
+	//GSOPOutput = $('#GSOP'),
+	
+	tIn = 25,
 	tOut = 0,
 	warm = 0,
 	time = 0,
@@ -635,69 +638,97 @@ var	cities = [
 	alfaOut = 23,
 	lambda = 0.05,
 	
-	RArray = [[2000, 1.4], [4000, 1.8], [6000, 2.2], [8000, 2.6], [10000, 3.0], [12000, 3.4]];
+	RArray = [[2000, 1.4, 2], [4000, 1.8, 2.5], [6000, 2.2, 3], [8000, 2.6, 3.5], [10000, 3.0, 4], [12000, 3.4, 4.5]];
 
 var GSOPMin = RArray[0][0];
-	RstMin  = RArray[0][1];
 	GSOPMax = RArray[0][0];
-	RstMax  = RArray[0][1];
+	RstMinWall  = RArray[0][1];
+	RstMaxWall  = RArray[0][1];
+	RstMinRoof  = RArray[0][2];
+	RstMaxRoof  = RArray[0][2];
 	
 var calc2 = function(){
-	var cityValue = cityInput.val();			
-	switch (cityValue) {
-		case 'Актюбинск':
-			tOut = -31;
-			warm = -7.3;
-			time = 203;
-			break;
-		case 'Баку': 
-			tOut = -4;
-			warm = 5.1;
-			time = 119;
-			break;
-		case 'Вильнюс': 
-			tOut = -23;
-			warm = -0.9;
-			time = 194;
-			break;	
-		case 'Омск': 
-			tOut = -37;
-			warm = -9.5;
-			time = 220;
-			break;	
-		
-	};			
-
-	var	Rtr = (n * (tIn - tOut)) / (delTOut * alfaIn),	
+	var	RtrWall = (n * (tIn - tOut)) / (delTOut * alfaIn),
+		RtrRoof = (n * (tIn - tOut)) / (delTOut * alfaIn),		
 		GSOP = (tIn - warm) * time;
 
-	RtrOutput.val(Rtr.toFixed(2));
-	GSOPOuput.val(GSOP.toFixed(2));	
+	RtrWallOutput.val(RtrWall.toFixed(2));
+	RtrRoofOutput.val(RtrRoof.toFixed(2));
+	//GSOPOutput.val(GSOP.toFixed(2));	
 	
 	for (var i = 0; i < RArray.length; i++) {
 		if (GSOP > RArray[i][0]) {
 			GSOPMin = RArray[i][0];
-			RstMin  = RArray[i][1];
 			GSOPMax = RArray[i + 1][0];
-			RstMax  = RArray[i + 1][1];
+			RstMinWall  = RArray[i][1];
+			RstMaxWall  = RArray[i + 1][1];
+			RstMinRoof  = RArray[i][2];
+			RstMaxRoof  = RArray[i + 1][2];			
 		}
 	};
 	
- 	var Rpr = RstMin + (GSOP - GSOPMin) / (GSOPMax - GSOPMin) * (RstMax - RstMin);
+ 	var RprWall = RstMinWall + (GSOP - GSOPMin) / (GSOPMax - GSOPMin) * (RstMaxWall - RstMinWall),
+		RprRoof = RstMinRoof + (GSOP - GSOPMin) / (GSOPMax - GSOPMin) * (RstMaxRoof - RstMinRoof);
 	
-	RprOutput.val(Rpr.toFixed(2));
+	RprWallOutput.val(RprWall.toFixed(2));
+	RprRoofOutput.val(RprRoof.toFixed(2));
 	
-	var thickness = lambda * (Rpr - (1 / alfaIn) - (1 / alfaOut));
-	thicknessoutput.val(thickness.toFixed(2));
-	alert(GSOPMin + ', ' +RstMin + '; ' +GSOPMax + ', ' +RstMax);
+	var thicknessWall = lambda * (RprWall - (1 / alfaIn) - (1 / alfaOut)),
+		thicknessRoof = lambda * (RprRoof - (1 / alfaIn) - (1 / alfaOut));
+	
+	thicknessWall = thicknessWall * 1000;
+	thicknessRoof = thicknessRoof * 1000;
+	
+	var thicknessWallRecInput = $('#thickness-wall-rec'),
+		thicknessRoofRecInput = $('#thickness-roof-rec'),
+		thicknessWallRec = 80,
+		thicknessRoofRec = 80,
+		thicknessRecArray = [80, 100, 120, 150, 180, 200, 250];
+	
+	for (var i = 0; i < thicknessRecArray.length; i++) {
+		if (thicknessWall > thicknessRecArray[i]) {
+			thicknessWallRec = thicknessRecArray[i + 1];
+		};	
+		if (thicknessRoof > thicknessRecArray[i]) {
+			thicknessRoofRec = thicknessRecArray[i + 1];
+		};			
+	};	
+	
+	thicknessWall = thicknessWall.toFixed(0) + ' мм';
+	thicknessRoof = thicknessRoof.toFixed(0) + ' мм';	
+	thicknessWallOutput.val(thicknessWall);
+	thicknessRoofOutput.val(thicknessRoof);
+	
+	thicknessWallRec = thicknessWallRec.toFixed(0) + ' мм';
+	thicknessRoofRec = thicknessRoofRec.toFixed(0) + ' мм';	
+	thicknessWallRecInput.val(thicknessWallRec);
+	thicknessRoofRecInput.val(thicknessRoofRec);
 };
 
 cityInput.autocomplete({
 	source: cities,
-	close: calc2
+	close: function(){
+		var cityValue = cityInput.val();
+		for (var i = 0; i < citiesArray.length; i++) {
+			if (cityValue == citiesArray[i].city) {
+				tOut = citiesArray[i].tOut;
+				warm = citiesArray[i].warm;
+				time = citiesArray[i].time;
+			};
+		};
+		tInInput.val(tIn); 
+		tOutInput.val(tOut);
+		calc2();
+	}		
 });
 
 tInInput.change(function(){
 	tIn = tInInput.val();
 	calc2();
-})
+});
+
+tOutInput.change(function(){
+	tOut = tOutInput.val();
+	calc2();
+});
+

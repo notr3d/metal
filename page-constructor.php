@@ -116,7 +116,7 @@ get_header(); ?>
 								</div>								
 							</div>	
 							<div class="step__controls-area">
-								<input type="button" name="next" id="to-dimension-button" class="control-button control-button--next" value="Размеры">
+								<button type="button" name="next" id="to-dimension-button" class="control-button control-button--next">Размеры</button>
 							</div>							
 						</fieldset>
 												
@@ -128,9 +128,9 @@ get_header(); ?>
 									<div class="dimension__item col-sm-3">
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Ширина</h4>
-											<button type="button" id="widthMinus" class="dimension__button"></button>
+											<button type="button" id="widthMinus" class="dimension__button dimension__button--minus"></button>
 											<input type="number" name="widthInput" id="widthInput" class="dimension__input" min="0" max="100">
-											<button type="button" id="widthPlus" class="dimension__button"></button>
+											<button type="button" id="widthPlus" class="dimension__button dimension__button--plus"></button>
 										</div>
 										<div class="dimension__slider">
 											<span id="widthMin" class="dimension__limit"></span>
@@ -141,9 +141,9 @@ get_header(); ?>
 									<div class="dimension__item col-sm-3">
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Длина</h4>
-											<button type="button" id="lengthMinus" class="dimension__button"></button>
+											<button type="button" id="lengthMinus" class="dimension__button dimension__button--minus"></button>
 											<input type="number" name="lengthInput" id="lengthInput" class="dimension__input" min="0" max="100">
-											<button type="button" id="lengthPlus" class="dimension__button"></button>
+											<button type="button" id="lengthPlus" class="dimension__button dimension__button--plus"></button>
 										</div>
 										<div class="dimension__slider">
 											<span id="lengthMin" class="dimension__limit"></span>
@@ -154,9 +154,9 @@ get_header(); ?>
 									<div class="dimension__item col-sm-3">
 										<div class="dimension__settings">
 											<h4 class="dimension__header">Высота</h4>
-											<button type="button" id="heightMinus" class="dimension__button"></button>
+											<button type="button" id="heightMinus" class="dimension__button dimension__button--minus"></button>
 											<input type="number" name="heightInput" id="heightInput" class="dimension__input" min="0" max="100">	
-											<button type="button" id="heightPlus" class="dimension__button"></button>
+											<button type="button" id="heightPlus" class="dimension__button dimension__button--plus"></button>
 										</div>
 										<div class="dimension__slider">
 											<span id="heightMin" class="dimension__limit"></span>
@@ -216,33 +216,58 @@ get_header(); ?>
 									<div id="additional-container" class="additional__container container">
 										<div class="additional__item col-sm-4">
 											<label for="city">Город</label>
-											<input type="text" name="city" id="city" disabled>
+											<input type="text" name="city" id="city" placeholder="Выберите город">
 										</div>
 										<div class="additional__item col-sm-4">
-											<label for="t-in">Внутренняя темпиратура</label>
-											<input type="number" name="t-in" id="t-in" value="18" disabled>
-										</div>
+											<label for="t-in">Внутренняя температура</label>
+											<input type="number" name="t-in" id="t-in" min="0" max="50" value="0">
+										</div>	
+										<div class="additional__item col-sm-4">
+											<label for="t-out">Внешняя температура</label>
+											<input type="number" name="t-out" id="t-out">
+										</div>										
 										<!--<div class="additional__item col-sm-4">
-											<label for="t-out">Внешняя темпиратура</label>
-											<input type="number" name="t-out" id="t-out" disabled>
-										</div>-->										
-										<div class="additional__item col-sm-4">
-											<label for="Rtr">R<sub>тр</sub></label>
-											<input type="text" name="Rtr" id="Rtr" disabled>
-										</div>
-										<div class="additional__item col-sm-4">
 											<label for="GSOP">ГСОП</label>
 											<input type="text" name="GSOP" id="GSOP" disabled>
+										</div>-->
+										<div class="col-sm-6">
+											<h3>Стены</h3>
+											<div class="additional__item">
+												<label for="Rtr-wall">R<sub>тр</sub></label>
+												<input type="text" name="Rtr-wall" id="Rtr-wall" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="Rpr-wall">R<sub>пр</sub></label>
+												<input type="text" name="Rpr-wall" id="Rpr-wall" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-wall">Толщина</label>
+												<input type="text" name="thickness-wall" id="thickness-wall" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-wall-rec">Рекомендованная толщина</label>
+												<input type="text" name="thickness-wall-rec" id="thickness-wall-rec" disabled>
+											</div>										
+										</div>										
+										<div class="col-sm-6">
+											<h3>Кровля</h3>
+											<div class="additional__item">
+												<label for="Rtr-roof">R<sub>тр</sub></label>
+												<input type="text" name="Rtr-roof" id="Rtr-roof" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="Rpr-roof">R<sub>пр</sub></label>
+												<input type="text" name="Rpr-roof" id="Rpr-roof" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-roof">Толщина</label>
+												<input type="text" name="thickness-roof" id="thickness-roof" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-roof-rec">Рекомендованная толщина</label>
+												<input type="text" name="thickness-roof-rec" id="thickness-roof-rec" disabled>
+											</div>
 										</div>
-										<div class="additional__item col-sm-4">
-											<label for="Rpr">R<sub>пр</sub></label>
-											<input type="text" name="Rpr" id="Rpr" disabled>
-										</div>
-										<div class="additional__item col-sm-4">
-											<label for="thickness">Толщина</label>
-											<input type="text" name="thickness" id="thickness" disabled>
-										</div>
-										
 									</div>
 								</div>
 <!--
@@ -251,14 +276,14 @@ get_header(); ?>
 -->
 							</div>
 							<div class="step__controls-area">
-								<input type="button" name="previous" class="control-button control-button--prev" value="Назначение">
-								<input type="button" name="next" class="control-button  control-button--next" value="Внешний вид">
+								<button type="button" name="previous" class="control-button control-button--prev">Назначение</button>
+								<button type="button" name="next" class="control-button  control-button--next">Внешний вид</button>
 							</div>
 						</fieldset>
 						<fieldset class="step appearance">
 							<h2 class="step__title">Внешний вид здания</h2>
 							<h3 class="step__subtitle">This is step 3</h3>
-							<div class="step__input-area">
+							<div class="step__input-area container">
 								<div class="appearance__item col-sm-3">
 									<h4>Стены</h4>
 									<div class="color">
@@ -414,58 +439,79 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-								<div class="appearance__item col-sm-3">
-									<h4>Двери</h4>
+								<div class="appearance__item appearance__item--disabled col-sm-3">
+									<div class="appearance__inclusion">
+										<input type="checkbox" id="door" class="appearance__input">
+										<label for="door">Двери</label>
+									</div>
 									<div class="appearance__count">
 										<label for="">Количество: </label>
-										<button type="button" class="count-button count-button--minus">-</button>
-										<input type="number" name="door-quantity" min="1" max="10" value="1">
-										<button type="button" class="count-button count-button--plus">+</button>
+										<button type="button" class="count-button count-button--minus" disabled>-</button>
+										<input type="number" name="door-quantity" min="1" max="10" disabled>
+										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
 									<div>
 										<span>Размеры:</span>
-										<input type="radio" name="door-dim" id="door-2x1" value="2x1" checked>
+										<input type="radio" name="door-dim" id="door-2x1" value="2x1" disabled>
 										<label for="door-2x1">2x1</label>
-										<input type="radio" name="door-dim" id="door-3x1" value="3x1">
+										<input type="radio" name="door-dim" id="door-3x1" value="3x1" disabled>
 										<label for="door-3x1">3x1</label>
-										<input type="radio" name="door-dim" id="door-4x1" value="4x1">
+										<input type="radio" name="door-dim" id="door-4x1" value="4x1" disabled>
 										<label for="door-4x1">4x1</label>
 									</div>
+									<div class="appearance__reinforce">
+										<input type="checkbox" id="reinforce-door" name ="reinforce-door" disabled>
+										<label for="reinforce-door">Усилить конструкцию под проем</label>
+									</div>
 								</div>
-								<div class="appearance__item col-sm-3">
-									<h4>Ворота</h4>
+								<div class="appearance__item appearance__item--disabled col-sm-3">
+									<div class="appearance__inclusion">
+										<input type="checkbox" id="gate" class="appearance__input">
+										<label for="gate">Ворота</label>
+									</div>
 									<div class="appearance__count">
 										<label for="">Количество: </label>
-										<button type="button" class="count-button count-button--minus">-</button>
-										<input type="number" name="gate-quantity" min="0" max="10" value="0">
-										<button type="button" class="count-button count-button--plus">+</button>
+										<button type="button" class="count-button count-button--minus" disabled>-</button>
+										<input type="number" name="gate-quantity" min="0" max="10" disabled>
+										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
 									<div>
 										<span>Размеры:</span>
-										<input type="radio" name="gate-dim" id="gate-2x1" value="2x1" checked>
+										<input type="radio" name="gate-dim" id="gate-2x1" value="2x1" disabled>
 										<label for="gate-2x1">2x1</label>
-										<input type="radio" name="gate-dim" id="gate-3x1" value="3x1">
+										<input type="radio" name="gate-dim" id="gate-3x1" value="3x1" disabled>
 										<label for="gate-3x1">3x1</label>
-										<input type="radio" name="gate-dim" id="gate-4x1" value="4x1">
+										<input type="radio" name="gate-dim" id="gate-4x1" value="4x1" disabled>
 										<label for="gate-4x1">4x1</label>
 									</div>
+									<div class="appearance__reinforce">
+										<input type="checkbox" id="reinforce-gate" name ="reinforce-gate" disabled>
+										<label for="reinforce-gate">Усилить конструкцию под проем</label>
+									</div>
 								</div>
-								<div class="appearance__item col-sm-3">
-									<h4>Окна</h4>
+								<div class="appearance__item appearance__item--disabled col-sm-3">
+									<div class="appearance__inclusion">
+										<input type="checkbox" id="window" class="appearance__input">
+										<label for="window">Окна</label>
+									</div>
 									<div class="appearance__count">
 										<label for="">Количество: </label>
-										<button type="button" class="count-button count-button--minus">-</button>
-										<input type="number" name="window-quantity" min="0" max="10" value="0">
-										<button type="button" class="count-button count-button--plus">+</button>
+										<button type="button" class="count-button count-button--minus" disabled>-</button>
+										<input type="number" name="window-quantity" min="0" max="10" disabled>
+										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
 									<div>
 										<span>Размеры:</span>
-										<input type="radio" name="window-dim" id="window-2x1" value="2x1" checked>
+										<input type="radio" name="window-dim" id="window-2x1" value="2x1" disabled>
 										<label for="window-2x1">2x1</label>
-										<input type="radio" name="window-dim" id="window-3x1" value="3x1">
+										<input type="radio" name="window-dim" id="window-3x1" value="3x1" disabled>
 										<label for="window-3x1">3x1</label>
-										<input type="radio" name="window-dim" id="window-4x1" value="4x1">
+										<input type="radio" name="window-dim" id="window-4x1" value="4x1" disabled>
 										<label for="window-4x1">4x1</label>
+									</div>
+									<div class="appearance__reinforce">
+										<input type="checkbox" id="reinforce-window" name ="reinforce-window" disabled>
+										<label for="reinforce-window">Усилить конструкцию под проем</label>
 									</div>
 								</div>
 								<div class="appearance__item appearance__item--disabled col-sm-3">
@@ -476,30 +522,34 @@ get_header(); ?>
 									<div class="appearance__count">
 										<label for="">Количество: </label>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
-										<input type="number" name="translucent-roof-areas-quantity" min="0" max="10" value="0" disabled>
+										<input type="number" name="translucent-roof-areas-quantity" min="0" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>	
 									<div>
 										<span>Размеры:</span>
-										<input type="radio" name="tra-dim" id="tra-2x1" value="2x1" checked disabled>
+										<input type="radio" name="tra-dim" id="tra-2x1" value="2x1" disabled>
 										<label for="tra-2x1">2x1</label>
 										<input type="radio" name="tra-dim" id="tra-3x1" value="3x1" disabled>
 										<label for="tra-3x1">3x1</label>
 										<input type="radio" name="tra-dim" id="tra-4x1" value="4x1" disabled>
 										<label for="tra-4x1">4x1</label>
-									</div>								
+									</div>	
+									<div class="appearance__reinforce">
+										<input type="checkbox" id="reinforce-translucent" name ="reinforce-translucent" disabled>
+										<label for="reinforce-translucent">Усилить конструкцию под проем</label>
+									</div>							
 								</div>
 							</div>							
 							<div class="step__controls-area">
-								<input type="button" name="previous" class="control-button control-button--prev" value="Размеры">
-								<input type="button" name="next" class="control-button  control-button--next" value="Результат">
+								<button type="button" name="previous" class="control-button control-button--prev">Размеры</button>
+								<button type="button" name="next" class="control-button  control-button--next">Результат</button>
 							</div>
 						</fieldset>
 						<fieldset class="step result">
 							<h2 class="step__title">Результат</h2>
 							<h3 class="step__subtitle">This is step 4</h3>
 							<div class="step__input-area">
-								<div class="result__container">
+								<div class="result__container container">
 									<div class="result__column col-sm-6">
 										<div class="result__block">
 											<h3 class="result__header">Тип здания</h3>
@@ -575,8 +625,8 @@ get_header(); ?>
 								</div>
 							</div>
 							<div class="step__controls-area">
-								<input type="button" name="previous" class="control-button control-button--prev" value="Внешний вид">
-								<input type="button" name="next" class="control-button  control-button--next" value="Контактная информация">
+								<button type="button" name="previous" class="control-button control-button--prev">Внешний вид</button>
+								<button type="button" name="next" class="control-button  control-button--next">Контактная информация</button>
 							</div>
 						</fieldset>						
 						
@@ -639,8 +689,8 @@ get_header(); ?>
 								</div>
 							</div>
 							<div class="step__controls-area">
-								<input type="button" name="previous" class="control-button control-button--prev" value="Результат">
-								<input type="submit" name="submit" class="control-button control-button--submit" value="Отправить">
+								<button type="button" name="previous" class="control-button control-button--prev">Результат</button>
+								<button type="submit" name="submit" class="control-button control-button--submit">Отправить</button>
 							</div>
 							<div id="results"></div>
 						</fieldset>
@@ -652,7 +702,10 @@ get_header(); ?>
 	</main><!-- #main -->
 	<script>
 		function sendMail() {
-        	var constructorMail = $('#form').serialize();
+			var form = $('#form');
+			var disabled = form.find(':input:disabled').removeAttr('disabled');
+        	var constructorMail = form.serialize();
+			disabled.attr('disabled','disabled');
         	$.ajax({
         		type: 'POST',
         		url: '<?php echo get_template_directory_uri(); ?>/mail.php',
