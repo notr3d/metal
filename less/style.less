@@ -113,6 +113,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/contacts.less";
 @import "less/news.less";
 @import "less/constructor.less";
+@import "less/product.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -162,8 +163,7 @@ main {
 }
 
 //мои стили
-* {
-	font-family: 'Exo 2', sans-serif;
+* {	
 	&::selection {
 		background-color: @yellow;
 		color: #fff;
@@ -178,6 +178,10 @@ main {
 			}
 		}
 	}
+}
+
+body {
+	font-family: 'Exo 2', sans-serif;
 }
 
 .my {
@@ -429,8 +433,17 @@ main {
 		padding-left: 18px;
 	}
 }
-.phone {
+.phone {	
+	font-family: 'Oswald', sans-serif;
 	&__number {
 		font-weight: bold;
+	}
+}
+
+.close {
+	font-family: 'Helvetica Neue', sans-serif !important;
+	transition: .3s;
+	&:hover {
+		transform: rotate(90deg);
 	}
 }

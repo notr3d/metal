@@ -80,6 +80,7 @@
 		}
 	}
 	.navbar-nav {
+		background: #fff;
 		.page_item {
 			a {
 				transition: all .1s;
@@ -144,6 +145,14 @@
 				}
 				@media @desktop {
 					border-top: 2px solid @blue;
+				}
+			}
+			.dropdown-submenu {
+				.dropdown-menu {
+					top: -10px;
+					&::before {
+						display: none;
+					}
 				}
 			}
 		}

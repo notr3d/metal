@@ -1,11 +1,19 @@
 .products {
+	&__wrapper {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		flex-wrap: wrap;
+	}
 	&__item {
 		height: 420px;
-		margin-bottom: 15px;
 		position: relative;
-		width: 33.1%;
+		width: 33.333333%;
 		display: inline-block;
 		background: url(img/products/1.jpg) no-repeat;
+		background-size: cover;
 		&:nth-child(2) {
 			background-image: url(img/products/2.jpg);
 		}
@@ -46,14 +54,20 @@
 			background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 50%);
 			transition: all .3s;
 		}
+		&--big {
+			width: 100%;			
+			height: 600px;
+			@media @mobile {
+				width: 440px;
+			}
+		}
 	}
 	&__inner {	
 		display: inline-block;
 		padding: 15px;
 		position: absolute;
 		bottom: 15px;
-		left: 15px;
-		width: 100% - 7.5px;		
+		width: 100%;
 		transition: all .3s;
 		&:hover {
 			text-decoration: none;

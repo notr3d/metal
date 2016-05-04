@@ -1,13 +1,12 @@
 //constructor-------------------------------------------------------
 
-/*var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
+var current_fs, next_fs, previous_fs; 
+var left, opacity, scale; 
+var animating; 
 
 $(".control-button--next").click(function(){
-	if(animating) return false;
-	animating = true;
-	
+	//if(animating) return false;
+	//animating = true;
 	current_fs = $(this).parent().parent();
 	next_fs = $(this).parent().parent().next();
 	
@@ -15,33 +14,34 @@ $(".control-button--next").click(function(){
 	$(".progress__bar li").eq($("fieldset").index(next_fs)).addClass("active");
 	
 	//show the next fieldset
-	next_fs.slideDown(); 
+	next_fs.slideDown(300); 
 	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale current_fs down to 80%
-			scale = 1 - (1 - now) * 0.2;
-			//2. bring next_fs from the right(50%)
-			left = (now * 50)+"%";
-			//3. increase opacity of next_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({'transform': 'scale('+scale+')'});
-			next_fs.css({'left': left, 'opacity': opacity});
-		}, 
-		duration: 600, 
-		complete: function(){
-			current_fs.slideUp();
-			animating = false;
-		}, 
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
+	current_fs.slideUp(300); 
+//	current_fs.animate({opacity: 0}, {
+//		step: function(now, mx) {
+//			//as the opacity of current_fs reduces to 0 - stored in "now"
+//			//1. scale current_fs down to 80%
+//			scale = 1 - (1 - now) * 0.2;
+//			//2. bring next_fs from the right(50%)
+//			left = (now * 50)+"%";
+//			//3. increase opacity of next_fs to 1 as it moves in
+//			opacity = 1 - now;
+//			current_fs.css({'transform': 'scale(' + scale + ')'});
+//			next_fs.css({'left': left, 'opacity': opacity});
+//		}, 
+//		duration: 600, 
+//		complete: function(){
+//			current_fs.slideUp();
+//			animating = false;
+//		}, 
+//		//this comes from the custom easing plugin
+//		easing: 'easeInOutBack'
+//	});
 });
 
 $(".control-button--prev").click(function(){
-	if(animating) return false;
-	animating = true;
+//	if(animating) return false;
+//	animating = true;
 	
 	current_fs = $(this).parent().parent();
 	previous_fs = $(this).parent().parent().prev();
@@ -50,107 +50,263 @@ $(".control-button--prev").click(function(){
 	$(".progress__bar li").eq($("fieldset").index(current_fs)).removeClass("active");
 	
 	//show the previous fieldset
-	previous_fs.slideDown(); 
+	previous_fs.slideDown(300); 
 	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale previous_fs from 80% to 100%
-			scale = 0.8 + (1 - now) * 0.2;
-			//2. take current_fs to the right(50%) - from 0%
-			left = ((1-now) * 50)+"%";
-			//3. increase opacity of previous_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({'left': left});
-			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-		}, 
-		duration: 600, 
-		complete: function(){
-			current_fs.slideUp();
-			animating = false;
-		}, 
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
-});*/
-
-$(".submit").click(function(){
-	return false;
-})
-
-$(document).ready(function() {	
-	//---------------------------------размеры
+	current_fs.slideUp(300);
+//	current_fs.animate({opacity: 0}, {
+//		step: function(now, mx) {
+//			//as the opacity of current_fs reduces to 0 - stored in "now"
+//			//1. scale previous_fs from 80% to 100%
+//			scale = 0.8 + (1 - now) * 0.2;
+//			//2. take current_fs to the right(50%) - from 0%
+//			left = ((1-now) * 50)+"%";
+//			//3. increase opacity of previous_fs to 1 as it moves in
+//			opacity = 1 - now;
+//			current_fs.css({'left': left});
+//			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+//		}, 
+//		duration: 600, 
+//		complete: function(){
+//			current_fs.slideUp();
+//			animating = false;
+//		}, 
+//		//this comes from the custom easing plugin
+//		easing: 'easeInOutBack'
+//	});
+});
+ 	
+//главные параметры
+var	width = 18, //ширина, длина и высота
+	widthMin = 0,
+	widthMax = 0,
+	widthStep = 1,
+	
+	length = 40, 
+	lengthMin = 0,
+	lengthMax = 0,
+	lengthStep = 1,
+	
+	height = 6,
+	heightMin = 0,
+	heightMax = 0,
+	heightStep = 1,
+	
+	area = width * length, //подсчет площади и объема
+	volume = area * height,
+	
 	//находим все элементы на странице
+	structureTypeInput = $('.structure-type__input'), //выбор типа здания
+	currentStructureType = 'structure-type-1', //по умолчанию выбран первый тип
+	toDimensionButton = $('#to-dimension-button'), //по нажатию на эту кнопку все будет расчитываться
 	//ширина
-	var widthInput = $('#widthInput'), //число, основное поле
-		widthRange = $('#widthRange'), //слайдер
-		widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
-		widthPlusButton = $('#widthPlus'),
-		widthOutput = $('.result__value--width'),
-		//длина
-		lengthInput = $('#lengthInput'), 
-		lengthRange = $('#lengthRange'),
-		lengthMinusButton = $('#lengthMinus'),
-		lengthPlusButton = $('#lengthPlus'),
-		lengthOutput = $('.result__value--length'),
-		//высота
-		heightInput = $('#heightInput'), 
-		heightRange = $('#heightRange'), 
-		heightMinusButton = $('#heightMinus'),
-		heightPlusButton = $('#heightPlus'),
-		heightOutput = $('.result__value--height'),
+	widthInput = $('#widthInput'), //число, основное поле
+	widthRange = $('#widthRange'), //слайдер
+	widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
+	widthPlusButton = $('#widthPlus'),
+	widthOutput = $('.result__value--width'),
+	//длина
+	lengthInput = $('#lengthInput'), 
+	lengthRange = $('#lengthRange'),
+	lengthMinusButton = $('#lengthMinus'),
+	lengthPlusButton = $('#lengthPlus'),
+	lengthOutput = $('.result__value--length'),
+	//высота
+	heightInput = $('#heightInput'), 
+	heightRange = $('#heightRange'), 
+	heightMinusButton = $('#heightMinus'),
+	heightPlusButton = $('#heightPlus'),
+	heightOutput = $('.result__value--height'),
+
+	areaOutput = $('#areaOutput'), //площадь и объем
+	ResultAreaOutput = $('.result__value--area'),	
 	
-		areaOutput = $('#areaOutput'), //площадь и объем
-		ResultAreaOutput = $('.result__value--area'),	
-		volumeOutput = $('#volumeOutput'), 
-		ResultVolumeOutput = $('.result__value--volume'),
+	volumeOutput = $('#volumeOutput'), 
+	ResultVolumeOutput = $('.result__value--volume'),		
+
+	calc = function(){ //основная функция подсчета	
+		widthInput.val(width);
+		lengthInput.val(length);
+		heightInput.val(height);
+
+		widthRange.val(width);
+		lengthRange.val(length);
+		heightRange.val(height);
+
+		widthOutput.text(width);
+		lengthOutput.text(length);
+		heightOutput.text(height);			
+
+		area = Math.round(width * length);
+		areaOutput.text(area + ' м').append('<sup>2</sup>');
+		ResultAreaOutput.text(area + ' м').append('<sup>2</sup>');
 		
-		width = widthInput.val(), //берем изначальные данные из html
-		length = lengthInput.val(), 
-		height = heightInput.val(),
-		
-		area = width * length, //подсчет площади и объема
-		volume = area * height,
-		
-		widthMin = +widthInput.attr('min'), // у слайдеров устанавливаем такие же мин и макс как и у числового ввода (которые выставлены в html)
-		widthMax = +widthInput.attr('max'),
-		
-		lengthMin = +lengthInput.attr('min'),
-		lengthMax = +lengthInput.attr('max'),
-		
-		heightMin = +heightInput.attr('min'),
-		heightMax = +heightInput.attr('max'),
-		
-		
-		
-		calc = function(){ //основная функция подсчета
-			widthInput.val(width);
-			lengthInput.val(length);
-			heightInput.val(height);
-			
-			widthRange.val(width);
-			lengthRange.val(length);
-			heightRange.val(height);
-			
-			widthOutput.text(width);
-			lengthOutput.text(length);
-			heightOutput.text(height);			
-			
-			area = width * length;
-			areaOutput.text(area);
-			ResultAreaOutput.text(area);
-			
-			volume = area * height;
-			volumeOutput.text(volume);
-			ResultVolumeOutput.text(volume);
-		};	
+		volume = Math.round(area * height);
+		volumeOutput.text(volume + ' м').append('<sup>3</sup>');
+		ResultVolumeOutput.text(volume + ' м').append('<sup>3</sup>');
+	},
+	init = function(){
+		switch (currentStructureType) {
+		case 'structure-type-1':
+			width = 18; 
+			length = 39; 
+			height = 6;
+			widthMin = 6;
+			widthMax = 21;
+			lengthMin = 9;
+			lengthMax = 99;
+			heightMin = 3;
+			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 5; //4.5
+			heightStep = 0.5; //0.6
+			break;
+		case 'structure-type-2':
+			width = 48; 
+			length = 77; 
+			height = 9; //9.6
+			widthMin = 6;
+			widthMax = 18;
+			lengthMin = 23;
+			lengthMax = 122;
+			heightMin = 4.5; //4.8
+			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
+			break;
+		case 'structure-type-3':
+			width = 21; 
+			length = 39; 
+			height = 4; //4.2
+			widthMin = 6;
+			widthMax = 21;
+			lengthMin = 9;
+			lengthMax = 99;
+			heightMin = 3;
+			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 3;
+			heightStep = 0.5; //0.6
+			break;
+		case 'structure-type-4':
+			width = 30; 
+			length = 59; 
+			height = 7; //7.2
+			widthMin = 18;
+			widthMax = 60;
+			lengthMin = 23;
+			lengthMax = 122;
+			heightMin = 4.5; //4.8
+			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
+			break;
+		case 'structure-type-5':
+			width = 15; 
+			length = 40; //40
+			height = 6;
+			widthMin = 6;
+			widthMax = 21;
+			lengthMin = 9;
+			lengthMax = 99;
+			heightMin = 3;
+			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 3;
+			heightStep = 0.5; //0.6
+			break;
+		case 'structure-type-6':
+			width = 18; //18.8
+			length = 42; 
+			height = 3;
+			widthMin = 18; //18.8
+			widthMax = 24; //24.8
+			lengthMin = 18;
+			lengthMax = 96;
+			heightMin = 3;
+			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 6;
+			heightStep = 0.5; //0.6
+			break;
+		case 'structure-type-7':
+			width = 28;  //28.8
+			length = 36; 
+			height = 3;
+			widthMin = 28; //28.8
+			widthMax = 35;
+			lengthMin = 10; //10.8
+			lengthMax = 97; //97.2
+			heightMin = 3;
+			heightMax = 5; //5
+			widthStep = 2.5; //2.6
+			lengthStep = 3.5; //3.6
+			heightStep = 0.5; //0.6
+			break;
+		case 'structure-type-8':
+			width = 18; 
+			length = 40; 
+			height = 6;
+			widthMin = 6;
+			widthMax = 21;
+			lengthMin = 9;
+			lengthMax = 99;
+			heightMin = 3;
+			heightMax = 6;
+			widthStep = 3;
+			lengthStep = 4;
+			heightStep =0.5; //0.6
+			break;
+		case 'structure-type-9':
+			width = 24; 
+			length = 41; 
+			height = 6;
+			widthMin = 18;
+			widthMax = 60;
+			lengthMin = 23;
+			lengthMax = 122;
+			heightMin = 4.5; //4.8
+			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
+			break;
+		case 'structure-type-10':
+			width = 30; 
+			length = 32; 
+			height = 4.5; //4.8
+			widthMin = 18;
+			widthMax = 60;
+			lengthMin = 23;
+			lengthMax = 122;
+			heightMin = 4.5; //4.8
+			heightMax = 12;
+			widthStep = 6;
+			lengthStep = 9;
+			heightStep = 1; //1.2
+			break;
+	};
 	
-	widthRange.attr('min', widthInput.attr('min'));
-	widthRange.attr('max', widthInput.attr('max'));
-	lengthRange.attr('min', lengthInput.attr('min'));
-	lengthRange.attr('max', lengthInput.attr('max'));
-	heightRange.attr('min', heightInput.attr('min'));
-	heightRange.attr('max', heightInput.attr('max'));	
+	widthInput.attr('min', widthMin);
+	widthInput.attr('max', widthMax);
+	widthInput.attr('step', widthStep);
+	lengthInput.attr('min', lengthMin);
+	lengthInput.attr('max', lengthMax);
+	lengthInput.attr('step', lengthStep);
+	heightInput.attr('min', heightMin);
+	heightInput.attr('max', heightMax);	
+	heightInput.attr('step', heightStep);	
+	
+	widthRange.attr('min', widthMin);
+	widthRange.attr('max', widthMax);
+	widthRange.attr('step', widthStep);
+	lengthRange.attr('min', lengthMin);
+	lengthRange.attr('max', lengthMax);
+	lengthRange.attr('step', lengthStep);
+	heightRange.attr('min', heightMin);
+	heightRange.attr('max', heightMax);	
+	heightRange.attr('step', heightStep);	
 	
 	$('#widthMin').text(widthMin);
 	$('#widthMax').text(widthMax);
@@ -160,252 +316,422 @@ $(document).ready(function() {
 	$('#heightMax').text(heightMax);
 	
 	calc();
-	
-	//number
-	widthInput.change(function(){
-		if (widthInput.val() < 0) {
-			alert('Ширина не может быть меньше нуля. Минимальное значение: ' + widthMin + 'м');			
-			width = widthMin;
-			calc();
-		} else if (widthInput.val() < widthMin) {
-			alert('Ширина не может быть меньше минимального значения (' + widthMin + 'м)');			
-			width = widthMin;
-			calc();
-		} else if (widthInput.val() > widthMax) {
-			alert('Ширина не может превышать максимальное значение (' + widthMax + 'м)');			
-			width = widthMax;
-			calc();
-		} else {
-			width = widthInput.val();
-			calc();
-		}		
-	});
-	lengthInput.change(function(){
-		if (lengthInput.val() < 0) {
-			alert('Длина не может быть меньше нуля. Минимальное значение: ' + lengthMin + 'м');				
-			length = lengthMin;
-			calc();
-		} else if (lengthInput.val() < lengthMin) {
-			alert('Длина не может быть меньше минимального значения (' + lengthMin + 'м)');				
-			length = lengthMin;
-			calc();
-		} else if (lengthInput.val() > lengthMax) {
-			alert('Длина не может превышать максимальное значение (' + lengthMax + 'м)');						
-			length = lengthMax;
-			calc();
-		} else {
-			length = lengthInput.val();
-			calc();
-		}		
-	});
-	heightInput.change(function(){
-		if (heightInput.val() < 0) {
-			alert('Высота не может быть меньше нуля. Минимальное значение: ' + heightMin + 'м');				
-			height = heightMin;
-			calc();
-		} else if (heightInput.val() < heightMin) {
-			alert('Высота не может быть меньше минимального значения (' + heightMin + 'м)');							
-			height = heightMin;
-			calc();
-		} else if (heightInput.val() > heightMax) {
-			alert('Высота не может превышать максимальное значение (' + heightMax + 'м)');									
-			height = heightMax;
-			calc();
-		} else {
-			height = heightInput.val();
-			calc();
-		}		
-	});	
-	
-	//слайдеры
-	widthRange.change(function(){
-		width = widthRange.val();
-		calc();
-	});
-	lengthRange.change(function(){
-		length = lengthRange.val();
-		calc();
-	});
-	heightRange.change(function(){
-		height = heightRange.val();
-		calc();
-	});
-	
-	//кнопки + -		
-	widthMinusButton.click(function(){
-		if (width > widthMin) {
-			width--;
-			calc();
-		} 
-	});
-	widthPlusButton.click(function(){
-		if (width < widthMax) {
-			width++;
-			calc();
-		}
-	});
-	lengthMinusButton.click(function(){		
-		if (length > lengthMin) {
-			length--;
-			calc();
-		}
-	});
-	lengthPlusButton.click(function(){
-		if (length < lengthMax) {
-			length++;
-			calc();
-		}
-	});
-	heightMinusButton.click(function(){;
-		if (height > heightMin) {
-			height--;
-			calc();
-		}
-	});
-	heightPlusButton.click(function(){
-		if (height < heightMax) {
-			height++;
-			calc();
-		}
-	});	
-	
-	
-	
-	//--------------выбор цвета
-	var colorButton = $('.color__button'), //кнопка выбора цвета
-	 	colorSpan = $('.color__span'), // элемент внутри кнопки для выбранного цвета
-		
-	 	colorContainer = $('.color__container'), // выпадающее меню с цветами
-		colorInput = $('.color__input'), // скрытые инпуты для цветов
-	 	colorLabel = $('.color__label'), // квадраты для выбора цвета
-		
-		drainYes = $('#drain-yes'), // выбрать цвет нельзя если он не включен
-		drainNo = $('#drain-no'),
-		drainColorButton = $('#drainColorButton'),
-		
-		wallColorOutput = $('.result__value--wall-color'),
-		roofColorOutput = $('.result__value--roof-color'),
-		lippingColorOutput = $('.result__value--lipping-color'),
-		drainColorOutput = $('.result__value--drain-color');
-	
-	colorContainer.slideUp(); //убираем меню
-	//colorLabel.text(''); // убираем текст внутри квадратов
-	drainColorButton.attr('disabled', true); // по умолчанию водосток не включен
-	drainColorButton.addClass('color__button--disabled');
-	
-	colorButton.click(function(){ //по нажатию на кнопку появляется блок с цветами
-		$(this).next().slideToggle();
-	});
-	
-	drainYes.click(function(){ //включаем блок с выбором цвета водостока если он вклчюен
-		drainColorButton.removeAttr('disabled');
-		drainColorButton.removeClass('color__button--disabled');
-	});
-	
-	drainNo.click(function(){ //убираем блок цвета водостока если он выключен
-		drainColorButton.attr('disabled', true);
-		drainColorButton.next().slideUp();	
-		drainColorButton.next().children().removeAttr('checked');
-		drainColorButton.addClass('color__button--disabled');
-	});	
-	
-	colorInput.click(function(){ //красим элемент внутри кнопки выбранным цветом
-		var color = $(this).attr('id').split('-'),
-			colorId = 'color__label--' + color[1] + '-' + color[2],
-			colorType = color[0],
-			colorName = $(this).next().text();
-		
-		$(this)
-			.parent()
-			.prev()
-			.children(colorLabel)
-			.attr('class', 'color__span ' + colorId);
-		
-		$(this).parent().slideUp();
-		
-		switch (colorType) {
-			case 'wall':
-				wallColorOutput.text(colorName);
-				break;
-			case 'roof':
-				roofColorOutput.text(colorName);
-				break;
-			case 'lipping':
-				lippingColorOutput.text(colorName);
-				break;
-			case 'drain':
-				drainColorOutput.text(colorName);	
-		}
-	});
-	
-	
-	
-	
-	
-	
-	
-	//------------results------------------
-	//тип и подтип здания
-	var structureTypeInput = $('.structure-type__input'),
-		
-		structureTypeOutput = $('.result__value--type'),
-		structureSubTypeOutput = $('.result__value--subtype');		
-	
-	structureTypeInput.click(function(){
-		var structureType = $(this).next().children('.structure-type__title').text(),
-			structureSubType = $(this).next().children('.structure-type__subtitle').text();
-		
-		structureTypeOutput.text(structureType);
-		structureSubTypeOutput.text(structureSubType);		
-	});
-	
-	
-	//снеговой район и обшивка
-	var snowAreaInput = $('.snow-area-input'),
-		wallShealthingInput = $('#wall-shealthing'),
-		roofShealthingInput = $('#roof-shealthing'),
-		
-	    snowAreaOutput = $('.result__value--snow-area'),
-	    wallShealthingOutput = $('.result__value--wall-shealthing'),
-	    roofShealthingOutput = $('.result__value--roof-shealthing');
-	
-	snowAreaInput.click(function(){
-		var snowAreaValue = $(this).next().text();
-		snowAreaOutput.text(snowAreaValue);
-	});
-	wallShealthingInput.click(function(){
-		var wallShealthingValue = wallShealthingInput.val();
-		wallShealthingOutput.text(wallShealthingValue);
-	});
-	roofShealthingInput.click(function(){
-		var roofShealthingValue = roofShealthingInput.val();
-		roofShealthingOutput.text(roofShealthingValue);
-	});	
-	
+	};
+
+
+$(document).ready(function(){
+	init();
 });
 
-var visual = document.getElementById('visual');
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, visual.innerWidth/visual.innerHeight, 0.1, 1000 );
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize( visual.innerWidth, visual.innerHeight );
-visual.appendChild( renderer.domElement );
+//выбираем тип здания
+structureTypeInput.click(function(){
+	currentStructureType = structureTypeInput.filter(':checked').attr('id');
+});
 
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-var cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+//по типу здания расчитываем все
+toDimensionButton.click(function(){
+	init();
+})
+	
+//number
+widthInput.change(function(){
+	if (widthInput.val() < 0) {
+		alert('Ширина не может быть меньше нуля. Минимальное значение: ' + widthMin + 'м');			
+		width = widthMin;
+		calc();
+	} else if (widthInput.val() < widthMin) {
+		alert('Ширина не может быть меньше минимального значения (' + widthMin + 'м)');			
+		width = widthMin;
+		calc();
+	} else if (widthInput.val() > widthMax) {
+		alert('Ширина не может превышать максимальное значение (' + widthMax + 'м)');			
+		width = widthMax;
+		calc();
+	} else {
+		width = widthInput.val();
+		calc();
+	}		
+});
+lengthInput.change(function(){
+	if (lengthInput.val() < 0) {
+		alert('Длина не может быть меньше нуля. Минимальное значение: ' + lengthMin + 'м');				
+		length = lengthMin;
+		calc();
+	} else if (lengthInput.val() < lengthMin) {
+		alert('Длина не может быть меньше минимального значения (' + lengthMin + 'м)');				
+		length = lengthMin;
+		calc();
+	} else if (lengthInput.val() > lengthMax) {
+		alert('Длина не может превышать максимальное значение (' + lengthMax + 'м)');						
+		length = lengthMax;
+		calc();
+	} else {
+		length = lengthInput.val();
+		calc();
+	}		
+});
+heightInput.change(function(){
+	if (heightInput.val() < 0) {
+		alert('Высота не может быть меньше нуля. Минимальное значение: ' + heightMin + 'м');				
+		height = heightMin;
+		calc();
+	} else if (heightInput.val() < heightMin) {
+		alert('Высота не может быть меньше минимального значения (' + heightMin + 'м)');							
+		height = heightMin;
+		calc();
+	} else if (heightInput.val() > heightMax) {
+		alert('Высота не может превышать максимальное значение (' + heightMax + 'м)');									
+		height = heightMax;
+		calc();
+	} else {
+		height = heightInput.val();
+		calc();
+	}		
+});	
 
-camera.position.z = 5;
+//слайдеры
+widthRange.change(function(){
+	width = +widthRange.val();
+	calc();
+});
+lengthRange.change(function(){
+	length = +lengthRange.val();
+	calc();
+});
+heightRange.change(function(){
+	height = +heightRange.val();
+	calc();
+});
 
-var render = function () {
-	requestAnimationFrame( render );
+//кнопки + -		
+widthMinusButton.click(function(){
+	if (width > widthMin) {
+		width -=widthStep;
+		calc();
+	} 
+});
+widthPlusButton.click(function(){
+	if (width < widthMax) {
+		width +=widthStep;
+		calc();
+	}
+});
+lengthMinusButton.click(function(){		
+	if (length > lengthMin) {
+		length -=lengthStep;
+		calc();
+	}
+});
+lengthPlusButton.click(function(){
+	if (length < lengthMax) {
+		length +=lengthStep;
+		calc();
+	}
+});
+heightMinusButton.click(function(){;
+	if (height > heightMin) {
+		height -=heightStep;
+		calc();
+	}
+});
+heightPlusButton.click(function(){
+	if (height < heightMax) {
+		height +=heightStep;
+		calc();
+	}
+});	
 
-	cube.rotation.x += 0.1;
-	cube.rotation.y += 0.1;
+//--------------выбор цвета
+var colorButton = $('.color__button'), //кнопка выбора цвета
+	colorSpan = $('.color__span'), // элемент внутри кнопки для выбранного цвета
 
-	renderer.render(scene, camera);
+	colorContainer = $('.color__container'), // выпадающее меню с цветами
+	colorInput = $('.color__input'), // скрытые инпуты для цветов
+	colorLabel = $('.color__label'), // квадраты для выбора цвета
+	colorText = $('.color__text'),
+	
+	drainYes = $('#drain-yes'), 
+	drainColorButton = $('#drainColorButton'),
+
+	wallColorOutput = $('.result__value--wall-color'),
+	roofColorOutput = $('.result__value--roof-color'),
+	lippingColorOutput = $('.result__value--lipping-color'),
+	drainColorOutput = $('.result__value--drain-color');
+
+colorContainer.slideUp(0); //убираем меню
+
+colorButton.click(function(){ //по нажатию на кнопку появляется блок с цветами
+	$(this).next().slideToggle();
+});
+
+colorInput.click(function(){ //красим элемент внутри кнопки выбранным цветом
+	var color = $(this).attr('id').split('-'),
+		colorId = 'color__label--' + color[1] + '-' + color[2],
+		colorType = color[0],
+		colorName = $(this).next().text();
+
+	$(this)
+		.parent()
+		.prev()
+		.children()
+		.first()
+		.attr('class', 'color__span ' + colorId);
+
+	$(this)
+		.parent()
+		.prev()
+		.children()
+		.last()
+		.text($(this).next().text());
+	
+	$(this).parent().slideUp();
+	
+
+	switch (colorType) {
+		case 'wall':
+			wallColorOutput.text(colorName);
+			break;
+		case 'roof':
+			roofColorOutput.text(colorName);
+			break;
+		case 'lipping':
+			lippingColorOutput.text(colorName);
+			break;
+		case 'drain':
+			drainColorOutput.text(colorName);	
+	};
+});
+
+//------------results------------------
+//тип и подтип здания		
+var	structureTypeOutput = $('.result__value--type'),
+	structureSubTypeOutput = $('.result__value--subtype');		
+
+structureTypeInput.click(function(){
+	var structureType = $(this).next().children('.structure-type__title').text(),
+		structureSubType = $(this).next().children('.structure-type__subtitle').text();
+
+	structureTypeOutput.text(structureType);
+	structureSubTypeOutput.text(structureSubType);		
+});	
+
+//снеговой район и обшивка
+var snowAreaInput = $('.snow-area-input'),
+	wallShealthingInput = $('#wall-shealthing'),
+	roofShealthingInput = $('#roof-shealthing'),
+
+	snowAreaOutput = $('.result__value--snow-area'),
+	wallShealthingOutput = $('.result__value--wall-shealthing'),
+	roofShealthingOutput = $('.result__value--roof-shealthing');
+
+snowAreaInput.click(function(){
+	var snowAreaValue = $(this).next().text();
+	snowAreaOutput.text(snowAreaValue);
+});
+wallShealthingInput.click(function(){
+	var wallShealthingValue = wallShealthingInput.val();
+	wallShealthingOutput.text(wallShealthingValue);
+});
+roofShealthingInput.click(function(){
+	var roofShealthingValue = roofShealthingInput.val();
+	roofShealthingOutput.text(roofShealthingValue);
+});	
+
+//------------отключение/включение айтемов
+var	appearanceInput = $('.appearance__input');
+appearanceInput.click(function(){
+	var appearanceItem = $(this).parent().parent(),
+		inputs = appearanceItem.find('*');
+	if (appearanceItem.hasClass('appearance__item--disabled')) {
+		appearanceItem.removeClass('appearance__item--disabled');
+		inputs.prop('disabled', false);
+	} else {
+		appearanceItem.addClass('appearance__item--disabled');
+		inputs.val('');
+		inputs.prop('checked', false);
+		inputs.prop('disabled', true);
+		
+		appearanceInput.prop('disabled', false);
+	}
+})
+
+//-------plus/minus--------
+var buttonMinus = $('.count-button--minus'),
+	buttonPlus = $('.count-button--plus');
+
+buttonMinus.click(function(){
+	var input = $(this).next();
+	var value = +input.val();
+	var min = +input.attr('min');
+	if (value > min) {
+		input.val(value - 1);
+	}
+});
+buttonPlus.click(function(){
+	var input = $(this).prev();
+	var value = +input.val();
+	var max = +input.attr('max');
+	if (value < max) {
+		input.val(value + 1);
+	}
+});
+
+//-------------дополнительные параметры-------------
+var additionalInput = $('#additional-input'),
+	additionalContainer = $('#additional-container');
+
+additionalInput.click(function(){
+	if ($(this).prop('checked') == true) {
+		additionalContainer.slideDown();
+		
+		var newWallShealthingOptions = {
+			'Стеновые сэндвич-панели': 'Стеновые сэндвич-панели',
+			'Профнастил': 'Профнастил',
+			'Профнастил + утеплитель + профнастил': 'Профнастил + утеплитель + профнастил'
+		},
+			newRoofShealthingOptions  = {
+			'Кровельные сэндвич-панели': 'Кровельные сэндвич-панели',
+			'Профнастил': 'Профнастил',
+			'Профнастил + утеплитель + профнастил': 'Профнастил + утеплитель + профнастил'
+		};
+		wallShealthingInput.empty(); 
+		$.each(newWallShealthingOptions, function(value,key) {
+			wallShealthingInput.append($("<option></option>")
+			.attr("value", value).text(key));
+		});
+		roofShealthingInput.empty(); 
+		$.each(newRoofShealthingOptions, function(value,key) {
+			roofShealthingInput.append($("<option></option>")
+			.attr("value", value).text(key));
+		});	
+		alert(container.text());
+		container.height(current_fs.height());
+	} else {
+		additionalContainer.slideUp();
+	}
+});
+
+//------дополнительные-настройки------
+
+var cityInput = $('#city'),	
+	tInInput = $('#t-in'),
+	tOutInput = $('#t-out'),
+	
+	RtrWallOutput = $('#Rtr-wall'),
+	RprWallOutput = $('#Rpr-wall'),
+	thicknessWallOutput  = $('#thickness-wall'),
+	
+	RtrRoofOutput = $('#Rtr-roof'),
+	RprRoofOutput = $('#Rpr-roof'),
+	thicknessRoofOutput  = $('#thickness-roof'),
+	
+	//GSOPOutput = $('#GSOP'),
+	
+	tIn = 18,
+	tOut = 0,
+	warm = 0,
+	time = 0,
+	
+	n = 1,
+	delTOut = 5,
+	alfaIn = 8.7,
+	alfaOut = 23,
+	lambda = 0.05,
+	
+	RArray = [[2000, 1.4, 2], [4000, 1.8, 2.5], [6000, 2.2, 3], [8000, 2.6, 3.5], [10000, 3.0, 4], [12000, 3.4, 4.5]];
+
+var GSOPMin = RArray[0][0];
+	GSOPMax = RArray[0][0];
+	RstMinWall  = RArray[0][1];
+	RstMaxWall  = RArray[0][1];
+	RstMinRoof  = RArray[0][2];
+	RstMaxRoof  = RArray[0][2];
+	
+var calc2 = function(){
+	var	RtrWall = (n * (tIn - tOut)) / (delTOut * alfaIn),
+		RtrRoof = (n * (tIn - tOut)) / (delTOut * alfaIn),		
+		GSOP = (tIn - warm) * time;
+
+	RtrWallOutput.val(RtrWall.toFixed(2));
+	RtrRoofOutput.val(RtrRoof.toFixed(2));
+	//GSOPOutput.val(GSOP.toFixed(2));	
+	
+	for (var i = 0; i < RArray.length; i++) {
+		if (GSOP > RArray[i][0]) {
+			GSOPMin = RArray[i][0];
+			GSOPMax = RArray[i + 1][0];
+			RstMinWall  = RArray[i][1];
+			RstMaxWall  = RArray[i + 1][1];
+			RstMinRoof  = RArray[i][2];
+			RstMaxRoof  = RArray[i + 1][2];			
+		}
+	};
+	
+ 	var RprWall = RstMinWall + (GSOP - GSOPMin) / (GSOPMax - GSOPMin) * (RstMaxWall - RstMinWall),
+		RprRoof = RstMinRoof + (GSOP - GSOPMin) / (GSOPMax - GSOPMin) * (RstMaxRoof - RstMinRoof);
+	
+	RprWallOutput.val(RprWall.toFixed(2));
+	RprRoofOutput.val(RprRoof.toFixed(2));
+	
+	var thicknessWall = lambda * (RprWall - (1 / alfaIn) - (1 / alfaOut)),
+		thicknessRoof = lambda * (RprRoof - (1 / alfaIn) - (1 / alfaOut));
+	
+	thicknessWall = thicknessWall * 1000;
+	thicknessRoof = thicknessRoof * 1000;
+	
+	var thicknessWallRecInput = $('#thickness-wall-rec'),
+		thicknessRoofRecInput = $('#thickness-roof-rec'),
+		thicknessWallRec = 80,
+		thicknessRoofRec = 80,
+		thicknessRecArray = [80, 100, 120, 150, 180, 200, 250];
+	
+	for (var i = 0; i < thicknessRecArray.length; i++) {
+		if (thicknessWall > thicknessRecArray[i]) {
+			thicknessWallRec = thicknessRecArray[i + 1];
+		};	
+		if (thicknessRoof > thicknessRecArray[i]) {
+			thicknessRoofRec = thicknessRecArray[i + 1];
+		};			
+	};	
+	
+	thicknessWall = thicknessWall.toFixed(0) + ' мм';
+	thicknessRoof = thicknessRoof.toFixed(0) + ' мм';	
+	thicknessWallOutput.val(thicknessWall);
+	thicknessRoofOutput.val(thicknessRoof);
+	
+	thicknessWallRec = thicknessWallRec.toFixed(0) + ' мм';
+	thicknessRoofRec = thicknessRoofRec.toFixed(0) + ' мм';	
+	thicknessWallRecInput.val(thicknessWallRec);
+	thicknessRoofRecInput.val(thicknessRoofRec);
 };
 
-render();
+cityInput.autocomplete({
+	source: cities,
+	close: function(){
+		var cityValue = cityInput.val();
+		for (var i = 0; i < citiesArray.length; i++) {
+			if (cityValue == citiesArray[i].city) {
+				tOut = citiesArray[i].tOut;
+				warm = citiesArray[i].warm;
+				time = citiesArray[i].time;
+			}
+		};
+		tInInput.val(tIn); 
+		tInInput.attr('disabled', false); 
+		tOutInput.val(tOut);
+		tOutInput.attr('disabled', false); 
+		calc2();
+		$('.result__value--city').text(cityValue);
+	}
+});
+
+tInInput.change(function(){
+	tIn = tInInput.val();
+	calc2();
+});
+
+tOutInput.change(function(){
+	tOut = tOutInput.val();
+	calc2();
+});
 
