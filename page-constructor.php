@@ -211,63 +211,71 @@ get_header(); ?>
 									</div>										
 								</div>
 								<div class="additional row">
-									<input type="checkbox" id="additional-input">
-									<label for="additional-input" class="additional__header">Дополнительные параметры</label>
+									<div class="additional__header">
+										<input type="checkbox" id="additional-input">
+										<label for="additional-input" >Дополнительные параметры</label>
+									</div>									
 									<div id="additional-container" class="additional__container container">
-										<div class="additional__item col-sm-4">
-											<label for="city">Город</label>
-											<input type="text" name="city" id="city" placeholder="Выберите город">
+										<div class="additional__row col-sm-12">
+											<div class="additional__item col-sm-6">
+												<label for="city">Город: </label>
+												<input type="text" name="city" id="city" placeholder="Выберите город">
+											</div>
+											<div class="additional__item col-sm-6">
+												<label for="t-in">Внутренняя температура: </label>
+												<input type="number" name="t-in" id="t-in" min="0" max="50" value="0" disabled>
+											</div>
 										</div>
-										<div class="additional__item col-sm-4">
-											<label for="t-in">Внутренняя температура</label>
-											<input type="number" name="t-in" id="t-in" min="0" max="50" value="0">
-										</div>	
-										<div class="additional__item col-sm-4">
-											<label for="t-out">Внешняя температура</label>
-											<input type="number" name="t-out" id="t-out">
-										</div>										
+										<div class="additional__column col-sm-4">
+											<div class="additional__item">
+												<label for="t-out">Внешняя температура: </label>
+												<input type="number" name="t-out" id="t-out" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="Rtr-wall">R<sub>тр</sub>: </label>
+												<input type="text" name="Rtr-wall" id="Rtr-wall" disabled>
+											</div>	
+										</div>
+										<div class="additional__column col-sm-4">
+											<h3>Стены</h3>
+											<div class="additional__item">
+												<label for="Rpr-wall">R<sub>пр</sub>: </label>
+												<input type="text" name="Rpr-wall" id="Rpr-wall" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-wall">Толщина: </label>
+												<input type="text" name="thickness-wall" id="thickness-wall" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-wall-rec">Рекомендованная толщина: </label>
+												<input type="text" name="thickness-wall-rec" id="thickness-wall-rec" disabled>
+											</div>
+										</div>
+										<div class="additional__column col-sm-4">
+											<h3>Кровля</h3>
+											<div class="additional__item">
+												<label for="Rpr-roof">R<sub>пр</sub>: </label>
+												<input type="text" name="Rpr-roof" id="Rpr-roof" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-roof">Толщина: </label>
+												<input type="text" name="thickness-roof" id="thickness-roof" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="thickness-roof-rec">Рекомендованная толщина: </label>
+												<input type="text" name="thickness-roof-rec" id="thickness-roof-rec" disabled>
+											</div>
+										</div>
+<!--
+										<div class="additional__item">
+											<label for="Rtr-roof">R<sub>тр</sub></label>
+											<input type="text" name="Rtr-roof" id="Rtr-roof" disabled>
+										</div>								
+-->
 										<!--<div class="additional__item col-sm-4">
 											<label for="GSOP">ГСОП</label>
 											<input type="text" name="GSOP" id="GSOP" disabled>
 										</div>-->
-										<div class="col-sm-6">
-											<h3>Стены</h3>
-											<div class="additional__item">
-												<label for="Rtr-wall">R<sub>тр</sub></label>
-												<input type="text" name="Rtr-wall" id="Rtr-wall" disabled>
-											</div>
-											<div class="additional__item">
-												<label for="Rpr-wall">R<sub>пр</sub></label>
-												<input type="text" name="Rpr-wall" id="Rpr-wall" disabled>
-											</div>
-											<div class="additional__item">
-												<label for="thickness-wall">Толщина</label>
-												<input type="text" name="thickness-wall" id="thickness-wall" disabled>
-											</div>
-											<div class="additional__item">
-												<label for="thickness-wall-rec">Рекомендованная толщина</label>
-												<input type="text" name="thickness-wall-rec" id="thickness-wall-rec" disabled>
-											</div>										
-										</div>										
-										<div class="col-sm-6">
-											<h3>Кровля</h3>
-											<div class="additional__item">
-												<label for="Rtr-roof">R<sub>тр</sub></label>
-												<input type="text" name="Rtr-roof" id="Rtr-roof" disabled>
-											</div>
-											<div class="additional__item">
-												<label for="Rpr-roof">R<sub>пр</sub></label>
-												<input type="text" name="Rpr-roof" id="Rpr-roof" disabled>
-											</div>
-											<div class="additional__item">
-												<label for="thickness-roof">Толщина</label>
-												<input type="text" name="thickness-roof" id="thickness-roof" disabled>
-											</div>
-											<div class="additional__item">
-												<label for="thickness-roof-rec">Рекомендованная толщина</label>
-												<input type="text" name="thickness-roof-rec" id="thickness-roof-rec" disabled>
-											</div>
-										</div>
 									</div>
 								</div>
 <!--
@@ -445,13 +453,13 @@ get_header(); ?>
 										<label for="door">Двери</label>
 									</div>
 									<div class="appearance__count">
-										<label for="">Количество: </label>
+										<h4>Количество: </h4>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
 										<input type="number" name="door-quantity" min="1" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
-									<div>
-										<span>Размеры:</span>
+									<div class="appearance__dimension">
+										<h4>Размеры:</h4>
 										<input type="radio" name="door-dim" id="door-2x1" value="2x1" disabled>
 										<label for="door-2x1">2x1</label>
 										<input type="radio" name="door-dim" id="door-3x1" value="3x1" disabled>
@@ -470,13 +478,13 @@ get_header(); ?>
 										<label for="gate">Ворота</label>
 									</div>
 									<div class="appearance__count">
-										<label for="">Количество: </label>
+										<h4>Количество: </h4>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
 										<input type="number" name="gate-quantity" min="0" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
-									<div>
-										<span>Размеры:</span>
+									<div class="appearance__dimension">
+										<h4>Размеры:</h4>
 										<input type="radio" name="gate-dim" id="gate-2x1" value="2x1" disabled>
 										<label for="gate-2x1">2x1</label>
 										<input type="radio" name="gate-dim" id="gate-3x1" value="3x1" disabled>
@@ -495,13 +503,13 @@ get_header(); ?>
 										<label for="window">Окна</label>
 									</div>
 									<div class="appearance__count">
-										<label for="">Количество: </label>
+										<h4>Количество: </h4>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
 										<input type="number" name="window-quantity" min="0" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
-									<div>
-										<span>Размеры:</span>
+									<div class="appearance__dimension">
+										<h4>Размеры:</h4>
 										<input type="radio" name="window-dim" id="window-2x1" value="2x1" disabled>
 										<label for="window-2x1">2x1</label>
 										<input type="radio" name="window-dim" id="window-3x1" value="3x1" disabled>
@@ -520,13 +528,13 @@ get_header(); ?>
 										<label for="translucent">Светопрозрачные участки кровли</label>
 									</div>
 									<div class="appearance__count">
-										<label for="">Количество: </label>
+										<h4>Количество: </h4>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
 										<input type="number" name="translucent-roof-areas-quantity" min="0" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>	
-									<div>
-										<span>Размеры:</span>
+									<div class="appearance__dimension">
+										<h4>Размеры:</h4>
 										<input type="radio" name="tra-dim" id="tra-2x1" value="2x1" disabled>
 										<label for="tra-2x1">2x1</label>
 										<input type="radio" name="tra-dim" id="tra-3x1" value="3x1" disabled>

@@ -7863,9 +7863,6 @@ Entry Footer
 .constructor {
   /*progressbar*/
 }
-.constructor__container {
-  min-height: 700px;
-}
 .constructor .progress__bar {
   padding: 0;
   margin-bottom: 30px;
@@ -8151,16 +8148,16 @@ Entry Footer
   display: none;
   margin: 0;
 }
-.constructor .additional__container label {
-  display: block;
-}
 .constructor .additional__item {
   padding: 0;
   margin-bottom: 15px;
 }
 .constructor .additional__item label {
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: normal;
+  display: inline;
+  font-size: 20px;
 }
 .constructor .additional__item input {
   text-align: center;
@@ -8170,12 +8167,30 @@ Entry Footer
   font-size: 24px;
 }
 .constructor .additional__header {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
   position: relative;
   padding-left: 30px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  display: block;
+  border-bottom: 2px solid #eee;
 }
 .constructor .additional__header::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #2474d0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.constructor .additional__header label {
+  width: 100%;
+  cursor: pointer;
+}
+.constructor .additional__header label::before {
   content: '';
   display: block;
   width: 20px;
@@ -8185,7 +8200,7 @@ Entry Footer
   top: 3px;
   left: 0;
 }
-.constructor .additional__header::after {
+.constructor .additional__header label::after {
   content: '';
   display: none;
   width: 10px;
@@ -8197,28 +8212,57 @@ Entry Footer
   top: 9px;
   left: 5px;
 }
-.constructor .appearance__item {
-  position: relative;
-  padding: 15px;
-  margin-bottom: 15px;
+.constructor .additional__row {
+  padding: 0;
 }
-.constructor .appearance__item h4 {
+.constructor .additional__column {
+  padding: 0;
+}
+.constructor .additional__column h3 {
   margin: 0;
   margin-bottom: 15px;
+}
+.constructor .additional__column label {
+  display: inline-block;
+  width: 270px;
+}
+.constructor .additional__column input {
+  width: 100px;
+}
+.constructor .appearance__item {
+  position: relative;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+  margin-bottom: 15px;
+  padding: 0;
+}
+.constructor .appearance__item > h4 {
+  padding: 15px;
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+}
+.constructor .appearance__item h4 {
   font-size: 15px;
 }
 .constructor .appearance__item label {
   font-weight: normal;
 }
+.constructor .appearance__item--disabled {
+  opacity: .5;
+}
+.constructor .appearance__inclusion {
+  border-bottom: 1px solid #ddd;
+}
 .constructor .appearance__inclusion label {
   width: 100%;
-  height: 16px;
   font-size: 15px;
   margin: 10px 0;
   font-weight: normal;
   margin: 0;
-  margin-bottom: 15px;
-  padding-left: 40px;
+  padding-left: 30px;
+  cursor: pointer;
+  padding: 15px;
+  padding-left: 45px;
 }
 .constructor .appearance__inclusion label::before {
   content: '';
@@ -8227,8 +8271,8 @@ Entry Footer
   height: 20px;
   border: 1px solid #ddd;
   position: absolute;
-  top: 18px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
 }
 .constructor .appearance__inclusion label::after {
   content: '';
@@ -8239,8 +8283,8 @@ Entry Footer
   border-left: 1px solid #2474d0;
   transform: rotate(-45deg);
   position: absolute;
-  top: 23px;
-  left: 15px;
+  top: 21px;
+  left: 20px;
 }
 .constructor .appearance__inclusion input[type="checkbox"] {
   display: none;
@@ -8254,9 +8298,14 @@ Entry Footer
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
 }
-.constructor .appearance__count label {
+.constructor .appearance__count h4 {
   flex-grow: 1;
+  margin: 0;
 }
 .constructor .appearance__count button {
   background: #fff;
@@ -8274,8 +8323,80 @@ Entry Footer
   border: 1px solid #ddd;
   text-align: center;
 }
+.constructor .appearance__dimension {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.constructor .appearance__dimension h4 {
+  flex-grow: 1;
+  margin: 0;
+  vertical-align: middle;
+}
+.constructor .appearance__dimension label {
+  text-align: center;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+  padding: 5px;
+  width: 60px;
+  cursor: pointer;
+}
+.constructor .appearance__dimension input[type="radio"] {
+  display: none;
+}
+.constructor .appearance__dimension input[type="radio"]:checked + label {
+  background: #2474d0;
+  color: #fff;
+}
+.constructor .appearance__reinforce {
+  padding: 15px;
+}
+.constructor .appearance__reinforce label {
+  width: 100%;
+  font-size: 15px;
+  font-weight: normal;
+  padding-left: 30px;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+}
+.constructor .appearance__reinforce label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.constructor .appearance__reinforce label::after {
+  content: '';
+  display: none;
+  width: 10px;
+  height: 5px;
+  border-bottom: 1px solid #2474d0;
+  border-left: 1px solid #2474d0;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 6px;
+  left: 5px;
+}
+.constructor .appearance__reinforce input[type="checkbox"] {
+  display: none;
+}
+.constructor .appearance__reinforce input[type="checkbox"]:checked + label::after {
+  display: block;
+}
 .constructor .color {
   position: relative;
+  padding: 15px;
 }
 .constructor .color__button {
   height: 40px;
@@ -8308,7 +8429,7 @@ Entry Footer
 }
 .constructor .color__container {
   position: absolute;
-  top: 40px;
+  top: 70px;
   left: 0;
   z-index: 10;
   width: 100%;
@@ -8318,6 +8439,9 @@ Entry Footer
   display: -o-flex;
   display: flex;
   flex-wrap: wrap;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #ddd;
 }
 .constructor .color__input {
   display: none;
