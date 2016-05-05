@@ -91,6 +91,16 @@ and Bootstrap https://github.com/twbs/bootstrap
     height: auto;      /* let the content decide it  */
 }
 
+.mw.modal.fade {
+	display: block;   
+    height: 0;      
+    overflow: hidden;
+}
+.mw.modal.fade.in {
+	height: auto;
+}
+
+
 //переменные
 @mobile: ~ "(max-width: 767px)";
 @desktop: ~ "(min-width: 768px)";
@@ -114,6 +124,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/news.less";
 @import "less/constructor.less";
 @import "less/product.less";
+@import "less/metal.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -361,6 +372,7 @@ body {
 .aside-nav {
 	border: 1px solid #ddd;
 	ul {
+		background: #fff;
 		list-style: none;
 		padding: 0;
 		margin: 0;

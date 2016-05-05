@@ -37,6 +37,8 @@ $(".control-button--next").click(function(){
 //		//this comes from the custom easing plugin
 //		easing: 'easeInOutBack'
 //	});
+	$('body').animate({scrollTop: 250}, 300);
+	//return false;
 });
 
 $(".control-button--prev").click(function(){
@@ -73,6 +75,7 @@ $(".control-button--prev").click(function(){
 //		//this comes from the custom easing plugin
 //		easing: 'easeInOutBack'
 //	});
+	$('body').animate({scrollTop: 250}, 300);
 });
  	
 //главные параметры

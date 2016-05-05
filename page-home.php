@@ -97,13 +97,7 @@
 			<div class="main-services__wrapper container">
 				<h2 class="main-services__header">Наши услуги</h2>
 				<p class="main-services__note">ЗАО «Lorem» проектирует, производит и поставляет быстровозводимые полнокомплектные здания:</p>
-				<div class="main-services__container scrollme animateme" 
-					data-when="enter"
-					data-from=".6"
-					data-to=".3"
-					data-opacity="0"
-					data-translatey="150"
-				>
+				<div class="main-services__container">
 					<div class="main-services__item">
 						<a href="#" class="main-services__link">
 							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/services/1.png" alt="" class="main-services__img">
@@ -168,13 +162,7 @@
 				<a href="catalog" class="main-services__more-link my-link">Узнать подробнее</a>
 			</div>
 		</div>
-		<div class="home-features scrollme animateme" 
-			data-when="enter"
-			data-from=".6"
-			data-to=".3"
-			data-opacity="0"
-			data-translatey="150"
-		>
+		<div class="home-features">
 			<div class="home-features__wrapper container">
 				<h2 class="home-features__heading">Наши преимущества</h2>
 				<div class="home-features__item col-sm-4">
@@ -223,13 +211,7 @@
 				
 			</div>
 		</div>
-		<div class="reviews scrollme animateme" 
-			data-when="enter"
-			data-from=".6"
-			data-to=".3"
-			data-opacity="0"
-			data-translatey="150"
-		>
+		<div class="reviews">
 			<div class="reviews__wrapper container">
 				<h2 class="reviews__header">Отзывы</h2>
 				<div class="reviews__slider">
@@ -258,13 +240,7 @@
 				<a href="reviews" class="main-services__more-link my-link">Все отзывы</a>
 			</div>
 		</div>
-		<div class="showcase scrollme animateme" 
-			data-when="enter"
-			data-from=".6"
-			data-to=".3"
-			data-opacity="0"
-			data-translatey="150"
-		>
+		<div class="showcase">
 			<div class="showcase__wrapper container">
 				<ul class="nav nav-tabs nav-justified" role="tablist">
 					<li role="presentation" class="active"><a href="#certificates" aria-controls="certificates" role="tab" data-toggle="tab" class="showcase__tab-link">Сертификаты</a></li>

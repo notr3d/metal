@@ -78,7 +78,26 @@ $(document).ready(function () {
 		autoplay: true,
 		autoplaySpeed: 10000
 	});
-	
+	//product
+	$('.mw-top-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		dots: false,
+		asNavFor: '.mw-bot-slider',
+		autoplay: true,
+		autoplaySpeed: 10000
+	});
+	$('.mw-bot-slider').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.mw-top-slider',
+		arrows: false,
+		dots: false,
+		centerMode: true,
+		focusOnSelect: true
+	});
 });
 
 //карта
@@ -133,3 +152,60 @@ asideLink.click(function(){
 	event.preventDefault();
 });
 
+//visible
+var featureItem = $('.features__item'),
+	advantagesItem = $('.advantages__item');
+
+var scheme = $('.scheme__scheme'),
+	schemeImg = $('.scheme__img'),
+	schemeStep = $('.scheme__step');
+
+$(window).scroll(function(){
+	if (featureItem.visible()) {
+		$(function() {
+			$.each(featureItem, function(i, el) {
+				setTimeout(function() {
+					$(el).addClass('rotateY');
+				}, (i * 50));
+			});
+		});
+	};
+	if (advantagesItem.visible()) {
+		$(function() {
+			$.each(advantagesItem, function(i, el) {
+				setTimeout(function() {
+					$(el).addClass('fadeIn');
+				}, (i * 50));
+			});
+		});
+	};
+	if (scheme.visible()) {
+		$(function() {
+			scheme.addClass('fadeIn');
+			$.each(schemeImg, function(i, el) {
+				setTimeout(function() {
+					$(el).addClass('fadeIn');
+				}, (i * 150));
+			});
+			$.each(schemeStep, function(i, el) {
+				setTimeout(function() {
+					$(el).addClass('fadeIn');
+				}, (1350 + i * 150));
+			});			
+		});
+	};
+});
+
+window.addEventListener('scroll', function(e){
+	var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+		shrinkOn = 200,
+		headingNav = $('.heading__nav');
+	if (distanceY > shrinkOn) {
+		$(headingNav).addClass('heading__nav--fixed');
+
+	} else {
+		if (headingNav.hasClass('heading__nav--fixed')) {
+			headingNav.removeClass('heading__nav--fixed');
+		}
+	}
+});

@@ -55,7 +55,8 @@
 	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/slick.js"></script>
-	<!--<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.scrollme.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.visible.js"></script>	
+	<!--
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/three.js"></script>	
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/OrbitControls.js"></script>-->				
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>

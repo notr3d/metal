@@ -165,9 +165,9 @@ get_header(); ?>
 										</div>									
 									</div>
 									<div class="dimension__item dimension__output col-sm-3">
-										<h4>Площадь:</h4>
+										<h4>Площадь здания:</h4>
 										<output id=areaOutput></output>
-										<h4>Объем (без учета крыши):</h4>
+										<h4>Строительный объем:</h4>
 										<output id="volumeOutput"></output>
 									</div>
 								</div>								

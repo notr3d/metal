@@ -1,13 +1,20 @@
 .production {
 	&__showcase {
 		.nav-tabs {
-			a {
-				min-height: 80px;
-				margin-bottom: 0 !important;
-			}
+			li {
+				margin-bottom: -1px;
+				a {
+					min-height: 80px;
+					margin-bottom: 0 !important;				
+				}
+				&.active {
+					a {
+						border-bottom: none !important;
+					}
+				}
+			}			
 		}
 		.tab-content {
-			background: #eee;
 			border: 1px solid #ddd;
 			border-top: none;
 		}
