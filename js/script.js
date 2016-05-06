@@ -98,6 +98,27 @@ $(document).ready(function () {
 		centerMode: true,
 		focusOnSelect: true
 	});
+	//metal
+	$('.carousel-top').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: false,
+		dots: false,
+		draggable:false,
+		//asNavFor: '.carousel-bot',
+		//autoplay: true,
+		//autoplaySpeed: 10000
+	});
+	$('.carousel-bot').slick({
+		slidesToShow: 10,
+		slidesToScroll: 1,
+		asNavFor: '.carousel-top',
+		arrows: false,
+		dots: false,
+		centerMode: false,
+		focusOnSelect: true
+	});
 });
 
 //карта
@@ -196,16 +217,25 @@ $(window).scroll(function(){
 	};
 });
 
-window.addEventListener('scroll', function(e){
+//fixed nav
+window.addEventListener('scroll', function(e){	
 	var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-		shrinkOn = 200,
-		headingNav = $('.heading__nav');
+		shrinkOn = 160,
+		heading = $('.heading__heading'),
+		headingNav = $('.navigation'),
+		headingNavWrapper = $('.navigation__wrapper');
 	if (distanceY > shrinkOn) {
-		$(headingNav).addClass('heading__nav--fixed');
-
+		$(headingNav).removeClass('col-sm-3');
+		$(headingNav).addClass('navigation--fixed container');
+		$(headingNavWrapper).addClass('col-sm-3');
+		$(heading).removeClass('col-sm-9');
 	} else {
-		if (headingNav.hasClass('heading__nav--fixed')) {
-			headingNav.removeClass('heading__nav--fixed');
+		if (headingNav.hasClass('navigation--fixed')) {
+			headingNav.removeClass('navigation--fixed container');
+			headingNav.addClass('col-sm-3');
+			$(headingNavWrapper).removeClass('col-sm-3');
+			$(heading).addClass('col-sm-9');
 		}
 	}
 });
+

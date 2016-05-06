@@ -258,6 +258,7 @@ body {
 		}
 	}
 	&-fancy-button {
+		display: inline-block;
 		@color: @blue;
 		background: @color;
 		color: #fff;
@@ -299,12 +300,18 @@ body {
 		}
 
 		&:hover {
+			text-decoration: none;
+			color: #fff;
 			&::before {
 				transform: rotate(10deg) translateY(-1px);
 			}
 			&::after {
 				transform: rotate(10deg) translateY(1px);
 			}
+		}
+		&:focus {
+			text-decoration: none;
+			color: #fff;
 		}
 	}
 }

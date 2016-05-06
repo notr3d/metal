@@ -677,8 +677,10 @@ get_header(); ?>
 									<textarea name="message" id="message" cols="30" rows="10"></textarea>									
 								</div>
 								<div class="info__item info__item--file col-sm-6">
+<!--
 									<label for="file">Добавить вложение</label>
 									<input type="file" name="file" id="file">
+-->
 								</div>
 								<div class="info__item info__item--period col-sm-6">
 									<label for="period">Желаемый срок исполнения: </label>

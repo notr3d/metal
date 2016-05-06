@@ -1,31 +1,46 @@
 .metal {
-	.heading {
-		padding: 15px 0;
-		background: url(img/metal/heading-bg.jpg) no-repeat center;
-		&__nav {
+	.navigation {
+		padding: 0;
+		margin: 0;
+		&__wrapper {
 			background: #fff;
 			padding: 0;
-			h2 {
-				margin: 0;
-				color: @red;
-				text-transform: uppercase;
-				font-weight: bold;
-				font-size: 16px;
-				padding: 15px;
-				border-bottom: 2px solid #ddd;
-			}
-			a {
-				display: block;
-				font-size: 16px;
-				padding: 5px 15px;
+			margin: 0;
+			border: 1px solid #ddd;
+			z-index: 1000;
+		}
+		h2 {
+			margin: 0;
+			color: @red;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 16px;
+			padding: 15px;
+			border-bottom: 1px solid #ddd;
+		}
+		a {
+			display: block;
+			font-size: 16px;
+			padding: 5px 15px;			
+			background: #eee;
+			color: #000;
+			&:not(:last-child) {
 				border-bottom: 1px solid #ddd;
-				background: #eee;
-				color: #000;
 			}
-			&--fixed {
-				position: fixed;
+			&.active {
+				background: @blue;
+				color: #fff;
 			}
 		}
+		&--fixed {
+			position: fixed;
+			top: 180px;
+		}
+	}
+	.heading {
+		height: 332px;
+		padding: 15px 0;
+		background: url(img/metal/heading-bg.jpg) no-repeat center;		
 		&__heading {
 			
 		}
@@ -35,6 +50,127 @@
 			font-weight: bold;
 			text-align: center;
 			margin-top: 120px;
+			font-size: 50px;
+			text-shadow: 0 5px 1px rgba(3, 3, 3, 0.8);
+		}
+	}
+	.annotation {
+		&__wrapper {						
+			padding: 30px 15px;
+		}
+		&__text {
+			font-size: 24px;
+			margin-bottom: 15px;
+		}
+		&__link {
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+	.about {
+		&__heading {
+			text-transform: uppercase;
+			margin: 60px 0 30px;
+		}
+		&__item {
+			margin-bottom: 30px;
+			padding: 0;
+		}
+		&__header {
+			margin-top: 0;
+		}
+		&__left {
+			padding-left: 0;
+		}
+		&__right {
+			padding-right: 0;
+		}
+		&__img {
+			width: 100%;
+			height: 140px;
+			background: #eee;
+		}
+	}
+	.divider {
+		height: 300px; 
+		background: #eee no-repeat center;		
+		&--1 {
+			background-image: url(img/metal/divider-1.jpg);
+		}
+		&--2 {
+			background-image: url(img/metal/divider-2.jpg);
+		}
+		
+	}
+	.carousel {
+		position: static !important;
+		&-top {
+			&__item {
+				background: #eee;
+				height: 400px;
+			}
+		}
+		&-bot {
+			&__item {
+				background: #eee;
+				height: 50px;
+				margin: 0 5px;
+				cursor: pointer;
+				margin-bottom: 5px;
+				position: relative;
+				&::before {
+					content: '';
+					display: block;
+					width: 0;
+					height: 5px;
+					background: @red;
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					transition: all .3s ease-out;
+				}
+				&::after {
+					content: '';
+					display: block;
+					width: 0;
+					height: 5px;
+					background: @red;
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					transition: all .3s ease-out;
+					transform: rotate(180deg);
+					transform-origin: left;
+				}
+				
+				&.slick-current {
+					&::before {
+						width: 50%;
+					}
+					&::after {
+						width: 50%;
+					}
+					
+				}
+				&:hover {
+					&::before {
+						width: 50%;
+					}
+					&::after {
+						width: 50%;
+					}
+				}
+			}
+		}		
+	}
+	.about {
+		&__wrapper {		
+		}
+		&__text {
+			text-align: justify;
+			column-count: 2;
+			column-gap: 50px;
+			column-rule: 1px solid #ddd;
 		}
 	}
 }
