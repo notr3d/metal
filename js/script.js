@@ -239,3 +239,23 @@ window.addEventListener('scroll', function(e){
 	}
 });
 
+var test = $('.page_item a');
+test.click(function(e){
+	$('.my-wave').remove();
+	$(this).css({
+		position: 'relative',
+		overflow: 'hidden'
+	})
+	
+	var clickX =  e.offsetX;
+    var clickY = e.offsetY;
+	var elWidth = $(this).width();
+	var elHeight = $(this).height();
+	$(this).append('<span class="my-wave"></span');
+	$('.my-wave').css({
+		left: clickX - elWidth / 2,
+		top:  clickY - elHeight * 2,
+		width: elWidth,
+		height: elWidth,
+	});
+})

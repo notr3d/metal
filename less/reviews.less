@@ -1,5 +1,29 @@
 .reviews {
 	&__item {
-		padding: 0;
+		display: inline-block;		
+		width: 49.8%;
+		margin-bottom: 15px;
+		&:nth-child(odd) {
+			padding-right: 8px;
+		}
+		&:nth-child(even) {
+			padding-left: 7px;
+		}
+		@media @mobile {
+			width: 100%;
+			padding: 0 !important;
+		}
+	}
+	&__inner {
+		border: 1px solid #ddd;
+		padding: 15px;
+	}
+	&__img {
+		width: 100%;
+		height: 200px;
+		background: #eee;
+	}
+	&__text {
+		text-align: justify;
 	}
 }

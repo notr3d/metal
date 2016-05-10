@@ -125,6 +125,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/constructor.less";
 @import "less/product.less";
 @import "less/metal.less";
+@import "less/reviews.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -313,6 +314,24 @@ body {
 			text-decoration: none;
 			color: #fff;
 		}
+	}
+	&-wave {
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 50%;
+		display: inline-block;
+		position: absolute;
+		width: 0;
+		height: 0;
+		transform: scale(0);
+		opacity: 1;
+		animation: drop .3s linear;
+	}
+}
+
+@keyframes drop {
+	100% {
+		transform: scale(2);
+		opacity: 0;
 	}
 }
 

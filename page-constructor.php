@@ -447,7 +447,7 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-								<div class="appearance__item appearance__item--disabled col-sm-3">
+								<div class="appearance__item appearance__item--disabled col-sm-4">
 									<div class="appearance__inclusion">
 										<input type="checkbox" id="door" class="appearance__input">
 										<label for="door">Двери</label>
@@ -472,7 +472,7 @@ get_header(); ?>
 										<label for="reinforce-door">Усилить конструкцию под проем</label>
 									</div>
 								</div>
-								<div class="appearance__item appearance__item--disabled col-sm-3">
+								<div class="appearance__item appearance__item--disabled col-sm-4">
 									<div class="appearance__inclusion">
 										<input type="checkbox" id="gate" class="appearance__input">
 										<label for="gate">Ворота</label>
@@ -497,35 +497,10 @@ get_header(); ?>
 										<label for="reinforce-gate">Усилить конструкцию под проем</label>
 									</div>
 								</div>
-								<div class="appearance__item appearance__item--disabled col-sm-3">
-									<div class="appearance__inclusion">
-										<input type="checkbox" id="window" class="appearance__input">
-										<label for="window">Окна</label>
-									</div>
-									<div class="appearance__count">
-										<h4>Количество: </h4>
-										<button type="button" class="count-button count-button--minus" disabled>-</button>
-										<input type="number" name="window-quantity" min="0" max="10" disabled>
-										<button type="button" class="count-button count-button--plus" disabled>+</button>
-									</div>
-									<div class="appearance__dimension">
-										<h4>Размеры:</h4>
-										<input type="radio" name="window-dim" id="window-2x1" value="2x1" disabled>
-										<label for="window-2x1">2x1</label>
-										<input type="radio" name="window-dim" id="window-3x1" value="3x1" disabled>
-										<label for="window-3x1">3x1</label>
-										<input type="radio" name="window-dim" id="window-4x1" value="4x1" disabled>
-										<label for="window-4x1">4x1</label>
-									</div>
-									<div class="appearance__reinforce">
-										<input type="checkbox" id="reinforce-window" name ="reinforce-window" disabled>
-										<label for="reinforce-window">Усилить конструкцию под проем</label>
-									</div>
-								</div>
-								<div class="appearance__item appearance__item--disabled col-sm-3">
+								<div class="appearance__item appearance__item--disabled col-sm-4">
 									<div class="appearance__inclusion">
 										<input type="checkbox" id="translucent" class="appearance__input">
-										<label for="translucent">Светопрозрачные участки кровли</label>
+										<label for="translucent">Светопр. участки кровли</label>
 									</div>
 									<div class="appearance__count">
 										<h4>Количество: </h4>
@@ -547,6 +522,44 @@ get_header(); ?>
 										<label for="reinforce-translucent">Усилить конструкцию под проем</label>
 									</div>							
 								</div>
+								<div class="appearance__item appearance__item--special appearance__item--disabled col-sm-12">
+									<div class="appearance__inclusion">
+										<input type="checkbox" id="window" class="appearance__input">
+										<label for="window">Окна</label>
+										<div class="appearance__count">
+											<h4>Добавить позицию: </h4>
+											<button type="button" class="count-button count-button--minus" id="window-type-minus" disabled>-</button>
+											<input type="number" name="window-type-quantity" id="window-type-quantity" min="1" max="10" value="1" disabled>
+											<button type="button" class="count-button count-button--plus" id="window-type-plus" disabled>+</button>
+										</div>
+									</div>
+									<div class="appearance__block">
+										<div class="appearance__dimension">
+											<div class="appearance__count">
+												<h4>Ширина: </h4>
+												<button type="button" class="count-button count-button--minus" disabled>-</button>
+												<input type="number" name="window-width-1" min="0" max="10" disabled>
+												<button type="button" class="count-button count-button--plus" disabled>+</button>
+											</div>
+											<div class="appearance__count">
+												<h4>Высота: </h4>
+												<button type="button" class="count-button count-button--minus" disabled>-</button>
+												<input type="number" name="window-height-1" min="0" max="10" disabled>
+												<button type="button" class="count-button count-button--plus" disabled>+</button>
+											</div>
+										</div>
+										<div class="appearance__count">
+											<h4>Количество: </h4>
+											<button type="button" class="count-button count-button--minus" disabled>-</button>
+											<input type="number" name="window-quantity-1" min="0" max="10" disabled>
+											<button type="button" class="count-button count-button--plus" disabled>+</button>
+										</div>									
+										<div class="appearance__reinforce">
+											<input type="checkbox" id="reinforce-window-1" name ="reinforce-window" disabled>
+											<label for="reinforce-window-1">Усилить конструкцию под проем</label>
+										</div>
+									</div>
+								</div>								
 							</div>							
 							<div class="step__controls-area">
 								<button type="button" name="previous" class="control-button control-button--prev">Размеры</button>

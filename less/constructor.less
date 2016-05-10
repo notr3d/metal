@@ -70,7 +70,7 @@
 	.step {		
 		width: 100%;
 		&:not(:first-of-type) {
-			display: none; //откл
+			//display: none; //откл
 		}
 		&__title {
 			margin-bottom: 10px;
@@ -415,12 +415,89 @@
 			}
 			h4 {
 				font-size: 15px;
+				line-height: 15px;
 			}
 			label {
 				font-weight: normal;
+				font-size: 15px;
+				line-height: 15px;
 			}
 			&--disabled {
 				opacity: .5;
+			}
+			&--special {
+				.appearance__inclusion {
+					flex-basis: 100%;
+					display: -webkit-flex;
+					display: -moz-flex;
+					display: -ms-flex;
+					display: -o-flex;
+					display: flex;
+					align-content: center;
+					label {
+						width: 67%;
+						line-height: 30px;
+						&::before {
+							top: 20px;
+						}
+						&::after {
+							top: 26px;
+						}
+					}
+					.appearance__count {
+						width: 33%;
+						border: none;
+						border-left: 1px solid #ddd;
+					}
+				}
+				.appearance__block {
+					display: -webkit-flex;
+					display: -moz-flex;
+					display: -ms-flex;
+					display: -o-flex;
+					display: flex;
+				}
+				.appearance__count {
+					display: -webkit-flex;
+					display: -moz-flex;
+					display: -ms-flex;
+					display: -o-flex;
+					display: flex;
+					align-items: center;
+					width: 25%;
+					border-bottom: none;
+					border-right: 1px solid #ddd;
+					h4 {
+						display: inline-block;
+					}
+				}
+				.appearance__dimension {
+					display: -webkit-flex;
+					display: -moz-flex;
+					display: -ms-flex;
+					display: -o-flex;
+					display: flex;
+					align-items: center;
+					width: 50%;
+					border-bottom: none;
+					border-right: 1px solid #ddd;
+					padding: 0;
+					.appearance__count {
+						width: 50%;
+						&:last-child {
+							border: none;
+						}
+					}
+				}
+				.appearance__reinforce {
+					display: -webkit-flex;
+					display: -moz-flex;
+					display: -ms-flex;
+					display: -o-flex;
+					display: flex;
+					align-items: center;
+					width: 25%;
+				}
 			}
 		}
 		&__inclusion {		
@@ -622,6 +699,9 @@
 			padding: 15px;
 			background: #fff;
 			border: 1px solid #ddd;
+			label {
+				font-size: 0;
+			}
 		}
 		&__input {
 			display: none;

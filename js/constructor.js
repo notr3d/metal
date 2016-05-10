@@ -586,7 +586,7 @@ var additionalInput = $('#additional-input'),
 additionalInput.click(function(){
 	if ($(this).prop('checked') == true) {
 		additionalContainer.slideDown();
-		
+				
 		var newWallShealthingOptions = {
 			'Стеновые сэндвич-панели': 'Стеновые сэндвич-панели',
 			'Профнастил': 'Профнастил',
@@ -597,7 +597,10 @@ additionalInput.click(function(){
 			'Профнастил': 'Профнастил',
 			'Профнастил + утеплитель + профнастил': 'Профнастил + утеплитель + профнастил'
 		};
-		wallShealthingInput.empty(); 
+		
+		
+		
+		wallShealthingInput.empty();
 		$.each(newWallShealthingOptions, function(value,key) {
 			wallShealthingInput.append($("<option></option>")
 			.attr("value", value).text(key));
@@ -607,10 +610,43 @@ additionalInput.click(function(){
 			roofShealthingInput.append($("<option></option>")
 			.attr("value", value).text(key));
 		});	
-		alert(container.text());
-		container.height(current_fs.height());
 	} else {
+		var oldWallShealthingOptions = {
+			'Стеновые сэндвич-панели 200м': 'Стеновые сэндвич-панели 200м',
+			'Стеновые сэндвич-панели 180мм': 'Стеновые сэндвич-панели 180мм',
+			'Стеновые сэндвич-панели 150мм': 'Стеновые сэндвич-панели 150мм',
+			'Стеновые сэндвич-панели 120мм': 'Стеновые сэндвич-панели 120мм',
+			'Стеновые сэндвич-панели 100мм': 'Стеновые сэндвич-панели 100мм',
+			'Стеновые сэндвич-панели 80мм': 'Стеновые сэндвич-панели 80мм',
+			'Профнастил 18': 'Профнастил 18',
+			'Профнастил 18 + утеплитель 100мм + профнастил 18': 'Профнастил 18 + утеплитель 100мм + профнастил 18',
+			'Профнастил 18 + утеплитель 150мм + профнастил 18': 'Профнастил 18 + утеплитель 150мм + профнастил 18',
+			
+		},
+			oldRoofShealthingOptions  = {
+			'Кровельные сэндвич-панели 200мм': 'Кровельные сэндвич-панели 200мм',
+			'Кровельные сэндвич-панели 180мм': 'Кровельные сэндвич-панели 180мм',
+			'Кровельные сэндвич-панели 150мм': 'Кровельные сэндвич-панели 150мм',
+			'Кровельные сэндвич-панели 120мм': 'Кровельные сэндвич-панели 120мм',
+			'Кровельные сэндвич-панели 100мм': 'Кровельные сэндвич-панели 100мм',
+			'Кровельные сэндвич-панели 80мм': 'Кровельные сэндвич-панели 80мм',
+			'Профнастил 45': 'Профнастил 45',
+			'Профнастил 45 + утеплитель 100мм + профнастил 18': 'Профнастил 45 + утеплитель 100мм + профнастил 18',
+			'Профнастил 45 + утеплитель 150мм + профнастил 18': 'Профнастил 45 + утеплитель 150мм + профнастил 18'
+		};
+		
 		additionalContainer.slideUp();
+		
+		wallShealthingInput.empty();
+		$.each(oldWallShealthingOptions, function(value,key) {
+			wallShealthingInput.append($("<option></option>")
+			.attr("value", value).text(key));
+		});
+		roofShealthingInput.empty(); 
+		$.each(oldRoofShealthingOptions, function(value,key) {
+			roofShealthingInput.append($("<option></option>")
+			.attr("value", value).text(key));
+		});	 
 	}
 });
 
@@ -684,9 +720,9 @@ var calc2 = function(){
 	
 	var thicknessWallRecInput = $('#thickness-wall-rec'),
 		thicknessRoofRecInput = $('#thickness-roof-rec'),
-		thicknessWallRec = 80,
-		thicknessRoofRec = 80,
-		thicknessRecArray = [80, 100, 120, 150, 180, 200, 250];
+		thicknessWallRec = 50,
+		thicknessRoofRec = 50,
+		thicknessRecArray = [50, 80, 100, 120, 150, 180, 200, 250];
 	
 	for (var i = 0; i < thicknessRecArray.length; i++) {
 		if (thicknessWall > thicknessRecArray[i]) {
@@ -722,7 +758,6 @@ cityInput.autocomplete({
 		tInInput.val(tIn); 
 		tInInput.attr('disabled', false); 
 		tOutInput.val(tOut);
-		tOutInput.attr('disabled', false); 
 		calc2();
 		$('.result__value--city').text(cityValue);
 	}
@@ -738,3 +773,43 @@ tOutInput.change(function(){
 	calc2();
 });
 
+//добавление блоков для окон
+var windowTypeQuantityMinus = $('#window-type-minus'),
+	windowTypeQuantityPlus = $('#window-type-plus'),
+	windowTypeQuantityInput = $('#window-type-quantity'),
+	windowTypeNumber = +windowTypeQuantityInput.val();
+
+var typeChange = function(e){
+	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="count-button count-button--minus">-</button><input type="number" name="window-quantity" min="0" max="10"><button type="button" class="count-button count-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="count-button count-button--minus">-</button><input type="number" name="window-quantity" min="0" max="10"><button type="button" class="count-button count-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="count-button count-button--minus">-</button><input type="number" name="window-quantity" min="0" max="10"><button type="button" class="count-button count-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-'+e+'" name ="reinforce-window"><label for="reinforce-window-'+e+'">Усилить конструкцию под проем</label></div></div>';
+};
+
+windowTypeQuantityMinus.click(function(){	
+	if (windowTypeNumber > 1) {
+		windowTypeNumber--;
+		$(this).parent().parent().parent().children().last().remove();
+	}
+});
+windowTypeQuantityPlus.click(function(){
+	if (windowTypeNumber < 10) {
+		windowTypeNumber++;
+		windowTypeQuantityInput.val(windowTypeNumber);
+		typeChange(windowTypeNumber);
+		$(this).parent().parent().parent().append(windowBlock);
+	}
+});
+windowTypeQuantityInput.change(function(){		
+	$(this).parent().parent().parent().children('.appearance__block').remove();
+	if (windowTypeQuantityInput.val() > 0 && windowTypeQuantityInput.val() < 10) {		
+		windowTypeNumber = $(this).val();
+		for (var i = 0; i < windowTypeNumber; i++) {
+			typeChange(i);
+			$(this).parent().parent().parent().append(windowBlock);
+		};
+	} else {
+		alert('Значение должно быть между 0 и 10');
+		windowTypeQuantityInput.val(1);
+		windowTypeNumber = 1;
+		typeChange();
+		$(this).parent().parent().parent().append(windowBlock);
+	}
+});
