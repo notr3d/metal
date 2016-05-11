@@ -455,7 +455,7 @@ get_header(); ?>
 									<div class="appearance__count">
 										<h4>Количество: </h4>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
-										<input type="number" name="door-quantity" min="1" max="10" disabled>
+										<input type="number" name="door-quantity" class="count-input" min="1" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
 									<div class="appearance__dimension">
@@ -480,7 +480,7 @@ get_header(); ?>
 									<div class="appearance__count">
 										<h4>Количество: </h4>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
-										<input type="number" name="gate-quantity" min="0" max="10" disabled>
+										<input type="number" name="gate-quantity" class="count-input" min="0" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>
 									<div class="appearance__dimension">
@@ -505,7 +505,7 @@ get_header(); ?>
 									<div class="appearance__count">
 										<h4>Количество: </h4>
 										<button type="button" class="count-button count-button--minus" disabled>-</button>
-										<input type="number" name="translucent-roof-areas-quantity" min="0" max="10" disabled>
+										<input type="number" name="translucent-roof-areas-quantity" class="count-input" min="0" max="10" disabled>
 										<button type="button" class="count-button count-button--plus" disabled>+</button>
 									</div>	
 									<div class="appearance__dimension">
@@ -529,7 +529,7 @@ get_header(); ?>
 										<div class="appearance__count">
 											<h4>Добавить позицию: </h4>
 											<button type="button" class="count-button count-button--minus" id="window-type-minus" disabled>-</button>
-											<input type="number" name="window-type-quantity" id="window-type-quantity" min="1" max="10" value="1" disabled>
+											<input type="number" name="window-type-quantity" class="count-input"  id="window-type-quantity" min="1" max="10" value="1" disabled>
 											<button type="button" class="count-button count-button--plus" id="window-type-plus" disabled>+</button>
 										</div>
 									</div>
@@ -537,25 +537,25 @@ get_header(); ?>
 										<div class="appearance__dimension">
 											<div class="appearance__count">
 												<h4>Ширина: </h4>
-												<button type="button" class="count-button count-button--minus" disabled>-</button>
-												<input type="number" name="window-width-1" min="0" max="10" disabled>
-												<button type="button" class="count-button count-button--plus" disabled>+</button>
+												<button type="button" class="window-button--minus" disabled>-</button>
+												<input type="number" name="window-width-1" class="window-input" min="0" max="10" disabled>
+												<button type="button" class="window-button--plus" disabled>+</button>
 											</div>
 											<div class="appearance__count">
 												<h4>Высота: </h4>
-												<button type="button" class="count-button count-button--minus" disabled>-</button>
-												<input type="number" name="window-height-1" min="0" max="10" disabled>
-												<button type="button" class="count-button count-button--plus" disabled>+</button>
+												<button type="button" class="window-button--minus" disabled>-</button>
+												<input type="number" name="window-height-1" class="window-input" min="0" max="10" disabled>
+												<button type="button" class="window-button--plus" disabled>+</button>
 											</div>
 										</div>
 										<div class="appearance__count">
 											<h4>Количество: </h4>
-											<button type="button" class="count-button count-button--minus" disabled>-</button>
-											<input type="number" name="window-quantity-1" min="0" max="10" disabled>
-											<button type="button" class="count-button count-button--plus" disabled>+</button>
+											<button type="button" class="window-button--minus" disabled>-</button>
+											<input type="number" name="window-quantity-1" class="window-input" min="0" max="10" disabled>
+											<button type="button" class="window-button--plus" disabled>+</button>
 										</div>									
 										<div class="appearance__reinforce">
-											<input type="checkbox" id="reinforce-window-1" name ="reinforce-window" disabled>
+											<input type="checkbox" id="reinforce-window-1" name ="reinforce-window-1" disabled>
 											<label for="reinforce-window-1">Усилить конструкцию под проем</label>
 										</div>
 									</div>

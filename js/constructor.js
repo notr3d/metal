@@ -558,27 +558,6 @@ appearanceInput.click(function(){
 	}
 })
 
-//-------plus/minus--------
-var buttonMinus = $('.count-button--minus'),
-	buttonPlus = $('.count-button--plus');
-
-buttonMinus.click(function(){
-	var input = $(this).next();
-	var value = +input.val();
-	var min = +input.attr('min');
-	if (value > min) {
-		input.val(value - 1);
-	}
-});
-buttonPlus.click(function(){
-	var input = $(this).prev();
-	var value = +input.val();
-	var max = +input.attr('max');
-	if (value < max) {
-		input.val(value + 1);
-	}
-});
-
 //-------------дополнительные параметры-------------
 var additionalInput = $('#additional-input'),
 	additionalContainer = $('#additional-container');
@@ -596,9 +575,7 @@ additionalInput.click(function(){
 			'Кровельные сэндвич-панели': 'Кровельные сэндвич-панели',
 			'Профнастил': 'Профнастил',
 			'Профнастил + утеплитель + профнастил': 'Профнастил + утеплитель + профнастил'
-		};
-		
-		
+		};		
 		
 		wallShealthingInput.empty();
 		$.each(newWallShealthingOptions, function(value,key) {
@@ -722,16 +699,22 @@ var calc2 = function(){
 		thicknessRoofRecInput = $('#thickness-roof-rec'),
 		thicknessWallRec = 50,
 		thicknessRoofRec = 50,
-		thicknessRecArray = [50, 80, 100, 120, 150, 180, 200, 250];
+		thicknessWallRecArray = [50, 80, 100, 120, 150, 170, 200, 250],
+		thicknessRoofRecArray = [50, 80, 100, 120, 150, 170, 200];
 	
-	for (var i = 0; i < thicknessRecArray.length; i++) {
-		if (thicknessWall > thicknessRecArray[i]) {
-			thicknessWallRec = thicknessRecArray[i + 1];
-		};	
-		if (thicknessRoof > thicknessRecArray[i]) {
-			thicknessRoofRec = thicknessRecArray[i + 1];
-		};			
+	
+	for (var i = 0; i < thicknessWallRecArray.length; i++) {
+		if (thicknessWall > thicknessWallRecArray[i]) {
+			thicknessWallRec = thicknessWallRecArray[i + 1];
+		};		
 	};	
+	for (var i = 0; i < thicknessRoofRecArray.length; i++) {
+		if (thicknessRoof > thicknessRoofRecArray[i]) {
+			thicknessRoofRec = thicknessRoofRecArray[i + 1];
+		};			
+	};
+	
+	
 	
 	thicknessWall = thicknessWall.toFixed(0) + ' мм';
 	thicknessRoof = thicknessRoof.toFixed(0) + ' мм';	
@@ -780,36 +763,109 @@ var windowTypeQuantityMinus = $('#window-type-minus'),
 	windowTypeNumber = +windowTypeQuantityInput.val();
 
 var typeChange = function(e){
-	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="count-button count-button--minus">-</button><input type="number" name="window-quantity" min="0" max="10"><button type="button" class="count-button count-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="count-button count-button--minus">-</button><input type="number" name="window-quantity" min="0" max="10"><button type="button" class="count-button count-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="count-button count-button--minus">-</button><input type="number" name="window-quantity" min="0" max="10"><button type="button" class="count-button count-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-'+e+'" name ="reinforce-window"><label for="reinforce-window-'+e+'">Усилить конструкцию под проем</label></div></div>';
+	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-'+e+'" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-'+e+'" name="reinforce-window-'+e+'"><label for="reinforce-window-'+e+'">Усилить конструкцию под проем</label></div></div>';
 };
 
 windowTypeQuantityMinus.click(function(){	
 	if (windowTypeNumber > 1) {
-		windowTypeNumber--;
-		$(this).parent().parent().parent().children().last().remove();
+		windowTypeNumber--;		$(this).parent().parent().parent().children().last().remove();
 	}
 });
 windowTypeQuantityPlus.click(function(){
 	if (windowTypeNumber < 10) {
-		windowTypeNumber++;
 		windowTypeQuantityInput.val(windowTypeNumber);
-		typeChange(windowTypeNumber);
-		$(this).parent().parent().parent().append(windowBlock);
+		windowTypeNumber++;
+		$(this).parent().parent().parent().children('.appearance__block').remove();
+		for (var i = 0; i < windowTypeNumber; i++) {
+			typeChange(i+1);
+			$(this).parent().parent().parent().append(windowBlock);	
+		};
+		windowButtonInit();
 	}
 });
-windowTypeQuantityInput.change(function(){		
+windowTypeQuantityInput.change(function(){					  	
 	$(this).parent().parent().parent().children('.appearance__block').remove();
-	if (windowTypeQuantityInput.val() > 0 && windowTypeQuantityInput.val() < 10) {		
+	if (windowTypeQuantityInput.val() > 0 && windowTypeQuantityInput.val() < 11) {		
 		windowTypeNumber = $(this).val();
 		for (var i = 0; i < windowTypeNumber; i++) {
-			typeChange(i);
-			$(this).parent().parent().parent().append(windowBlock);
+			typeChange(i+1);
+			$(this).parent().parent().parent().append(windowBlock);	
 		};
+		windowButtonInit();
 	} else {
 		alert('Значение должно быть между 0 и 10');
 		windowTypeQuantityInput.val(1);
 		windowTypeNumber = 1;
 		typeChange();
 		$(this).parent().parent().parent().append(windowBlock);
+		windowButtonInit();
 	}
 });
+
+//-------plus/minus--------
+
+var buttonMinus = $('.count-button--minus'),
+	buttonPlus = $('.count-button--plus'),
+	numberInput = $('.count-input');
+buttonMinus.click(function(){
+	var input = $(this).next();
+	var value = +input.val();
+	var min = +input.attr('min');
+	if (value > min) {
+		input.val(value - 1);
+	}
+});
+buttonPlus.click(function(){
+	var input = $(this).prev();
+	var value = +input.val();
+	var max = +input.attr('max');
+	if (value < max) {
+		input.val(value + 1);
+	}
+});
+
+numberInput.change(function(){
+	var min = +$(this).attr('min');
+	var max = +$(this).attr('max');
+	var val = $(this).val();
+	if (val < min) {
+		$(this).val(min);
+	} else if (val > max) {
+		$(this).val(max);
+	};
+})
+
+var windowButtonInit = function(){
+	var windowButtonMinus = $('.window-button--minus'),
+		windowButtonPlus = $('.window-button--plus'),
+		windowCountInput = $('.window-input');
+	windowButtonMinus.click(function(){
+		var input = $(this).next();
+		var value = +input.val();
+		var min = +input.attr('min');
+		if (value > min) {
+			input.val(value - 1);
+		}
+	});
+	windowButtonPlus.click(function(){
+		var input = $(this).prev();
+		var value = +input.val();
+		var max = +input.attr('max');
+		if (value < max) {
+			input.val(value + 1);
+		}
+	});
+	windowCountInput.change(function(){
+		var min = +$(this).attr('min');
+		var max = +$(this).attr('max');
+		var val = $(this).val();
+		if (val < min) {
+			$(this).val(min);
+		} else if (val > max) {
+			$(this).val(max);
+		};
+	});
+};
+
+windowButtonInit();
+

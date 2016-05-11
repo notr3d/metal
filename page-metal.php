@@ -116,10 +116,10 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="divider divider--2"></div>
-			<div class="about container">
-				<div class="about__wrapper col-sm-offset-3 col-sm-9">
-					<h2 class="about__heading">About</h2>
-					<p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam ratione, vel asperiores libero. Temporibus laboriosam quos vel delectus labore voluptas asperiores eos fugiat! Id vel, corrupti dignissimos consectetur quae voluptatum.<br>
+			<div class="company container">
+				<div class="company__wrapper col-sm-offset-3 col-sm-9">
+					<h2 class="company__heading">About</h2>
+					<p class="company__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam ratione, vel asperiores libero. Temporibus laboriosam quos vel delectus labore voluptas asperiores eos fugiat! Id vel, corrupti dignissimos consectetur quae voluptatum.<br>
 					Similique mollitia delectus totam natus officiis suscipit placeat iure voluptatum distinctio iste. Aliquam tempora provident cumque quaerat, quas eligendi, quo illo error nisi saepe ea, asperiores explicabo. A, asperiores, corrupti.<br>
 					Laboriosam voluptatibus eveniet facilis mollitia, optio ratione alias illum temporibus, voluptates neque aperiam officiis quos magni et veritatis saepe fuga nam vitae totam quibusdam cum voluptas iste. Incidunt, consectetur, labore?<br>
 					Dicta, eligendi facere odit accusamus optio nulla, soluta iure accusantium esse delectus blanditiis, nobis dignissimos voluptas error sit expedita ipsum vero eos quidem. Illo aut earum repudiandae voluptatibus quisquam optio!<br>
