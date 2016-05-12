@@ -4,77 +4,22 @@ var current_fs, next_fs, previous_fs;
 var left, opacity, scale; 
 var animating; 
 
+//Анимация переходов 
 $(".control-button--next").click(function(){
-	//if(animating) return false;
-	//animating = true;
 	current_fs = $(this).parent().parent();
-	next_fs = $(this).parent().parent().next();
-	
-	//activate next step on progressbar using the index of next_fs
+	next_fs = $(this).parent().parent().next();	
 	$(".progress__bar li").eq($("fieldset").index(next_fs)).addClass("active");
-	
-	//show the next fieldset
 	next_fs.slideDown(300); 
-	//hide the current fieldset with style
 	current_fs.slideUp(300); 
-//	current_fs.animate({opacity: 0}, {
-//		step: function(now, mx) {
-//			//as the opacity of current_fs reduces to 0 - stored in "now"
-//			//1. scale current_fs down to 80%
-//			scale = 1 - (1 - now) * 0.2;
-//			//2. bring next_fs from the right(50%)
-//			left = (now * 50)+"%";
-//			//3. increase opacity of next_fs to 1 as it moves in
-//			opacity = 1 - now;
-//			current_fs.css({'transform': 'scale(' + scale + ')'});
-//			next_fs.css({'left': left, 'opacity': opacity});
-//		}, 
-//		duration: 600, 
-//		complete: function(){
-//			current_fs.slideUp();
-//			animating = false;
-//		}, 
-//		//this comes from the custom easing plugin
-//		easing: 'easeInOutBack'
-//	});
 	$('body').animate({scrollTop: 250}, 300);
-	//return false;
 });
 
-$(".control-button--prev").click(function(){
-//	if(animating) return false;
-//	animating = true;
-	
+$(".control-button--prev").click(function(){	
 	current_fs = $(this).parent().parent();
 	previous_fs = $(this).parent().parent().prev();
-	
-	//de-activate current step on progressbar
 	$(".progress__bar li").eq($("fieldset").index(current_fs)).removeClass("active");
-	
-	//show the previous fieldset
 	previous_fs.slideDown(300); 
-	//hide the current fieldset with style
 	current_fs.slideUp(300);
-//	current_fs.animate({opacity: 0}, {
-//		step: function(now, mx) {
-//			//as the opacity of current_fs reduces to 0 - stored in "now"
-//			//1. scale previous_fs from 80% to 100%
-//			scale = 0.8 + (1 - now) * 0.2;
-//			//2. take current_fs to the right(50%) - from 0%
-//			left = ((1-now) * 50)+"%";
-//			//3. increase opacity of previous_fs to 1 as it moves in
-//			opacity = 1 - now;
-//			current_fs.css({'left': left});
-//			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-//		}, 
-//		duration: 600, 
-//		complete: function(){
-//			current_fs.slideUp();
-//			animating = false;
-//		}, 
-//		//this comes from the custom easing plugin
-//		easing: 'easeInOutBack'
-//	});
 	$('body').animate({scrollTop: 250}, 300);
 });
  	
@@ -126,7 +71,7 @@ var	width = 18, //ширина, длина и высота
 	volumeOutput = $('#volumeOutput'), 
 	ResultVolumeOutput = $('.result__value--volume'),		
 
-	calc = function(){ //основная функция подсчета	
+	calcDimension = function(){ //основная функция подсчета	
 		widthInput.val(width);
 		lengthInput.val(length);
 		heightInput.val(height);
@@ -318,7 +263,7 @@ var	width = 18, //ширина, длина и высота
 	$('#heightMin').text(heightMin);
 	$('#heightMax').text(heightMax);
 	
-	calc();
+	calcDimension();
 	};
 
 
@@ -341,106 +286,106 @@ widthInput.change(function(){
 	if (widthInput.val() < 0) {
 		alert('Ширина не может быть меньше нуля. Минимальное значение: ' + widthMin + 'м');			
 		width = widthMin;
-		calc();
+		calcDimension();
 	} else if (widthInput.val() < widthMin) {
 		alert('Ширина не может быть меньше минимального значения (' + widthMin + 'м)');			
 		width = widthMin;
-		calc();
+		calcDimension();
 	} else if (widthInput.val() > widthMax) {
 		alert('Ширина не может превышать максимальное значение (' + widthMax + 'м)');			
 		width = widthMax;
-		calc();
+		calcDimension();
 	} else {
 		width = widthInput.val();
-		calc();
+		calcDimension();
 	}		
 });
 lengthInput.change(function(){
 	if (lengthInput.val() < 0) {
 		alert('Длина не может быть меньше нуля. Минимальное значение: ' + lengthMin + 'м');				
 		length = lengthMin;
-		calc();
+		calcDimension();
 	} else if (lengthInput.val() < lengthMin) {
 		alert('Длина не может быть меньше минимального значения (' + lengthMin + 'м)');				
 		length = lengthMin;
-		calc();
+		calcDimension();
 	} else if (lengthInput.val() > lengthMax) {
 		alert('Длина не может превышать максимальное значение (' + lengthMax + 'м)');						
 		length = lengthMax;
-		calc();
+		calcDimension();
 	} else {
 		length = lengthInput.val();
-		calc();
+		calcDimension();
 	}		
 });
 heightInput.change(function(){
 	if (heightInput.val() < 0) {
 		alert('Высота не может быть меньше нуля. Минимальное значение: ' + heightMin + 'м');				
 		height = heightMin;
-		calc();
+		calcDimension();
 	} else if (heightInput.val() < heightMin) {
 		alert('Высота не может быть меньше минимального значения (' + heightMin + 'м)');							
 		height = heightMin;
-		calc();
+		calcDimension();
 	} else if (heightInput.val() > heightMax) {
 		alert('Высота не может превышать максимальное значение (' + heightMax + 'м)');									
 		height = heightMax;
-		calc();
+		calcDimension();
 	} else {
 		height = heightInput.val();
-		calc();
+		calcDimension();
 	}		
 });	
 
 //слайдеры
 widthRange.change(function(){
 	width = +widthRange.val();
-	calc();
+	calcDimension();
 });
 lengthRange.change(function(){
 	length = +lengthRange.val();
-	calc();
+	calcDimension();
 });
 heightRange.change(function(){
 	height = +heightRange.val();
-	calc();
+	calcDimension();
 });
 
 //кнопки + -		
 widthMinusButton.click(function(){
 	if (width > widthMin) {
 		width -=widthStep;
-		calc();
+		calcDimension();
 	} 
 });
 widthPlusButton.click(function(){
 	if (width < widthMax) {
 		width +=widthStep;
-		calc();
+		calcDimension();
 	}
 });
 lengthMinusButton.click(function(){		
 	if (length > lengthMin) {
 		length -=lengthStep;
-		calc();
+		calcDimension();
 	}
 });
 lengthPlusButton.click(function(){
 	if (length < lengthMax) {
 		length +=lengthStep;
-		calc();
+		calcDimension();
 	}
 });
 heightMinusButton.click(function(){;
 	if (height > heightMin) {
 		height -=heightStep;
-		calc();
+		calcDimension();
 	}
 });
 heightPlusButton.click(function(){
 	if (height < heightMax) {
 		height +=heightStep;
-		calc();
+		calcDimension();
 	}
 });	
 
@@ -663,7 +608,7 @@ var GSOPMin = RArray[0][0];
 	RstMinRoof  = RArray[0][2];
 	RstMaxRoof  = RArray[0][2];
 	
-var calc2 = function(){
+var calcThickness = function(){
 	var	RtrWall = (n * (tIn - tOut)) / (delTOut * alfaIn),
 		RtrRoof = (n * (tIn - tOut)) / (delTOut * alfaIn),		
 		GSOP = (tIn - warm) * time;
@@ -728,32 +673,73 @@ var calc2 = function(){
 };
 
 cityInput.autocomplete({
-	source: cities,
+	source: cities,	
 	close: function(){
+		var cityFound = false;
 		var cityValue = cityInput.val();
 		for (var i = 0; i < citiesArray.length; i++) {
 			if (cityValue == citiesArray[i].city) {
 				tOut = citiesArray[i].tOut;
 				warm = citiesArray[i].warm;
 				time = citiesArray[i].time;
-			}
+				
+				tInInput.val(tIn); 
+				tInInput.attr('disabled', false); 
+				tOutInput.val(tOut);
+				calcThickness();
+				$('.result__value--city').text(cityValue);				
+				cityFound = true;
+			} 		   
 		};
-		tInInput.val(tIn); 
-		tInInput.attr('disabled', false); 
-		tOutInput.val(tOut);
-		calc2();
-		$('.result__value--city').text(cityValue);
+	},
+	change: function(){
+		var cityFound = false;
+		var cityValue = cityInput.val();
+		for (var i = 0; i < citiesArray.length; i++) {
+			if (cityValue == citiesArray[i].city) {
+				tOut = citiesArray[i].tOut;
+				warm = citiesArray[i].warm;
+				time = citiesArray[i].time;
+				
+				tInInput.val(tIn); 
+				tInInput.attr('disabled', false); 
+				tOutInput.val(tOut);
+				calcThickness();
+				$('.result__value--city').text(cityValue);				
+				cityFound = true;
+			} 		   
+		};	
+		if (!cityFound) {
+			//alert('Город не найден');
+			var cityParam = $('.additional__city-param');
+			cityParam.slideDown();
+			var tOutInput = $('#tOut');
+			var warmInput = $('#warm');
+			var timeInput = $('#time');
+			tOutInput.change(function(){
+				tOut = tOutInput.val();
+				calcThickness();
+			});
+			warmInput.change(function(){
+				warm = warmInput.val();
+				calcThickness();
+			});
+			timeInput.change(function(){
+				time = timeInput.val();
+				calcThickness();
+			});			
+		}
 	}
 });
 
 tInInput.change(function(){
 	tIn = tInInput.val();
-	calc2();
+	calcThickness();
 });
 
 tOutInput.change(function(){
 	tOut = tOutInput.val();
-	calc2();
+	calcThickness();
 });
 
 //добавление блоков для окон
@@ -763,7 +749,7 @@ var windowTypeQuantityMinus = $('#window-type-minus'),
 	windowTypeNumber = +windowTypeQuantityInput.val();
 
 var typeChange = function(e){
-	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-'+e+'" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-'+e+'" name="reinforce-window-'+e+'"><label for="reinforce-window-'+e+'">Усилить конструкцию под проем</label></div></div>';
+	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-'+e+'" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-'+e+'" name="reinforce-window-'+e+'"><label for="reinforce-window-'+e+'">Усилить конструкцию под проем</label></div><button class="appearance__delete">x</button></div>';
 };
 
 windowTypeQuantityMinus.click(function(){	
@@ -865,6 +851,13 @@ var windowButtonInit = function(){
 			$(this).val(max);
 		};
 	});
+	var deleteButton = $('.appearance__delete');
+	deleteButton.click(function(){
+		var appearanceBlock = $(this).parent();
+		appearanceBlock.remove();
+		windowTypeNumber--;
+		windowTypeQuantityInput.val(windowTypeNumber);
+	})
 };
 
 windowButtonInit();

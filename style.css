@@ -7905,7 +7905,6 @@ Entry Footer
   font-size: 16px;
   color: #333;
   background: white;
-  border-radius: 3px;
   margin: 0 auto 5px auto;
 }
 .constructor .progress__bar li::after {
@@ -7931,14 +7930,23 @@ Entry Footer
   background: #2474d0;
   color: white;
 }
-.constructor .constructor__form {
+.constructor__form {
   position: relative;
+}
+.constructor__success {
+  width: 300px;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  margin-left: -150px;
+  text-align: center;
+  background: #319d31;
+  padding: 15px;
+  color: #fff;
+  display: none;
 }
 .constructor .step {
   width: 100%;
-}
-.constructor .step:not(:first-of-type) {
-  display: none;
 }
 .constructor .step__title {
   margin-bottom: 10px;
@@ -8097,7 +8105,6 @@ Entry Footer
   width: 15px;
   height: 20px;
   background: #ccc;
-  border-radius: 3px;
   transform: translateY(-5px);
   transition: all .3s;
 }
@@ -8105,7 +8112,6 @@ Entry Footer
   -webkit-appearance: none;
   cursor: pointer;
   background: #ddd;
-  border-radius: 3px;
   transition: all .3s;
   height: 10px;
 }
@@ -8139,7 +8145,6 @@ Entry Footer
   height: 32px;
   background: #ddd;
   border: 1px solid #ddd;
-  border-radius: 3px;
   text-align: center;
   line-height: 32px;
   cursor: pointer;
@@ -8178,7 +8183,6 @@ Entry Footer
 .constructor .additional__item input {
   text-align: center;
   border: 1px solid #ddd;
-  border-radius: 3px;
   outline: none;
   font-size: 24px;
 }
@@ -8245,6 +8249,17 @@ Entry Footer
 .constructor .additional__column input {
   width: 100px;
 }
+.constructor .additional__city-param {
+  display: none;
+  padding: 0;
+}
+.constructor .additional__city-param label {
+  display: block;
+  font-size: 18px;
+}
+.constructor .additional__city-param input {
+  width: 100%;
+}
 .constructor .appearance__item {
   position: relative;
   border: 1px solid #ddd;
@@ -8279,7 +8294,7 @@ Entry Footer
   align-content: center;
 }
 .constructor .appearance__item--special .appearance__inclusion label {
-  width: 67%;
+  width: 24.9%;
   line-height: 30px;
 }
 .constructor .appearance__item--special .appearance__inclusion label::before {
@@ -8289,9 +8304,13 @@ Entry Footer
   top: 26px;
 }
 .constructor .appearance__item--special .appearance__inclusion .appearance__count {
-  width: 33%;
   border: none;
   border-left: 1px solid #ddd;
+  flex-grow: 1;
+  text-align: right;
+}
+.constructor .appearance__item--special .appearance__inclusion .appearance__count h4 {
+  padding-right: 15px;
 }
 .constructor .appearance__item--special .appearance__block {
   display: -webkit-flex;
@@ -8299,6 +8318,10 @@ Entry Footer
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+  position: relative;
+}
+.constructor .appearance__item--special .appearance__block:not(:last-child) {
+  border-bottom: 1px solid #ddd;
 }
 .constructor .appearance__item--special .appearance__count {
   display: -webkit-flex;
@@ -8413,6 +8436,7 @@ Entry Footer
   height: 30px;
   border: 1px solid #ddd;
   text-align: center;
+  margin: 0 -1px;
 }
 .constructor .appearance__dimension {
   display: -webkit-flex;
@@ -8485,6 +8509,14 @@ Entry Footer
 .constructor .appearance__reinforce input[type="checkbox"]:checked + label::after {
   display: block;
 }
+.constructor .appearance__delete {
+  background: transparent;
+  border: none;
+  color: #2474d0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .constructor .color {
   position: relative;
   padding: 15px;
@@ -8493,7 +8525,7 @@ Entry Footer
   height: 40px;
   width: 100%;
   padding: 0;
-  padding-left: 40px;
+  padding-left: 30px;
   position: relative;
   background: #fff;
   border: 1px solid #ddd;
@@ -8517,6 +8549,9 @@ Entry Footer
   left: 10px;
   border: 1px solid #fff;
   box-shadow: 0 0 0 1px #ddd;
+}
+.constructor .color__text {
+  font-size: 14px;
 }
 .constructor .color__container {
   position: absolute;
@@ -8629,11 +8664,7 @@ Entry Footer
   width: 100%;
   border: 1px solid #ddd;
   padding: 15px;
-  border-radius: 3px;
   transition: all .3s;
-}
-.constructor .info__item input[type="file"] {
-  display: none;
 }
 .constructor .info__item input:hover {
   border-color: #2474d0;
@@ -8647,7 +8678,6 @@ Entry Footer
   padding: 15px;
   resize: vertical;
   border: 1px solid #ddd;
-  border-radius: 3px;
   transition: border-color 0.3s;
 }
 .constructor .info__item textarea:hover {
@@ -8665,14 +8695,19 @@ Entry Footer
   text-align: center;
   padding: 5px 15px;
   background: #fbc02d;
-  border-radius: 3px;
   cursor: pointer;
+}
+.constructor .info__item--file input[type="file"] {
+  padding: 5px;
 }
 .constructor .info__item--period {
   text-align: right;
 }
 .constructor .info__item--period label {
   padding-right: 15px;
+}
+.constructor .info__item--period select {
+  width: 50%;
 }
 .constructor .control-button {
   padding: 15px 25px;
@@ -8683,7 +8718,6 @@ Entry Footer
   border: none;
   color: #fff;
   outline: none;
-  border-radius: 3px;
   transition: .3s;
 }
 .constructor .control-button--prev::before {
@@ -8714,10 +8748,10 @@ Entry Footer
   -webkit-appearance: none;
   padding: 5px 45px 5px 5px;
   border: 1px solid #ddd;
-  border-radius: 3px;
   box-shadow: none;
   background: #fff url(http://localhost/metal/wp-content/themes/metal/img/arrow-down.png) no-repeat 95% 50%;
   background-size: 20px;
+  width: 100%;
 }
 .constructor select:focus {
   outline: none;
@@ -9293,7 +9327,7 @@ canvas {
   top: 0;
   left: 0;
   padding: 15px;
-  transform: translateY(-200px);
+  transform: translateY(154px);
   transition: .3s;
   pointer-events: none;
 }

@@ -134,7 +134,7 @@ get_header(); ?>
 										</div>
 										<div class="dimension__slider">
 											<span id="widthMin" class="dimension__limit"></span>
-											<input type="range" name="widthRange" id="widthRange">
+											<input type="range" id="widthRange">
 											<span id="widthMax" class="dimension__limit"></span>
 										</div>									
 									</div>
@@ -147,7 +147,7 @@ get_header(); ?>
 										</div>
 										<div class="dimension__slider">
 											<span id="lengthMin" class="dimension__limit"></span>
-											<input type="range" name="lengthRange" id="lengthRange">
+											<input type="range" id="lengthRange">
 											<span id="lengthMax" class="dimension__limit"></span>	
 										</div>
 									</div>
@@ -160,7 +160,7 @@ get_header(); ?>
 										</div>
 										<div class="dimension__slider">
 											<span id="heightMin" class="dimension__limit"></span>
-											<input type="range" name="heightRange" id="heightRange">
+											<input type="range" id="heightRange">
 											<span id="heightMax" class="dimension__limit"></span>
 										</div>									
 									</div>
@@ -225,6 +225,20 @@ get_header(); ?>
 												<label for="t-in">Внутренняя температура: </label>
 												<input type="number" name="t-in" id="t-in" min="0" max="50" value="0" disabled>
 											</div>
+										</div>
+										<div class="additional__city-param col-sm-12">
+											<div class="additional__item col-sm-4">
+												<label for="tOut">Температура холодной пятидневки: </label>
+												<input type="number" name="tOut" id="tOut" placeholder="">
+											</div>
+											<div class="additional__item col-sm-4">
+												<label for="warm">температура отопительного периода: </label>
+												<input type="number" name="warm" id="warm" placeholder="">
+											</div>
+											<div class="additional__item col-sm-4">
+												<label for="time">Продолжительность отопительного периода: </label>
+												<input type="number" name="time" id="time" placeholder="">
+											</div>							
 										</div>
 										<div class="additional__column col-sm-4">
 											<div class="additional__item">
@@ -558,6 +572,7 @@ get_header(); ?>
 											<input type="checkbox" id="reinforce-window-1" name ="reinforce-window-1" disabled>
 											<label for="reinforce-window-1">Усилить конструкцию под проем</label>
 										</div>
+										<button class="appearance__delete" disabled>x</button>
 									</div>
 								</div>								
 							</div>							
@@ -715,6 +730,9 @@ get_header(); ?>
 								<button type="button" name="previous" class="control-button control-button--prev">Результат</button>
 								<button type="submit" name="submit" class="control-button control-button--submit">Отправить</button>
 							</div>
+							<div class="constructor__success">
+								Форма отправлена успешно
+							</div>
 							<div id="results"></div>
 						</fieldset>
 					</form>
@@ -724,7 +742,7 @@ get_header(); ?>
 		</div><!-- #primary -->
 	</main><!-- #main -->
 	<script>
-		function sendMail() {
+		function sendMail() {			
 			var form = $('#form');
 			var disabled = form.find(':input:disabled').removeAttr('disabled');
         	var constructorMail = form.serialize();
@@ -736,6 +754,8 @@ get_header(); ?>
         		success: function(data) {
         			$('#results').html(data);
 					//alert('Ваше сообщение отправлено');
+					var successPanel = $('.constructor__success');
+					successPanel.fadeIn().delay(1000).fadeOut();
         		},
         		error: function(xhr, str){
         			alert(xhr.responseCode);
