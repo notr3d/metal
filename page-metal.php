@@ -21,13 +21,10 @@ get_header(); ?>
 					<nav class="navigation col-sm-3">
 						<div class="navigation__wrapper">
 							<h2>Содержание</h2>
-							<a href="#metal" class="active">Строительство</a>
-							<a href="#about">О металлоконструкциях</a>
-							<a href="">Основные сведения</a>
-							<a href="">Производство</a>
-							<a href="">Часто задаваемые вопросы</a>
-							<a href="">Изделия</a>
-							<a href="">Как купить</a>
+							<a href="#metal" class="">Металлоконструкции</a>
+							<a href="#about">Основные сведения</a>
+							<a href="#galery">Галерея</a>
+							<a href="#info">Информация</a>
 						</div>
 					</nav>					
 					<div class="heading__heading col-sm-9">
@@ -42,7 +39,7 @@ get_header(); ?>
 				</div>
 			</div>
 			<div id="about" class="about container">
-				<div class="about__wrapper col-sm-offset-3 col-sm-9">
+				<div id="about" class="about__wrapper col-sm-offset-3 col-sm-9">
 					<h2 class="about__heading">О металлоконструкциях</h2>
 					<div class="about__item col-sm-12">
 						<div class="about__left col-sm-3">
@@ -83,7 +80,7 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="divider divider--1"></div>
-			<div class="carousel container">
+			<div id="galery" class="carousel container">
 				<div class="carousel__wrapper col-sm-offset-3 col-sm-9">
 					<h2 class="carousel__heading">Галерея</h2>
 					<p class="carousel__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus rerum maxime recusandae, ut placeat unde fugiat animi, fuga vel magni atque harum, cupiditate veritatis cumque! Fugiat sapiente assumenda tempora iusto?</p>
@@ -116,7 +113,7 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="divider divider--2"></div>
-			<div class="company container">
+			<div id="info" class="company container">
 				<div class="company__wrapper col-sm-offset-3 col-sm-9">
 					<h2 class="company__heading">About</h2>
 					<p class="company__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam ratione, vel asperiores libero. Temporibus laboriosam quos vel delectus labore voluptas asperiores eos fugiat! Id vel, corrupti dignissimos consectetur quae voluptatum.<br>

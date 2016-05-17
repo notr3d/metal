@@ -7318,6 +7318,9 @@ Entry Footer
   transition: all .3s;
   color: #ddd;
 }
+ul.nav li.page_item_has_children:hover > ul.dropdown-menu {
+  display: block;
+}
 .site-footer__wrapper {
   background: #343234;
 }
@@ -7595,20 +7598,20 @@ Entry Footer
   top: 15px;
   left: -20px;
 }
-.home .reviews {
+.home .main-reviews {
   margin-bottom: 25px;
 }
-.home .reviews__header {
+.home .main-reviews__header {
   text-align: center;
   margin-bottom: 25px;
 }
-.home .reviews__container {
+.home .main-reviews__container {
   background: #3b393e;
   padding: 25px;
   margin: 25px;
   position: relative;
 }
-.home .reviews__container::before {
+.home .main-reviews__container::before {
   content: '';
   display: block;
   border: 25px solid transparent;
@@ -7617,19 +7620,22 @@ Entry Footer
   bottom: -25px;
   left: 25px;
 }
-.home .reviews__text {
+.home .main-reviews__item {
+  padding: 0;
+}
+.home .main-reviews__text {
   color: #fff;
   text-align: center;
   font-style: italic;
   font-size: 16px;
   font-weight: lighter;
 }
-.home .reviews__author {
+.home .main-reviews__author {
   padding: 0 25px;
   font-size: 20px;
   color: #2474d0;
 }
-.home .reviews__quotation-mark {
+.home .main-reviews__quotation-mark {
   position: absolute;
   font-size: 35px;
   color: #3b393e;
@@ -7651,19 +7657,19 @@ Entry Footer
   display: block;
   width: 20px;
   height: 20px;
-  border-top: 2px solid #2474d0;
-  border-right: 2px solid #2474d0;
+  position: absolute;
+  top: 16px;
   transform: rotate(45deg);
-  margin: 0;
-}
-.home .slick-prev {
-  left: -15px;
 }
 .home .slick-prev::before {
-  transform: rotate(225deg);
+  border-bottom: 2px solid #2474d0;
+  border-left: 2px solid #2474d0;
+  right: 10px;
 }
-.home .slick-next {
-  right: -35px;
+.home .slick-next::before {
+  border-top: 2px solid #2474d0;
+  border-right: 2px solid #2474d0;
+  left: 10px;
 }
 .about-main-slider__item {
   height: 335px;
@@ -7686,8 +7692,8 @@ Entry Footer
   flex-wrap: wrap;
 }
 .products__item {
-  height: 420px;
-  width: 33.333333%;
+  height: 820px;
+  flex-grow: 1;
   display: inline-block;
   background: url(img/products/1.jpg) no-repeat;
   background-size: cover;
@@ -8260,6 +8266,9 @@ Entry Footer
 .constructor .additional__city-param input {
   width: 100%;
 }
+.constructor .additional--disabled {
+  opacity: .5;
+}
 .constructor .appearance__item {
   position: relative;
   border: 1px solid #ddd;
@@ -8322,6 +8331,9 @@ Entry Footer
 }
 .constructor .appearance__item--special .appearance__block:not(:last-child) {
   border-bottom: 1px solid #ddd;
+}
+.constructor .appearance__item--special .appearance__block--disabled {
+  display: none;
 }
 .constructor .appearance__item--special .appearance__count {
   display: -webkit-flex;
@@ -8707,7 +8719,7 @@ Entry Footer
   padding-right: 15px;
 }
 .constructor .info__item--period select {
-  width: 50%;
+  width: auto;
 }
 .constructor .control-button {
   padding: 15px 25px;
@@ -8748,14 +8760,20 @@ Entry Footer
   -webkit-appearance: none;
   padding: 5px 45px 5px 5px;
   border: 1px solid #ddd;
+  border-bottom-width: 2px;
   box-shadow: none;
   background: #fff url(http://localhost/metal/wp-content/themes/metal/img/arrow-down.png) no-repeat 95% 50%;
   background-size: 20px;
   width: 100%;
+  color: #000;
 }
 .constructor select:focus {
   outline: none;
   border-color: #2474d0;
+}
+.constructor select:disabled {
+  background: #eee;
+  color: #eee;
 }
 .constructor .radio-label {
   font-size: 20px;
@@ -8832,6 +8850,18 @@ canvas {
 .ui-menu-item:hover {
   background: #2474d0;
   color: #fff;
+}
+.sheathing {
+  border: 1px solid #ddd;
+  margin-left: -1px;
+  padding: 0;
+}
+.sheathing__item {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.sheathing__item--optional {
+  display: none;
 }
 .product .heading {
   height: 380px;
@@ -9060,6 +9090,9 @@ canvas {
   width: 100px;
   line-height: 14px;
 }
+.metal *:focus {
+  outline: none;
+}
 .metal .navigation {
   padding: 0;
   margin: 0;
@@ -9148,6 +9181,7 @@ canvas {
 .metal .divider {
   height: 300px;
   background: #eee no-repeat center;
+  background-size: cover;
 }
 .metal .divider--1 {
   background-image: url(img/metal/divider-1.jpg);

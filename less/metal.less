@@ -1,4 +1,7 @@
 .metal {
+	*:focus {
+		outline: none;
+	}
 	.navigation {
 		padding: 0;
 		margin: 0;
@@ -93,7 +96,8 @@
 	}
 	.divider {
 		height: 300px; 
-		background: #eee no-repeat center;		
+		background: #eee no-repeat center;	
+		background-size: cover;
 		&--1 {
 			background-image: url(img/metal/divider-1.jpg);
 		}
