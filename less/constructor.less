@@ -81,7 +81,7 @@
 	.step {		
 		width: 100%;
 		&:not(:first-of-type) {
-			//display: none; //откл!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			display: none; //откл!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
 		&__title {
 			margin-bottom: 10px;
@@ -422,6 +422,9 @@
 		}
 		&--disabled {
 			opacity: .5;
+		}
+		&__hidden {
+			display: none;
 		}
 	}
 	.appearance {
@@ -953,7 +956,7 @@
 		}
 		&:disabled {
 			background: #eee;
-			color: #eee;
+			//color: #eee;
 		}
 	}
 	.radio-label {
@@ -1049,11 +1052,22 @@ canvas {
 	border: 1px solid #ddd;	
 	margin-left: -1px;
 	padding: 0;
+	h4 {
+		text-align: center;
+	}
 	&__item {
 		padding: 15px;
 		border-bottom: 1px solid #ddd;
-		&--optional {
+		/*&--optional {
 			display: none;
-		}
+		}*/
 	}
 }
+
+#wall-filler-container {
+	display: none;
+}
+#roof-filler-container {
+	display: none;
+}
+

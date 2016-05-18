@@ -7325,36 +7325,75 @@ ul.nav li.page_item_has_children:hover > ul.dropdown-menu {
   background: #343234;
 }
 .site-footer__nav {
-  padding: 0;
+  /*padding: 0;	
+		border-bottom: 1px solid #5D5555;
+		.menu {
+			//display: inline-block;
+			padding: 15px 0;
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: -webkit-flex;
+				display: -moz-flex;
+				display: -ms-flex;
+				display: -o-flex;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				height: 200px;
+				.page_item {
+					flex-grow: 1;
+					//text-align: center;
+					//display: inline-block;					
+					a {
+						padding: 15px;
+						color: #eee;
+						display: inline-block;
+					}
+					&_has_children {
+						padding: 0;
+						border-right: 1px solid #5D5555;
+						ul.children {
+							height: auto;
+						}
+						& > a {
+							//display: none;
+						}
+					}
+					@media @mobile {
+						display: block;
+						text-align: center;
+						font-size: 20px;
+						padding-right: 0;
+					}
+				}
+				.current_page_item {
+					a {
+						color: @yellow;
+					}
+				}
+			}
+		}*/
   border-bottom: 1px solid #5D5555;
 }
-.site-footer__nav .menu ul {
-  list-style: none;
+.site-footer__con {
   padding: 0;
+}
+.site-footer__menu {
+  padding: 15px 0;
   margin: 0;
 }
-.site-footer__nav .menu ul .page_item {
+.site-footer__menu li a {
   display: inline-block;
-  padding: 15px 25px 15px 0;
-}
-.site-footer__nav .menu ul .page_item a {
+  padding: 15px;
   color: #eee;
+  font-size: 16px;
 }
-.site-footer__nav .menu ul .page_item_has_children {
-  padding: 0;
+.site-footer__menu li:first-child {
+  border-bottom: 1px solid #5D5555;
 }
-.site-footer__nav .menu ul .page_item_has_children > a {
-  display: none;
-}
-@media (max-width: 767px) {
-  .site-footer__nav .menu ul .page_item {
-    display: block;
-    text-align: center;
-    font-size: 20px;
-    padding-right: 0;
-  }
-}
-.site-footer__nav .menu ul .current_page_item a {
+.site-footer__menu li.current_page_item a {
   color: #fbc02d;
 }
 .site-footer__map {
@@ -7954,6 +7993,9 @@ ul.nav li.page_item_has_children:hover > ul.dropdown-menu {
 .constructor .step {
   width: 100%;
 }
+.constructor .step:not(:first-of-type) {
+  display: none;
+}
 .constructor .step__title {
   margin-bottom: 10px;
 }
@@ -8268,6 +8310,9 @@ ul.nav li.page_item_has_children:hover > ul.dropdown-menu {
 }
 .constructor .additional--disabled {
   opacity: .5;
+}
+.constructor .additional__hidden {
+  display: none;
 }
 .constructor .appearance__item {
   position: relative;
@@ -8773,7 +8818,6 @@ ul.nav li.page_item_has_children:hover > ul.dropdown-menu {
 }
 .constructor select:disabled {
   background: #eee;
-  color: #eee;
 }
 .constructor .radio-label {
   font-size: 20px;
@@ -8856,11 +8900,20 @@ canvas {
   margin-left: -1px;
   padding: 0;
 }
+.sheathing h4 {
+  text-align: center;
+}
 .sheathing__item {
   padding: 15px;
   border-bottom: 1px solid #ddd;
+  /*&--optional {
+			display: none;
+		}*/
 }
-.sheathing__item--optional {
+#wall-filler-container {
+  display: none;
+}
+#roof-filler-container {
   display: none;
 }
 .product .heading {
@@ -9465,6 +9518,61 @@ canvas {
   width: 100%;
   height: 100%;
   background: #eee;
+}
+.alfa-slider.slick-initialized .alfa-slider__item {
+  display: block;
+}
+.alfa-slider__item {
+  height: 100vh;
+  background: #eee no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+.alfa-slider__item:not(:first-child) {
+  display: none;
+}
+.alfa-slider__img {
+  width: 100%;
+  height: 100%;
+}
+.alfa-slider__header {
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+  font-size: 80px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+.alfa-slider .slick-dots {
+  bottom: 25px;
+  position: absolute;
+}
+.alfa-slider .slick-dots button {
+  border: 2px solid #fbc02d;
+  border-radius: 50%;
+  transition: .3s;
+}
+.alfa-slider .slick-dots button::before {
+  content: '';
+}
+.alfa-slider .slick-dots .slick-active button {
+  background: #fbc02d;
+}
+.alfa-slider .slick-arrow {
+  background: #000;
+  position: absolute;
+  z-index: 1;
+  width: 50px;
+  height: 100px;
+}
+.alfa-slider .slick-arrow.slick-prev {
+  left: 50px;
+}
+.alfa-slider .slick-arrow.slick-next {
+  right: 50px;
 }
 @media (min-width: 768px) {
   .container {

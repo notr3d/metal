@@ -120,6 +120,18 @@ $(document).ready(function () {
 		centerMode: false,
 		focusOnSelect: true
 	});
+	$('.alfa-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: true,
+		dots: true,
+		draggable: true,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		speed: 250,
+		cssEase: 'ease-in-out'
+	});
+	
 });
 
 $('.scrollup').click(function(){
@@ -225,8 +237,7 @@ test.click(function(e){
 	$(this).css({
 		position: 'relative',
 		overflow: 'hidden'
-	})
-	
+	});	
 	var clickX =  e.offsetX;
     var clickY = e.offsetY;
 	var elWidth = $(this).width();

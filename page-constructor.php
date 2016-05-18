@@ -182,62 +182,68 @@ get_header(); ?>
 										<label for="snow-5">5</label>
 									</div>									
 									<div class="sheathing sheathing--wall col-sm-4">
+										<h4>Стены</h4>
 										<div class="sheathing__item">
 											<select name="wall-shealthing" id="wall-shealthing">
 												<option selected disabled hidden>Выберите стеновую обшивку</option>
 												<option value="Сэндвич-панели">Сэндвич-панели</option>
 												<option value="Профнастил">Профнастил</option>
-												<option value="Профнастил + утеплитель">Профнастил + утеплитель</option>
+												<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
 											</select>
 										</div>
-										<div id="wall-filler-container" class="sheathing__item sheathing__item--optional">
-											<h4>Тип наполнителя</h4>
-											<select name="wall-filler-type" id="wall-filler-type">
-												<option value="минеральная вата">минеральная вата</option>
-												<option value="пенополистирол">пенополистирол</option>
-											</select>
+										<div id="wall-filler-container">
+											<div class="sheathing__item">
+												<h4>Тип наполнителя</h4>
+												<select name="wall-filler-type" id="wall-filler-type">
+													<option value="минеральная вата">минеральная вата</option>
+													<option value="пенополистирол">пенополистирол</option>
+												</select>						
+											</div>
+											<div class="sheathing__item">
+												<h4>Толщина</h4>
+												<select name="wall-shealthing-thickness" id="wall-shealthing-thickness">
+													<option value="50мм">50мм</option>
+													<option value="80мм">80мм</option>
+													<option value="100мм">100мм</option>
+													<option value="120мм">120мм</option>
+													<option value="150мм">150мм</option>
+													<option value="170мм">170мм</option>
+													<option value="200мм">200мм</option>
+													<option value="250мм">250мм</option>
+												</select>
+											</div>
 										</div>
-										<div class="sheathing__item">
-											<h4>Толщина</h4>
-											<select name="wall-shealthing-thickness" id="wall-shealthing-thickness">
-												<option value="50мм">50мм</option>
-												<option value="80мм">80мм</option>
-												<option value="100мм">100мм</option>
-												<option value="120мм">120мм</option>
-												<option value="150мм">150мм</option>
-												<option value="170мм">170мм</option>
-												<option value="200мм">200мм</option>
-												<option value="250мм">250мм</option>
-											</select>
-										</div>										
 									</div>									
 									<div class="sheathing sheathing--roof col-sm-4">
+										<h4>Кровля</h4>
 										<div class="sheathing__item">
 											<select name="roof-shealthing" id="roof-shealthing">
 												<option selected disabled hidden>Выберите кровельную обшивку обшивку</option>
 												<option value="Сэндвич-панели">Сэндвич-панели</option>
 												<option value="Профнастил">Профнастил</option>
-												<option value="Профнастил + утеплитель">Профнастил + утеплитель</option>
+												<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
 											</select>
 										</div>
-										<div id="roof-filler-container" class="sheathing__item sheathing__item--optional">
-											<h4>Тип наполнителя</h4>
-											<select name="roof-filler-type" id="roof-filler-type">
-												<option value="минеральная вата">минеральная вата</option>
-												<option value="пенополистирол">пенополистирол</option>
-											</select>
-										</div>
-										<div class="sheathing__item">
-											<h4>Толщина</h4>
-											<select name="roof-shealthing-thickness" id="roof-shealthing-thickness">
-												<option value="50мм">50мм</option>
-												<option value="80мм">80мм</option>
-												<option value="100мм">100мм</option>
-												<option value="120мм">120мм</option>
-												<option value="150мм">150мм</option>
-												<option value="170мм">170мм</option>
-												<option value="200мм">200мм</option>
-											</select>
+										<div id="roof-filler-container">
+											<div class="sheathing__item">
+												<h4>Тип наполнителя</h4>
+												<select name="roof-filler-type" id="roof-filler-type">
+													<option value="минеральная вата">минеральная вата</option>
+													<option value="пенополистирол">пенополистирол</option>
+												</select>
+											</div>
+											<div class="sheathing__item">
+												<h4>Толщина</h4>
+												<select name="roof-shealthing-thickness" id="roof-shealthing-thickness">
+													<option value="50мм">50мм</option>
+													<option value="80мм">80мм</option>
+													<option value="100мм">100мм</option>
+													<option value="120мм">120мм</option>
+													<option value="150мм">150мм</option>
+													<option value="170мм">170мм</option>
+													<option value="200мм">200мм</option>
+												</select>
+											</div>
 										</div>
 									</div>										
 								</div>
@@ -254,7 +260,7 @@ get_header(); ?>
 											</div>
 											<div class="additional__item col-sm-6">
 												<label for="t-in">Внутренняя температура: </label>
-												<input type="number" name="t-in" id="t-in" min="0" max="50" value="0" disabled>
+												<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
 											</div>
 										</div>
 										<div class="additional__city-param col-sm-12">
@@ -275,6 +281,16 @@ get_header(); ?>
 											<div class="additional__item">
 												<label for="t-out">Внешняя температура: </label>
 												<input type="number" name="t-out" id="t-out" disabled>
+											</div>
+											<div class="additional__hidden">
+												<div class="additional__item">
+													<label for="warm">t<sub>оп</sub>:</label>
+													<input type="number" name="warm" id="warm" disabled>
+												</div>
+												<div class="additional__item">
+													<label for="time">Прод. от. пер.: </label>
+													<input type="number" name="time" id="time" disabled>
+												</div>
 											</div>
 											<div class="additional__item">
 												<label for="Rtr-wall">R<sub>тр</sub>: </label>
@@ -602,7 +618,7 @@ get_header(); ?>
 												<input type="checkbox" id="reinforce-window-1" name ="reinforce-window-1" disabled>
 												<label for="reinforce-window-1">Усилить конструкцию под проем</label>
 											</div>
-											<button class="appearance__delete" disabled>x</button>
+											<button type="button" class="appearance__delete" disabled>x</button>
 										</div>
 									</div>
 								</div>								

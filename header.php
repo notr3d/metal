@@ -19,13 +19,14 @@
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 		<!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+		<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+		<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
 		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick-theme.css">
 		<link href='https://fonts.googleapis.com/css?family=Exo+2:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 		<?php wp_head(); ?>
 	</head>
 
@@ -123,24 +124,23 @@
 
 								<div class="collapse navbar-collapse" id="navbar-collapse-main">
 									<ul class="nav navbar-nav">
-										<?php if( has_nav_menu( 'primary' ) ) :
-												wp_nav_menu( array(
-																	'theme_location'  => 'primary',
-																	'container'       => false,
-																	//'menu_class'      => 'nav navbar-nav',//  'nav navbar-right'
-																	'walker'          => new Bootstrap_Nav_Menu(),
-																	'fallback_cb'     => null,
-															'items_wrap'      => '%3$s',// skip the containing <ul>
-															)
-													);
-												else :
-													wp_list_pages( array(
-															'menu_class'      => 'nav navbar-nav',//  'nav navbar-right'
-															'walker'          => new Bootstrap_Page_Menu(),
-															'title_li'        => null,
-														)
-													);
-											endif; ?>
+										<?php if(has_nav_menu('primary')):
+											wp_nav_menu(array(
+												'theme_location' => 'primary',
+												'container'      => false,
+												//'menu_class'   => 'nav navbar-nav',//  'nav navbar-right'
+												'walker'         => new Bootstrap_Nav_Menu(),
+												'fallback_cb'    => null,
+												'items_wrap'     => '%3$s',// skip the containing <ul>
+											));
+										else:
+											wp_list_pages(array(
+												'menu_class' => 'nav navbar-nav',//  'nav navbar-right'
+												'walker'     => new Bootstrap_Page_Menu(),
+												'title_li'   => null,
+											));
+										endif; 
+										?>
 									</ul>
 									<?php get_search_form(); ?>
 								</div>

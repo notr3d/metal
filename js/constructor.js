@@ -516,7 +516,7 @@ var prevInputs = $('.sheathing').children().find('select');
 additionalInput.click(function(){
 	if ($(this).prop('checked') == true) {
 		additionalContainer.slideDown();		
-		prevInputs.attr('disabled', true);
+		//prevInputs.attr('disabled', true);
 		/*var newWallShealthingOptions = {
 			'Стеновые сэндвич-панели': 'Стеновые сэндвич-панели',
 			'Профнастил': 'Профнастил',
@@ -584,6 +584,9 @@ var cityInput = $('#city'),
 	tInInput = $('#t-in'),
 	
 	tOutInput = $('#t-out'),
+	warmInput = $('#warm'),
+	timeInput = $('#time'),
+	
 	GSOPInput = $('#GSOP'),
 	
 	RtrWallInput = $('#Rtr-wall'),
@@ -603,7 +606,7 @@ var cityInput = $('#city'),
 	delTOut = 5,
 	alfaIn = 8.7,
 	alfaOut = 23,
-	lambda = 0.05,
+	lambda = 0.042,
 	
 	RArray = [[2000, 1.4, 2], [4000, 1.8, 2.5], [6000, 2.2, 3], [8000, 2.6, 3.5], [10000, 3.0, 4], [12000, 3.4, 4.5]];
 
@@ -676,8 +679,11 @@ var calcThickness = function(){
 	thicknessRoofRecInput.val(thicknessRoofRec);
 };
 
+
+var hiddenBlock = $('.additional__hidden');
 cityInput.autocomplete({
 	source: cities,	
+	minLength: 3,
 	close: function(){
 		var cityFound = false;
 		var cityValue = cityInput.val();
@@ -686,7 +692,7 @@ cityInput.autocomplete({
 				tOut = citiesArray[i].tOut;
 				warm = citiesArray[i].warm;
 				time = citiesArray[i].time;
-				
+				hiddenBlock.slideUp();
 				tInInput.val(tIn); 
 				tInInput.attr('disabled', false); 
 				tOutInput.val(tOut);
@@ -704,7 +710,7 @@ cityInput.autocomplete({
 				tOut = citiesArray[i].tOut;
 				warm = citiesArray[i].warm;
 				time = citiesArray[i].time;
-				
+				hiddenBlock.slideUp();
 				tInInput.val(tIn); 
 				tInInput.attr('disabled', false); 
 				tOutInput.val(tOut);
@@ -713,13 +719,12 @@ cityInput.autocomplete({
 				cityFound = true;
 			} 		   
 		};	
-		if (!cityFound) {
-			//alert('Город не найден');
-			//var cityParam = $('.additional__city-param');
-			tOutInput.attr('disabled', false);
-			GSOPInput.attr('disabled', false);	
-			RtrWallInput.attr('disabled', false);
-			
+		if (!cityFound) {			
+			hiddenBlock.slideDown();
+			tInInput.attr('disabled', false); 
+			tOutInput.attr('disabled', false);	
+			warmInput.attr('disabled', false);	
+			timeInput.attr('disabled', false);			
 			tOutInput.change(function(){
 				tOut = $(this).val();
 				calcThickness();
@@ -736,13 +741,21 @@ cityInput.autocomplete({
 	}
 });
 
+
 tInInput.change(function(){
 	tIn = tInInput.val();
 	calcThickness();
 });
-
 tOutInput.change(function(){
 	tOut = tOutInput.val();
+	calcThickness();
+});
+warmInput.change(function(){
+	warm = warmInput.val();
+	calcThickness();
+});
+timeInput.change(function(){
+	time = timeInput.val();
 	calcThickness();
 });
 
@@ -753,7 +766,7 @@ var windowTypeQuantityMinus = $('#window-type-minus'),
 	windowTypeNumber = +windowTypeQuantityInput.val();
 
 var typeChange = function(e){
-	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-'+e+'" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-'+e+'" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-'+e+'" name="reinforce-window-'+e+'"><label for="reinforce-window-'+e+'">Усилить конструкцию под проем</label></div><button class="appearance__delete">x</button></div>';
+	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-' + e + '" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-' + e + '" name="reinforce-window-' + e + '"><label for="reinforce-window-' + e + '">Усилить конструкцию под проем</label></div><button type="button" class="appearance__delete">x</button></div>';
 };
 
 var windowButtonInit = function(){
@@ -789,10 +802,14 @@ var windowButtonInit = function(){
 		};
 	});
 	deleteButton.click(function(){
-		var appearanceBlock = $(this).parent();
-		appearanceBlock.remove();
-		windowTypeNumber--;
-		windowTypeQuantityInput.val(windowTypeNumber);
+		var windowCon = $('.window__container');
+		var itemNumber = windowCon.children().length;
+		if (itemNumber > 1) {
+			var appearanceBlock = $(this).parent();
+			appearanceBlock.remove();
+			windowTypeNumber--;
+			windowTypeQuantityInput.val(windowTypeNumber);
+		}		
 	})
 };
 
@@ -898,35 +915,55 @@ var roofShealthingInput = $('#roof-shealthing');
 var additionalBlock = $('.additional');
 
 wallShealthingInput.change(function(){	
+	var wallFillerTypeInput = $('#wall-filler-type');
 	if ($(this).val() == 'Сэндвич-панели') {
 		additionalInput.attr('disabled', false);
+		wallFillerTypeInput.attr('disabled', false);
 		additionalBlock.removeClass('additional--disabled');
 		wallFillerTypeCon.slideDown();
 	} else if ($(this).val() == 'Профнастил') {
 		additionalInput.attr('disabled', true);
 		additionalBlock.addClass('additional--disabled');
+		additionalContainer.slideUp();
 		wallFillerTypeCon.slideUp();
-	} else {
+	} else if ($(this).val() == 'Профнастил + утеплитель + профнастил') {
 		additionalInput.attr('disabled', false);
+		wallFillerTypeInput.attr('disabled', true);
+		wallFillerTypeInput.val('минеральная вата');
 		additionalBlock.removeClass('additional--disabled');
-		wallFillerTypeCon.slideUp();
+		wallFillerTypeCon.slideDown();
 	}
 });
 
 roofShealthingInput.change(function(){	
+	var roofFillerTypeInput = $('#roof-filler-type');
 	if ($(this).val() == 'Сэндвич-панели') {
 		additionalInput.attr('disabled', false);
+		roofFillerTypeInput.attr('disabled', false);
 		additionalBlock.removeClass('additional--disabled');
 		roofFillerTypeCon.slideDown();
 	} else if ($(this).val() == 'Профнастил') {
 		additionalInput.attr('disabled', true);
 		additionalBlock.addClass('additional--disabled');
+		additionalContainer.slideUp();
 		roofFillerTypeCon.slideUp();
-	} else {
+	} else if ($(this).val() == 'Профнастил + утеплитель + профнастил') {
 		additionalInput.attr('disabled', false);
+		roofFillerTypeInput.attr('disabled', true);
+		roofFillerTypeInput.val('минеральная вата');
 		additionalBlock.removeClass('additional--disabled');
-		roofFillerTypeCon.slideUp();
+		roofFillerTypeCon.slideDown();
 	}
 });
 
+//lambda change
+var wallFillerTypeInput = $('#wall-filler-type');
 
+wallFillerTypeInput.change(function(){
+	if ($(this).val() === 'минеральная вата') {
+		lambda = 0.042;
+	} else if ($(this).val() === 'пенополистирол') {
+		lambda = 0.039;
+	}
+	//alert('lambda = ' + lambda);
+})
