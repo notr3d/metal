@@ -105,13 +105,33 @@ and Bootstrap https://github.com/twbs/bootstrap
 @mobile: ~ "(max-width: 767px)";
 @desktop: ~ "(min-width: 768px)";
 
+@m: ~ "(max-width: 767px)";
+@t: ~ "(min-width: 768px)";
+@d: ~ "(min-width: 1080px)";
+
+@yellow: #ffa300;
+
+.lcw {
+	margin: 0 auto;
+	@media @m {
+		width: 100%;
+	}
+	@media @t {
+		width: 738px;
+	}
+	@media @d {
+		width: 1050px;
+	}
+}
+
 //цвета
-@black: #262426;
+@black: #32281e;
 @white: #fff;
 
 @red: #cc3300;
 @blue: #2474d0;
-@yellow: #fbc02d;
+//@yellow: #fbc02d;
+@yellow: #ffa300;
 
 //импорты
 @import "less/site-header.less";
@@ -156,7 +176,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 	//background: #eee;	
 }
 main {
-	margin-bottom: 15px;
+	//margin-bottom: 15px;
 }
 .nav-tabs {
 	li {
@@ -196,7 +216,7 @@ main {
 }
 
 body {
-	font-family: 'Exo 2', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .my {
@@ -341,7 +361,7 @@ body {
 //кнопка "вверх"
 .scrollup {
 	position: fixed;
-	bottom: 15px;
+	bottom: 180px;
 	right: 45px;
 	width: 45px;
 	height: 45px;
@@ -487,4 +507,9 @@ body {
 	&:hover {
 		transform: rotate(90deg);
 	}
+}
+
+.site {
+	min-height: 100px;
+	position: relative;
 }

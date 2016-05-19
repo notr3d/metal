@@ -1,98 +1,80 @@
-<?php
-/**
- * The template for displaying the footer.
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package _s
- */
-
-?>
 		</div>
 	</div>
-	<!-- #content -->
-	<?php if ( is_page($page = "contacts") ) : ?>
-		<div class="contacts__map" id="map"></div>
-	<?php endif; ?>
 	<footer class="site-footer" role="contentinfo">
-		<div class="site-footer__wrapper">
-			<div class="container">
-				<div class="site-footer__nav container">
-					<?php 
-						/*$args = array(
-							'depth'       => 0,
-							'sort_column' => 'menu_order, post_title',
-							'menu_class'  => 'menu',
-							'include'     => '',
-							'exclude'     => '5',
-							'echo'        => true,
-							'show_home'   => false,
-							'link_before' => '',
-							'link_after'  => '' 
-						);
-						wp_page_menu( $args ); */
-					?>
-					<div class="site-footer__con col-sm-3">
-						<?php 						
-							wp_nav_menu(array(
-								'theme_location' => 'footer-menu-1',
-								'menu_class' => 'site-footer__menu',
-							));
-						?>
-					</div>
-					<div class="site-footer__con col-sm-3">
-						<?php 						
-							wp_nav_menu(array(
-								'theme_location' => 'footer-menu-2',
-								'menu_class' => 'site-footer__menu',
-							));
-						?>
-					</div>
-					<div class="site-footer__con col-sm-3">
-						<?php 						
-							wp_nav_menu(array(
-								'theme_location' => 'footer-menu-3',
-								'menu_class' => 'site-footer__menu',
-							));
-						?>
-					</div>
-					<div class="site-footer__con col-sm-3">
-						<?php 						
-							wp_nav_menu(array(
-								'theme_location' => 'footer-menu-4',
-								'menu_class' => 'site-footer__menu',
-							));
-						?>
-					</div>
-										
-				</div>
-				<div class="site-footer__info container">
-					<div class="site-footer__item col-sm-4">
-							<a href="mailto:#" class="email__button">first.last@example.com</a>		
-						<button type="button" class="my-fancy-button" data-toggle="modal" data-target="#email">Написать письмо</button>
-					</div>
-					<div class="site-footer__item col-sm-4">
-							<a href="tel:+74955555555" class="callback__button">+7 (495)<span class="phone__number"> 555-55-55</span></a>
-						<button type="button" class="my-fancy-button" data-toggle="modal" data-target="#callback">Обратный звонок</button>
-					</div>
-					<div class="site-footer__item col-sm-4">
-						<address>
-							<strong>Lorem, Inc.</strong>
-							<br>1355 Market Street, Suite 900
-							<br>San Francisco, CA 94103
-						</address>
+		<div class="site-footer__wrapper lcw">
+			<div class="site-footer__item">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/email.png" alt="" class="site-footer__img">
+				<a href="mailto:info@bigmsk.ru" class="site-footer__link">info@bigmsk.ru</a><br>
+				<button type="button" class="site-footer__button" data-toggle="modal" data-target="#email">Написать письмо</button>
+				<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Написать письмо</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Имя*" required>
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Email*" required>
+								</div>
+								<div class="form-group">
+									<input type="tel" class="form-control" placeholder="Телефон">
+								</div>
+
+								<div class="form-group">
+									<textarea rows="10" class="form-control" placeholder="Сообщение..."></textarea>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary">Отправить</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="site-footer__item">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/tel.png" alt="" class="site-footer__img">
+				<a href="skype:+74957893686" class="site-footer__link">+7 (495) 789-36-86</a><br>
+				<button type="button" class="site-footer__button" data-toggle="modal" data-target="#callback">Заказать звонок</button>
+				<div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Обратный звонок</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Имя*" required>
+								</div>
+								<div class="form-group">
+									<input type="tel" class="form-control" placeholder="Телефон*" required>
+								</div>
+								<div class="form-group">
+									<textarea rows="3" class="form-control" placeholder="Сообщение..."></textarea>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary">Отправить</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="site-footer__item">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/address.png" alt="" class="site-footer__img">
+				<p class="site-footer__address">г. Москва, ул. Ибрагимова, д. 31,<br>офис 308</p>
+			</div>
 		</div>
-		<?php if (! is_page($page = "contacts") ) : ?>
-			<div class="site-footer__map" id="map"></div>
-		<?php endif; ?>		
-		<div class="site-footer__copy container">
-			© 2016 Lorem. All rights reserved.
-		</div>	
+		<div class="site-footer__copy">© 2016 «BIG Constructions»</div>
+		<?php if ( is_page($page = "contacts") ) : ?>
+			<div class="contacts__map" id="map"></div>
+		<?php endif; ?>	
 		<button class="scrollup"></button>
 	</footer>
 	</div>
@@ -124,10 +106,11 @@
 	<!--
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/three.js"></script>	
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/OrbitControls.js"></script>-->				
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/citiesArray.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cities.js"></script>		
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/constructor.js"></script>	
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script-2.js"></script>
 	<?php wp_footer(); ?>
 	</body>
 </html>

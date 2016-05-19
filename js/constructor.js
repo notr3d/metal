@@ -923,6 +923,7 @@ wallShealthingInput.change(function(){
 		wallFillerTypeCon.slideDown();
 	} else if ($(this).val() == 'Профнастил') {
 		additionalInput.attr('disabled', true);
+		additionalInput.attr('checked', false);
 		additionalBlock.addClass('additional--disabled');
 		additionalContainer.slideUp();
 		wallFillerTypeCon.slideUp();
@@ -944,6 +945,7 @@ roofShealthingInput.change(function(){
 		roofFillerTypeCon.slideDown();
 	} else if ($(this).val() == 'Профнастил') {
 		additionalInput.attr('disabled', true);
+		additionalInput.attr('checked', false);
 		additionalBlock.addClass('additional--disabled');
 		additionalContainer.slideUp();
 		roofFillerTypeCon.slideUp();

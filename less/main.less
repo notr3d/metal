@@ -2,34 +2,71 @@
 	
 }
 .alfa-slider {
-	&.slick-initialized {
+	/*&.slick-initialized {
 		.alfa-slider__item {
 			display: block;
 		}
-	}	
+	}*/	
+	&__wrapper {
+		margin: 0;
+	}
 	&__item {
 		height: 100vh;
 		background: #eee no-repeat center;
 		background-size: cover;
 		position: relative;
-		&:not(:first-child) {
+		/*&:not(:first-child) {
 			display: none;
+		}*/
+		&--1 {
+			background-color: brown;
+		}
+		&--2 {
+			background-color: firebrick;
 		}
 	}
-	&__img {
-		width: 100%;
+	&__content {
+		position: relative;
 		height: 100%;
 	}
-	&__header {
+	&__container {
 		position: absolute;
-		bottom: 100px;
-		left: 50px;
-		font-size: 80px;
+		bottom: 180px;
+		left: 0;
+	}
+	&__header {
+		width: 800px;
+		font-size: 60px;
 		margin: 0;
+		margin-bottom: 40px;
 		text-transform: uppercase;
 		font-weight: bold;
 		color: #fff;
 		font-family: 'Open Sans Condensed', sans-serif;
+	}
+	&__text {
+		font-size: 16px;
+		color: #fff;
+		width: 400px;
+		margin: 0;
+		margin-bottom: 30px;
+	}
+	&__link {
+		display: inline-block;
+		padding: 20px 36px;
+		text-align: center;
+		background: @yellow;
+		color: @black;
+		text-transform: uppercase;
+		transition: .3s;
+		&:hover {
+			text-decoration: none;
+			background: lighten(@yellow, 15%);			
+		}
+		&:focus {
+			text-decoration: none;
+			outline: none;
+		}
 	}
 	.slick-dots {
 		bottom: 25px;
@@ -38,6 +75,7 @@
 			border: 2px solid @yellow;
 			border-radius: 50%;
 			transition: .3s;
+			box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5);
 			&::before {
 				content: '';
 			}
@@ -49,16 +87,31 @@
 		}
 	}
 	.slick-arrow {
-		background: #000;
+		z-index: 1;		
 		position: absolute;
-		z-index: 1;
 		width: 50px;
 		height: 100px;
+		&::before {
+			content: '';
+			display: block;
+			width: 45px;
+			height: 45px;
+			transform: rotate(45deg);
+			transition: border .3s;
+		}
 		&.slick-prev {
 			left: 50px;
+			&::before {
+				border-left: 2px solid @yellow;
+				border-bottom: 2px solid @yellow;
+			}			
 		}
 		&.slick-next {
 			right: 50px;
+			&::before {
+				border-right: 2px solid @yellow;
+				border-top: 2px solid @yellow;
+			}			
 		}
 	}
 }

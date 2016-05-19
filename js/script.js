@@ -120,7 +120,7 @@ $(document).ready(function () {
 		centerMode: false,
 		focusOnSelect: true
 	});
-	$('.alfa-slider').slick({
+	$('.alfa-slider__wrapper').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: true,
@@ -129,7 +129,8 @@ $(document).ready(function () {
 		autoplay: true,
 		autoplaySpeed: 5000,
 		speed: 250,
-		cssEase: 'ease-in-out'
+		cssEase: 'ease-in-out',
+		centerMode: false
 	});
 	
 });
@@ -255,3 +256,4 @@ test.click(function(e){
 var navLink = $('a.dropdown-toggle');
 navLink.removeClass('dropdown-toggle');
 navLink.removeAttr('data-toggle');
+

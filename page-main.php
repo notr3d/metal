@@ -1,31 +1,26 @@
 <?php get_header(); ?>
 	<main class="main">		
 		<div class="alfa-slider">
-			<div class="alfa-slider__item">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/home/main-slider/1.jpg" alt="" class="alfa-slider__img">
-				<h2 class="alfa-slider__header">Заголовок 1</h2>
+			<div class="alfa-slider__wrapper">
+				<div class="alfa-slider__item alfa-slider__item--1">
+					<div class="alfa-slider__content lcw">
+						<div class="alfa-slider__container">
+							<h1 class="alfa-slider__header">Полнокомплектные быстровозводимые здания</h1>
+							<p class="alfa-slider__text">Мы проектируем, производим и поставляем полнокомплектные быстровозводимые здания</p>
+							<a href="#" class="alfa-slider__link">Перейти</a>
+						</div>	
+					</div>									
+				</div>
+				<div class="alfa-slider__item alfa-slider__item--2">
+					<div class="alfa-slider__content lcw">
+						<div class="alfa-slider__container">
+							<h2 class="alfa-slider__header">Полнокомплектные быстровозводимые здания</h2>
+							<p class="alfa-slider__text">Мы проектируем, производим и поставляем полнокомплектные быстровозводимые здания</p>
+							<a href="#" class="alfa-slider__link">Перейти</a>
+						</div>	
+					</div>									
+				</div>				
 			</div>
-			<div class="alfa-slider__item">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/home/main-slider/2.jpg" alt="" class="alfa-slider__img">
-				<h2 class="alfa-slider__header">Заголовок 2</h2>
-			</div>
-			<div class="alfa-slider__item">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/home/main-slider/3.jpg" alt="" class="alfa-slider__img">
-				<h2 class="alfa-slider__header">Заголовок 3</h2>
-			</div>
-			<div class="alfa-slider__item">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/home/main-slider/4.jpg" alt="" class="alfa-slider__img">
-				<h2 class="alfa-slider__header">Заголовок 4</h2>
-			</div>
-			<div class="alfa-slider__item">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/home/main-slider/5.jpg" alt="" class="alfa-slider__img">
-				<h2 class="alfa-slider__header">Заголовок 5</h2>
-			</div>
-			<div class="alfa-slider__item">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/home/main-slider/6.jpg" alt="" class="alfa-slider__img">
-				<h2 class="alfa-slider__header">Заголовок 6</h2>
-			</div>
-							
 		</div>		
 	</main>
 <?php get_footer(); ?>
