@@ -12,19 +12,19 @@
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
-					<div class="main-slider__item">	
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/2.jpg" alt="" class="main-slider__img">
-						<div class="main-slider__panel main-slider__panel--right">
-							<h2 class="main-slider__header">Профнастил</h2>
-							<p class="main-slider__text">Профнастил используется в качестве материала для стенового и кровельного покрытия, изготовления заборов, для отделки производственных помещений.</p>
-							<a href="#" class="main-slider__link my-link">Перейти</a>
-						</div>
-					</div>
 					<div class="main-slider__item">		
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/3.jpg" alt="" class="main-slider__img">			
 						<div class="main-slider__panel">
 							<h2 class="main-slider__header">Металлоконструкции</h2>
 							<p class="main-slider__text">Металлоконструкции применяются в качестве несущих конструкций каркасов, перекрытий и покрытий при строительстве и реконструкции зданий.</p>
+							<a href="#" class="main-slider__link my-link">Перейти</a>
+						</div>
+					</div>
+					<!--<div class="main-slider__item">	
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/home/main-slider/2.jpg" alt="" class="main-slider__img">
+						<div class="main-slider__panel main-slider__panel--right">
+							<h2 class="main-slider__header">Профнастил</h2>
+							<p class="main-slider__text">Профнастил используется в качестве материала для стенового и кровельного покрытия, изготовления заборов, для отделки производственных помещений.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
 					</div>
@@ -59,7 +59,7 @@
 							<p class="main-slider__text">Строительные материалы для устройства кровли, фасада, водосточной системы, забора для частного дома.</p>
 							<a href="#" class="main-slider__link my-link">Перейти</a>
 						</div>
-					</div>
+					</div>-->
 				</div>
 				<!--<div class="nav-slider">
 					<div class="nav-slider__item">
@@ -211,30 +211,30 @@
 				
 			</div>
 		</div>
-		<div class="reviews">
-			<div class="reviews__wrapper container">
-				<h2 class="reviews__header">Отзывы</h2>
-				<div class="reviews__slider">
-					<div class="reviews__item">
-						<div class="reviews__container">
-							<p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim reiciendis deleniti, error necessitatibus pariatur ab sit provident rerum eos fugit beatae ipsa ipsum deserunt, blanditiis mollitia quae iusto qui fuga!</p>
-							<div class="reviews__quotation-mark">“</div>
+		<div class="main-reviews">
+			<div class="main-reviews__wrapper container">
+				<h2 class="main-reviews__header">Отзывы</h2>
+				<div class="main-reviews__slider">
+					<div class="main-reviews__item">
+						<div class="main-reviews__container">
+							<p class="main-reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim reiciendis deleniti, error necessitatibus pariatur ab sit provident rerum eos fugit beatae ipsa ipsum deserunt, blanditiis mollitia quae iusto qui fuga!</p>
+							<div class="main-reviews__quotation-mark">“</div>
 						</div>
-						<p class="reviews__author">ЗАО "LOREM"</p>
+						<p class="main-reviews__author">ЗАО "LOREM"</p>
 					</div>
-					<div class="reviews__item">
-						<div class="reviews__container">
-							<p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem ab omnis, officia eum. Tenetur fugit alias, temporibus nulla, doloribus doloremque minus natus atque esse obcaecati, id perspiciatis distinctio voluptates iste.</p>
-							<div class="reviews__quotation-mark">“</div>
+					<div class="main-reviews__item">
+						<div class="main-reviews__container">
+							<p class="main-reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem ab omnis, officia eum. Tenetur fugit alias, temporibus nulla, doloribus doloremque minus natus atque esse obcaecati, id perspiciatis distinctio voluptates iste.</p>
+							<div class="main-reviews__quotation-mark">“</div>
 						</div>
-						<p class="reviews__author">ОАО "MEROL"</p>
+						<p class="main-reviews__author">ОАО "MEROL"</p>
 					</div>
-					<div class="reviews__item">
-						<div class="reviews__container">
-							<p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem non minus dicta aliquam odio fugit repellendus quod, autem suscipit ducimus sequi. Illo doloribus dolores, possimus architecto fuga aliquid magni nulla!!</p>
-							<div class="reviews__quotation-mark">“</div>
+					<div class="main-reviews__item">
+						<div class="main-reviews__container">
+							<p class="main-reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem non minus dicta aliquam odio fugit repellendus quod, autem suscipit ducimus sequi. Illo doloribus dolores, possimus architecto fuga aliquid magni nulla!!</p>
+							<div class="main-reviews__quotation-mark">“</div>
 						</div>
-						<p class="reviews__author">ООО "MOREL"</p>
+						<p class="main-reviews__author">ООО "MOREL"</p>
 					</div>
 				</div>
 				<a href="reviews" class="main-services__more-link my-link">Все отзывы</a>

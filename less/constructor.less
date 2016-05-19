@@ -81,7 +81,7 @@
 	.step {		
 		width: 100%;
 		&:not(:first-of-type) {
-			//display: none; //откл!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			display: none; //откл!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
 		&__title {
 			margin-bottom: 10px;
@@ -420,6 +420,12 @@
 				width: 100%;
 			}
 		}
+		&--disabled {
+			opacity: .5;
+		}
+		&__hidden {
+			display: none;
+		}
 	}
 	.appearance {
 		.step__input-area {
@@ -486,6 +492,9 @@
 					position: relative;
 					&:not(:last-child) {
 						border-bottom: 1px solid #ddd;
+					}
+					&--disabled {
+						display: none;
 					}
 				}
 				.appearance__count {
@@ -889,7 +898,7 @@
 					padding-right: 15px;
 				}
 				select {
-					width: 50%;
+					width: auto;
 				}
 			}
 		}
@@ -934,14 +943,20 @@
 		-webkit-appearance: none;
 		padding: 5px 45px 5px 5px;
 		border: 1px solid #ddd;
+		border-bottom-width: 2px;
 		//border-radius: 3px;
 		box-shadow: none;
 		background: #fff url(http://localhost/metal/wp-content/themes/metal/img/arrow-down.png) no-repeat 95% 50%;
 		background-size: 20px;
 		width: 100%;
+		color: #000;
 		&:focus {
 			outline: none;
 			border-color: @blue;
+		}
+		&:disabled {
+			background: #eee;
+			//color: #eee;
 		}
 	}
 	.radio-label {
@@ -1032,3 +1047,27 @@ canvas {
 		}
 	}
 }
+
+.sheathing {
+	border: 1px solid #ddd;	
+	margin-left: -1px;
+	padding: 0;
+	h4 {
+		text-align: center;
+	}
+	&__item {
+		padding: 15px;
+		border-bottom: 1px solid #ddd;
+		/*&--optional {
+			display: none;
+		}*/
+	}
+}
+
+#wall-filler-container {
+	display: none;
+}
+#roof-filler-container {
+	display: none;
+}
+

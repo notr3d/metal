@@ -19,19 +19,19 @@ get_header(); ?>
 			<?php the_title( sprintf( '<h1 class="page-header">', esc_url( get_permalink() ) ), '</h1>' ); ?>
 			<div class="products">
 				<div class="products__wrapper">
-					<div class="products__item products__item--big">
-						<a href="#" class="products__inner">
+					<div class="products__item">
+						<a href="type-1" class="products__inner">
 							<h3 class="products__header">Полнокомплектные здания</h3>
 							<p class="products__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quos sapiente ipsa, rerum nemo, iure assumenda in ipsam iusto, quia distinctio voluptas similique harum nesciunt placeat totam doloribus dignissimos ullam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quos sapiente ipsa, rerum nemo, iure assumenda in ipsam iusto, quia distinctio voluptas similique harum nesciunt placeat totam doloribus dignissimos ullam!</p>
 						</a>
 					</div>
 					<div class="products__item">
-						<a href="#" class="products__inner">
+						<a href="metal" class="products__inner">
 							<h3 class="products__header">Металлоконструкции</h3>
 							<p class="products__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quos sapiente ipsa, rerum nemo, iure assumenda in ipsam iusto, quia distinctio voluptas similique harum nesciunt placeat totam doloribus dignissimos ullam!</p>
 						</a>
 					</div>
-					<div class="products__item">
+					<!--<div class="products__item">
 						<a href="#" class="products__inner">
 							<h3 class="products__header">Сэндвич-панели</h3>
 							<p class="products__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quos sapiente ipsa, rerum nemo, iure assumenda in ipsam iusto, quia distinctio voluptas similique harum nesciunt placeat totam doloribus dignissimos ullam!</p>
@@ -42,7 +42,7 @@ get_header(); ?>
 							<h3 class="products__header">Профнастил</h3>
 							<p class="products__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quos sapiente ipsa, rerum nemo, iure assumenda in ipsam iusto, quia distinctio voluptas similique harum nesciunt placeat totam doloribus dignissimos ullam!</p>
 						</a>
-					</div>					
+					</div>-->					
 				</div>
 			</div>
 		</div><!-- #primary -->

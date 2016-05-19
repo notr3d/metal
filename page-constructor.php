@@ -181,33 +181,70 @@ get_header(); ?>
 										<input type="radio" name="snow" id="snow-5" class="snow-area-input" value="5">
 										<label for="snow-5">5</label>
 									</div>									
-									<div class="col-sm-4">
-										<h4>Стеновая обшивка</h4>
-										<select name="wall-shealthing" id="wall-shealthing">
-											<option value="Стеновые сэндвич-панели 200м">Стеновые сэндвич-панели 200мм</option>
-											<option value="Стеновые сэндвич-панели 180мм">Стеновые сэндвич-панели 180мм</option>
-											<option value="Стеновые сэндвич-панели 150мм">Стеновые сэндвич-панели 150мм</option>
-											<option value="Стеновые сэндвич-панели 120мм">Стеновые сэндвич-панели 120мм</option>
-											<option value="Стеновые сэндвич-панели 100мм">Стеновые сэндвич-панели 100мм</option>
-											<option value="Стеновые сэндвич-панели 80мм">Стеновые сэндвич-панели 80мм</option>
-											<option value="Профнастил 18">Профнастил 18</option>
-											<option value="Профнастил 18 + утеплитель 100мм + профнастил 18">Профнастил 18 + утеплитель 100мм + профнастил 18</option>
-											<option value="Профнастил 18 + утеплитель 150мм + профнастил 18">Профнастил 18 + утеплитель 150мм + профнастил 18</option>
-										</select>
-									</div>
-									<div class="col-sm-4">
-										<h4>Кровельная обшивка</h4>
-										<select name="roof-shealthing" id="roof-shealthing">
-											<option value="Кровельные сэндвич-панели 200мм">Кровельные сэндвич-панели 200мм</option>
-											<option value="Кровельные сэндвич-панели 180мм">Кровельные сэндвич-панели 180мм</option>
-											<option value="Кровельные сэндвич-панели 150мм">Кровельные сэндвич-панели 150мм</option>
-											<option value="Кровельные сэндвич-панели 120мм">Кровельные сэндвич-панели 120мм</option>
-											<option value="Кровельные сэндвич-панели 100мм">Кровельные сэндвич-панели 100мм</option>
-											<option value="Кровельные сэндвич-панели 80мм">Кровельные сэндвич-панели 80мм</option>
-											<option value="Профнастил 45">Профнастил 45</option>
-											<option value="Профнастил 45 + утеплитель 100мм + профнастил 18">Профнастил 45 + утеплитель 100мм + профнастил 18</option>
-											<option value="Профнастил 45 + утеплитель 150мм + профнастил 18">Профнастил 45 + утеплитель 150мм + профнастил 18</option>
-										</select>
+									<div class="sheathing sheathing--wall col-sm-4">
+										<h4>Стены</h4>
+										<div class="sheathing__item">
+											<select name="wall-shealthing" id="wall-shealthing">
+												<option selected disabled hidden>Выберите стеновую обшивку</option>
+												<option value="Сэндвич-панели">Сэндвич-панели</option>
+												<option value="Профнастил">Профнастил</option>
+												<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
+											</select>
+										</div>
+										<div id="wall-filler-container">
+											<div class="sheathing__item">
+												<h4>Тип наполнителя</h4>
+												<select name="wall-filler-type" id="wall-filler-type">
+													<option value="минеральная вата">минеральная вата</option>
+													<option value="пенополистирол">пенополистирол</option>
+												</select>						
+											</div>
+											<div class="sheathing__item">
+												<h4>Толщина</h4>
+												<select name="wall-shealthing-thickness" id="wall-shealthing-thickness">
+													<option value="50мм">50мм</option>
+													<option value="80мм">80мм</option>
+													<option value="100мм">100мм</option>
+													<option value="120мм">120мм</option>
+													<option value="150мм">150мм</option>
+													<option value="170мм">170мм</option>
+													<option value="200мм">200мм</option>
+													<option value="250мм">250мм</option>
+												</select>
+											</div>
+										</div>
+									</div>									
+									<div class="sheathing sheathing--roof col-sm-4">
+										<h4>Кровля</h4>
+										<div class="sheathing__item">
+											<select name="roof-shealthing" id="roof-shealthing">
+												<option selected disabled hidden>Выберите кровельную обшивку обшивку</option>
+												<option value="Сэндвич-панели">Сэндвич-панели</option>
+												<option value="Профнастил">Профнастил</option>
+												<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
+											</select>
+										</div>
+										<div id="roof-filler-container">
+											<div class="sheathing__item">
+												<h4>Тип наполнителя</h4>
+												<select name="roof-filler-type" id="roof-filler-type">
+													<option value="минеральная вата">минеральная вата</option>
+													<option value="пенополистирол">пенополистирол</option>
+												</select>
+											</div>
+											<div class="sheathing__item">
+												<h4>Толщина</h4>
+												<select name="roof-shealthing-thickness" id="roof-shealthing-thickness">
+													<option value="50мм">50мм</option>
+													<option value="80мм">80мм</option>
+													<option value="100мм">100мм</option>
+													<option value="120мм">120мм</option>
+													<option value="150мм">150мм</option>
+													<option value="170мм">170мм</option>
+													<option value="200мм">200мм</option>
+												</select>
+											</div>
+										</div>
 									</div>										
 								</div>
 								<div class="additional row">
@@ -223,11 +260,11 @@ get_header(); ?>
 											</div>
 											<div class="additional__item col-sm-6">
 												<label for="t-in">Внутренняя температура: </label>
-												<input type="number" name="t-in" id="t-in" min="0" max="50" value="0" disabled>
+												<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
 											</div>
 										</div>
 										<div class="additional__city-param col-sm-12">
-											<div class="additional__item col-sm-4">
+											<!--<div class="additional__item col-sm-4">
 												<label for="tOut">Температура холодной пятидневки: </label>
 												<input type="number" name="tOut" id="tOut" placeholder="">
 											</div>
@@ -238,16 +275,30 @@ get_header(); ?>
 											<div class="additional__item col-sm-4">
 												<label for="time">Продолжительность отопительного периода: </label>
 												<input type="number" name="time" id="time" placeholder="">
-											</div>							
+											</div>-->							
 										</div>
 										<div class="additional__column col-sm-4">
 											<div class="additional__item">
 												<label for="t-out">Внешняя температура: </label>
 												<input type="number" name="t-out" id="t-out" disabled>
 											</div>
+											<div class="additional__hidden">
+												<div class="additional__item">
+													<label for="warm">t<sub>оп</sub>:</label>
+													<input type="number" name="warm" id="warm" disabled>
+												</div>
+												<div class="additional__item">
+													<label for="time">Прод. от. пер.: </label>
+													<input type="number" name="time" id="time" disabled>
+												</div>
+											</div>
 											<div class="additional__item">
 												<label for="Rtr-wall">R<sub>тр</sub>: </label>
-												<input type="text" name="Rtr-wall" id="Rtr-wall" disabled>
+												<input type="number" name="Rtr-wall" id="Rtr-wall" disabled>
+											</div>
+											<div class="additional__item">
+												<label for="GSOP">ГСОП</label>
+												<input type="number" name="GSOP" id="GSOP" disabled>
 											</div>	
 										</div>
 										<div class="additional__column col-sm-4">
@@ -280,16 +331,10 @@ get_header(); ?>
 												<input type="text" name="thickness-roof-rec" id="thickness-roof-rec" disabled>
 											</div>
 										</div>
-<!--
-										<div class="additional__item">
+										<!--<div class="additional__item">
 											<label for="Rtr-roof">R<sub>тр</sub></label>
 											<input type="text" name="Rtr-roof" id="Rtr-roof" disabled>
-										</div>								
--->
-										<!--<div class="additional__item col-sm-4">
-											<label for="GSOP">ГСОП</label>
-											<input type="text" name="GSOP" id="GSOP" disabled>
-										</div>-->
+										</div>-->								
 									</div>
 								</div>
 <!--
@@ -547,32 +592,34 @@ get_header(); ?>
 											<button type="button" class="count-button count-button--plus" id="window-type-plus" disabled>+</button>
 										</div>
 									</div>
-									<div class="appearance__block">
-										<div class="appearance__dimension">
-											<div class="appearance__count">
-												<h4>Ширина: </h4>
-												<button type="button" class="window-button--minus" disabled>-</button>
-												<input type="number" name="window-width-1" class="window-input" min="0" max="10" disabled>
-												<button type="button" class="window-button--plus" disabled>+</button>
+									<div class="window__container">
+										<div class="appearance__block">
+											<div class="appearance__dimension">
+												<div class="appearance__count">
+													<h4>Ширина: </h4>
+													<button type="button" class="window-button--minus" disabled>-</button>
+													<input type="number" name="window-width-1" class="window-input" min="0" max="10" disabled>
+													<button type="button" class="window-button--plus" disabled>+</button>
+												</div>
+												<div class="appearance__count">
+													<h4>Высота: </h4>
+													<button type="button" class="window-button--minus" disabled>-</button>
+													<input type="number" name="window-height-1" class="window-input" min="0" max="10" disabled>
+													<button type="button" class="window-button--plus" disabled>+</button>
+												</div>
 											</div>
 											<div class="appearance__count">
-												<h4>Высота: </h4>
+												<h4>Количество: </h4>
 												<button type="button" class="window-button--minus" disabled>-</button>
-												<input type="number" name="window-height-1" class="window-input" min="0" max="10" disabled>
+												<input type="number" name="window-quantity-1" class="window-input" min="0" max="10" disabled>
 												<button type="button" class="window-button--plus" disabled>+</button>
+											</div>									
+											<div class="appearance__reinforce">
+												<input type="checkbox" id="reinforce-window-1" name ="reinforce-window-1" disabled>
+												<label for="reinforce-window-1">Усилить конструкцию под проем</label>
 											</div>
+											<button type="button" class="appearance__delete" disabled>x</button>
 										</div>
-										<div class="appearance__count">
-											<h4>Количество: </h4>
-											<button type="button" class="window-button--minus" disabled>-</button>
-											<input type="number" name="window-quantity-1" class="window-input" min="0" max="10" disabled>
-											<button type="button" class="window-button--plus" disabled>+</button>
-										</div>									
-										<div class="appearance__reinforce">
-											<input type="checkbox" id="reinforce-window-1" name ="reinforce-window-1" disabled>
-											<label for="reinforce-window-1">Усилить конструкцию под проем</label>
-										</div>
-										<button class="appearance__delete" disabled>x</button>
 									</div>
 								</div>								
 							</div>							
@@ -713,16 +760,16 @@ get_header(); ?>
 								<div class="info__item info__item--period col-sm-6">
 									<label for="period">Желаемый срок исполнения: </label>
 									<select name="period" id="period">
-										<option value="24 недели">24 недели</option>
-										<option value="25 недель">25 недель</option>
-										<option value="26 недель">26 недель</option>
-										<option value="27 недель">27 недель</option>
-										<option value="28 недель">28 недель</option>
-										<option value="29 недель">29 недель</option>
-										<option value="30 недель">30 недель</option>
-										<option value="31 неделя">31 неделя</option>
-										<option value="32 недели">32 недели</option>
-										<option value="Больше 32 недель">Больше 32 недель</option>
+										<option value="24 недели">18 недели</option>
+										<option value="25 недель">19 недель</option>
+										<option value="26 недель">20 недель</option>
+										<option value="27 недель">21 недель</option>
+										<option value="28 недель">22 недель</option>
+										<option value="29 недель">23 недель</option>
+										<option value="30 недель">24 недель</option>
+										<option value="31 неделя">25 неделя</option>
+										<option value="32 недели">26 недели</option>
+										<option value="Больше 32 недель">Больше 26 недель</option>
 									</select>
 								</div>
 							</div>
@@ -744,9 +791,9 @@ get_header(); ?>
 	<script>
 		function sendMail() {			
 			var form = $('#form');
-			var disabled = form.find(':input:disabled').removeAttr('disabled');
+			//var disabled = form.find(':input:disabled').removeAttr('disabled');
         	var constructorMail = form.serialize();
-			disabled.attr('disabled','disabled');
+			//disabled.attr('disabled','disabled');
         	$.ajax({
         		type: 'POST',
         		url: '<?php echo get_template_directory_uri(); ?>/mail.php',
