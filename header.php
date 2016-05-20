@@ -24,25 +24,28 @@
 				<div class="site-nav">
 					<div class="site-nav__item">
 						<a href="" class="site-nav__link site-nav__link--has-children">Компания</a>
-						<div class="sub-menu sub-menu-1">
-							<div class="sub-menu__wrapper lcw">
-								<div class="sub-menu__item sub-menu__item--heading">
-									<h3 class="sub-menu__header">Компания</h3>
-									<p class="sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
+						<div class="my-sub-menu my-sub-menu-1">
+							<div class="my-sub-menu__wrapper lcw">
+								<div class="my-sub-menu__item my-sub-menu__item--heading">
+									<h3 class="my-sub-menu__header">Компания</h3>
+									<p class="my-sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/1.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">О нас</span>
 									</a>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/2.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Производство</span>
 									</a>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/3.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Сотрудничество</span>
 									</a>
 								</div>								
 							</div>
@@ -50,25 +53,23 @@
 					</div>
 					<div class="site-nav__item">
 						<a href="" class="site-nav__link site-nav__link--has-children">Продукция</a>
-						<div class="sub-menu sub-menu-2">
-							<div class="sub-menu__wrapper lcw">
-								<div class="sub-menu__item sub-menu__item--heading">
-									<h3 class="sub-menu__header">Продукция</h3>
-									<p class="sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
+						<div class="my-sub-menu my-sub-menu-2">
+							<div class="my-sub-menu__wrapper lcw">
+								<div class="my-sub-menu__item my-sub-menu__item--heading">
+									<h3 class="my-sub-menu__header">Продукция</h3>
+									<p class="my-sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас 2</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/4.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Полнокомплектные</span>
+										<span class="my-sub-menu__text">здания</span>
 									</a>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас 2</span>
-									</a>
-								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас 2</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/5.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Металлоконструкции</span>
 									</a>
 								</div>								
 							</div>
@@ -76,25 +77,28 @@
 					</div>
 					<div class="site-nav__item">
 						<a href="" class="site-nav__link site-nav__link--has-children">Услуги</a>
-						<div class="sub-menu sub-menu-3">
-							<div class="sub-menu__wrapper lcw">
-								<div class="sub-menu__item sub-menu__item--heading">
-									<h3 class="sub-menu__header">Услуги</h3>
-									<p class="sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
+						<div class="my-sub-menu my-sub-menu-3">
+							<div class="my-sub-menu__wrapper lcw">
+								<div class="my-sub-menu__item my-sub-menu__item--heading">
+									<h3 class="my-sub-menu__header">Услуги</h3>
+									<p class="my-sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас 2</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/6.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Проектирование</span>
 									</a>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас 2</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/7.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Монтаж</span>
 									</a>
 								</div>
-								<div class="sub-menu__item sub-menu__item--link">
-									<a href="" class="sub-menu__link">
-										<span class="sub-menu__text">О нас 2</span>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/8.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Доставка</span>
 									</a>
 								</div>								
 							</div>
@@ -107,37 +111,46 @@
 						<a href="" class="site-nav__link">Контакты</a>
 					</div>
 				</div>
+				<?php get_search_form(); ?>
+				<button id="search" class="site-header__button"></button>
 				<button id="site-map" class="site-header__button"></button>
 				<div class="site-map">
 					<div class="site-map__wrapper lcw">
-						<div class="site-map__col">
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
+						<div class="site-map__column">
+							<?php 						
+								wp_nav_menu(array(
+									'theme_location' => 'footer-menu-1',
+									'menu_class' => 'site-map__menu',
+								));
+							?>
 						</div>
-						<div class="site-map__col">
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
+						<div class="site-map__column">
+							<?php 						
+								wp_nav_menu(array(
+									'theme_location' => 'footer-menu-2',
+									'menu_class' => 'site-map__menu',
+								));
+							?>
 						</div>
-						<div class="site-map__col">
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
-							<a href="" class="site-map__link">abc</a>
+						<div class="site-map__column">
+							<?php 						
+								wp_nav_menu(array(
+									'theme_location' => 'footer-menu-3',
+									'menu_class' => 'site-map__menu',
+								));
+							?>
 						</div>
-						<div class="site-map__col">
-							<a href="" class="site-map__link">abc</a>
+						<div class="site-map__column">
+							<?php 						
+								wp_nav_menu(array(
+									'theme_location' => 'footer-menu-4',
+									'menu_class' => 'site-map__menu',
+								));
+							?>
 						</div>
-						<div class="site-map__col">
-							<a href="" class="site-map__link">abc</a>
-						</div>						
-					</div>
 					<button class="site-map__close">×</button>
+					</div>
 				</div>
-				<button id="search" class="site-header__button"></button>
 			</div>
 		</header>
 		<div class="site-content">

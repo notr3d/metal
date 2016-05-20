@@ -71,7 +71,7 @@
 				<p class="site-footer__address">г. Москва, ул. Ибрагимова, д. 31,<br>офис 308</p>
 			</div>
 		</div>
-		<div class="site-footer__copy">© 2016 «BIG Constructions»</div>
+		<div class="site-footer__copy">© 2014 «BIG Constructions»</div>
 		<?php if ( is_page($page = "contacts") ) : ?>
 			<div class="contacts__map" id="map"></div>
 		<?php endif; ?>	

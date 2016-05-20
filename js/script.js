@@ -253,7 +253,7 @@ test.click(function(e){
 });
 
 //site-nav link
-var navLink = $('a.dropdown-toggle');
+/*var navLink = $('a.dropdown-toggle');
 navLink.removeClass('dropdown-toggle');
-navLink.removeAttr('data-toggle');
+navLink.removeAttr('data-toggle');*/
 
