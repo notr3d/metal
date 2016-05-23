@@ -13,14 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/slick-theme.css">
 	<link href='https://fonts.googleapis.com/css?family=Exo+2:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 	<div id="page" class="site">
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-header__wrapper lcw">
-				<a href="" class="site-header__logo"></a>
+				<a href="<?php echo get_permalink( get_page_by_title('main')->ID ); ?>" class="site-header__logo"></a>
 				<div class="site-nav">
 					<div class="site-nav__item">
 						<a href="" class="site-nav__link site-nav__link--has-children">Компания</a>
@@ -31,19 +31,19 @@
 									<p class="my-sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
 								</div>
 								<div class="my-sub-menu__item my-sub-menu__item--link">
-									<a href="" class="my-sub-menu__link">
+									<a href="about" class="my-sub-menu__link">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/1.png" alt="" class="my-sub-menu__img">
 										<span class="my-sub-menu__text">О нас</span>
 									</a>
 								</div>
 								<div class="my-sub-menu__item my-sub-menu__item--link">
-									<a href="" class="my-sub-menu__link">
+									<a href="production" class="my-sub-menu__link">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/2.png" alt="" class="my-sub-menu__img">
 										<span class="my-sub-menu__text">Производство</span>
 									</a>
 								</div>
 								<div class="my-sub-menu__item my-sub-menu__item--link">
-									<a href="" class="my-sub-menu__link">
+									<a href="customers" class="my-sub-menu__link">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/3.png" alt="" class="my-sub-menu__img">
 										<span class="my-sub-menu__text">Сотрудничество</span>
 									</a>
@@ -105,10 +105,10 @@
 						</div>
 					</div>
 					<div class="site-nav__item">
-						<a href="" class="site-nav__link">Конструктор</a>
+						<a href="<?php echo get_permalink( get_page_by_title('конструктор')->ID ); ?>" class="site-nav__link">Конструктор</a>
 					</div>
 					<div class="site-nav__item">
-						<a href="" class="site-nav__link">Контакты</a>
+						<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-nav__link">Контакты</a>
 					</div>
 				</div>
 				<?php get_search_form(); ?>
@@ -148,8 +148,8 @@
 								));
 							?>
 						</div>
-					<button class="site-map__close">×</button>
 					</div>
+					<button class="site-map__close">×</button>
 				</div>
 			</div>
 		</header>

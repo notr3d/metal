@@ -1,137 +1,818 @@
-<?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package _s
- */
-
-get_header(); ?>
-
-	<main class="production container" role="main">
-		<?php the_title( sprintf( '<h1 class="page-header">', esc_url( get_permalink() ) ), '</h1>' ); ?>
-		<div class="content-area col-sm-10">			
-			<article class="article production__article">
-				<p>Мы проектируем и производим для наших клиентов:</p>
-				<ul>
-					<li>полнокомплектные здания индивидуального проектирования; </li>
-					<li>серийные здания;</li>
-					<li>металлоконструкции; </li>
-					<li>сварные балки постоянного и переменного сечения; </li>
-					<li>вальцовку (гибку) профилей;</li>
-					<li>профилированный настил (14 видов); </li>
-					<li>фасадные облицовки; </li>
-					<li>металлочерепицу (3 вида); </li>
-					<li>сайдинг (3 вида); </li>
-					<li>фальцевую кровлю; </li>
-					<li>водосточные системы; </li>
-					<li>широкий спектр доборных элементов; </li>
-					<li>продольно-поперечную резку рулонной стали; </li>
-					<li>поставки стали оцинкованной и стали оцинкованной с полимерным покрытием; </li>
-					<li>трёхслойные сэндвич-панели с минераловатным наполнителем; </li>
-					<li>оцинкованную сталь в рулонах и оцинкованную сталь в рулонах с полимерным покрытием.</li>
-				</ul>
-			</article>
-			<div class="production__showcase">
-				<div>
-					<ul class="nav nav-tabs nav-justified" role="tablist">
-						<li role="presentation" class="active"><a href="#prod-1" aria-controls="prod-1" role="tab" data-toggle="tab">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/1.jpg" alt="" class="hidden-xs">
-						<h5>Завод профнастила</h5>
-						</a></li>
-						<li role="presentation"><a href="#prod-2" aria-controls="prod-2" role="tab" data-toggle="tab">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/2.jpg" alt="" class="hidden-xs">
-						<h5>Завод металлоконструкций</h5></a></li>
-						<li role="presentation"><a href="#prod-3" aria-controls="prod-3" role="tab" data-toggle="tab">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/production/3.jpg" alt="" class="hidden-xs">
-						<h5>Завод теплоизоляционных изделий</h5></a></li>
-					</ul>
-					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane active" id="prod-1">
-							<p>Производство из стали оцинкованной и с полимерным покрытием широкой цветовой гаммы:
-							<ul>
-								<li>профнастила Н158, Н153, Н114 (600 и 750), Н75, Н60, С44, НС35, С21, С18, В18, С17, С13, C8 по ГОСТ 24045-94 и ТУ 1122-079-02494680-01;
-								<li>металлочерепицы «Монтеррей» с универсальным шагом черепицы и фигурной обрезкой переднего края;
-								<li>фальцевой кровли «Классика»;
-								<li>трех видов сайдинга;
-								<li>водосточной системы прямоугольного сечения;
-								<li>всех необходимых доборных элементов для монтажа кровли и сайдинга.
-								<li>Продольная и поперечная резка рулонной стали толщиной 0,4-1,5 мм.
-							</ul>							
-							<p>Завод выпускает до 1 млн.кв.метров продукции в месяц.
-							В производстве используется сталь оцинкованная по ГОСТ Р 52246-2004, ГОСТ 14918-80, EN 10147, EN 10346 и сталь оцинкованная с полимерным покрытием по ГОСТ Р 52146-2003, EN 10169.
+<?php get_header(); ?>
+	<main class="production" role="main">
+		<div class="content-area">
+			<section class="heading">
+				<div class="heading__bg"></div>
+				<div class="heading__wrapper lcw">
+					<h1 class="heading__header">Производство</h1>
+					<div class="heading__container">
+						<div class="heading__item">
+							<span class="medium">Более</span>
+							<span class="big">45 000 м<sup>2</sup></span>
+							<span class="small">Сэндвич-панелей</span>
 						</div>
-						<div role="tabpanel" class="tab-pane" id="prod-2">
-							<p>Завод оснащен высокотехнологичным металлообрабатывающим оборудованием ведущих фирм-производителей Германии, Италии и США. 
-							<p>Высокая точность изготавливаемых металлоконструкций достигается за счет: 
-							<ul>
-							<li>оснащения всех автоматизированных линий ЧПУ, интегрированным в общую систему управления; 
-							<li>применения новой технологии разметки и маркировки на металлических заготовках для установки и сварки закладных деталей, которая осуществляется в автоматическом режиме специальным маркером (скрайбинг), что практически исключает ошибки при сборке металлоконструкций. 
-							</ul>
-							Завод оснащен комплексной автоматизированной системой управления, которая охватывает: 
-							<ul>
-							<li>склад металлопроката; 
-							<li>автоматизированные линии, производящие обработку металла; 
-							<li>участки сборки и сварки; 
-							<li>участок окраски и сушки (до 80°С); 
-							<li>склад готовой продукции 
-							<li>процесс отгрузки потребителям. 
-							</ul>
-							<p>Отличительные особенности завода металлоконструкций: <ul>
-							<li>Комплексная автоматизированная система управления.
-							<li>Высокая точность изготавливаемых конструкций; 
-							<li>Высокое качество окраски поверхности металлоконструкций (100% дробеметная обработка входящего металла и дробеструйная обработка готовых изделий перед покраской); 
-							<li>Постоянный контроль качества продукции на всех этапах; 
-							<li>Возможность производства вальцованных балок позволяет разнообразить архитектурные и объёмно-планировочные решения проектируемых зданий; 
-							<li>Сжатые сроки проектирования и поставки. 
-							</ul>
-							<p>Преимущества для клиентов 
-							<ul>
-							<li>Качество - как гарантия инвестиций; 
-							<li>Скорость строительства – быстрый возврат вложенных клиентом инвестиций; 
-							<li>Высокая степень заводской готовности 
-							<li>Возможность комплектования зданий производственного и складского назначения современными ресурсосберегающими кранами Konecranes; 
-							<li>Возможность заказать и получить все здание сразу; 
-							<li>Применение передовых материалов и технологий при проектировании и изготовлении; 
-							<li>Своевременность поставок. 
-							<li>Монтаж с колес.
-							</ul>
+						<div class="heading__item heading__item--special">
+							<span class="medium special">Месячная</span>
+							<span class="big special">норма</span>
+							<span class="small">Одной строительной<br>площадки</span>
 						</div>
-						<div role="tabpanel" class="tab-pane" id="prod-3">
-							<p>Завод теплоизоляционных изделий включает в себя два вида производства:
-							<ul>
-							<li>производство минераловатных плит на основе горных пород базальтовой группы; 
-							<li>производство стеновых и кровельных сэндвич-панелей с наполнителем из минеральной ваты и всех необходимых доборных элементов для них. 
-							</ul>
-							<p>Производство минераловатных плит было запущено в конце апреля 2012 года. Линия укомплектована современным оборудованием фирмы “Gamma Meccanica S.p.A.” (Италия), которое производит минераловатные плиты плотностью от 35 до 220 кг/м3. Особое внимание при разработке конструкции этой линии уделялось производству минераловатных плит для использования в качестве среднего теплоизоляционного слоя при изготовлении трехслойных стеновых и кровельных сэндвич-панелей. 
-
-							<p>Линия по изготовлению сэндвич-панелей произведена компанией “Industrie Pu.ma. S.r.l” (Италия). 
-
-							<p>Плиты теплоизоляционные минераловатные на основе горных пород базальтовой группы. . 
-
-							<p>Основные свойства продукции: 
-							<ul>
-							<li>низкий коэффициент теплопроводности; 
-							<li>устойчивость к деформации; 
-							<li>звукоизоляция; 
-							<li>гидрофобность; 
-							<li>паропроницаемость; 
-							<li>негорючесть; 
-							<li>экологичность; 
-							<li>срок службы не менее 50 лет.
-							</ul>
+						<div class="heading__item">
+							<span class="medium">Свыше</span>
+							<span class="big">3000 тонн</span>
+							<span class="small">Металлоконструкций</span>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div><!-- #primary -->
-		<?php get_sidebar(); ?>
-	</main><!-- #main -->
-
+			</section>
+			<section class="article">
+				<div class="article__wrapper lcw">
+					<article>
+						<p>ОАО "Киреевский ЗЛМК" - один из крупнейших в России производитель металлоконструкций для строительства промышленных, сельскохозяйственных, гражданских зданий и сооружений, а также поставщик оцинкованной и окрашенной рулонной стали, профилированного листа и трехслойных стеновых и кровельных панелей .На сегодняшний день - это многопрофильное, высокомеханизированное предприятие, оснащенное современными автоматизированными линиями и комплексами.</p>
+						<p>Во всех производственных процессах занят высококвалифицированный персонал инженерно-технических работников и работников рабочих специальностей.</p>
+						<p>Растущие объемы и ассортимент продукуции, развитая инфраструктура, конкурентные цены, качество и сроки исполнения заказов составляют высокий потенциал предприятия, его инвестиционную привлекательность. ОАО КЗЛМК - мощное производство, позволяющее на одной промышленной площадке ежемесячно производить2-3 тыс.тонн строительных металлоконструкций всех групп сложности, 30-45-тыс кв.м сэндвич-панелей и 1,5 тыс.тонн профилированного настила. Все это позволяет заказчику за короткие сроки получить полнокомплектное здание различного назначения и сложности.</p> 
+						<p>Завод осуществляет поставки металлоконструкций для строительства корпусов заводов металлургической промышленности, строительной индустрии, автомобилестроения. За последние годы новым направлением в поставках выпускаемой продукции стала энергетическая и нефтеперерабатывающая отрасли. Имеется огромный опыт в производстве складских терминалов, объектов сельскохозяйственного и промышленного назначения.</p>
+						<p>ОАО "КЗЛМК" - высокомеханизированное предприятие с современным оборудованием и прогрессивными технологическими процессами, позволяющими качественно и оперативно выполнять задачи различной сложности. Большие производственные площади позволяют изготавливать крупногабаритные конструкции, дают возможность произвести контрольную сборку сложных узлов, что повышает качество продукции и снижает сроки монтажа. За сорокалетнюю историю накоплен огромный опыт инженерных и технологических решений, сформирован коллектив профессионалов. Сопровождение квалифицированными специалистами каждого заказа от этапа разработки чертежей стадий КМ КМД до конечного производства позволяет говорить об индивидуальном подходе к любым сложным и нестандартным проектам.</p>
+					</article>
+				</div>
+			</section>
+			<section class="portfolio">
+				<div class="portfolio__wrapper lcw">
+					<h2 class="portfolio__heading">Портфолио компании</h2>
+					<div class="portfolio__container">					
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №1</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-1">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-1" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №1</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №2</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-2">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-2" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №2</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №3</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-3">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-3" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №3</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №4</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-4">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-4" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №4</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №5</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-5">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-5" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №5</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №6</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-6">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-6" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №6</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №7</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-7">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-7" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №7</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №8</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-8">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-8" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №8</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №9</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-9">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-9" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №9</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portfolio__item">
+							<div class="portfolio__inner">							
+								<div class="portfolio__mask">
+									<h3 class="portfolio__header">Объект №10</h3>
+									<p class="portfolio__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam blanditiis odit optio hic in tempora quisquam error, reprehenderit eaque totam quam vero, vel tempore eos doloribus eligendi, voluptatibus, facere voluptatem?</p>
+								</div>							
+								<button type="button" class="mw__open" data-toggle="modal" data-target="#mw-10">
+									<img src="" alt="">
+								</button>
+								<div class="mw modal fade" id="mw-10" tabindex="-1">
+									<div class="mw__dialog modal-dialog">
+										<div class="mw__content modal-content">
+											<div class="modal-header">
+												<button type="button" class="mw__close close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="mw__header modal-title">Объект №10</h4>
+											</div>
+											<div class="mw__body">
+												<div class="mw__column mw__column--left">
+													<div class="mw-top-slider">
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+															<div class="mw-top-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+													<div class="mw-bot-slider">
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+														<div class="mw-bot-slider__item">
+															<img src="" alt="">
+														</div>
+													</div>
+												</div>
+												<div class="mw__column mw__column--right">
+													<div class="mw__item">
+														<p>Тип:</p>
+														<p>Сельское хозяйство</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Страна:</p>
+														<p>Россия</p>
+													</div>
+													<div class="mw__item mw__item--small">
+														<p>Год:</p>
+														<p>2016</p>
+													</div>
+													<div class="mw__item">
+														<p>Поставка:</p>
+														<p>Каркас, дополнительные комплектующие (проемы под окна, двери)</p>
+													</div>								
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</section>			
+		</div>
+	</main>
 <?php get_footer(); ?>
