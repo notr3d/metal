@@ -136,6 +136,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 //импорты
 @import "less/site-header.less";
 @import "less/site-footer.less";
+@import "less/home-old.less";
 @import "less/home.less";
 @import "less/about.less";
 @import "less/products.less";
@@ -148,7 +149,8 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/reviews.less";
 @import "less/customers.less";
 @import "less/portfolio.less";
-@import "less/main.less";
+//@import "less/main.less";
+@import "less/buildings.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -169,7 +171,7 @@ and Bootstrap https://github.com/twbs/bootstrap
 	padding: 0;
 }
 .content-area {
-	padding: 85px 0 165px;
+	padding: 85px 0 163px;
 	@media @m {
 		padding-bottom: 533px;
 	}
@@ -364,8 +366,8 @@ body {
 //кнопка "вверх"
 .scrollup {
 	position: fixed;
-	bottom: 180px;
-	right: 45px;
+	bottom: 50px;
+	right: 50px;
 	width: 45px;
 	height: 45px;
 	z-index: 1000;
