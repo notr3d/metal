@@ -149,8 +149,8 @@ and Bootstrap https://github.com/twbs/bootstrap
 @import "less/reviews.less";
 @import "less/customers.less";
 @import "less/portfolio.less";
-//@import "less/main.less";
 @import "less/buildings.less";
+@import "less/designing.less";
 
 //сброс стандартных отступов и стилей
 .container {
@@ -171,9 +171,9 @@ and Bootstrap https://github.com/twbs/bootstrap
 	padding: 0;
 }
 .content-area {
-	padding: 85px 0 163px;
+	padding-bottom: 165px;
 	@media @m {
-		padding-bottom: 533px;
+		padding-bottom: 0;
 	}
 }
 .widget-area {
@@ -519,6 +519,6 @@ body {
 	position: relative;
 }
 
-main.container {
-	padding: 85px 0 165px;
+main {
+	//padding: 85px 0 163px;
 }

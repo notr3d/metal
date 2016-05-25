@@ -72,9 +72,6 @@
 			</div>
 		</div>
 		<div class="site-footer__copy">© 2014 «BIG Constructions»</div>
-		<?php if ( is_page($page = "contacts") ) : ?>
-			<div class="contacts__map" id="map"></div>
-		<?php endif; ?>	
 		<button class="scrollup"></button>
 	</footer>
 	</div>

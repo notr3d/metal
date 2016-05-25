@@ -1,0 +1,242 @@
+.designing {
+	.content-area {
+		padding-top: 0;
+	}
+	.header {
+		height: 630px;
+		background: url(img/services/designing/header-img.png), url(img/buildings/header-bg.jpg);
+		background-repeat: no-repeat;
+		background-position: 1020px 120px, center;
+		&__wrapper {
+			padding: 100px 0 0;
+			@media @m {
+				padding: 140px 15px 45px;
+			}
+		}
+		&__container {
+			width: 485px;
+			height: 435px;
+			@media @m {
+				width: 100%;
+				height: auto;
+			}
+		}
+		&__header {
+			font-size: 30px;
+			color: #fff;
+			text-transform: uppercase;
+			margin: 0;
+			margin-bottom: 40px;			
+			font-family: 'Open Sans Condensed', sans-serif;				
+			font-weight: bold;
+			span {
+				color: @yellow;
+			}
+		}
+		&__text {
+			font-size: 16px;
+			color: #fff;
+			margin: 0;
+			margin-bottom: 100px;
+			@media @m {
+				margin-bottom: 45px;
+			}
+		}
+		&__link {
+			display: inline-block;
+			width: 220px;
+			height: 60px;
+			font-size: 16px;
+			text-align: center;
+			line-height: 60px;
+			color: #fff;
+			border: 1px solid #fff;
+			text-decoration: underline;
+			transition: .3s;
+			&--special {
+				text-decoration: none;
+				text-transform: uppercase;
+				background: @yellow;
+				color: #000;
+				border-color: @yellow;
+				margin-left: 40px;
+				&:hover {
+					border-color: #fff;
+				}
+				@media @m {
+					margin-left: 0;
+				}
+			}
+			&:hover {
+				background: #fff;
+				color: #000;
+			}
+			@media @m {
+				display: block;
+				width: 100%;				
+				margin-bottom: 15px;
+			}
+		}
+		@media @m {
+			height: auto;
+		}
+	}
+	.features {
+		&__wrapper {
+			padding: 10px 0 50px;
+			@media @m {
+				padding: 0 15px;
+			}
+		}
+		&__item {
+			padding: 30px 0;
+		}
+		&__column {
+			display: inline-block;
+			vertical-align: top;
+			&--left {
+				width: 24%;
+				@media @m {
+					width: 100%;					
+					text-align: center;
+				}
+			}
+			&--right {
+				padding-left: 45px;
+				width: 75%;
+				@media @m {
+					width: 100%;
+					padding-left: 0;
+					text-align: center;
+				}
+			}
+		}
+		&__img {
+			width: 100%;
+			@media @m {
+				width: 50%;
+				margin-bottom: 15px;
+			}
+		}
+		&__header {
+			display: inline-block;
+			font-size: 30px;
+			text-transform: uppercase;
+			margin: 0;
+			border-bottom: 1px dotted #000;
+			padding-bottom: 15px;
+			margin-bottom: 25px;
+			font-weight: bold;
+			font-family: 'Open Sans Condensed', sans-serif;	
+		}
+		&__text {
+			font-size: 16px;
+			text-align: justify;
+			ul {
+				list-style: none;
+				padding: 0;
+				li {
+					padding-left: 30px;
+					position: relative;
+					&::before {
+						content: '';
+						display: block;
+						width: 10px;
+						height: 2px;
+						background: @yellow;
+						position: absolute;
+						top: 10px;
+						left: 10px;
+					}
+				}
+			}
+			&--hidden {
+				display: none;
+			}
+		}
+		&__more {
+			
+		}
+		&__container {
+			text-align: right;
+			padding-top: 30px;
+		}
+		&__read-more-button {
+			background: none;
+			border: none;
+			color: @yellow;
+			text-decoration: underline;
+			padding: 15px;
+			padding-right: 0;
+			outline: none;
+			transition: .3s;
+			&:hover {
+				color: lighten(@yellow, 15%);
+			}
+		}
+	}
+	.request {
+		background: url(img/request/bg.png) no-repeat center;
+		background-size: cover;
+		&__wrapper {
+			text-align: center;
+			padding: 50px 30px;
+		}
+		&__header {
+			margin: 0;
+			margin-bottom: 20px;
+			font-size: 36px;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-family: 'Open Sans Condensed';
+			color: #fff;
+			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.85);
+		}
+		&__button {
+			color: #000;
+			background: @yellow;
+			padding: 20px 35px;
+			font-size: 16px;
+			text-align: center;
+			text-transform: uppercase;
+			border: none;
+			position: relative;
+			outline: none;
+			transition: .3s;
+			&::before {
+				content: '';
+				display: block;
+				width: 90px;	
+				height: 30px;
+				background: url(img/header-lines-yellow.png) no-repeat center;
+				background-size: contain;
+				position: absolute;
+				left: -108px;
+				top: 50%;
+				margin-top: -15px;
+				@media @m {
+					display: none;
+				}
+			}
+			&::after {
+				content: '';
+				display: block;
+				width: 90px;	
+				height: 30px;
+				background: url(img/header-lines-yellow.png) no-repeat center;
+				background-size: contain;
+				position: absolute;
+				right: -108px;
+				top: 50%;
+				margin-top: -15px;
+				transform: rotate(180deg);
+				@media @m {
+					display: none;
+				}
+			}
+			&:hover {
+				background: lighten(@yellow, 15%);
+			}
+		}
+	}
+}

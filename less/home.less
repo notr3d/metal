@@ -32,10 +32,15 @@
 	&__container {
 		position: absolute;
 		bottom: 180px;
+		width: 600px;
 		left: 0;
+		@media @m {
+			bottom: 75px;
+			left: 15px;
+			width: 100%;
+		}
 	}
 	&__header {
-		width: 800px;
 		font-size: 60px;
 		margin: 0;
 		margin-bottom: 40px;
@@ -43,13 +48,18 @@
 		font-weight: bold;
 		color: #fff;
 		font-family: 'Open Sans Condensed', sans-serif;
+		@media @m {
+			font-size: 30px;
+		}
 	}
 	&__text {
 		font-size: 16px;
 		color: #fff;
-		width: 400px;
 		margin: 0;
 		margin-bottom: 30px;
+		@media @m {
+			font-size: 12px;
+		}
 	}
 	&__link {
 		display: inline-block;
@@ -87,7 +97,7 @@
 		}
 	}
 	.slick-arrow {
-		z-index: 1;		
+		//z-index: 1;		
 		position: absolute;
 		width: 50px;
 		height: 100px;
@@ -106,14 +116,23 @@
 			&::before {
 				border-left: 2px solid @yellow;
 				border-bottom: 2px solid @yellow;
-			}			
+			}	
+			@media @m {
+				left: 15px;
+			}
 		}
 		&.slick-next {
 			right: 50px;
 			&::before {
 				border-right: 2px solid @yellow;
 				border-top: 2px solid @yellow;
-			}			
+			}	
+			@media @m {
+				right: 15px;
+			}
 		}
+	}
+	.slick-list {
+		z-index: -1;
 	}
 }

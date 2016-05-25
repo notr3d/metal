@@ -1,9 +1,9 @@
+//новая навигация
 var siteNavLink = $('.site-nav__link');
 siteNavLink.hover(function(){
 	if (!siteMap.hasClass('opened')) {
 		$(this).addClass('hover');
 		var siteNavSubMenu = $(this).next();
-		siteNavSubMenu.fadeIn();
 		siteNavSubMenu.show();
 	}
 }, function(){
@@ -12,15 +12,17 @@ siteNavLink.hover(function(){
 	siteNavSubMenu.hide();
 });
 
+//ховер для сабменю
 var siteNavSubMenu = $('.my-sub-menu');
 siteNavSubMenu.hover(function(){
 	$(this).show();
 	$(this).prev().addClass('hover');
 }, function(){
-	$(this).fadeOut();
+	$(this).hide();
 	$(this).prev().removeClass('hover');
 })
 
+//карта сайта
 var siteMapBtn = $('#site-map');
 var siteMap = $('.site-map');
 var siteMapClose = $('.site-map__close');
@@ -38,6 +40,7 @@ siteMapClose.click(function(){
 	siteMap.removeClass('opened');
 });
 
+//мобильное меню
 var menuItem = $('.menu-item-has-children');
 menuItem.append('<button class="my-sub-menu__open">');
 var subMenuButton = $('.my-sub-menu__open');
@@ -46,8 +49,17 @@ subMenuButton.click(function(){
 	$(this).parent().parent().parent().parent().siblings().find('.sub-menu').slideUp(300);
 });
 
+//поиск
 var searchBtn = $('#search');
 var searchField =$('.search-form__search-field');
 searchBtn.click(function(){
 	searchField.toggleClass('search-form__search-field--active');
+})
+
+
+
+//кнлпка читать дальше
+var readMoreBtn = $('.features__read-more-button');
+readMoreBtn.click(function(){
+	$(this).parent().next().slideToggle(300);
 })
