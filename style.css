@@ -8217,10 +8217,16 @@ Entry Footer
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+  flex-wrap: wrap;
 }
 .about .portfolio .mw__column--left {
   border-right: 1px solid #ddd;
   width: 60%;
+}
+@media (max-width: 767px) {
+  .about .portfolio .mw__column--left {
+    width: 100%;
+  }
 }
 .about .portfolio .mw__column--right {
   width: 40%;
@@ -8230,6 +8236,11 @@ Entry Footer
   display: -o-flex;
   display: flex;
   flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .about .portfolio .mw__column--right {
+    width: 100%;
+  }
 }
 .about .portfolio .mw__item {
   padding: 15px;
@@ -8243,6 +8254,11 @@ Entry Footer
 }
 .about .portfolio .mw__item p:first-child {
   font-weight: bold;
+}
+@media (max-width: 767px) {
+  .about .portfolio .mw__item {
+    padding: 5px;
+  }
 }
 .about .portfolio .mw-top-slider__item {
   width: 100%;

@@ -24,7 +24,7 @@
 				<a href="<?php echo get_permalink( get_page_by_title('Главная')->ID ); ?>" class="site-header__logo"></a>
 				<div class="site-nav">
 					<div class="site-nav__item">
-						<a href="<?php echo get_permalink( get_page_by_title('О компании')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Компания</a>
+						<a href="<?php echo get_permalink( get_page_by_title('О компании')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Компания <span class="caret"></span></a>
 						<div class="my-sub-menu my-sub-menu-1">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
@@ -53,7 +53,7 @@
 						</div>
 					</div>
 					<div class="site-nav__item">
-						<a href="<?php echo get_permalink( get_page_by_title('Продукция')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Продукция</a>
+						<a href="<?php echo get_permalink( get_page_by_title('Продукция')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Продукция <span class="caret"></span></a>
 						<div class="my-sub-menu my-sub-menu-2">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 					<div class="site-nav__item">
-						<a href="<?php echo get_permalink( get_page_by_title('Услуги')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги</a>
+						<a href="<?php echo get_permalink( get_page_by_title('Услуги')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги <span class="caret"></span></a>
 						<div class="my-sub-menu my-sub-menu-3">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
