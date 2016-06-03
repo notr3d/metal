@@ -19,13 +19,13 @@
 </head>
 <body <?php body_class(); ?>>
 	<div id="page" class="site">
-		<header id="masthead" class="site-header" role="banner">
+		<header class="site-header">
 			<div class="site-header__wrapper lcw">
 				<a href="<?php echo get_permalink( get_page_by_title('Главная')->ID ); ?>" class="site-header__logo"></a>
 				<div class="site-nav">
 					<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('О компании')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Компания <span class="caret"></span></a>
-						<div class="my-sub-menu my-sub-menu-1">
+						<div class="my-sub-menu my-sub-menu--1">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
 									<h3 class="my-sub-menu__header">Компания</h3>
@@ -54,7 +54,7 @@
 					</div>
 					<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('Продукция')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Продукция <span class="caret"></span></a>
-						<div class="my-sub-menu my-sub-menu-2">
+						<div class="my-sub-menu my-sub-menu--2">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
 									<h3 class="my-sub-menu__header">Продукция</h3>
@@ -78,7 +78,7 @@
 					</div>
 					<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('Услуги')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги <span class="caret"></span></a>
-						<div class="my-sub-menu my-sub-menu-3">
+						<div class="my-sub-menu my-sub-menu--3">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
 									<h3 class="my-sub-menu__header">Услуги</h3>
@@ -113,8 +113,8 @@
 					</div>
 				</div>
 				<?php get_search_form(); ?>
-				<button id="search" class="site-header__button"></button>
-				<button id="site-map" class="site-header__button"></button>
+				<button id="search" class="site-header__button site-header__button--search"></button>
+				<button id="site-map" class="site-header__button site-header__button--site-map"></button>
 				<div class="site-map">
 					<div class="site-map__wrapper lcw">
 						<div class="site-map__column">
@@ -150,7 +150,6 @@
 							?>
 						</div>
 					</div>
-					<!--<button class="site-map__close">×</button>-->
 				</div>
 			</div>
 		</header>

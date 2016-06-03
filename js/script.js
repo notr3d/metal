@@ -150,7 +150,6 @@ $('.scrollup').click(function(){
 				scrollup = $('.scrollup');
 			if (distanceY > shrinkOn) {
 				$(scrollup).addClass('scrollup--visible');
-				
 			} else {
 				if (scrollup.hasClass('scrollup--visible')) {
 					scrollup.removeClass('scrollup--visible');

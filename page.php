@@ -1,9 +1,7 @@
 <?php get_header(); ?>
-	<main class="container" role="main">
-		<?php the_title( sprintf( '<h1 class="page-header">', esc_url( get_permalink() ) ), '</h1>' ); ?>
-		<div class="content-area col-sm-10">			
+	<main class="" role="main">
+		<div class="content-area">			
 
-		</div><!-- #primary -->
-		<?php get_sidebar(); ?>
-	</main><!-- #main -->
+		</div>
+	</main>
 <?php get_footer(); ?>

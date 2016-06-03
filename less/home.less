@@ -2,11 +2,6 @@
 	
 }
 .alfa-slider {
-	/*&.slick-initialized {
-		.alfa-slider__item {
-			display: block;
-		}
-	}*/	
 	&__wrapper {
 		margin: 0;
 	}
@@ -14,10 +9,6 @@
 		height: 100vh;
 		background: #eee no-repeat;
 		background-size: cover;
-		position: relative;
-		/*&:not(:first-child) {
-			display: none;
-		}*/
 		&--1 {
 			background-image: url(img/header/slider/1.jpg);
 		}
@@ -31,13 +22,15 @@
 	}
 	&__container {
 		position: absolute;
-		bottom: 180px;
-		width: 600px;
-		left: 0;
+		bottom: 205px;
+		width: 75%;
+		left: 65px;
 		@media @m {
-			bottom: 75px;
-			left: 15px;
+			top: 100px;
+			left: 0;
 			width: 100%;
+			padding: 15px;
+			text-align: center;
 		}
 	}
 	&__header {
@@ -77,9 +70,12 @@
 			text-decoration: none;
 			outline: none;
 		}
+		@media @m {
+			background: rgba(255, 163, 0, 0.75);
+		}
 	}
 	.slick-dots {
-		bottom: 25px;
+		bottom: 165px;
 		position: absolute;
 		button {
 			border: 2px solid @yellow;
@@ -95,44 +91,44 @@
 				background: @yellow;
 			}
 		}
+		@media @m {
+			bottom: 15px;
+		}
 	}
 	.slick-arrow {
-		//z-index: 1;		
+		z-index: 1;
 		position: absolute;
 		width: 50px;
 		height: 100px;
 		top: 50%;
 		margin-top: -50px;
+		background: url(img/header/slider/arrow-left.png) no-repeat center;
+		background-size: contain;
 		&::before {
 			content: '';
-			display: block;
-			width: 45px;
-			height: 45px;
-			transform: rotate(45deg);
-			transition: border .3s;
+			display: none;
 		}
 		&.slick-prev {
-			left: 50px;
-			&::before {
-				border-left: 2px solid @yellow;
-				border-bottom: 2px solid @yellow;
-			}	
+			left: 0;
+			z-index: 1;			
+			left: 15px;
 			@media @m {
-				left: 15px;
+				left: 0;
 			}
 		}
 		&.slick-next {
-			right: 50px;
-			&::before {
-				border-right: 2px solid @yellow;
-				border-top: 2px solid @yellow;
-			}	
+			background-image: url(img/header/slider/arrow-right.png);
+			right: 0;
+			right: 15px;
 			@media @m {
-				right: 15px;
+				right: 0;
 			}
 		}
-	}
-	.slick-list {
-		z-index: -1;
+		@media @m {
+			height: 50px;
+			top: 100%;
+			margin-top: -35px;
+			background-size: 15px;
+		}
 	}
 }

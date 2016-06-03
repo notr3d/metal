@@ -46,14 +46,18 @@ menuItem.append('<button class="my-sub-menu__open">');
 var subMenuButton = $('.my-sub-menu__open');
 subMenuButton.click(function(){
 	$(this).prev().slideToggle(300);
-	$(this).parent().parent().parent().parent().siblings().find('.sub-menu').slideUp(300);
+	$(this).toggleClass('my-sub-menu__open--opened');
+	$(this).parent().parent().parent().parent().siblings().find('.sub-menu').slideUp(300);	$(this).parent().parent().parent().parent().siblings().find(subMenuButton).removeClass('my-sub-menu__open--opened');
 });
 
 //поиск
 var searchBtn = $('#search');
-var searchField =$('.search-form__search-field');
+var searchField = $('#searchform');
 searchBtn.click(function(){
-	searchField.toggleClass('search-form__search-field--active');
+	searchField.toggleClass('active');
+	if (window.innerWidth < 768) {
+		searchField.slideToggle();
+	}
 })
 
 
