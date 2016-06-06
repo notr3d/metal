@@ -1,26 +1,24 @@
 //constructor-------------------------------------------------------
 
 var current_fs, next_fs, previous_fs; 
-var left, opacity, scale; 
-var animating; 
 
 //Анимация переходов 
 $(".control-button--next").click(function(){
 	current_fs = $(this).parent().parent();
 	next_fs = $(this).parent().parent().next();	
-	$(".progress__bar li").eq($("fieldset").index(next_fs)).addClass("active");
+	$(".prog__bar li").eq($("fieldset").index(next_fs)).addClass("active");
 	next_fs.slideDown(300); 
 	current_fs.slideUp(300); 
-	$('body').animate({scrollTop: 250}, 300);
+	$('html, body').animate({scrollTop: 0}, 300);	
 });
 
 $(".control-button--prev").click(function(){	
 	current_fs = $(this).parent().parent();
 	previous_fs = $(this).parent().parent().prev();
-	$(".progress__bar li").eq($("fieldset").index(current_fs)).removeClass("active");
+	$(".prog__bar li").eq($("fieldset").index(current_fs)).removeClass("active");
 	previous_fs.slideDown(300); 
 	current_fs.slideUp(300);
-	$('body').animate({scrollTop: 250}, 300);
+	$('body').animate({scrollTop: 0}, 300);
 });
  	
 //главные параметры
@@ -494,7 +492,7 @@ roofShealthingInput.click(function(){
 //------------отключение/включение айтемов
 var	appearanceInput = $('.appearance__input');
 appearanceInput.click(function(){
-	var appearanceItem = $(this).parent().parent(),
+	var appearanceItem = $(this).parent().parent().parent(),
 		inputs = appearanceItem.find('*');
 	if (appearanceItem.hasClass('appearance__item--disabled')) {
 		appearanceItem.removeClass('appearance__item--disabled');
@@ -683,7 +681,7 @@ var calcThickness = function(){
 var hiddenBlock = $('.additional__hidden');
 cityInput.autocomplete({
 	source: cities,	
-	minLength: 3,
+	//minLength: 3,
 	close: function(){
 		var cityFound = false;
 		var cityValue = cityInput.val();
