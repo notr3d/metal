@@ -160,12 +160,12 @@
 								<div class="dimension__item dimension__item--output">
 									<div class="dimension__inner">
 										<h4 class="dimension__header">Площадь кровли:</h4>
-										<output id=areaOutput></output>
+										<output id=roofAreaOutput></output>
 									</div>
 								</div>
 								<div class="dimension__item dimension__item--output">
 									<div class="dimension__inner">
-										<h4 class="dimension__header">Строительный объем:</h4>
+										<h4 class="dimension__header">Объем:</h4>
 										<output id="volumeOutput"></output>
 									</div>
 								</div>
@@ -173,38 +173,44 @@
 									<div class="sheathing__inner">
 										<h3 class="sheathing__header">Стены</h4>
 										<div class="sheathing__item">
-											<h4>Тип стен</h4>
-											<div class="sheathing__select">
-												<select name="wall-shealthing" id="wall-shealthing">
-													<option selected disabled hidden>Выберите тип</option>
-													<option value="Сэндвич-панели">Сэндвич-панели</option>
-													<option value="Профнастил">Профнастил</option>
-													<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
-												</select>
+											<div class="sheathing__con">
+												<h4>Тип стен</h4>
+												<div class="sheathing__select">
+													<select name="wall-shealthing" id="wall-shealthing">
+														<option selected disabled hidden>Выберите тип</option>
+														<option value="Сэндвич-панели">Сэндвич-панели</option>
+														<option value="Профнастил">Профнастил</option>
+														<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
+													</select>
+												</div>
 											</div>									
 										</div>
-										<div class="sheathing__item">
-											<h4>Тип наполнителя</h4>
-											<div class="sheathing__select">
-												<select name="wall-filler-type" id="wall-filler-type">
-													<option value="минеральная вата">минеральная вата</option>
-													<option value="пенополистирол">пенополистирол</option>
-												</select>
+										<div class="sheathing__item sheathing__item--disabled">
+											<div class="sheathing__con">
+												<h4>Тип наполнителя</h4>
+												<div class="sheathing__select">
+													<select name="wall-filler-type" id="wall-filler-type">
+														<option value="минеральная вата">минеральная вата</option>
+														<option value="пенополистирол">пенополистирол</option>
+													</select>
+												</div>
 											</div>
 										</div>
-										<div class="sheathing__item">
-											<h4>Толщина</h4>
-											<div class="sheathing__select">
-												<select name="wall-shealthing-thickness" id="wall-shealthing-thickness">
-													<option value="50мм">50мм</option>
-													<option value="80мм">80мм</option>
-													<option value="100мм">100мм</option>
-													<option value="120мм">120мм</option>
-													<option value="150мм">150мм</option>
-													<option value="170мм">170мм</option>
-													<option value="200мм">200мм</option>
-													<option value="250мм">250мм</option>
-												</select>
+										<div class="sheathing__item sheathing__item--disabled">
+											<div class="sheathing__con">
+												<h4>Толщина</h4>
+												<div class="sheathing__select">
+													<select name="wall-shealthing-thickness" id="wall-shealthing-thickness">
+														<option value="50мм">50мм</option>
+														<option value="80мм">80мм</option>
+														<option value="100мм">100мм</option>
+														<option value="120мм">120мм</option>
+														<option value="150мм">150мм</option>
+														<option value="170мм">170мм</option>
+														<option value="200мм">200мм</option>
+														<option value="250мм">250мм</option>
+													</select>
+												</div>
 											</div>									
 										</div>
 									</div>
@@ -213,155 +219,163 @@
 									<div class="sheathing__inner">
 										<h3 class="sheathing__header">Кровля</h4>
 										<div class="sheathing__item">
-											<h4>Тип кровли</h4>
-											<div class="sheathing__select">
-												<select name="roof-shealthing" id="roof-shealthing">
-													<option selected disabled hidden>Выберите тип</option>
-													<option value="Сэндвич-панели">Сэндвич-панели</option>
-													<option value="Профнастил">Профнастил</option>
-													<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
-												</select>
-											</div>									
+											<div class="sheathing__con">
+												<h4>Тип кровли</h4>
+												<div class="sheathing__select">
+													<select name="roof-shealthing" id="roof-shealthing">
+														<option selected disabled hidden>Выберите тип</option>
+														<option value="Сэндвич-панели">Сэндвич-панели</option>
+														<option value="Профнастил">Профнастил</option>
+														<option value="Профнастил + утеплитель + профнастил">Профнастил + утеплитель + профнастил</option>
+													</select>
+												</div>								
+											</div>	
 										</div>
-										<div class="sheathing__item">
-											<h4>Тип наполнителя</h4>
-											<div class="sheathing__select">
-												<select name="roof-filler-type" id="roof-filler-type">
-													<option value="минеральная вата">минеральная вата</option>
-													<option value="пенополистирол">пенополистирол</option>
-												</select>
-											</div>									
+										<div class="sheathing__item sheathing__item--disabled">
+											<div class="sheathing__con">
+												<h4>Тип наполнителя</h4>
+												<div class="sheathing__select">
+													<select name="roof-filler-type" id="roof-filler-type">
+														<option value="минеральная вата">минеральная вата</option>
+														<option value="пенополистирол">пенополистирол</option>
+													</select>
+												</div>	
+											</div>								
 										</div>
-										<div class="sheathing__item">
-											<h4>Толщина</h4>
-											<div class="sheathing__select">
-												<select name="roof-shealthing-thickness" id="roof-shealthing-thickness">
-													<option value="50мм">50мм</option>
-													<option value="80мм">80мм</option>
-													<option value="100мм">100мм</option>
-													<option value="120мм">120мм</option>
-													<option value="150мм">150мм</option>
-													<option value="170мм">170мм</option>
-													<option value="200мм">200мм</option>
-												</select>
+										<div class="sheathing__item sheathing__item--disabled">
+											<div class="sheathing__con">
+												<h4>Толщина</h4>
+												<div class="sheathing__select">
+													<select name="roof-shealthing-thickness" id="roof-shealthing-thickness">
+														<option value="50мм">50мм</option>
+														<option value="80мм">80мм</option>
+														<option value="100мм">100мм</option>
+														<option value="120мм">120мм</option>
+														<option value="150мм">150мм</option>
+														<option value="170мм">170мм</option>
+														<option value="200мм">200мм</option>
+													</select>
+												</div>
 											</div>									
 										</div>
 									</div>	
 								</div>
 							</div>	
 							<div class="additional">
-								<div class="additional__header">
-									<input type="checkbox" id="additional-input">
+								<div class="additional__header additional__header--disabled">
+									<input type="checkbox" id="additional-input" disabled>
 									<label for="additional-input">Дополнительные параметры</label>
 								</div>									
-								<div id="additional-container" class="additional__container">	
-									<div class="additional__item">
-										<div class="additional__inner">
-											<label for="city">Город: </label>
-											<div class="additional__con">
-												<input type="text" name="city" id="city" placeholder="Выберите город">
-											</div>									
-										</div>										
-									</div>
-									<div class="additional__item additional__item--snow-area">
-										<div class="additional__inner">
-											<h4>Снеговой район строительства:</h4>
-											<div class="additional__con">
-												<input type="radio" name="snow" id="snow-3" class="snow-area-input" value="3" checked>
-												<label for="snow-3">3</label>
-												<input type="radio" name="snow" id="snow-4" class="snow-area-input" value="4">
-												<label for="snow-4">4</label>
-												<input type="radio" name="snow" id="snow-5" class="snow-area-input" value="5">
-												<label for="snow-5">5</label>
-											</div>									
-										</div>										
-									</div>
-									<div class="additional__item">
-										<div class="additional__inner">
-											<label for="t-in">Внутренняя температура: </label>
-											<div class="additional__con">
-												<button type="button" id="widthMinus" class="dimension__button dimension__button--minus">-</button>
-												<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
-												<button type="button" id="widthPlus" class="dimension__button dimension__button--plus">+</button>
-											</div>
-										</div>										
-									</div>
-									<div class="additional__item">
-										<div class="additional__inner">
-											<label for="t-out">Внешняя температура: </label>
-											<div class="additional__con">
-												<input type="number" name="t-out" id="t-out" disabled>
-											</div>
-										</div>
-									</div>									
-									<div class="additional__item">
-										<div class="additional__inner">
-											<label for="Rtr-wall">R<sub>тр</sub>: </label>
-											<div class="additional__con">
-												<input type="number" name="Rtr-wall" id="Rtr-wall" disabled>
-											</div>
-										</div>	
-									</div>
-									<div class="additional__item">
-										<div class="additional__inner">
-											<label for="GSOP">ГСОП</label>
-											<div class="additional__con">
-												<input type="number" name="GSOP" id="GSOP" disabled>
-											</div>
-										</div>	
-									</div>	
-									<div class="additional__hidden">
+								<div id="additional-block" class="additional__block">
+									<div class="additional__container">
 										<div class="additional__item">
 											<div class="additional__inner">
-												<label for="warm">t<sub>оп</sub>:</label>
+												<label for="city">Город: </label>
 												<div class="additional__con">
-													<input type="number" name="warm" id="warm" disabled>
-												</div>
-											</div>
+													<input type="text" name="city" id="city" placeholder="Выберите город">
+												</div>								
+											</div>									
+										</div>
+										<div class="additional__item additional__item--snow-area">
+											<div class="additional__inner">
+												<h4>Снеговой район строительства:</h4>
+												<div class="additional__con">
+													<input type="radio" name="snow" id="snow-3" class="snow-area-input" value="3" checked>
+													<label for="snow-3">3</label>
+													<input type="radio" name="snow" id="snow-4" class="snow-area-input" value="4">
+													<label for="snow-4">4</label>
+													<input type="radio" name="snow" id="snow-5" class="snow-area-input" value="5">
+													<label for="snow-5">5</label>
+												</div>								
+											</div>									
 										</div>
 										<div class="additional__item">
 											<div class="additional__inner">
-												<label for="time">Прод. от. пер.: </label>
+												<label for="t-in">Внутренняя температура: </label>
 												<div class="additional__con">
-													<input type="number" name="time" id="time" disabled>
+													<button type="button" id="widthMinus" class="dimension__button dimension__button--minus">-</button>
+													<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
+													<button type="button" id="widthPlus" class="dimension__button dimension__button--plus">+</button>
+												</div>
+											</div>									
+										</div>
+										<div class="additional__item">
+											<div class="additional__inner">
+												<label for="t-out">Внешняя температура: </label>
+												<div class="additional__con">
+													<input type="number" name="t-out" id="t-out" disabled>
 												</div>
 											</div>
-										</div>
-									</div>
-									<div class="add-output">						
-										<div class="add-output__col">
-											<div class="add-output__inner">
-												<h3 class="add-output__header">Стены</h3>
-												<div class="add-output__item">
-													<label for="Rpr-wall">R<sub>пр</sub>: </label>
-													<input type="text" name="Rpr-wall" id="Rpr-wall" disabled>
-												</div>
-												<div class="add-output__item">
-													<label for="thickness-wall">Толщина: </label>
-													<input type="text" name="thickness-wall" id="thickness-wall" disabled>
-												</div>
-												<div class="add-output__item">
-													<label for="thickness-wall-rec">Рекомендованная толщина: </label>
-													<input type="text" name="thickness-wall-rec" id="thickness-wall-rec" disabled>
-												</div>
-											</div>
-										</div>
-										<div class="add-output__col">
-											<div class="add-output__inner">
-												<h3 class="add-output__header">Кровля</h3>
-												<div class="add-output__item">
-													<label for="Rpr-roof">R<sub>пр</sub>: </label>
-													<input type="text" name="Rpr-roof" id="Rpr-roof" disabled>
-												</div>
-												<div class="add-output__item">
-													<label for="thickness-roof">Толщина: </label>
-													<input type="text" name="thickness-roof" id="thickness-roof" disabled>
-												</div>
-												<div class="add-output__item">
-													<label for="thickness-roof-rec">Рекомендованная толщина: </label>
-													<input type="text" name="thickness-roof-rec" id="thickness-roof-rec" disabled>
+										</div>									
+										<div class="additional__item">
+											<div class="additional__inner">
+												<label for="Rtr-wall">R<sub>тр</sub>: </label>
+												<div class="additional__con">
+													<input type="number" name="Rtr-wall" id="Rtr-wall" disabled>
 												</div>
 											</div>	
+										</div>
+										<div class="additional__item">
+											<div class="additional__inner">
+												<label for="GSOP">ГСОП</label>
+												<div class="additional__con">
+													<input type="number" name="GSOP" id="GSOP" disabled>
+												</div>
+											</div>	
+										</div>	
+										<div class="additional__hidden">
+											<div class="additional__item">
+												<div class="additional__inner">
+													<label for="warm">t<sub>оп</sub>:</label>
+													<div class="additional__con">
+														<input type="number" name="warm" id="warm" disabled>
+													</div>
+												</div>
+											</div>
+											<div class="additional__item">
+												<div class="additional__inner">
+													<label for="time">Прод. от. пер.: </label>
+													<div class="additional__con">
+														<input type="number" name="time" id="time" disabled>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="add-output">					
+											<div class="add-output__col">
+												<div class="add-output__inner">
+													<h3 class="add-output__header">Стены</h3>
+													<div class="add-output__item">
+														<label for="Rpr-wall">R<sub>пр</sub>: </label>
+														<input type="text" name="Rpr-wall" id="Rpr-wall" disabled>
+													</div>
+													<div class="add-output__item">
+														<label for="thickness-wall">Толщина: </label>
+														<input type="text" name="thickness-wall" id="thickness-wall" disabled>
+													</div>
+													<div class="add-output__item">
+														<label for="thickness-wall-rec">Рекомендованная толщина: </label>
+														<input type="text" name="thickness-wall-rec" id="thickness-wall-rec" disabled>
+													</div>
+												</div>
+											</div>
+											<div class="add-output__col">
+												<div class="add-output__inner">
+													<h3 class="add-output__header">Кровля</h3>
+													<div class="add-output__item">
+														<label for="Rpr-roof">R<sub>пр</sub>: </label>
+														<input type="text" name="Rpr-roof" id="Rpr-roof" disabled>
+													</div>
+													<div class="add-output__item">
+														<label for="thickness-roof">Толщина: </label>
+														<input type="text" name="thickness-roof" id="thickness-roof" disabled>
+													</div>
+													<div class="add-output__item">
+														<label for="thickness-roof-rec">Рекомендованная толщина: </label>
+														<input type="text" name="thickness-roof-rec" id="thickness-roof-rec" disabled>
+													</div>
+												</div>	
+											</div>
 										</div>
 									</div>									
 								</div>

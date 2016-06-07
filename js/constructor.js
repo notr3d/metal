@@ -1,49 +1,45 @@
 //constructor-------------------------------------------------------
 
-var current_fs, next_fs, previous_fs; 
-
 //Анимация переходов 
+var currentFS, nextFS, previousFS; 
+
 $(".control-button--next").click(function(){
-	current_fs = $(this).parent().parent();
-	next_fs = $(this).parent().parent().next();	
-	$(".prog__bar li").eq($("fieldset").index(next_fs)).addClass("active");
-	next_fs.slideDown(300); 
-	current_fs.slideUp(300); 
+	currentFS = $(this).parent().parent();
+	nextFS = $(this).parent().parent().next();	
+	$(".prog__bar li").eq($("fieldset").index(nextFS)).addClass("active");
+	nextFS.slideDown(300); 
+	currentFS.slideUp(300); 
 	$('html, body').animate({scrollTop: 0}, 300);	
 });
 
 $(".control-button--prev").click(function(){	
-	current_fs = $(this).parent().parent();
-	previous_fs = $(this).parent().parent().prev();
-	$(".prog__bar li").eq($("fieldset").index(current_fs)).removeClass("active");
-	previous_fs.slideDown(300); 
-	current_fs.slideUp(300);
+	currentFS = $(this).parent().parent();
+	previousFS = $(this).parent().parent().prev();
+	$(".prog__bar li").eq($("fieldset").index(currentFS)).removeClass("active");
+	previousFS.slideDown(300); 
+	currentFS.slideUp(300);
 	$('body').animate({scrollTop: 0}, 300);
 });
  	
 //главные параметры
 var	width = 18, //ширина, длина и высота
 	widthMin = 0,
-	widthMax = 0,
+	widthMax = 100,
 	widthStep = 1,
 	
 	length = 40, 
 	lengthMin = 0,
-	lengthMax = 0,
+	lengthMax = 100,
 	lengthStep = 1,
 	
 	height = 6,
 	heightMin = 0,
-	heightMax = 0,
+	heightMax = 100,
 	heightStep = 1,
-	
-	area = width * length, //подсчет площади и объема
-	volume = area * height,
 	
 	//находим все элементы на странице
 	structureTypeInput = $('.structure-type__input'), //выбор типа здания
 	currentStructureType = 'structure-type-1', //по умолчанию выбран первый тип
-	toDimensionButton = $('#to-dimension-button'), //по нажатию на эту кнопку все будет расчитываться
 	//ширина
 	widthInput = $('#widthInput'), //число, основное поле
 	widthRange = $('#widthRange'), //слайдер
@@ -64,11 +60,14 @@ var	width = 18, //ширина, длина и высота
 	heightOutput = $('.result__value--height'),
 
 	areaOutput = $('#areaOutput'), //площадь и объем
+	roofAreaOutput = $('#roofAreaOutput'),
 	ResultAreaOutput = $('.result__value--area'),	
 	
 	volumeOutput = $('#volumeOutput'), 
 	ResultVolumeOutput = $('.result__value--volume'),		
-
+	
+	roofAngle = 20, //угол крыши (пока константа, плюс крыша ровная)
+	
 	calcDimension = function(){ //основная функция подсчета	
 		widthInput.val(width);
 		lengthInput.val(length);
@@ -80,17 +79,27 @@ var	width = 18, //ширина, длина и высота
 
 		widthOutput.text(width);
 		lengthOutput.text(length);
-		heightOutput.text(height);			
-
-		area = Math.round(width * length);
-		areaOutput.text(area + ' м').append('<sup>2</sup>');
-		ResultAreaOutput.text(area + ' м').append('<sup>2</sup>');
+		heightOutput.text(height);
 		
-		volume = Math.round(area * height);
+		area = width * length;
+		
+		wallArea = (2 * (width * height) + 2 * (length * height)).toFixed(2);
+		areaOutput.text(wallArea + ' м').append('<sup>2</sup>');
+		ResultAreaOutput.text(wallArea + ' м').append('<sup>2</sup>');
+		
+		botRoofAngle = Math.sin(roofAngle * (Math.PI / 180)); //переводим угол (20) в градусы
+		topRoofAngle = Math.sin((180 - roofAngle * 2) * (Math.PI / 180)); //верхний угол крыши
+		roofWidth = width / topRoofAngle * botRoofAngle; //находим ширину крыши
+		roofArea = (roofWidth * length * 2).toFixed(2);
+		roofAreaOutput.text(roofArea + ' м').append('<sup>2</sup>');
+		
+		roofHeight = roofWidth * botRoofAngle;
+		roofVolume = width * roofHeight / 2;
+		volume = (area * height + roofVolume).toFixed(2);
 		volumeOutput.text(volume + ' м').append('<sup>3</sup>');
-		ResultVolumeOutput.text(volume + ' м').append('<sup>3</sup>');
+		ResultVolumeOutput.text(volume + ' м').append('<sup>3</sup>');		
 	},
-	init = function(){
+	StructureTypeInit = function(){
 		switch (currentStructureType) {
 		case 'structure-type-1':
 			width = 18; 
@@ -264,21 +273,16 @@ var	width = 18, //ширина, длина и высота
 	calcDimension();
 	};
 
-
 $(document).ready(function(){
-	init();
+	StructureTypeInit();
 });
 
 //выбираем тип здания
 structureTypeInput.click(function(){
 	currentStructureType = structureTypeInput.filter(':checked').attr('id');
+	StructureTypeInit();	
 });
 
-//по типу здания расчитываем все
-toDimensionButton.click(function(){
-	init();
-})
-	
 //number
 widthInput.change(function(){
 	if (widthInput.val() < 0) {
@@ -508,71 +512,73 @@ appearanceInput.click(function(){
 })
 
 //-------------дополнительные параметры-------------
-var additionalInput = $('#additional-input'),
-	additionalContainer = $('#additional-container');
-var prevInputs = $('.sheathing').children().find('select');
+var wallShealthingInput = $('#wall-shealthing');
+var roofShealthingInput = $('#roof-shealthing');
+
+wallFillerTypeInput = $('#wall-filler-type');
+roofFillerTypeInput = $('#roof-filler-type');
+
+var additionalHeader = $('.additional__header');
+var additionalInput = $('#additional-input');
+var additionalBlock = $('#additional-block');
+
+wallShealthingInput.change(function(){	
+	var disabledItems = $(this).parent().parent().parent().siblings('.sheathing__item--disabled');
+	if ($(this).val() == 'Сэндвич-панели') {		
+		if (roofShealthingInput.val() != 'Профнастил') {
+			additionalInput.attr('disabled', false);
+			additionalHeader.removeClass('additional__header--disabled');
+		};
+		disabledItems.slideDown();
+		wallFillerTypeInput.attr('disabled', false);
+	} else if ($(this).val() == 'Профнастил') {
+		disabledItems.slideUp();
+		additionalBlock.slideUp();
+		additionalInput.attr('checked', false);
+		additionalInput.attr('disabled', true);
+		additionalHeader.addClass('additional__header--disabled');
+	} else if ($(this).val() == 'Профнастил + утеплитель + профнастил') {
+		if (roofShealthingInput.val() != 'Профнастил') {
+			additionalInput.attr('disabled', false);
+			additionalHeader.removeClass('additional__header--disabled');
+		};
+		disabledItems.slideDown();
+		wallFillerTypeInput.attr('disabled', true);
+		wallFillerTypeInput.val('минеральная вата');
+	};		
+});
+
+roofShealthingInput.change(function(){	
+	var disabledItems = $(this).parent().parent().parent().siblings('.sheathing__item--disabled');
+	if ($(this).val() == 'Сэндвич-панели') {
+		if (wallShealthingInput.val() != 'Профнастил') {
+			additionalInput.attr('disabled', false);
+			additionalHeader.removeClass('additional__header--disabled');	
+		};
+		disabledItems.slideDown();
+		roofFillerTypeInput.attr('disabled', false);
+	} else if ($(this).val() == 'Профнастил') {
+		disabledItems.slideUp();
+		additionalBlock.slideUp();
+		additionalInput.attr('checked', false);
+		additionalInput.attr('disabled', true);
+		additionalHeader.addClass('additional__header--disabled');
+	} else if ($(this).val() == 'Профнастил + утеплитель + профнастил') {
+		if (roofShealthingInput.val() != 'Профнастил') {
+			additionalInput.attr('disabled', false);
+			additionalHeader.removeClass('additional__header--disabled');
+		};
+		disabledItems.slideDown();
+		roofFillerTypeInput.attr('disabled', true);
+		roofFillerTypeInput.val('минеральная вата');
+	};
+});
+
 additionalInput.click(function(){
 	if ($(this).prop('checked') == true) {
-		additionalContainer.slideDown();		
-		//prevInputs.attr('disabled', true);
-		/*var newWallShealthingOptions = {
-			'Стеновые сэндвич-панели': 'Стеновые сэндвич-панели',
-			'Профнастил': 'Профнастил',
-			'Профнастил + утеплитель + профнастил': 'Профнастил + утеплитель + профнастил'
-		},
-			newRoofShealthingOptions  = {
-			'Кровельные сэндвич-панели': 'Кровельные сэндвич-панели',
-			'Профнастил': 'Профнастил',
-			'Профнастил + утеплитель + профнастил': 'Профнастил + утеплитель + профнастил'
-		};		
-		
-		wallShealthingInput.empty();
-		$.each(newWallShealthingOptions, function(value,key) {
-			wallShealthingInput.append($("<option></option>")
-			.attr("value", value).text(key));
-		});
-		roofShealthingInput.empty(); 
-		$.each(newRoofShealthingOptions, function(value,key) {
-			roofShealthingInput.append($("<option></option>")
-			.attr("value", value).text(key));
-		});	*/
-	} else {
-		prevInputs.attr('disabled', false);
-		/*var oldWallShealthingOptions = {
-			'Стеновые сэндвич-панели 200м': 'Стеновые сэндвич-панели 200м',
-			'Стеновые сэндвич-панели 180мм': 'Стеновые сэндвич-панели 180мм',
-			'Стеновые сэндвич-панели 150мм': 'Стеновые сэндвич-панели 150мм',
-			'Стеновые сэндвич-панели 120мм': 'Стеновые сэндвич-панели 120мм',
-			'Стеновые сэндвич-панели 100мм': 'Стеновые сэндвич-панели 100мм',
-			'Стеновые сэндвич-панели 80мм': 'Стеновые сэндвич-панели 80мм',
-			'Профнастил 18': 'Профнастил 18',
-			'Профнастил 18 + утеплитель 100мм + профнастил 18': 'Профнастил 18 + утеплитель 100мм + профнастил 18',
-			'Профнастил 18 + утеплитель 150мм + профнастил 18': 'Профнастил 18 + утеплитель 150мм + профнастил 18',
-			
-		},
-			oldRoofShealthingOptions  = {
-			'Кровельные сэндвич-панели 200мм': 'Кровельные сэндвич-панели 200мм',
-			'Кровельные сэндвич-панели 180мм': 'Кровельные сэндвич-панели 180мм',
-			'Кровельные сэндвич-панели 150мм': 'Кровельные сэндвич-панели 150мм',
-			'Кровельные сэндвич-панели 120мм': 'Кровельные сэндвич-панели 120мм',
-			'Кровельные сэндвич-панели 100мм': 'Кровельные сэндвич-панели 100мм',
-			'Кровельные сэндвич-панели 80мм': 'Кровельные сэндвич-панели 80мм',
-			'Профнастил 45': 'Профнастил 45',
-			'Профнастил 45 + утеплитель 100мм + профнастил 18': 'Профнастил 45 + утеплитель 100мм + профнастил 18',
-			'Профнастил 45 + утеплитель 150мм + профнастил 18': 'Профнастил 45 + утеплитель 150мм + профнастил 18'
-		};		
-		
-		wallShealthingInput.empty();
-		$.each(oldWallShealthingOptions, function(value,key) {
-			wallShealthingInput.append($("<option></option>")
-			.attr("value", value).text(key));
-		});
-		roofShealthingInput.empty(); 
-		$.each(oldRoofShealthingOptions, function(value,key) {
-			roofShealthingInput.append($("<option></option>")
-			.attr("value", value).text(key));
-		});	*/ 
-		additionalContainer.slideUp();
+		additionalBlock.slideDown();		
+	} else if ($(this).prop('checked') == false) {	
+		additionalBlock.slideUp();
 	}
 });
 
@@ -853,23 +859,7 @@ windowTypeQuantityInput.change(function(){
 		typeChange(windowTypeNumber);
 		$(this).parent().parent().next().append(windowBlock);
 		windowButtonInit();
-	}
-	/*$(this).parent().parent().parent().children('.appearance__block').remove();
-	if (windowTypeQuantityInput.val() > 0 && windowTypeQuantityInput.val() < 11) {		
-		windowTypeNumber = $(this).val();
-		for (var i = 0; i < windowTypeNumber; i++) {
-			typeChange(i+1);
-			$(this).parent().parent().parent().append(windowBlock);	
-		};
-		windowButtonInit();
-	} else {
-		alert('Значение должно быть между 0 и 10');
-		windowTypeQuantityInput.val(1);
-		windowTypeNumber = 1;
-		typeChange();
-		$(this).parent().parent().parent().append(windowBlock);
-		windowButtonInit();
-	}*/
+	}	
 });
 
 //-------plus/minus--------
@@ -903,57 +893,6 @@ numberInput.change(function(){
 	} else if (val > max) {
 		$(this).val(max);
 	};
-});
-
-//selects---------------------------------------------------------
-var wallFillerTypeCon = $('#wall-filler-container');
-var wallShealthingInput = $('#wall-shealthing');
-var roofFillerTypeCon = $('#roof-filler-container');
-var roofShealthingInput = $('#roof-shealthing');
-var additionalBlock = $('.additional');
-
-wallShealthingInput.change(function(){	
-	var wallFillerTypeInput = $('#wall-filler-type');
-	if ($(this).val() == 'Сэндвич-панели') {
-		additionalInput.attr('disabled', false);
-		wallFillerTypeInput.attr('disabled', false);
-		additionalBlock.removeClass('additional--disabled');
-		wallFillerTypeCon.slideDown();
-	} else if ($(this).val() == 'Профнастил') {
-		additionalInput.attr('disabled', true);
-		additionalInput.attr('checked', false);
-		additionalBlock.addClass('additional--disabled');
-		additionalContainer.slideUp();
-		wallFillerTypeCon.slideUp();
-	} else if ($(this).val() == 'Профнастил + утеплитель + профнастил') {
-		additionalInput.attr('disabled', false);
-		wallFillerTypeInput.attr('disabled', true);
-		wallFillerTypeInput.val('минеральная вата');
-		additionalBlock.removeClass('additional--disabled');
-		wallFillerTypeCon.slideDown();
-	}
-});
-
-roofShealthingInput.change(function(){	
-	var roofFillerTypeInput = $('#roof-filler-type');
-	if ($(this).val() == 'Сэндвич-панели') {
-		additionalInput.attr('disabled', false);
-		roofFillerTypeInput.attr('disabled', false);
-		additionalBlock.removeClass('additional--disabled');
-		roofFillerTypeCon.slideDown();
-	} else if ($(this).val() == 'Профнастил') {
-		additionalInput.attr('disabled', true);
-		additionalInput.attr('checked', false);
-		additionalBlock.addClass('additional--disabled');
-		additionalContainer.slideUp();
-		roofFillerTypeCon.slideUp();
-	} else if ($(this).val() == 'Профнастил + утеплитель + профнастил') {
-		additionalInput.attr('disabled', false);
-		roofFillerTypeInput.attr('disabled', true);
-		roofFillerTypeInput.val('минеральная вата');
-		additionalBlock.removeClass('additional--disabled');
-		roofFillerTypeCon.slideDown();
-	}
 });
 
 //lambda change
