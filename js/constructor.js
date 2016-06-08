@@ -3,25 +3,44 @@
 //Анимация переходов 
 var currentFS, nextFS, previousFS; 
 
-$(".control-button--next").click(function(){
+$('.control-button--next').click(function(){
 	currentFS = $(this).parent().parent();
 	nextFS = $(this).parent().parent().next();	
-	$(".prog__bar li").eq($("fieldset").index(nextFS)).addClass("active");
+	$('.prog__bar li').eq($('fieldset').index(nextFS)).addClass('active');
 	nextFS.slideDown(300); 
 	currentFS.slideUp(300); 
 	$('html, body').animate({scrollTop: 0}, 300);	
 });
 
-$(".control-button--prev").click(function(){	
+$('.control-button--prev').click(function(){	
 	currentFS = $(this).parent().parent();
 	previousFS = $(this).parent().parent().prev();
-	$(".prog__bar li").eq($("fieldset").index(currentFS)).removeClass("active");
+	$('.prog__bar li').eq($('fieldset').index(currentFS)).removeClass('active');
 	previousFS.slideDown(300); 
 	currentFS.slideUp(300);
 	$('body').animate({scrollTop: 0}, 300);
 });
- 	
-//главные параметры
+
+//paginator----------------------------------------------------------
+var paginator = $('.paginator');
+var pagBtn = paginator.children();
+
+pagBtn.attr('disabled', true);
+pagBtn.each(function(){
+	if ($(this).hasClass('paginator__button--enabled')) {
+		$(this).attr('disabled', false);
+	}
+});
+
+pagBtn.click(function(){
+	var currentFS = $(this).parent().parent().parent();
+	currentFS.slideUp(300);
+	var currentIndex = $(this).index() + 1;
+	var neededFS = currentFS.siblings(':nth-child(' + currentIndex + ')');
+	neededFS.slideDown();
+})
+
+//главные параметры---------------------------------------------------
 var	width = 18, //ширина, длина и высота
 	widthMin = 0,
 	widthMax = 100,
@@ -525,7 +544,7 @@ var additionalBlock = $('#additional-block');
 wallShealthingInput.change(function(){	
 	var disabledItems = $(this).parent().parent().parent().siblings('.sheathing__item--disabled');
 	if ($(this).val() == 'Сэндвич-панели') {		
-		if (roofShealthingInput.val() != 'Профнастил') {
+		if (roofShealthingInput.val() != 'Профнастил' && roofShealthingInput.val() != null) {
 			additionalInput.attr('disabled', false);
 			additionalHeader.removeClass('additional__header--disabled');
 		};
@@ -551,7 +570,7 @@ wallShealthingInput.change(function(){
 roofShealthingInput.change(function(){	
 	var disabledItems = $(this).parent().parent().parent().siblings('.sheathing__item--disabled');
 	if ($(this).val() == 'Сэндвич-панели') {
-		if (wallShealthingInput.val() != 'Профнастил') {
+		if (wallShealthingInput.val() != 'Профнастил' && wallShealthingInput.val() != null) {
 			additionalInput.attr('disabled', false);
 			additionalHeader.removeClass('additional__header--disabled');	
 		};
@@ -905,4 +924,63 @@ wallFillerTypeInput.change(function(){
 		lambda = 0.039;
 	}
 	//alert('lambda = ' + lambda);
-})
+});
+
+//period count block------------------------------------------------
+var btnMinus = $('.period__button--minus'),
+	btnPlus = $('.period__button--plus'),
+	inputNumber = $('.period__input');
+
+btnMinus.click(function(){
+	var input = $(this).next();
+	var value = +input.val();
+	var min = input.attr('min');
+	if (value > min || min == undefined) {
+		input.val(value - 1);
+	};
+	input.change();
+});
+btnPlus.click(function(){
+	var input = $(this).prev();
+	var value = +input.val();
+	var max = input.attr('max');
+	if (value < max || max == undefined) {
+		input.val(value + 1);
+	};
+	input.change();
+});
+
+inputNumber.change(function(){
+	var min = $(this).attr('min');
+	var max = $(this).attr('max');
+	var val = $(this).val();
+	if (val < min) {
+		$(this).val(min);
+		alert('Минимальное значение: ' + min);
+	} else if (val > max) {
+		$(this).val(max);
+		alert('Максимальное значение: ' + max);
+	};
+	var weekSpan = $('.period__week');
+	var week = 'недели';
+	switch (val) {
+		case '18': 			
+		case '19': 			
+		case '20': 			
+			week = 'недель';
+			break;
+		case '21':
+			week = 'неделя';
+			break;
+		case '22':
+		case '23':
+		case '24':
+			week = 'недели';
+			break;
+		case '25':
+		case '26':
+			week = 'недель';
+			break;
+	}
+	weekSpan.text(week);
+});
