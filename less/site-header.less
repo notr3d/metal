@@ -77,13 +77,16 @@
 		position: relative;
 		&:hover {
 			text-decoration: none;
-			color: @yellow;			
+			color: @yellow;				
 		}
 		&:focus {
 			text-decoration: none;
 			color: @yellow;
 		}
 		&--has-children {
+			&:hover {
+				
+			}
 			&::before {
 				content: '';
 				display: block;
@@ -100,9 +103,10 @@
 				transform: rotate(45deg);
 				transition: .1s;
 				opacity: 0;
-				pointer-events: none;
+				pointer-events: none;				
 			}
 			&.hover {
+				box-shadow: inset 0px 0px 20px 5px rgba(34, 34, 34, 0.8);
 				&::before {
 					opacity: 1;
 				}

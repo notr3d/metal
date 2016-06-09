@@ -64,26 +64,28 @@ var	width = 18, //ширина, длина и высота
 	widthRange = $('#widthRange'), //слайдер
 	widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
 	widthPlusButton = $('#widthPlus'),
-	widthOutput = $('.result__value--width'),
+	widthOutput = $('#r-width'),
 	//длина
 	lengthInput = $('#lengthInput'), 
 	lengthRange = $('#lengthRange'),
 	lengthMinusButton = $('#lengthMinus'),
 	lengthPlusButton = $('#lengthPlus'),
-	lengthOutput = $('.result__value--length'),
+	lengthOutput = $('#r-length'),
 	//высота
 	heightInput = $('#heightInput'), 
 	heightRange = $('#heightRange'), 
 	heightMinusButton = $('#heightMinus'),
 	heightPlusButton = $('#heightPlus'),
-	heightOutput = $('.result__value--height'),
+	heightOutput = $('#r-height'),
 
 	areaOutput = $('#areaOutput'), //площадь и объем
 	roofAreaOutput = $('#roofAreaOutput'),
-	ResultAreaOutput = $('.result__value--area'),	
+	ResultAreaOutput = $('#r-area'),	
 	
 	volumeOutput = $('#volumeOutput'), 
-	ResultVolumeOutput = $('.result__value--volume'),		
+	ResultVolumeOutput = $('#r-volume'),
+	
+	ResultRoofAreaOutput = $('#r-area-roof');
 	
 	roofAngle = 20, //угол крыши (пока константа, плюс крыша ровная)
 	
@@ -116,7 +118,9 @@ var	width = 18, //ширина, длина и высота
 		roofVolume = width * roofHeight / 2;
 		volume = (area * height + roofVolume).toFixed(2);
 		volumeOutput.text(volume + ' м').append('<sup>3</sup>');
-		ResultVolumeOutput.text(volume + ' м').append('<sup>3</sup>');		
+		ResultVolumeOutput.text(volume + ' м').append('<sup>3</sup>');
+		
+		ResultRoofAreaOutput.text(roofArea + ' м').append('<sup>3</sup>');
 	},
 	StructureTypeInit = function(){
 		switch (currentStructureType) {
@@ -422,10 +426,10 @@ var colorButton = $('.color__button'), //кнопка выбора цвета
 	drainYes = $('#drain-yes'), 
 	drainColorButton = $('#drainColorButton'),
 
-	wallColorOutput = $('.result__value--wall-color'),
-	roofColorOutput = $('.result__value--roof-color'),
-	lippingColorOutput = $('.result__value--lipping-color'),
-	drainColorOutput = $('.result__value--drain-color');
+	wallColorOutput = $('#r-wall-color'),
+	roofColorOutput = $('#r-roof-color'),
+	lippingColorOutput = $('#r-lipping-color'),
+	drainColorOutput = $('#r-drain-color');
 
 colorContainer.slideUp(0); //убираем меню
 
@@ -473,7 +477,7 @@ colorInput.click(function(){ //красим элемент внутри кноп
 
 //------------results------------------
 //тип и подтип здания		
-var	structureTypeOutput = $('.result__value--type'),
+var	structureTypeOutput = $('#r-structure-type'),
 	structureSubTypeOutput = $('.result__value--subtype');		
 
 structureTypeInput.click(function(){
@@ -549,7 +553,7 @@ wallShealthingInput.change(function(){
 			additionalHeader.removeClass('additional__header--disabled');
 		};
 		disabledItems.slideDown();
-		wallFillerTypeInput.attr('disabled', false);
+		wallFillerTypeInput.attr('disabled', false);		
 	} else if ($(this).val() == 'Профнастил') {
 		disabledItems.slideUp();
 		additionalBlock.slideUp();
@@ -563,8 +567,10 @@ wallShealthingInput.change(function(){
 		};
 		disabledItems.slideDown();
 		wallFillerTypeInput.attr('disabled', true);
-		wallFillerTypeInput.val('минеральная вата');
-	};		
+		wallFillerTypeInput.val('Минеральная вата');
+	};
+	var wallTypeOutput = $('#r-wall-type');
+	wallTypeOutput.text($(this).val());
 });
 
 roofShealthingInput.change(function(){	
@@ -589,8 +595,10 @@ roofShealthingInput.change(function(){
 		};
 		disabledItems.slideDown();
 		roofFillerTypeInput.attr('disabled', true);
-		roofFillerTypeInput.val('минеральная вата');
+		roofFillerTypeInput.val('Минеральная вата');
 	};
+	var roofTypeOutput = $('#r-roof-type');
+	roofTypeOutput.text($(this).val());
 });
 
 additionalInput.click(function(){
@@ -892,7 +900,8 @@ buttonMinus.click(function(){
 	var min = +input.attr('min');
 	if (value > min) {
 		input.val(value - 1);
-	}
+	};
+	input.change();
 });
 buttonPlus.click(function(){
 	var input = $(this).prev();
@@ -900,7 +909,8 @@ buttonPlus.click(function(){
 	var max = +input.attr('max');
 	if (value < max) {
 		input.val(value + 1);
-	}
+	};
+	input.change();
 });
 
 numberInput.change(function(){
@@ -916,14 +926,32 @@ numberInput.change(function(){
 
 //lambda change
 var wallFillerTypeInput = $('#wall-filler-type');
-
 wallFillerTypeInput.change(function(){
-	if ($(this).val() === 'минеральная вата') {
+	if ($(this).val() === 'Минеральная вата') {
 		lambda = 0.042;
-	} else if ($(this).val() === 'пенополистирол') {
+	} else if ($(this).val() === 'Пенополистирол') {
 		lambda = 0.039;
 	}
-	//alert('lambda = ' + lambda);
+	var output = $('#r-wall-filler');
+	output.text($(this).val());
+});
+
+var wallThicknessInput = $('#wall-shealthing-thickness');
+wallThicknessInput.change(function(){
+	var wallThicknessOutput = $('#r-wall-thickness');
+	wallThicknessOutput.text($(this).val());
+});
+
+var roofFillerTypeInput = $('#roof-filler-type');
+roofFillerTypeInput.change(function(){
+	var output = $('#r-roof-filler');
+	output.text($(this).val());
+});
+
+var roofThicknessInput = $('#roof-shealthing-thickness');
+roofThicknessInput.change(function(){
+	var output = $('#r-roof-thickness');
+	output.text($(this).val());
 });
 
 //period count block------------------------------------------------
@@ -953,7 +981,7 @@ btnPlus.click(function(){
 inputNumber.change(function(){
 	var min = $(this).attr('min');
 	var max = $(this).attr('max');
-	var val = $(this).val();
+	var val = +$(this).val();
 	if (val < min) {
 		$(this).val(min);
 		alert('Минимальное значение: ' + min);
@@ -963,24 +991,87 @@ inputNumber.change(function(){
 	};
 	var weekSpan = $('.period__week');
 	var week = 'недели';
-	switch (val) {
-		case '18': 			
-		case '19': 			
-		case '20': 			
-			week = 'недель';
-			break;
-		case '21':
+	var lastNumber = val.toString();
+	lastNumber = lastNumber.substr(lastNumber.length - 1);
+	switch (lastNumber) {		
+		case '1': 
 			week = 'неделя';
 			break;
-		case '22':
-		case '23':
-		case '24':
+		case '2': 			
+		case '3': 			
+		case '4': 
 			week = 'недели';
 			break;
-		case '25':
-		case '26':
+		case '5': 			
+		case '6': 			
+		case '7': 			
+		case '8': 			
+		case '9': 
+		case '0': 
 			week = 'недель';
 			break;
-	}
+	};
 	weekSpan.text(week);
 });
+
+//--внешний вид в результаты----------------------------------------------
+var doorQuantityInput = $('#door-quantity');
+doorQuantityInput.change(function(){
+	var output = $('#r-door-quantity');
+	output.text($(this).val());
+});
+var gateQuantityInput = $('#gate-quantity');
+gateQuantityInput.change(function(){
+	var output = $('#r-gate-quantity');
+	output.text($(this).val());
+});
+var translucentQuantityInput = $('#translucent-quantity');
+translucentQuantityInput.change(function(){
+	var output = $('#r-translucent-quantity');
+	output.text($(this).val());
+});
+//---
+var reinforceDoorInput = $('#reinforce-door');
+reinforceDoorInput.change(function(){
+	var output = $('#r-door-reinforce');
+	if ($(this).is(':checked')) {
+		output.text('Да');
+	} else {
+		output.text('Нет');
+	};	
+});
+var reinforceGateInput = $('#reinforce-gate');
+reinforceGateInput.change(function(){
+	var output = $('#r-gate-reinforce');
+	if ($(this).is(':checked')) {
+		output.text('Да');
+	} else {
+		output.text('Нет');
+	};	
+});
+var reinforceTranslucentInput = $('#reinforce-translucent');
+reinforceTranslucentInput.change(function(){
+	var output = $('#r-translucent-reinforce');
+	if ($(this).is(':checked')) {
+		output.text('Да');
+	} else {
+		output.text('Нет');
+	};	
+});
+//---
+var doorDimensionInput = $('input[name="door-dim"]');
+doorDimensionInput.change(function(){
+	var output = $('#r-door-dimension');
+	output.text($(this).val());
+});
+var gateDimensionInput = $('input[name="gate-dim"]');
+gateDimensionInput.change(function(){
+	var output = $('#r-gate-dimension');
+	output.text($(this).val());
+});
+var translucentDimensionInput = $('input[name="tra-dim"]');
+translucentDimensionInput.change(function(){
+	var output = $('#r-translucent-dimension');
+	output.text($(this).val());
+});
+

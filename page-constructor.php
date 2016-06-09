@@ -7,7 +7,7 @@
 						<li class="prog__item active">Назначение</li>
 						<li class="prog__item">Размеры</li>
 						<li class="prog__item">Внешний вид здания</li>
-						<!--<li class="prog__item">Результат</li>-->
+						<li class="prog__item">Результат</li>
 						<li class="prog__item">Контактная информация</li>
 					</ul>
 				</div>					
@@ -108,6 +108,7 @@
 								<button type="button" class="paginator__button">2</button>
 								<button type="button" class="paginator__button">3</button>
 								<button type="button" class="paginator__button">4</button>
+								<button type="button" class="paginator__button">5</button>
 							</div>
 							<button type="button" name="next" id="to-dimension-button" class="control-button control-button--next">Размеры</button>
 						</div>					
@@ -204,8 +205,10 @@
 													<h4>Тип наполнителя</h4>
 													<div class="sheathing__select">
 														<select name="wall-filler-type" id="wall-filler-type">
-															<option value="минеральная вата">минеральная вата</option>
-															<option value="пенополистирол">пенополистирол</option>
+															<option value="Минеральная вата">Минеральная вата</option>
+															<option value="Пенополистирол (PPS)">Пенополистирол (PPS)</option>
+															<option value="Пенополиуретан (PUR)">Пенополиуретан (PUR)</option>
+															<option value="Пенополиизоцианурат (PUR)">Пенополиизоцианурат (PUR)</option>
 														</select>
 													</div>
 												</div>
@@ -250,8 +253,10 @@
 													<h4>Тип наполнителя</h4>
 													<div class="sheathing__select">
 														<select name="roof-filler-type" id="roof-filler-type">
-															<option value="минеральная вата">минеральная вата</option>
-															<option value="пенополистирол">пенополистирол</option>
+															<option value="Минеральная вата">Минеральная вата</option>
+															<option value="Пенополистирол (PPS)">Пенополистирол (PPS)</option>
+															<option value="Пенополиуретан (PUR)">Пенополиуретан (PUR)</option>
+															<option value="Пенополиизоцианурат (PUR)">Пенополиизоцианурат (PUR)</option>
 														</select>
 													</div>	
 												</div>								
@@ -403,6 +408,7 @@
 								<button type="button" class="paginator__button paginator__button--active">2</button>
 								<button type="button" class="paginator__button">3</button>
 								<button type="button" class="paginator__button">4</button>
+								<button type="button" class="paginator__button">5</button>
 							</div>
 							<button type="button" name="next" class="control-button  control-button--next">Внешний вид</button>
 						</div>
@@ -587,7 +593,7 @@
 											<div class="appearance__count">
 												<h4>Количество: </h4>
 												<button type="button" class="count-button count-button--minus" disabled>-</button>
-												<input type="number" name="door-quantity" class="count-input" min="1" max="10" disabled>
+												<input type="number" name="door-quantity" id="door-quantity" class="count-input" min="1" max="10" disabled>
 												<button type="button" class="count-button count-button--plus" disabled>+</button>
 											</div>
 											<div class="appearance__dimension">
@@ -614,7 +620,7 @@
 											<div class="appearance__count">
 												<h4>Количество: </h4>
 												<button type="button" class="count-button count-button--minus" disabled>-</button>
-												<input type="number" name="gate-quantity" class="count-input" min="0" max="10" disabled>
+												<input type="number" name="gate-quantity" id="gate-quantity" class="count-input" min="0" max="10" disabled>
 												<button type="button" class="count-button count-button--plus" disabled>+</button>
 											</div>
 											<div class="appearance__dimension">
@@ -641,7 +647,7 @@
 											<div class="appearance__count">
 												<h4>Количество: </h4>
 												<button type="button" class="count-button count-button--minus" disabled>-</button>
-												<input type="number" name="translucent-roof-areas-quantity" class="count-input" min="0" max="10" disabled>
+												<input type="number" name="translucent-roof-areas-quantity" id="translucent-quantity" class="count-input" min="0" max="10" disabled>
 												<button type="button" class="count-button count-button--plus" disabled>+</button>
 											</div>	
 											<div class="appearance__dimension">
@@ -692,7 +698,7 @@
 														<button type="button" class="window-button--minus" disabled>-</button>
 														<input type="number" name="window-quantity-1" class="window-input" min="0" max="10" disabled>
 														<button type="button" class="window-button--plus" disabled>+</button>
-													</div>									
+													</div>							
 													<div class="appearance__reinforce">
 														<input type="checkbox" id="reinforce-window-1" name ="reinforce-window-1" disabled>
 														<label for="reinforce-window-1">Не учитывать стоимость окон</label>
@@ -712,88 +718,152 @@
 								<button type="button" class="paginator__button paginator__button--enabled">2</button>
 								<button type="button" class="paginator__button paginator__button--active">3</button>
 								<button type="button" class="paginator__button">4</button>
+								<button type="button" class="paginator__button">5</button>
 							</div>
 							<button type="button" name="next" class="control-button  control-button--next">Результат</button>
 						</div>
 					</fieldset>
-					<!--<fieldset class="step result">
+
+					<fieldset class="step result">
 						<div class="step__heading">
-							<h2 class="step__title lcw">Результат</h2>
-							<h3 class="step__subtitle">This is step 4</h3>
-						</div
+							<h2 class="step__title lcw"><span>Шаг 4.</span> Результат</h2>
+							<!--<h3 class="step__subtitle">This is step 4</h3>-->
+						</div>
 						<div class="step__container">
 							<div class="step__input-area lcw">
-								<div class="result__container">
+								<div class="result__wrapper">
 									<div class="result__column">
-										<div class="result__block">
-											<h3 class="result__header">Тип здания</h3>
-											<div class="result__item">
-												<span class="result__feature">Применение: </span>
-												<span class="result__value result__value--type">Склад</span>
+										<div class="result__container">
+											<h3 class="result__heading">Основные параметры</h3>
+											<h4 class="result__header">Характеристики:</h4>
+											<div class="result__item result__item--1">
+												<span class="result__feature">Тип здания:</span>
+												<span class="result__value" id="r-structure-type">Склад</span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Продукт: </span>
-												<span class="result__value result__value--subtype">Спайдер</span>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Ширина:</span>
+												<span class="result__value" id="r-width"></span>
 											</div>
-										</div>
-										<div class="result__block">
-											<h3 class="result__header">Размеры</h3>
-											<div class="result__item">
-												<span class="result__feature">Ширина: </span>
-												<span class="result__value result__value--width"></span>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Длина:</span>
+												<span class="result__value" id="r-length"></span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Длина: </span>
-												<span class="result__value result__value--length"></span>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Высота:</span>
+												<span class="result__value" id="r-height"></span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Высота: </span>
-												<span class="result__value result__value--height"></span>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Площадь стен:</span>
+												<span class="result__value" id="r-area"></span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Площадь здания: </span>
-												<span class="result__value result__value--area"></span>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Площадь кровли:</span>
+												<span class="result__value" id="r-area-roof"></span>
+											</div>										
+											<div class="result__item result__item--3">
+												<span class="result__feature">Объем:</span>
+												<span class="result__value" id="r-volume"></span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Объем здания: </span>
-												<span class="result__value result__value--volume"></span>
+											<h4 class="result__header">Стены</h4>
+											<div class="result__item result__item--1">
+												<span class="result__feature">Тип стен:</span>
+												<span class="result__value" id="r-wall-type">-</span>
+											</div>
+											<div class="result__item result__item--1">
+												<span class="result__feature">Тип наполнителя:</span>
+												<span class="result__value" id="r-wall-filler">-</span>
+											</div>
+											<div class="result__item result__item--1">
+												<span class="result__feature">Толщина:</span>
+												<span class="result__value" id="r-wall-thickness">-</span>
+											</div>										
+											<h4 class="result__header">Кровля</h4>
+											<div class="result__item result__item--1">
+												<span class="result__feature">Тип Кровли:</span>
+												<span class="result__value" id="r-roof-type">-</span>
+											</div>
+											<div class="result__item result__item--1">
+												<span class="result__feature">Тип наполнителя:</span>
+												<span class="result__value" id="r-roof-filler">-</span>
+											</div>
+											<div class="result__item result__item--1">
+												<span class="result__feature">Толщина:</span>
+												<span class="result__value" id="r-roof-thickness">-</span>
 											</div>
 										</div>	
 									</div>
 									<div class="result__column">
-										<div class="result__block">
-											<h3 class="result__header">Характеристики</h3>
-											<div class="result__item">
-												<span class="result__feature">Снеговой район строительства: </span>
-												<span class="result__value result__value--snow-area">3</span>
+										<div class="result__container">
+											<h3 class="result__heading">Дополнительные параметры</h3>					
+											<h4 class="result__header">Цвета</h4>
+											<div class="result__item result__item--2">
+												<span class="result__feature">Стены:</span>
+												<span class="result__value" id="r-wall-color">-</span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Стеновая обшивка: </span>
-												<span class="result__value result__value--wall-shealthing">Профнастил 18 + утеплитель 100мм</span>
-											</div>
-											<div class="result__item">
-												<span class="result__feature">Кровельная обшивка: </span>
-												<span class="result__value result__value--roof-shealthing">Профнастил 45 + утеплитель 150мм</span>
-											</div>
-										</div>								
-										<div class="result__block">
-											<h3 class="result__header">Цвета</h3>
-											<div class="result__item">
-												<span class="result__feature">Стены: </span>
-												<span class="result__value result__value--wall-color" value="">Не выбрано</span>
-											</div>
-											<div class="result__item">
+											<div class="result__item result__item--2">
 												<span class="result__feature">Кровля: </span>
-												<span class="result__value result__value--roof-color">Не выбрано</span>
+												<span class="result__value" id="r-roof-color'">-</span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Нащельники: </span>
-												<span class="result__value result__value--lipping-color">Не выбрано</span>
+											<div class="result__item result__item--2">
+												<span class="result__feature">Нащельники:</span>
+												<span class="result__value" id="r-lipping-color">-</span>
 											</div>
-											<div class="result__item">
-												<span class="result__feature">Водосток: </span>
-												<span class="result__value result__value--drain-color">Не выбрано</span>
+											<div class="result__item result__item--2">
+												<span class="result__feature">Водосток:</span>
+												<span class="result__value" id="r-drain-color">-</span>
 											</div>
+											<h4 class="result__header">Двери</h4>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Количество:</span>
+												<span class="result__value" id="r-door-quantity">-</span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Размеры:</span>
+												<span class="result__value" id="r-door-dimension">-</span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Не учитывать стоимость: </span>
+												<span class="result__value" id="r-door-reinforce">-</span>
+											</div>									
+											<h4 class="result__header">Ворота</h4>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Количество:</span>
+												<span class="result__value" id="r-gate-quantity">-</span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Размеры:</span>
+												<span class="result__value" id="r-gate-dimension">-</span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Не учитывать стоимость: </span>
+												<span class="result__value" id="r-gate-reinforce">-</span>
+											</div>	
+											<h4 class="result__header">Светопрозрачные участки кровли</h4>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Количество:</span>
+												<span class="result__value" id="r-translucent-quantity">-</span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Размеры:</span>
+												<span class="result__value" id="r-translucent-dimension">-</span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Не учитывать стоимость: </span>
+												<span class="result__value" id="r-translucent-reinforce">-</span>
+											</div>	
+											<!--<h4 class="result__header">Окна</h4>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Количество:</span>
+												<span class="result__value" id="r-window-quantity"></span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Размеры:</span>
+												<span class="result__value" id="r-window-dimension"></span>
+											</div>
+											<div class="result__item result__item--3">
+												<span class="result__feature">Не учитывать стоимость: </span>
+												<span class="result__value" id="r-window-reinforce"></span>
+											</div>-->	
 										</div>	
 									</div>
 								</div>
@@ -802,14 +872,16 @@
 						<div class="step__controls-area lcw">
 							<button type="button" name="previous" class="control-button control-button--prev">Внешний вид</button>
 							<div class="paginator">
-								<button type="button" class="paginator__button">1</button>
-								<button type="button" class="paginator__button">2</button>
-								<button type="button" class="paginator__button">3</button>
-								<button type="button" class="paginator__button">4</button>
+								<button type="button" class="paginator__button paginator__button--enabled">1</button>
+								<button type="button" class="paginator__button paginator__button--enabled">2</button>
+								<button type="button" class="paginator__button paginator__button--enabled">3</button>
+								<button type="button" class="paginator__button paginator__button--active">4</button>
+								<button type="button" class="paginator__button">5</button>
 							</div>
 							<button type="button" name="next" class="control-button  control-button--next">Контактная информация</button>
 						</div>
-					</fieldset>-->
+					</fieldset>
+
 					<fieldset class="step step--last info">
 						<div class="step__heading">
 							<h2 class="step__title lcw"><span>Шаг 4.</span> Контактная информация</h2>
@@ -818,18 +890,6 @@
 						<div class="step__container">
 							<div class="step__input-area lcw">
 								<div class="info__container">
-									<div class="info__item info__item--name">
-										<div class="info__inner">
-											<label for="name">Имя: *</label>
-											<input name="name" id="name">
-										</div>
-									</div>
-									<div class="info__item info__item--company">
-										<div class="info__inner">
-											<label for="company-name">Компания: *</label>
-											<input type="text" name="company-name" id="company-name">
-										</div>
-									</div>
 									<div class="info__item info__item--phone">
 										<div class="info__inner">
 											<label for="tel">Телефон: *</label>
@@ -840,6 +900,18 @@
 										<div class="info__inner">
 											<label for="mail">Электронная почта: *</label>
 											<input name="mail" id="mail" type="email">
+										</div>
+									</div>
+									<div class="info__item info__item--name">
+										<div class="info__inner">
+											<label for="name">Имя:</label>
+											<input name="name" id="name">
+										</div>
+									</div>
+									<div class="info__item info__item--company">
+										<div class="info__inner">
+											<label for="company-name">Компания</label>
+											<input type="text" name="company-name" id="company-name">
 										</div>
 									</div>
 									<div class="info__item info__item--big info__item--message">
@@ -854,7 +926,7 @@
 											<div class="period">
 												<div class="period__wrapper">
 													<button type="button" class="period__button period__button--minus"></button>
-													<input type="number" name="period" class="period__input" value="22" min="18" max="26">
+													<input type="number" name="period" class="period__input" value="32" min="30" max="100">
 													<button type="button" class="period__button period__button--plus"></button>
 												</div>
 											</div>
@@ -882,7 +954,8 @@
 								<button type="button" class="paginator__button paginator__button--enabled">1</button>
 								<button type="button" class="paginator__button paginator__button--enabled">2</button>
 								<button type="button" class="paginator__button paginator__button--enabled">3</button>
-								<button type="button" class="paginator__button paginator__button--active">4</button>
+								<button type="button" class="paginator__button paginator__button--enabled">4</button>
+								<button type="button" class="paginator__button paginator__button--active">5</button>
 							</div>
 							<button type="submit" name="submit" class="control-button control-button--submit">Отправить</button>
 						</div>
