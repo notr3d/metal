@@ -97,7 +97,8 @@ $(document).ready(function () {
 		arrows: false,
 		dots: false,
 		centerMode: true,
-		focusOnSelect: true
+		focusOnSelect: true,
+		draggable: false	
 	});
 	//metal
 	$('.carousel-top').slick({
@@ -120,7 +121,7 @@ $(document).ready(function () {
 		centerMode: false,
 		focusOnSelect: true
 	});
-	$('.alfa-slider').slick({
+	$('.alfa-slider__wrapper').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: true,
@@ -129,7 +130,8 @@ $(document).ready(function () {
 		autoplay: true,
 		autoplaySpeed: 5000,
 		speed: 250,
-		cssEase: 'ease-in-out'
+		cssEase: 'ease-in-out',
+		centerMode: false
 	});
 	
 });
@@ -148,7 +150,6 @@ $('.scrollup').click(function(){
 				scrollup = $('.scrollup');
 			if (distanceY > shrinkOn) {
 				$(scrollup).addClass('scrollup--visible');
-				
 			} else {
 				if (scrollup.hasClass('scrollup--visible')) {
 					scrollup.removeClass('scrollup--visible');
@@ -252,6 +253,7 @@ test.click(function(e){
 });
 
 //site-nav link
-var navLink = $('a.dropdown-toggle');
+/*var navLink = $('a.dropdown-toggle');
 navLink.removeClass('dropdown-toggle');
-navLink.removeAttr('data-toggle');
+navLink.removeAttr('data-toggle');*/
+
