@@ -7220,9 +7220,6 @@ Entry Footer
   opacity: 0;
   pointer-events: none;
 }
-.site-nav__link--has-children.hover {
-  box-shadow: inset 0px 0px 20px 5px rgba(34, 34, 34, 0.8);
-}
 .site-nav__link--has-children.hover::before {
   opacity: 1;
 }
@@ -8694,6 +8691,12 @@ Entry Footer
   background: #f9a11b;
   cursor: auto;
 }
+@media (max-width: 767px) {
+  .constructor .paginator {
+    margin: 15px 0;
+    order: 1;
+  }
+}
 .constructor .prog {
   padding: 15px 0;
 }
@@ -8773,16 +8776,23 @@ Entry Footer
 .constructor .step {
   width: 100%;
 }
-.constructor .step:not(:first-of-type) {
-  display: none;
-}
 .constructor .step__heading {
   background: #e0e2e5;
   padding-top: 45px;
 }
+@media (max-width: 767px) {
+  .constructor .step__heading {
+    text-align: center;
+  }
+}
 .constructor .step__container {
   background: #e0e2e5;
   padding-bottom: 45px;
+}
+@media (max-width: 767px) {
+  .constructor .step__container {
+    padding: 0 15px;
+  }
 }
 .constructor .step__title {
   margin: 0 auto;
@@ -8827,6 +8837,11 @@ Entry Footer
   flex-wrap: wrap;
   padding: 15px 0;
 }
+@media (max-width: 767px) {
+  .constructor .step__controls-area {
+    padding: 15px;
+  }
+}
 .constructor .structure-type {
   /*&__subtitle {
 			font-size: 12px;
@@ -8852,7 +8867,7 @@ Entry Footer
 }
 @media (max-width: 767px) {
   .constructor .structure-type__item {
-    width: 50%;
+    width: 49.6%;
     height: 156px;
   }
 }
@@ -8904,7 +8919,6 @@ Entry Footer
   display: -o-flex;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 15px;
 }
 .constructor .dimension__item {
   flex-basis: 33.333333%;
@@ -9978,11 +9992,15 @@ Entry Footer
   outline: none;
   transition: .3s;
 }
-.constructor .control-button--prev::before {
-  content: '< ';
+@media (max-width: 767px) {
+  .constructor .control-button--prev {
+    margin-right: 15px;
+  }
 }
-.constructor .control-button--next::after {
-  content: ' >';
+@media (max-width: 767px) {
+  .constructor .control-button--next {
+    margin-left: auto;
+  }
 }
 .constructor .control-button--submit {
   background: #cc3300;
@@ -9995,7 +10013,9 @@ Entry Footer
 }
 @media (max-width: 767px) {
   .constructor .control-button {
-    width: 50%;
+    flex-basis: 40%;
+    font-size: 14px;
+    padding: 5px;
   }
 }
 .constructor select {

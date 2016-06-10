@@ -3,8 +3,11 @@
 	&__wrapper {
 		//padding: 15px;
 	}
+	&__form {
+		
+	}
 	&__container {
-		position: relative;		
+		position: relative;			
 	}
 	.paginator {
 		margin: 0 45px;
@@ -33,6 +36,10 @@
 				background: @yellow;
 				cursor: auto;
 			}
+		}
+		@media @m {
+			margin: 15px 0;
+			order: 1;
 		}
 	}
 	.prog {
@@ -117,19 +124,24 @@
 	.step {		
 		width: 100%;
 		&:not(:first-of-type) {
-			display: none; //откл!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			//display: none; //откл!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
 		&__heading {
 			background: #e0e2e5;
 			padding-top: 45px;
+			@media @m {
+				text-align: center;
+			}
 		}
 		&__container {
 			background: #e0e2e5;
 			padding-bottom: 45px;
+			@media @m {
+				padding: 0 15px;
+			}
 		}
 		&__title {
 			margin: 0 auto;
-			//margin-bottom: 15px;
 			font-size: 30px;
 			text-transform: uppercase;
 			font-family: 'Open Sans Condensed';
@@ -164,6 +176,9 @@
 			justify-content: center;
 			flex-wrap: wrap;
 			padding: 15px 0;
+			@media @m {
+				padding: 15px;
+			}
 		}
 	}	
 	.structure-type {
@@ -185,7 +200,7 @@
 			height: 205px;
 			background: @grey;
 			@media @mobile {
-				width: 50%;
+				width: 49.6%;
 				height: 156px;
 			}
 			label {
@@ -242,7 +257,6 @@
 			display: -o-flex;
 			display: flex;
 			flex-wrap: wrap;
-			margin-bottom: 15px;
 		}
 		&__item {
 			flex-basis: 33.333333%;
@@ -1325,22 +1339,19 @@
 		border: none;
 		color: #fff;
 		outline: none;
-		//border-radius: 3px;
 		transition: .3s;
 		&--prev {
-			&::before {
-				content: '< ';
+			@media @m {
+				margin-right: 15px;
 			}
 		}
 		&--next {
-			&::after {
-				content: ' >';
+			@media @m {
+				margin-left: auto;
 			}
-			//margin-left: auto;
 		}
 		&--submit {
 			background: @red;
-			//margin-left: auto;
 			&:hover {
 				background: lighten(@red, 10%) !important; 
 			}
@@ -1349,7 +1360,9 @@
 			background: lighten(@yellow, 10%);
 		}
 		@media @mobile {
-			width: 50%;
+			flex-basis: 40%;
+			font-size: 14px;
+			padding: 5px;
 		}
 	}
 	select {

@@ -1,6 +1,8 @@
 //constructor-------------------------------------------------------
 
-//Анимация переходов 
+
+
+//Анимация переходов------------------------------------------------
 var currentFS, nextFS, previousFS; 
 
 $('.control-button--next').click(function(){
@@ -9,7 +11,7 @@ $('.control-button--next').click(function(){
 	$('.prog__bar li').eq($('fieldset').index(nextFS)).addClass('active');
 	nextFS.slideDown(300); 
 	currentFS.slideUp(300); 
-	$('html, body').animate({scrollTop: 0}, 300);	
+	$('body').animate({scrollTop: 0}, 300);	
 });
 
 $('.control-button--prev').click(function(){	
@@ -22,8 +24,7 @@ $('.control-button--prev').click(function(){
 });
 
 //paginator----------------------------------------------------------
-var paginator = $('.paginator');
-var pagBtn = paginator.children();
+var pagBtn = $('.paginator').children();
 
 pagBtn.attr('disabled', true);
 pagBtn.each(function(){
@@ -34,14 +35,14 @@ pagBtn.each(function(){
 
 pagBtn.click(function(){
 	var currentFS = $(this).parent().parent().parent();
-	currentFS.slideUp(300);
 	var currentIndex = $(this).index() + 1;
 	var neededFS = currentFS.siblings(':nth-child(' + currentIndex + ')');
-	neededFS.slideDown();
+	neededFS.slideDown(300);
+	currentFS.slideUp(300);
 })
 
-//главные параметры---------------------------------------------------
-var	width = 18, //ширина, длина и высота
+//ширина, длина и высота-------------------------------------------------
+var	width = 18, 
 	widthMin = 0,
 	widthMax = 100,
 	widthStep = 1,
@@ -54,13 +55,26 @@ var	width = 18, //ширина, длина и высота
 	height = 6,
 	heightMin = 0,
 	heightMax = 100,
-	heightStep = 1,
+	heightStep = 1;
 	
-	//находим все элементы на странице
-	structureTypeInput = $('.structure-type__input'), //выбор типа здания
+//находим все элементы на странице---------------------------------------
+var	structureTypeInput = $('.structure-type__input'), //выбор типа здания
 	currentStructureType = 'structure-type-1', //по умолчанию выбран первый тип
-	//ширина
-	widthInput = $('#widthInput'), //число, основное поле
+	structureTypeOutput = $('#r-structure-type');
+	
+//выбираем тип здания
+structureTypeInput.click(function(){
+	currentStructureType = structureTypeInput.filter(':checked').attr('id');
+	StructureTypeInit();	
+	var structureType = $(this)
+			.next()
+			.children('.structure-type__title')
+			.text();
+	structureTypeOutput.text(structureType);
+});
+
+//ширина
+var	widthInput = $('#widthInput'), //число, основное поле
 	widthRange = $('#widthRange'), //слайдер
 	widthMinusButton = $('#widthMinus'), //кнопки плюс и минус
 	widthPlusButton = $('#widthPlus'),
@@ -87,7 +101,7 @@ var	width = 18, //ширина, длина и высота
 	
 	ResultRoofAreaOutput = $('#r-area-roof');
 	
-	roofAngle = 20, //угол крыши (пока константа, плюс крыша ровная)
+var	roofAngle = 20, //угол крыши (пока константа, плюс крыша ровная)
 	
 	calcDimension = function(){ //основная функция подсчета	
 		widthInput.val(width);
@@ -300,12 +314,6 @@ $(document).ready(function(){
 	StructureTypeInit();
 });
 
-//выбираем тип здания
-structureTypeInput.click(function(){
-	currentStructureType = structureTypeInput.filter(':checked').attr('id');
-	StructureTypeInit();	
-});
-
 //number
 widthInput.change(function(){
 	if (widthInput.val() < 0) {
@@ -475,24 +483,7 @@ colorInput.click(function(){ //красим элемент внутри кноп
 	};
 });
 
-//------------results------------------
-//тип и подтип здания		
-var	structureTypeOutput = $('#r-structure-type'),
-	structureSubTypeOutput = $('.result__value--subtype');		
-
-structureTypeInput.click(function(){
-	var structureType = $(this)
-			.next()
-			.children('.structure-type__title')
-			.text(),
-		structureSubType = $(this)
-			.next()
-			.children('.structure-type__subtitle')
-			.text();
-
-	structureTypeOutput.text(structureType);
-	structureSubTypeOutput.text(structureSubType);		
-});	
+//------------results------------------	
 
 //снеговой район и обшивка
 var snowAreaInput = $('.snow-area-input'),
