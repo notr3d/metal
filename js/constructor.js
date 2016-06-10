@@ -606,7 +606,16 @@ additionalInput.click(function(){
 		additionalBlock.slideDown();		
 	} else if ($(this).prop('checked') == false) {	
 		additionalBlock.slideUp();
-	}
+	};	
+});
+additionalInput.next().click(function(){
+	var popup = $('#additional-help');
+	popup.fadeIn().delay(3000).fadeOut();	
+});
+var popupClose = $('.popup__close');
+popupClose.click(function(){
+	var popup = $(this).parent();
+	popup.hide();
 });
 
 //------дополнительные-настройки------
@@ -927,23 +936,55 @@ numberInput.change(function(){
 //lambda change
 var wallFillerTypeInput = $('#wall-filler-type');
 wallFillerTypeInput.change(function(){
+	var wallDensity = $('#wall-density');
+	var wallConductivity = $('#wall-conductivity');
+	var wallAbsorbtion = $('#wall-absorbtion');
 	if ($(this).val() === 'Минеральная вата') {
 		lambda = 0.042;
-	} else if ($(this).val() === 'Пенополистирол') {
+		wallDensity.text('100 - 120');
+		wallConductivity.text('0.042');
+		wallAbsorbtion.text('не более 1.5%');
+	} else if ($(this).val() === 'Пенополистирол (PPS)') {
 		lambda = 0.039;
-	}
+		wallDensity.text('15.1 - 25');
+		wallConductivity.text('0.039');
+		wallAbsorbtion.text('не более 2%');
+	} else if ($(this).val() === 'Пенополиуретан (PUR)' || $(this).val() === 'Пенополиизоцианурат (PIR)') {
+		lambda = 0.026;
+		wallDensity.text('40±2');
+		wallConductivity.text('0.026');
+		wallAbsorbtion.text('не более 2%');	
+	};	
+	calcThickness();
 	var output = $('#r-wall-filler');
-	output.text($(this).val());
+	output.text($(this).val());	
 });
 
 var wallThicknessInput = $('#wall-shealthing-thickness');
-wallThicknessInput.change(function(){
+wallThicknessInput.change(function(){	
 	var wallThicknessOutput = $('#r-wall-thickness');
 	wallThicknessOutput.text($(this).val());
 });
 
 var roofFillerTypeInput = $('#roof-filler-type');
 roofFillerTypeInput.change(function(){
+	var roofDensity = $('#roof-density');
+	var roofConductivity = $('#roof-conductivity');
+	var roofAbsorbtion = $('#roof-absorbtion');
+	if ($(this).val() === 'Минеральная вата') {
+		roofDensity.text('120 - 150');
+		roofConductivity.text('0.042');
+		roofAbsorbtion.text('не более 1.5%');
+	} else if ($(this).val() === 'Пенополистирол (PPS)') {
+		roofDensity.text('20 - 25');
+		roofConductivity.text('0.039');
+		roofAbsorbtion.text('не более 2%');
+	} else if ($(this).val() === 'Пенополиуретан (PUR)' || $(this).val() === 'Пенополиизоцианурат (PIR)') {
+		roofDensity.text('40±2');
+		roofConductivity.text('0.026');
+		roofAbsorbtion.text('не более 2%');	
+	};
+	
 	var output = $('#r-roof-filler');
 	output.text($(this).val());
 });
@@ -1014,7 +1055,7 @@ inputNumber.change(function(){
 	weekSpan.text(week);
 });
 
-//--внешний вид в результаты----------------------------------------------
+//внешний вид в результаты----------------------------------------------
 var doorQuantityInput = $('#door-quantity');
 doorQuantityInput.change(function(){
 	var output = $('#r-door-quantity');
@@ -1074,4 +1115,3 @@ translucentDimensionInput.change(function(){
 	var output = $('#r-translucent-dimension');
 	output.text($(this).val());
 });
-

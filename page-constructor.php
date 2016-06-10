@@ -208,8 +208,20 @@
 															<option value="Минеральная вата">Минеральная вата</option>
 															<option value="Пенополистирол (PPS)">Пенополистирол (PPS)</option>
 															<option value="Пенополиуретан (PUR)">Пенополиуретан (PUR)</option>
-															<option value="Пенополиизоцианурат (PUR)">Пенополиизоцианурат (PUR)</option>
+															<option value="Пенополиизоцианурат (PIR)">Пенополиизоцианурат (PIR)</option>
 														</select>
+													</div>
+												</div>
+											</div>
+											<div class="sheathing__item sheathing__item--disabled">
+												<div class="sheathing__con">
+													<div class="sheathing__descr">
+														<h5>Плотность, кг/м<sup>3</sup></h5>
+														<span id="wall-density">100 - 120</span>
+														<h5>Теплопроводность в сухом состоянии, Вт/мК</h5>
+														<span id="wall-conductivity">0.042</span>
+														<h5>Водопоглощение, %</h5>
+														<span id="wall-absorbtion">не более 1.5%</span>			
 													</div>
 												</div>
 											</div>
@@ -256,10 +268,22 @@
 															<option value="Минеральная вата">Минеральная вата</option>
 															<option value="Пенополистирол (PPS)">Пенополистирол (PPS)</option>
 															<option value="Пенополиуретан (PUR)">Пенополиуретан (PUR)</option>
-															<option value="Пенополиизоцианурат (PUR)">Пенополиизоцианурат (PUR)</option>
+															<option value="Пенополиизоцианурат (PIR)">Пенополиизоцианурат (PIR)</option>
 														</select>
 													</div>	
 												</div>								
+											</div>
+											<div class="sheathing__item sheathing__item--disabled">
+												<div class="sheathing__con">
+													<div class="sheathing__descr">
+														<h5>Плотность, кг/м<sup>3</sup></h5>
+														<span id="roof-density">120 - 150</span>
+														<h5>Теплопроводность в сухом состоянии, Вт/мК</h5>
+														<span id="roof-conductivity">0.042</span>
+														<h5>Водопоглощение, %</h5>
+														<span id="roof-absorbtion">не более 1.5%</span>			
+													</div>
+												</div>
 											</div>
 											<div class="sheathing__item sheathing__item--disabled">
 												<div class="sheathing__con">
@@ -284,6 +308,10 @@
 									<div class="additional__header additional__header--disabled">
 										<input type="checkbox" id="additional-input" disabled>
 										<label for="additional-input">Рассчитать толщину утеплителя</label>
+										<div class="popup" id="additional-help">
+											<p class="popup__text">Для рассчета толщины утеплителя укажите тип стен или кровли</p>
+											<button type="button" class="popup__close">×</button>
+										</div>
 									</div>									
 									<div id="additional-block" class="additional__block">
 										<div class="additional__container">
@@ -312,9 +340,9 @@
 												<div class="additional__inner">
 													<label for="t-in">Внутренняя температура: </label>
 													<div class="additional__con">
-														<button type="button" id="widthMinus" class="dimension__button dimension__button--minus">-</button>
+														<button type="button" id="t-in-minus" class="dimension__button dimension__button--minus">-</button>
 														<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
-														<button type="button" id="widthPlus" class="dimension__button dimension__button--plus">+</button>
+														<button type="button" id="t-in-plus" class="dimension__button dimension__button--plus">+</button>
 													</div>
 												</div>									
 											</div>
