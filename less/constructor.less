@@ -1,5 +1,34 @@
 .constructor {		
 	padding: 80px 0 160px;
+	input[type="number"] { 
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none !important; 
+		}
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none !important; 
+		}
+		
+		&::-moz-inner-spin-button {
+			-moz-appearance: none !important; 
+		}
+		&::-moz-outer-spin-button {
+			-moz-appearance: none !important; 
+		}
+		
+		&::-ms-inner-spin-button {
+			-ms-appearance: none !important; 
+		}
+		&::-ms-outer-spin-button {
+			-ms-appearance: none !important; 
+		}
+		
+		&::-o-inner-spin-button {
+			-o-appearance: none !important; 
+		}
+		&::-o-outer-spin-button {
+			-o-appearance: none !important; 
+		}		
+	}		
 	&__wrapper {
 		//padding: 15px;
 	}
@@ -435,6 +464,7 @@
 			border-bottom: 1px solid #ddd;
 			background: #fff;
 			position: relative;
+			background: #fff;
 			&::before {
 				content: '';
 				display: block;
@@ -481,7 +511,7 @@
 				}
 			}
 			&--disabled {
-				opacity: .5;
+				background: #eee;
 			}
 		}
 		&__block {
@@ -581,6 +611,7 @@
 				}
 				&[type="number"] {
 					width: 100%;
+					padding: 0;
 				}
 			}
 		}
@@ -593,6 +624,14 @@
 			display: flex;
 			&[type="number"] {
 				flex-grow: 1;
+			}			
+			input {
+				border: 1px solid @grey;
+				width: 80px;
+				height: 45px;
+				padding: 15px;
+				margin: 0 -1px;
+				font-size: 16px;
 			}
 		}
 		&__city-param {
@@ -611,6 +650,43 @@
 		}
 		&__hidden {
 			display: none;
+		}
+		&__button {
+			height: 45px;
+			width: 60px;
+			background: @grey;
+			outline: none;
+			padding: 0;
+			border: 1px solid @grey;
+			color: #fff;
+			position: relative;
+			font-size: 45px;
+			line-height: 45px;
+			transition: .3s;
+			&:hover {
+				background: #fff;
+				color: #222;
+			}
+			&:active {
+				background: @yellow;
+			}
+			&::before {
+				content: '-';
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 60px;
+				line-height: 36px;
+				font-weight: lighter;
+			}
+			&--plus {
+				&::before {
+					content: '+';
+				}
+			}
 		}
 	}
 	.add-output {
@@ -640,6 +716,9 @@
 		&__inner {
 			border: 1px solid #ddd;
 			background: #fff;
+			&--disabled {
+				background: #ccc;
+			}
 		}
 		&__header {
 			font-size: 20px;
@@ -667,7 +746,8 @@
 				width: 33%;
 				display: block;
 				margin: 15px;
-				font-size: 16px;
+				font-size: 24px;
+				text-align: center;
 			}
 		}
 	}

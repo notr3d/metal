@@ -319,7 +319,7 @@
 												<div class="additional__inner">
 													<label for="city">Город: </label>
 													<div class="additional__con">
-														<input type="text" name="city" id="city" placeholder="Выберите город">
+														<input type="text" name="city" id="city" onkeypress="convertLayout()" placeholder="Выберите город">
 													</div>								
 												</div>									
 											</div>
@@ -340,11 +340,11 @@
 												<div class="additional__inner">
 													<label for="t-in">Внутренняя температура: </label>
 													<div class="additional__con">
-														<button type="button" id="t-in-minus" class="dimension__button dimension__button--minus">-</button>
+														<button type="button" id="t-in-minus" class="additional__button additional__button--minus"></button>
 														<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
-														<button type="button" id="t-in-plus" class="dimension__button dimension__button--plus">+</button>
+														<button type="button" id="t-in-plus" class="additional__button additional__button--plus"></button>
 													</div>
-												</div>									
+												</div>								
 											</div>
 											<div class="additional__item">
 												<div class="additional__inner">
@@ -388,9 +388,9 @@
 													</div>
 												</div>
 											</div>
-											<div class="add-output">					
+											<div class="add-output">				
 												<div class="add-output__col">
-													<div class="add-output__inner">
+													<div id="wall-block" class="add-output__inner add-output__inner--disabled">
 														<h3 class="add-output__header">Стены</h3>
 														<div class="add-output__item">
 															<label for="Rpr-wall">R<sub>пр</sub>: </label>
@@ -407,7 +407,7 @@
 													</div>
 												</div>
 												<div class="add-output__col">
-													<div class="add-output__inner">
+													<div  id="roof-block" class="add-output__inner add-output__inner--disabled">
 														<h3 class="add-output__header">Кровля</h3>
 														<div class="add-output__item">
 															<label for="Rpr-roof">R<sub>пр</sub>: </label>
@@ -455,7 +455,7 @@
 											<div class="color">
 												<button type="button" class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
 												<div class="color__container">
-													<input type="radio" name="wallColor" id="wall-ral-5012" class="color__input" value="RAL 5012 Голубой" checked>
+													<input type="radio" name="wallColor" id="wall-ral-5012" class="color__input" value="RAL 5012 Голубой">
 													<label for="wall-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
 													<input type="radio" name="wallColor" id="wall-ral-1014" class="color__input" value="RAL 1014 Слоновая кость">
 													<label for="wall-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
@@ -495,7 +495,7 @@
 											<div class="color">
 												<button type="button" class="color__button"><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
 												<div class="color__container">
-													<input type="radio" name="roofColor" id="roof-ral-5012" class="color__input" value="RAL 5012 Голубой" checked>
+													<input type="radio" name="roofColor" id="roof-ral-5012" class="color__input" value="RAL 5012 Голубой">
 													<label for="roof-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
 													<input type="radio" name="roofColor" id="roof-ral-1014" class="color__input" value="RAL 1014 Слоновая кость">
 													<label for="roof-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
@@ -578,7 +578,7 @@
 											<div class="color">
 												<button type="button" class="color__button" disabled><span class="color__span"></span><span class="color__text">Не выбрано</span></button>
 												<div class="color__container">
-													<input type="radio" name="drainColor" id="drain-ral-5012" class="color__input" value="RAL 5012 Голубой" checked>
+													<input type="radio" name="drainColor" id="drain-ral-5012" class="color__input" value="RAL 5012 Голубой">
 													<label for="drain-ral-5012" class="color__label color__label--ral-5012">RAL 5012 Голубой</label>
 													<input type="radio" name="drainColor" id="drain-ral-1014" class="color__input" value="RAL 1014 Слоновая кость">
 													<label for="drain-ral-1014" class="color__label color__label--ral-1014">RAL 1014 Слоновая кость</label>
@@ -830,7 +830,7 @@
 											</div>
 											<div class="result__item result__item--2">
 												<span class="result__feature">Кровля: </span>
-												<span class="result__value" id="r-roof-color'">-</span>
+												<span class="result__value" id="r-roof-color">-</span>
 											</div>
 											<div class="result__item result__item--2">
 												<span class="result__feature">Нащельники:</span>
