@@ -153,7 +153,7 @@
 	.step {		
 		width: 100%;
 		&:not(:first-of-type) {
-			//display: none; //откл!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			//display: none; //откл!
 		}
 		&__heading {
 			background: #e0e2e5;
@@ -301,18 +301,71 @@
 			}
 			&--output {
 				.dimension__header {
-					flex-basis: 66.666666%;
+					flex-grow: 1;
 					border-bottom: none;
 					text-align: left;
 					padding-left: 15px;
 					@media @m {
-						flex-basis: 100%;
+						//flex-basis: 100%;
+						text-align: center;
 					}
 				}
 				output {
 					flex-basis: 33.333333%;
 					@media @m {
-						flex-basis: 100%;
+						//flex-basis: 100%;
+						flex-grow: 1;
+						text-align: center;
+						margin-left: 45px;
+					}
+				}
+				.info-block {
+					margin-right: 15px;	
+					position: relative;
+					&__text {
+						line-height: 30px;
+						width: 30px;
+						height: 30px;
+						display: inline-block;						
+						color: #fff;
+						cursor: pointer;									
+						text-align: center;									
+						border-radius: 50%;	
+						background: @yellow;
+						transition: .3s;
+						&:hover {
+							background: lighten(@yellow, 5%);
+						}
+					}
+					&__inner {
+						opacity: 0;
+						cursor: default;
+						position: absolute;
+						background: #222;
+						padding: 10px 15px;
+						width: 170px;
+						text-align: left;
+						bottom: -88px;
+						left: 50%;
+						color: #fff;
+						margin-left: -85px;
+						transition: .3s;
+						&::before {
+							content: '';
+							display: block;
+							width: 12px;
+							height: 12px;
+							background: #222;
+							position: absolute;
+							top: -6px;
+							left: 0;
+							left: 50%;
+							margin-left: -6px;
+							transform: rotate(45deg);
+						}
+						&.active {
+							opacity: 1;
+						}
 					}
 				}
 			}
@@ -329,6 +382,7 @@
 			display: -o-flex;
 			display: flex;
 			flex-wrap: wrap;
+			align-items: center;
 			background: #fff;
 			//padding: 15px;
 			output {
@@ -1619,8 +1673,12 @@ canvas {
 		h5 {
 			flex-basis: 65%;
 			margin: 0;
+			padding-right: 15px;
 			margin-bottom: 15px;
 			border-right: 1px solid #ddd;
+			@media @m {
+				flex-basis: 50%;
+			}
 		}
 		span {
 			flex-grow: 1;
@@ -1717,7 +1775,8 @@ canvas {
 	}
 }
 .popup {
-	display: none;
+	display: block;
+	opacity: 0;
 	position: absolute;
 	background: #222;
 	color: #fff;
@@ -1726,18 +1785,19 @@ canvas {
 	bottom: 100%;
 	left: 0;
 	transform: translateY(-10px);
+	transition: .3s;
 	&__text {
 		margin: 0;
 		text-align: justify;
 	}
-	&__close {
+	/*&__close {
 		position: absolute;
 		top: 0;
 		right: 0;
 		background: none;
 		border: none;
 		outline: none;
-	}
+	}*/
 	&::before {
 		content: '';
 		display: block;
@@ -1748,5 +1808,8 @@ canvas {
 		bottom: -6px;
 		left: 15px;
 		transform: rotate(45deg);
+	}
+	&.hover {
+		opacity: 1;
 	}
 }

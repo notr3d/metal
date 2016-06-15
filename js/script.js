@@ -175,7 +175,7 @@ var scheme = $('.scheme__scheme'),
 	schemeStep = $('.scheme__step');
 
 $(window).scroll(function(){
-	if (featureItem.visible()) {
+	/*if (featureItem.visible()) {
 		$(function() {
 			$.each(featureItem, function(i, el) {
 				setTimeout(function() {
@@ -183,7 +183,7 @@ $(window).scroll(function(){
 				}, (i * 50));
 			});
 		});
-	};
+	};*/
 	if (advantagesItem.visible()) {
 		$(function() {
 			$.each(advantagesItem, function(i, el) {

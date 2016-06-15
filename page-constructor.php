@@ -176,6 +176,10 @@
 										<div class="dimension__inner">
 											<h4 class="dimension__header">Площадь кровли:</h4>
 											<output id=roofAreaOutput></output>
+											<div class="info-block">
+												<span class="info-block__text">i</span>
+												<div class="info-block__inner">Площадь кровли рассчитывается при уклоне крыши 20°</div>
+											</div>
 										</div>
 									</div>
 									<div class="dimension__item dimension__item--output">
@@ -310,7 +314,7 @@
 										<label for="additional-input">Рассчитать толщину утеплителя</label>
 										<div class="popup" id="additional-help">
 											<p class="popup__text">Для рассчета толщины утеплителя укажите тип стен или кровли</p>
-											<button type="button" class="popup__close">×</button>
+											<!--<button type="button" class="popup__close">×</button>-->
 										</div>
 									</div>									
 									<div id="additional-block" class="additional__block">

@@ -301,17 +301,21 @@ var	calcDimension = function(){
 	var topRoofAngle = Math.sin((180 - roofAngle * 2) * (Math.PI / 180));
 	var roofWidth = width / topRoofAngle * botRoofAngle;
 	var roofHeight = roofWidth * botRoofAngle;
-	var roofAngleArea = width * roofHeight / 2;
+	var roofTriangleArea = width * roofHeight / 2;
 	
-	var wallArea = (2 * (width * height) + 2 * (length * height) + 2 * roofAngleArea).toFixed(2);
+	var wallArea = (2 * (width * height) + 2 * (length * height) + 2 * roofTriangleArea).toFixed(2);
 	areaOutput.text(wallArea + ' м').append('<sup>2</sup>');
 	ResultAreaOutput.text(wallArea + ' м').append('<sup>2</sup>');
 	
-	var roofArea = (roofWidth * length * 2).toFixed(2);
-	roofAreaOutput.text(roofArea + ' м').append('<sup>2</sup>');
-	ResultRoofAreaOutput.text(roofArea + ' м').append('<sup>2</sup>');
-	
-	
+	var widthCornice = 0.15;
+	var lengthornice = 0.3;
+	var lengthCorniceArea = length * lengthornice;
+	var widthCorniceArea = roofWidth * widthCornice;
+	var AngleCorniceArea = widthCornice * lengthornice;
+	var roofArea = roofWidth * length * 2;
+	var fullRoofArea = ((roofWidth * length * 2) + (lengthCorniceArea * 2) + (widthCorniceArea * 4) + (AngleCorniceArea * 4)).toFixed(2);
+	roofAreaOutput.text(fullRoofArea + ' м').append('<sup>2</sup>');
+	ResultRoofAreaOutput.text(fullRoofArea + ' м').append('<sup>2</sup>');	
 };
 
 //number
@@ -520,16 +524,25 @@ additionalInput.click(function(){
 var popup = $('#additional-help');
 additionalInput.next().hover(function(){	
 	if (additionalHeader.hasClass('additional__header--disabled')) {
-		popup.fadeIn();	
+		popup.addClass('hover');	
 	};	
 }, function(){
-	popup.delay(1000).fadeOut();
+	popup.removeClass('hover');
 });
 
-var popupClose = $('.popup__close');
+/*var popupClose = $('.popup__close');
 popupClose.click(function(){
 	var popup = $(this).parent();
 	popup.hide();
+});*/
+
+var AreaPopup = $('.info-block__text');
+AreaPopup.hover(function(){
+	var block = $(this).next();
+	block.addClass('active');
+}, function(){
+	var block = $(this).next();
+	block.removeClass('active');
 });
 
 //lambda change
@@ -675,14 +688,16 @@ var calcThickness = function(){
 		thicknessWallRecArray = [50, 80, 100, 120, 150, 170, 200, 250],
 		thicknessRoofRecArray = [50, 80, 100, 120, 150, 170, 200];
 	
+	thicknessWall = Math.ceil(thicknessWall);
+	thicknessRoof = Math.ceil(thicknessRoof);
 	
 	for (var i = 0; i < thicknessWallRecArray.length; i++) {
-		if (thicknessWall >= thicknessWallRecArray[i]) {
+		if (thicknessWall > thicknessWallRecArray[i]) {
 			thicknessWallRec = thicknessWallRecArray[i + 1];
 		};		
 	};	
 	for (var i = 0; i < thicknessRoofRecArray.length; i++) {
-		if (thicknessRoof >= thicknessRoofRecArray[i]) {
+		if (thicknessRoof > thicknessRoofRecArray[i]) {
 			thicknessRoofRec = thicknessRoofRecArray[i + 1];
 		};			
 	};			
