@@ -1,16 +1,16 @@
 <?php get_header(); ?>
-	<main class="buildings" role="main">
-		<div class="content-area">			
-			<section class="header">
-				<div class="header__wrapper lcw">
-					<div class="header__container">
-						<h1 class="header__header"><span>Полнокомплектные здания </span><br>из высокопрочных материалов собственного производства</h1>
-						<p class="header__text">На высокоточном заводском оборудовании методом холодного проката и точной резки производятся комплектующие, из которых в дальнейшем монтируется здание.</p>
-						<a href="" class="header__link">Как построить здание?</a>
-						<a href="" class="header__link header__link--special">Отправить заявку</a>
-					</div>
+	<main class="buildings">
+		<section class="page-heading">
+			<div class="page-heading__wrapper lcw">
+				<div class="page-heading__container">
+					<h1 class="page-heading__header"><span>Полнокомплектные здания </span><br>из высокопрочных материалов собственного производства</h1>
+					<p class="page-heading__text">На высокоточном заводском оборудовании методом холодного проката и точной резки производятся комплектующие, из которых в дальнейшем монтируется здание.</p>
+					<a href="" class="page-heading__link">Как построить здание?</a>
+					<a href="" class="page-heading__link page-heading__link--special">Отправить заявку</a>
 				</div>
-			</section>
+			</div>
+		</section>
+		<div class="content-area content-area--landing">				
 			<section class="features">
 				<div class="features__wrapper lcw">
 					<div class="features__item">

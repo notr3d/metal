@@ -1,16 +1,16 @@
 <?php get_header(); ?>
-	<main class="delivering" role="main">
-		<div class="content-area">			
-			<section class="header">
-				<div class="header__wrapper lcw">
-					<div class="header__container">
-						<h1 class="header__header">			
-							<span>Доставка<br>металлоконструкций</span><br>
-							по всей России и странам СНГ
-						</h1>
-					</div>
+	<main class="delivering">
+		<section class="page-heading">
+			<div class="page-heading__wrapper lcw">
+				<div class="page-heading__container">
+					<h1 class="page-heading__header">			
+						<span>Доставка<br>металлоконструкций</span><br>
+						по всей России и странам СНГ
+					</h1>
 				</div>
-			</section>
+			</div>
+		</section>
+		<div class="content-area content-area--landing">			
 			<section class="deliver">
 				<div class="deliver__wrapper lcw">
 					<article class="deliver__text">

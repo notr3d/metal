@@ -1,27 +1,5 @@
 @import "vendor.less";
 
-/* bootstrap hack: fix content width inside hidden tabs */
-.tab-content > .tab-pane, .pill-content > .pill-pane {
-    display: block;    /* undo display:none          */
-    height: 0;         /* height:0 is also invisible */ 
-    overflow: hidden;  /* no-overflow                */
-}
-.tab-content > .active, .pill-content > .active {
-    height: auto;      /* let the content decide it  */
-}
-
-.mw.modal.fade {
-	display: block;   
-    height: 0;      
-    overflow: hidden;
-}
-.mw.modal.fade.in {
-	height: auto;
-}
-
-@mobile: ~ "(max-width: 767px)";
-@desktop: ~ "(min-width: 768px)";
-
 @m: ~ "(max-width: 767px)";
 @d: ~ "(min-width: 1080px)";
 
@@ -40,6 +18,7 @@
 @grey: #858688;
 
 @import "less/site-header.less";
+@import "less/page-heading.less";
 @import "less/site-footer.less";
 @import "less/home-old.less";
 @import "less/home.less";
@@ -59,69 +38,17 @@
 @import "less/installation.less";
 @import "less/delivering.less";
 
-.container {
-	@media @desktop {
-		padding: 0;
-	}
-}
-.container-fluid {
-	@media @desktop {
-		padding: 0;
-	}
-}
-.navbar {
-	border-radius: 0;
-	margin: 0;
-}
-.navbar-collapse {
-	padding: 0;
-}
 .content-area {
 	padding-bottom: 160px;
+	background: #fff;
 	@media @m {
 		padding-bottom: 0;
 	}
-}
-.widget-area {
-	padding-right: 0;
-	//background: #eee;	
-}
-main {
-	//margin-bottom: 15px;
-}
-.nav-tabs {
-	li {
-		a {
-			border-radius: 0 !important;	
-			border-bottom-color: #ddd !important;
-		}
-	}
-}
-.tab-content {
-	padding: 15px;
-}
-.nav-tabs.nav-justified > li {
-    display: table-cell;
-    width: 1%;
-}
-.slick-slide:focus { 
-	outline: none; 
-}
-
-//мои стили
-* {	
-	&::selection {
-		background-color: @yellow;
-		color: #fff;
-	}
-	input, textarea {
-		&::-webkit-input-placeholder {
-			color: #ccc !important;
-		}
-		&:focus {
-			&::-webkit-input-placeholder {
-				color: transparent !important;
-			}
+	&--landing {
+		margin-top: 500px;
+		z-index: 1;
+		@media @m {
+			margin-top: 0;
 		}
 	}
 }
@@ -262,13 +189,6 @@ body {
 	}
 }
 
-@keyframes drop {
-	100% {
-		transform: scale(2);
-		opacity: 0;
-	}
-}
-
 //кнопка "вверх"
 .scrollup {
 	position: fixed;
@@ -304,70 +224,8 @@ body {
 	&--visible {
 		opacity: 1;
 	}
-	@media @mobile {
+	@media @m {
 		right: 15px;
-	}
-}
-
-//боковое меню
-.aside-header {
-	margin: 0;
-	background: #ccc;
-	color: #fff;
-	padding: 15px;
-	font-size: 18px;
-	position: relative;
-	&::before {
-		content: '';
-		display: block;
-		width: 14px;
-		height: 14px;
-		background: #ccc;
-		position: absolute;
-		bottom: -7px;
-		left: 21px;
-		transform: rotate(45deg);
-	}
-}
-.aside-nav {
-	border: 1px solid #ddd;
-	ul {
-		background: #fff;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		padding-top: 5px;
-		.page_item {			
-			a {
-				display: block;
-				padding: 10px 15px;
-			}
-			&_has_children {
-				& > a {
-					display: none;
-				}
-			}
-			&:not(:last-child) {
-				border-bottom: 1px solid #ddd;
-			}
-		}
-	}	
-}
-
-.page-header {
-	padding-bottom: 15px;
-	margin-bottom: 45px;
-	border-bottom: 2px solid #eee;
-	position: relative;
-	&::before {
-		content: '';
-		display: block;
-		width: 50px;
-		height: 2px;
-		background: @blue;
-		position: absolute;
-		top: 100%;
-		left: 0;
 	}
 }
 

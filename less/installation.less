@@ -1,19 +1,27 @@
 .installation {
-	.content-area {
-		padding-top: 0;
-	}	
-	.header {
+	.page-heading {
 		height: 500px;
 		background: url(img/services/installation/header-img.jpg) no-repeat center;
+		background-size: cover;
 		&__wrapper {
-			padding: 115px 0 0;
+			height: 100%;
+			justify-content: flex-start;
 			@media @m {
-				padding: 140px 15px 45px;
+				padding: 0 15px;
+				height: auto;
+				background: none;
 			}
 		}
 		&__container {
-			width: 485px;
-			height: 435px;
+			width: 500px;
+			height: 100%;
+			padding: 15px 0;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			flex-wrap: wrap;
 			@media @m {
 				width: 100%;
 				height: auto;
@@ -27,6 +35,7 @@
 			margin-bottom: 40px;			
 			font-family: 'Open Sans Condensed', sans-serif;				
 			font-weight: bold;
+			flex-basis: 100%;
 			span {
 				color: @yellow;
 			}
@@ -36,6 +45,7 @@
 			color: #fff;
 			margin: 0;
 			margin-bottom: 50px;
+			flex-basis: 100%;
 			@media @m {
 				margin-bottom: 45px;
 			}
@@ -57,7 +67,7 @@
 				background: @yellow;
 				color: #000;
 				border-color: @yellow;
-				margin-left: 40px;
+				margin-left: auto;
 				&:hover {
 					border-color: #fff;
 				}

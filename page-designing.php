@@ -1,16 +1,16 @@
 <?php get_header(); ?>
-	<main class="designing" role="main">
-		<div class="content-area">			
-			<section class="header">
-				<div class="header__wrapper lcw">
-					<div class="header__container">
-						<h1 class="header__header"><span>Проектирование</span><br>быстровозводимых зданий<br>(КМ, КМД, АС, 3D моделирование)</h1>
-						<p class="header__text">Проектный отдел “BIG Constructions” предлагает широкий комплекс готовых решений и проектных услуг: от расчета конструкций металлических для каркаса до полных архитектурно — строительных проектов. Мы разработаем документацию в объеме необходимом для получения разрешения на строительство, и, для прохождения экспертизы проектной документации.</p>
-						<a href="" class="header__link">Как построить здание?</a>
-						<a href="" class="header__link header__link--special">Отправить заявку</a>
-					</div>
+	<main class="designing">
+		<header class="page-heading">
+			<div class="page-heading__wrapper lcw">
+				<div class="page-heading__container">
+					<h1 class="page-heading__header"><span>Проектирование</span><br>быстровозводимых зданий<br>(КМ, КМД, АС, 3D моделирование)</h1>
+					<p class="page-heading__text">Проектный отдел “BIG Constructions” предлагает широкий комплекс готовых решений и проектных услуг: от расчета конструкций металлических для каркаса до полных архитектурно — строительных проектов. Мы разработаем документацию в объеме необходимом для получения разрешения на строительство, и, для прохождения экспертизы проектной документации.</p>
+					<a href="" class="page-heading__link">Как построить здание?</a>
+					<a href="" class="page-heading__link page-heading__link--special">Отправить заявку</a>
 				</div>
-			</section>
+			</div>
+		</header>
+		<div class="content-area content-area--landing">
 			<section class="features">
 				<div class="features__wrapper lcw">
 					<div class="features__item">

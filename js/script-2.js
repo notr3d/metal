@@ -45,9 +45,30 @@ var menuItem = $('.menu-item-has-children');
 menuItem.append('<button class="my-sub-menu__open">');
 var subMenuButton = $('.my-sub-menu__open');
 subMenuButton.click(function(){
-	$(this).prev().slideToggle(300);
-	$(this).toggleClass('my-sub-menu__open--opened');
-	$(this).parent().parent().parent().parent().siblings().find('.sub-menu').slideUp(300);	$(this).parent().parent().parent().parent().siblings().find(subMenuButton).removeClass('my-sub-menu__open--opened');
+	$(this)
+		.prev()
+		.slideToggle(300);
+	
+	$(this)
+		.toggleClass('my-sub-menu__open--opened');
+	
+	$(this)
+		.parent()
+		.parent()
+		.parent()
+		.parent()
+		.siblings()
+		.find('.sub-menu')
+		.slideUp(300);
+	
+	$(this)
+		.parent()
+		.parent()
+		.parent()
+		.parent()
+		.siblings()
+		.find(subMenuButton)
+		.removeClass('my-sub-menu__open--opened');
 });
 
 //поиск
@@ -58,12 +79,21 @@ searchBtn.click(function(){
 	if (window.innerWidth < 768) {
 		searchField.slideToggle();
 	}
-})
+});
 
-
-
-//кнлпка читать дальше
+//кнопка читать дальше
 var readMoreBtn = $('.features__read-more-button');
 readMoreBtn.click(function(){
 	$(this).parent().next().slideToggle(300);
-})
+});
+
+//красим сайт хедер
+$(window).bind('scroll', function(){ 		
+	var siteHeader = $('.site-header');
+	var scrollTop = $(window).scrollTop(); 
+	if (scrollTop > 420) {
+		siteHeader.addClass('site-header--active');
+	} else {
+		siteHeader.removeClass('site-header--active');
+	}
+});

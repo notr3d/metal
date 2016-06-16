@@ -1,21 +1,27 @@
 .buildings {
-	.content-area {
-		padding-top: 0;
-	}
-	.header {
-		height: 720px;
+	.page-heading {
 		background: url(img/buildings/header-bg.jpg) no-repeat center;
 		&__wrapper {
-			padding: 180px 0 90px;
-			background: url(img/buildings/header-img.png) no-repeat right 270px;
+			height: 100%;
+			background: url(img/buildings/header-img.png) no-repeat right 15px;
 			background-size: 60%;
+			justify-content: flex-start;
 			@media @m {
-				padding: 140px 15px 45px;
+				padding: 0 15px;
+				height: auto;
+				background: none;
 			}
 		}
 		&__container {
-			width: 485px;
-			height: 435px;
+			width: 500px;
+			height: 100%;
+			padding: 15px 0;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			flex-wrap: wrap;
 			@media @m {
 				width: 100%;
 				height: auto;
@@ -26,7 +32,7 @@
 			color: #fff;
 			text-transform: uppercase;
 			margin: 0;
-			margin-bottom: 50px;			
+			margin-bottom: 30px;			
 			font-family: 'Open Sans Condensed', sans-serif;				
 			font-weight: bold;
 			span {
@@ -37,7 +43,7 @@
 			font-size: 16px;
 			color: #fff;
 			margin: 0;
-			margin-bottom: 150px;
+			margin-bottom: 30px;
 			@media @m {
 				margin-bottom: 45px;
 			}
@@ -59,7 +65,7 @@
 				background: @yellow;
 				color: #000;
 				border-color: @yellow;
-				margin-left: 40px;
+				margin-left: auto;
 				&:hover {
 					border-color: #fff;
 				}
