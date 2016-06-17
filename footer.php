@@ -71,15 +71,23 @@
 				<p class="site-footer__address">г. Москва, ул. Ибрагимова, д. 31,<br>офис 308</p>
 			</div>
 		</div>
-		<div class="site-footer__copy">© 2014 «BIG Constructions»</div>
+		<div class="site-footer__copy">© 2014 «BIG Construction»</div>
 		<button class="scrollup"></button>
 	</footer>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/slick.js"></script>
+	<script  src="<?php echo get_template_directory_uri(); ?>/js/jquery.visible.js"></script>		
+	<script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/script-2.js"></script>
+	<?php if (is_page($page = "Конструктор")): ?>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/citiesArray.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/cities.js"></script>		
+		<script src="<?php echo get_template_directory_uri(); ?>/js/constructor.js"></script>
+	<?php endif; ?>	
 	<?php if (is_page($page = "Контакты")): ?>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
 		<script>
 			var center = new google.maps.LatLng(55.789061, 37.729310);
 			var init = function(){
@@ -100,16 +108,11 @@
 			google.maps.event.addDomListener(window, 'load', init);
 		</script>
 	<?php endif; ?>	
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/slick.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.visible.js"></script>	
 	<!--
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/three.js"></script>	
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/OrbitControls.js"></script>-->				
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/citiesArray.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cities.js"></script>		
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/constructor.js"></script>	
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script-2.js"></script>
+	<script  src="<?php echo get_template_directory_uri(); ?>/js/three.js"></script>	
+	<script  src="<?php echo get_template_directory_uri(); ?>/js/OrbitControls.js">
+	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js"></script>
+	</script>-->				
 	<?php wp_footer(); ?>
 	</body>
 </html>

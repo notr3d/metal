@@ -515,9 +515,14 @@ roofShealthingInput.change(function(){
 
 additionalInput.click(function(){
 	if ($(this).prop('checked') == true) {
-		additionalBlock.slideDown();		
+		additionalBlock.slideDown();
+		wallThicknessInput.attr('disabled', true);
+		roofThicknessInput.attr('disabled', true);
+		
 	} else if ($(this).prop('checked') == false) {	
 		additionalBlock.slideUp();
+		wallThicknessInput.attr('disabled', false);
+		roofThicknessInput.attr('disabled', false);
 	};	
 });
 
@@ -715,20 +720,24 @@ var calcThickness = function(){
 	if (wallShealthingInput.val() != 'Профнастил' && wallShealthingInput.val() != null) {
 		RprWallOutput.val(RprWall.toFixed(2));
 		
-		thicknessWall = thicknessWall.toFixed(0) + ' мм';
+		thicknessWall = thicknessWall.toFixed(0) + 'мм';
 		thicknessWallOutput.val(thicknessWall);
 
-		thicknessWallRec = thicknessWallRec.toFixed(0) + ' мм';	
+		thicknessWallRec = thicknessWallRec.toFixed(0) + 'мм';	
 		thicknessWallRecInput.val(thicknessWallRec);
+		
+		wallThicknessInput.val(thicknessWallRec);
 	};
 	if (roofShealthingInput.val() != 'Профнастил' && roofShealthingInput.val() != null) {
 		RprRoofOutput.val(RprRoof.toFixed(2));
 		
-		thicknessRoof = thicknessRoof.toFixed(0) + ' мм';	
+		thicknessRoof = thicknessRoof.toFixed(0) + 'мм';	
 		thicknessRoofOutput.val(thicknessRoof);
 
-		thicknessRoofRec = thicknessRoofRec.toFixed(0) + ' мм';	
+		thicknessRoofRec = thicknessRoofRec.toFixed(0) + 'мм';	
 		thicknessRoofRecInput.val(thicknessRoofRec);
+		
+		roofThicknessInput.val(thicknessRoofRec);
 	};	
 };
 
@@ -968,7 +977,8 @@ var windowTypeQuantityMinus = $('#window-type-minus'),
 	windowTypeNumber = +windowTypeQuantityInput.val();
 
 var typeChange = function(e){
-	windowBlock = '<div class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-' + e + '" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="reinforce-window-' + e + '" name="reinforce-window-' + e + '"><label for="reinforce-window-' + e + '">Усилить конструкцию под проем</label></div><button type="button" class="appearance__delete">x</button></div>';
+	e--;
+	windowBlock = '<div id="appearance-block-' + e + '" class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-' + e + '" id="window-width-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-' + e + '" id="window-height-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-' + e + '" id="window-quantity-' + e + '" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="window-reinforce-' + e + '" name="reinforce-window-' + e + '" class="window-reinforce-input"><label for="window-reinforce-' + e + '">Не учитывать стоимость</label></div><button type="button" class="appearance__delete">x</button></div>';
 };
 
 var windowButtonInit = function(){
@@ -983,7 +993,8 @@ var windowButtonInit = function(){
 		var min = +input.attr('min');
 		if (value > min) {
 			input.val(value - 1);
-		}
+		};
+		input.change();
 	});
 	windowButtonPlus.click(function(){
 		var input = $(this).prev();
@@ -991,7 +1002,8 @@ var windowButtonInit = function(){
 		var max = +input.attr('max');
 		if (value < max) {
 			input.val(value + 1);
-		}
+		};
+		input.change();
 	});
 	windowCountInput.change(function(){
 		var min = +$(this).attr('min');
@@ -1002,6 +1014,12 @@ var windowButtonInit = function(){
 		} else if (val > max) {
 			$(this).val(max);
 		};
+		
+		val = $(this).val();
+		var thisId = $(this).attr('id');
+		var resId = '#r-' + thisId;
+		var result = $(resId);
+		result.text(val);
 	});
 	deleteButton.click(function(){
 		var windowCon = $('.window__container');
@@ -1011,24 +1029,55 @@ var windowButtonInit = function(){
 			appearanceBlock.remove();
 			windowTypeNumber--;
 			windowTypeQuantityInput.val(windowTypeNumber);
+			
+			var thisId = appearanceBlock.attr('id');
+			var arr = thisId.split('-');
+			var resId = '#r-window-container-' + arr[2];
+			var result = $(resId);
+			result.remove();
 		}		
-	})
+	});
+	var reinforceWindowInput = $('.window-reinforce-input');
+	reinforceWindowInput.change(function(){
+		var thisId = $(this).attr('id');
+		var resId = '#r-' + thisId;
+		var result = $(resId);
+		if ($(this).is(':checked')) {
+			result.text('Да');
+		} else {
+			result.text('Нет');
+		};
+	});
 };
 
 windowButtonInit();
 
+var resultContainer = $('.result__container');
+var windowContainerAdding = function(e){
+	var windowResultContainer = '<div id="r-window-container-' + e + '" class="result__window-container"><div class="result__item result__item--2"><span class="result__feature">ширина:</span><span class="result__value" id="r-window-width-' + e + '">-</span></div><div class="result__item result__item--2"><span class="result__feature">Высота: </span><span class="result__value" id="r-window-height-' + e + '">-</span></div><div class="result__item result__item--2"><span class="result__feature">Количество:</span><span class="result__value" id="r-window-quantity-' + e + '">-</span></div><div class="result__item result__item--2"><span class="result__feature">Не учитывать стоимость: </span><span class="result__value" id="r-window-reinforce-' + e + '">-</span></div></div>';
+	
+	resultContainer.last().append(windowResultContainer);
+}		
+
 windowTypeQuantityMinus.click(function(){	
 	if (windowTypeNumber > 1) {
-		windowTypeNumber--;		$(this).parent().parent().next().children().last().remove();
+		windowTypeNumber--;	
+		windowTypeQuantityInput.val(windowTypeNumber);
+		$(this).parent().parent().next().children().last().remove();
+		
+		var windowResultContainer = $('.result__window-container');
+		resultContainer.find(windowResultContainer).last().remove();
 	}
 });
 windowTypeQuantityPlus.click(function(){	
 	if (windowTypeNumber < 10) {
-		windowTypeQuantityInput.val(windowTypeNumber);
 		windowTypeNumber++;
+		windowTypeQuantityInput.val(windowTypeNumber);
 		typeChange(windowTypeNumber+1);
 		$(this).parent().parent().next().append(windowBlock);
-		windowButtonInit();	
+		windowButtonInit();		
+		
+		windowContainerAdding(windowTypeNumber);
 	}
 });
 windowTypeQuantityInput.change(function(){		
@@ -1187,24 +1236,36 @@ inputNumber.change(function(){
 	var weekSpan = $('.period__week');
 	var week = 'недели';
 	var lastNumber = val.toString();
-	lastNumber = lastNumber.substr(lastNumber.length - 1);
-	switch (lastNumber) {		
-		case '1': 
-			week = 'неделя';
-			break;
-		case '2': 			
-		case '3': 			
-		case '4': 
-			week = 'недели';
-			break;
-		case '5': 			
-		case '6': 			
-		case '7': 			
-		case '8': 			
-		case '9': 
-		case '0': 
-			week = 'недель';
-			break;
-	};
+	if (lastNumber < 21) {
+		week = 'недель';
+	} else {
+		lastNumber = lastNumber.substr(lastNumber.length - 1);
+		switch (lastNumber) {		
+			case '1': 
+				week = 'неделя';
+				break;
+			case '2': 			
+			case '3': 			
+			case '4': 
+				week = 'недели';
+				break;
+			case '5': 			
+			case '6': 			
+			case '7': 			
+			case '8': 			
+			case '9': 
+			case '0': 
+				week = 'недель';
+				break;
+		}
+	};	
 	weekSpan.text(week);
 });
+
+//проверка на дробные, округляем в большую сторону
+var numberInput = $('input[type="number"]');
+numberInput.change(function(){
+	var val = $(this).val();
+	val = Math.ceil(val);
+	$(this).val(val);
+})

@@ -102,7 +102,7 @@
 							</div>									
 						</div>	
 						<div class="step__controls-area lcw">
-							<button type="button" name="previous" class="control-button control-button--prev" style="visibility: hidden; ">Размеры</button>
+							<button type="button" name="previous" class="control-button control-button--prev" style="visibility: hidden; ">Назад</button>
 							<div class="paginator">
 								<button type="button" class="paginator__button paginator__button--active">1</button>
 								<button type="button" class="paginator__button">2</button>
@@ -110,7 +110,7 @@
 								<button type="button" class="paginator__button">4</button>
 								<button type="button" class="paginator__button">5</button>
 							</div>
-							<button type="button" name="next" id="to-dimension-button" class="control-button control-button--next">Размеры</button>
+							<button type="button" name="next" id="to-dimension-button" class="control-button control-button--next">Далее</button>
 						</div>					
 					</fieldset>
 					<fieldset class="step dimension">
@@ -342,7 +342,7 @@
 											</div>
 											<div class="additional__item">
 												<div class="additional__inner">
-													<label for="t-in">Внутренняя температура: </label>
+													<label for="t-in">Внутренняя температура, °: </label>
 													<div class="additional__con">
 														<button type="button" id="t-in-minus" class="additional__button additional__button--minus"></button>
 														<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
@@ -352,7 +352,7 @@
 											</div>
 											<div class="additional__item">
 												<div class="additional__inner">
-													<label for="t-out">Внешняя температура: </label>
+													<label for="t-out">Внешняя температура, °: </label>
 													<div class="additional__con">
 														<input type="number" name="t-out" id="t-out" disabled>
 													</div>
@@ -434,7 +434,7 @@
 							</div>
 						</div>
 						<div class="step__controls-area lcw">
-							<button type="button" name="previous" class="control-button control-button--prev">Назначение</button>
+							<button type="button" name="previous" class="control-button control-button--prev">Назад</button>
 							<div class="paginator">
 								<button type="button" class="paginator__button paginator__button--enabled">1</button>
 								<button type="button" class="paginator__button paginator__button--active">2</button>
@@ -442,7 +442,7 @@
 								<button type="button" class="paginator__button">4</button>
 								<button type="button" class="paginator__button">5</button>
 							</div>
-							<button type="button" name="next" class="control-button  control-button--next">Внешний вид</button>
+							<button type="button" name="next" class="control-button  control-button--next">Далее</button>
 						</div>
 					</fieldset>
 					<fieldset class="step appearance">
@@ -639,7 +639,7 @@
 											</div>
 											<div class="appearance__reinforce">
 												<input type="checkbox" id="reinforce-door" name ="reinforce-door" disabled>
-												<label for="reinforce-door">Не учитывать стоимость дверей</label>
+												<label for="reinforce-door">Не учитывать стоимость</label>
 											</div>
 										</div>
 									</div>
@@ -666,7 +666,7 @@
 											</div>
 											<div class="appearance__reinforce">
 												<input type="checkbox" id="reinforce-gate" name ="reinforce-gate" disabled>
-												<label for="reinforce-gate">Не учитывать стоимость ворот</label>
+												<label for="reinforce-gate">Не учитывать стоимость</label>
 											</div>
 										</div>
 									</div>
@@ -693,7 +693,7 @@
 											</div>	
 											<div class="appearance__reinforce">
 												<input type="checkbox" id="reinforce-translucent" name ="reinforce-translucent" disabled>
-												<label for="reinforce-translucent">Не учитывать стоимость светопрозрачных участков кровли</label>
+												<label for="reinforce-translucent">Не учитывать стоимость</label>
 											</div>	
 										</div>						
 									</div>
@@ -704,36 +704,36 @@
 												<label for="window">Окна</label>
 												<div class="appearance__count">
 													<h4>Добавить позицию: </h4>
-													<button type="button" class="count-button count-button--minus" id="window-type-minus" disabled>-</button>
+													<button type="button" class="count-button " id="window-type-minus" disabled>-</button>
 													<input type="number" name="window-type-quantity" class="count-input"  id="window-type-quantity" min="1" max="10" value="1" disabled>
-													<button type="button" class="count-button count-button--plus" id="window-type-plus" disabled>+</button>
+													<button type="button" class="count-button" id="window-type-plus" disabled>+</button>
 												</div>
 											</div>
 											<div class="window__container">
-												<div class="appearance__block">
+												<div id="appearance-block-1" class="appearance__block">
 													<div class="appearance__dimension">
 														<div class="appearance__count">
 															<h4>Ширина: </h4>
 															<button type="button" class="window-button--minus" disabled>-</button>
-															<input type="number" name="window-width-1" class="window-input" min="0" max="10" disabled>
+															<input type="number" id="window-width-1" name="window-width-1" class="window-input" min="0" max="10" disabled>
 															<button type="button" class="window-button--plus" disabled>+</button>
 														</div>
 														<div class="appearance__count">
 															<h4>Высота: </h4>
 															<button type="button" class="window-button--minus" disabled>-</button>
-															<input type="number" name="window-height-1" class="window-input" min="0" max="10" disabled>
+															<input type="number" name="window-height-1" id="window-height-1" class="window-input" min="0" max="10" disabled>
 															<button type="button" class="window-button--plus" disabled>+</button>
 														</div>
 													</div>
 													<div class="appearance__count">
 														<h4>Количество: </h4>
 														<button type="button" class="window-button--minus" disabled>-</button>
-														<input type="number" name="window-quantity-1" class="window-input" min="0" max="10" disabled>
+														<input type="number" name="window-quantity-1" id="window-quantity-1" class="window-input" min="0" max="10" disabled>
 														<button type="button" class="window-button--plus" disabled>+</button>
 													</div>							
 													<div class="appearance__reinforce">
-														<input type="checkbox" id="reinforce-window-1" name ="reinforce-window-1" disabled>
-														<label for="reinforce-window-1">Не учитывать стоимость окон</label>
+														<input type="checkbox" id="window-reinforce-1" name ="window-reinforce-1" class="window-reinforce-input" disabled>
+														<label for="window-reinforce-1">Не учитывать стоимость</label>
 													</div>
 													<button type="button" class="appearance__delete" disabled>x</button>
 												</div>
@@ -744,7 +744,7 @@
 							</div>	
 						</div>						
 						<div class="step__controls-area lcw">
-							<button type="button" name="previous" class="control-button control-button--prev">Размеры</button>
+							<button type="button" name="previous" class="control-button control-button--prev">Назад</button>
 							<div class="paginator">
 								<button type="button" class="paginator__button paginator__button--enabled">1</button>
 								<button type="button" class="paginator__button paginator__button--enabled">2</button>
@@ -752,13 +752,13 @@
 								<button type="button" class="paginator__button">4</button>
 								<button type="button" class="paginator__button">5</button>
 							</div>
-							<button type="button" name="next" class="control-button  control-button--next">Результат</button>
+							<button type="button" name="next" class="control-button  control-button--next">Далее</button>
 						</div>
 					</fieldset>
 
 					<fieldset class="step result">
 						<div class="step__heading">
-							<h2 class="step__title lcw"><span>Шаг 4.</span> Результат</h2>
+							<h2 class="step__title lcw"><span>Шаг 4.</span> Проверить данные</h2>
 							<!--<h3 class="step__subtitle">This is step 4</h3>-->
 						</div>
 						<div class="step__container">
@@ -883,26 +883,32 @@
 												<span class="result__feature">Не учитывать стоимость: </span>
 												<span class="result__value" id="r-translucent-reinforce">-</span>
 											</div>	
-											<!--<h4 class="result__header">Окна</h4>
-											<div class="result__item result__item--3">
-												<span class="result__feature">Количество:</span>
-												<span class="result__value" id="r-window-quantity"></span>
-											</div>
-											<div class="result__item result__item--3">
-												<span class="result__feature">Размеры:</span>
-												<span class="result__value" id="r-window-dimension"></span>
-											</div>
-											<div class="result__item result__item--3">
-												<span class="result__feature">Не учитывать стоимость: </span>
-												<span class="result__value" id="r-window-reinforce"></span>
-											</div>-->	
+											<h4 class="result__header">Окна</h4>
+											<div id="r-window-container-1" class="result__window-container">
+												<div class="result__item result__item--2">
+													<span class="result__feature">ширина:</span>
+													<span class="result__value" id="r-window-width-1">-</span>
+												</div>
+												<div class="result__item result__item--2">
+													<span class="result__feature">Высота: </span>
+													<span class="result__value" id="r-window-height-1">-</span>
+												</div>
+												<div class="result__item result__item--2">
+													<span class="result__feature">Количество:</span>
+													<span class="result__value" id="r-window-quantity-1">-</span>
+												</div>
+												<div class="result__item result__item--2">
+													<span class="result__feature">Не учитывать стоимость: </span>
+													<span class="result__value" id="r-window-reinforce-1">-</span>
+												</div>						
+											</div>								
 										</div>	
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="step__controls-area lcw">
-							<button type="button" name="previous" class="control-button control-button--prev">Внешний вид</button>
+							<button type="button" name="previous" class="control-button control-button--prev">Назад</button>
 							<div class="paginator">
 								<button type="button" class="paginator__button paginator__button--enabled">1</button>
 								<button type="button" class="paginator__button paginator__button--enabled">2</button>
@@ -910,13 +916,13 @@
 								<button type="button" class="paginator__button paginator__button--active">4</button>
 								<button type="button" class="paginator__button">5</button>
 							</div>
-							<button type="button" name="next" class="control-button  control-button--next">Контактная информация</button>
+							<button type="button" name="next" class="control-button  control-button--next">Далее</button>
 						</div>
 					</fieldset>
 
 					<fieldset class="step step--last info">
 						<div class="step__heading">
-							<h2 class="step__title lcw"><span>Шаг 4.</span> Контактная информация</h2>
+							<h2 class="step__title lcw"><span>Шаг 5.</span> Контактная информация</h2>
 							<!--<h3 class="step__subtitle">This is step 5</h3>-->
 						</div>
 						<div class="step__container">
@@ -936,7 +942,7 @@
 									</div>
 									<div class="info__item info__item--name">
 										<div class="info__inner">
-											<label for="name">Имя:</label>
+											<label for="name">Имя: *</label>
 											<input name="name" id="name">
 										</div>
 									</div>
@@ -958,30 +964,18 @@
 											<div class="period">
 												<div class="period__wrapper">
 													<button type="button" class="period__button period__button--minus"></button>
-													<input type="number" name="period" class="period__input" value="32" min="30" max="100">
+													<input type="number" name="period" class="period__input" value="30" min="10" max="99">
 													<button type="button" class="period__button period__button--plus"></button>
 												</div>
 											</div>
-											<span class="period__week">недели</span>
-											<!--<select name="period" id="period">
-												<option value="18 недель">18 недель</option>
-												<option value="19 недель">19 недель</option>
-												<option value="20 недель">20 недель</option>
-												<option value="21 неделя">21 неделя</option>
-												<option value="22 недели">22 недели</option>
-												<option value="23 недели">23 недели</option>
-												<option value="24 недели">24 недели</option>
-												<option value="25 недель">25 недель</option>
-												<option value="26 недель">26 недель</option>
-												<option value="Больше 26 недель">Больше 26 недель</option>
-											</select>-->
+											<span class="period__week">недель</span>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="step__controls-area lcw">
-							<button type="button" name="previous" class="control-button control-button--prev">Результат</button>
+							<button type="button" name="previous" class="control-button control-button--prev">Назад</button>
 							<div class="paginator">
 								<button type="button" class="paginator__button paginator__button--enabled">1</button>
 								<button type="button" class="paginator__button paginator__button--enabled">2</button>

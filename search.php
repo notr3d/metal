@@ -9,12 +9,11 @@
 
 get_header(); ?>
 
-	<main id="main" class="site-main container" role="main">
+	<main id="search" class="site-main container" role="main">
 		<header class="page-header">
 			<h1 class="page-title"><?php printf( esc_html__( 'Результаты поиска для: %s', '_s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		</header>
 		<div id="" class="content-area col-sm-9">
-
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>

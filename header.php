@@ -43,17 +43,17 @@
 										<span class="my-sub-menu__text">Производство</span>
 									</a>
 								</div>
-								<div class="my-sub-menu__item my-sub-menu__item--link">
+								<!--<div class="my-sub-menu__item my-sub-menu__item--link">
 									<a href="<?php echo get_permalink( get_page_by_title('Заказчики')->ID ); ?>" class="my-sub-menu__link">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/3.png" alt="" class="my-sub-menu__img">
 										<span class="my-sub-menu__text">Сотрудничество</span>
 									</a>
-								</div>								
+								</div>-->								
 							</div>
 						</div>
 					</div>
 					<div class="site-nav__item">
-						<a href="<?php echo get_permalink( get_page_by_title('Продукция')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Продукция <span class="caret"></span></a>
+						<a href="<?php echo get_permalink( get_page_by_title('Полнокомплектные здания')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Продукция <span class="caret"></span></a>
 						<div class="my-sub-menu my-sub-menu--2">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 					<div class="site-nav__item">
-						<a href="<?php echo get_permalink( get_page_by_title('Услуги')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги <span class="caret"></span></a>
+						<a href="<?php echo get_permalink( get_page_by_title('Проектирование')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги <span class="caret"></span></a>
 						<div class="my-sub-menu my-sub-menu--3">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">

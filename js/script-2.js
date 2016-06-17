@@ -95,5 +95,20 @@ $(window).bind('scroll', function(){
 		siteHeader.addClass('site-header--active');
 	} else {
 		siteHeader.removeClass('site-header--active');
-	}
+	};
+});
+
+//parallax effect
+$(window).bind('scroll', function(){
+	var pageHeading = $('.page-heading'),
+		start = 0,
+		end = 500,
+		offset = $(document).scrollTop(),
+		opacity = 0;
+    if (offset <= start) {
+        opacity = 1;
+    } else if (offset <= end) {
+        opacity = 1 - offset / end;
+    }
+    pageHeading.css('opacity', opacity);
 });

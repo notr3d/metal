@@ -1,134 +1,97 @@
-<?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package _s
- */
-
-get_header(); ?>
-
-	<main class="metal container-fluid" role="main">
-		<div class="content-area">
-			<div id="metal" class="heading">
-				<div class="heading__wrapper container">
-					<nav class="navigation col-sm-3">
-						<div class="navigation__wrapper">
-							<h2>Содержание</h2>
-							<a href="#metal" class="">Металлоконструкции</a>
-							<a href="#about">Основные сведения</a>
-							<a href="#galery">Галерея</a>
-							<a href="#info">Информация</a>
+<?php get_header(); ?>
+<main class="metal">
+	<header class="page-heading">
+		<div class="page-heading__wrapper lcw">
+			<div class="page-heading__container">
+				<h1 class="page-heading__header">Строительные<br><span>Металлоконструкции</span></h1>
+				<p class="page-heading__text">Меньший вес, простота изготовления, легкость монтажа, прочность и надежности в эксплуатации...
+				Металлоконструкции обладают множеством преимуществ перед другими строительными материалами.</p>
+				<a href="<?php echo get_permalink( get_page_by_title('Конструктор')->ID ); ?>" class="page-heading__link">Как построить здание?</a>
+				<a href="<?php echo get_permalink( get_page_by_title('Контакты')->ID ); ?>" class="page-heading__link page-heading__link--special">Отправить заявку</a>
+			</div>
+		</div>
+	</header>
+	<div class="content-area content-area--landing">
+		<section class="features">
+			<div class="features__wrapper lcw">
+				<div class="features__item">
+					<div class="features__column features__column--left">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/metal/features/1.png" alt="" class="features__img">
+					</div>
+					<div class="features__column features__column--right">
+						<h2 class="features__header">Колонны</h2>
+						<div class="features__text">
+							<p>Для опоры строительных перекрытий, сводов, балок необходимы определенные элементы конструкции — металлические колонны, изготавливающиеся из сортового стального проката. Компания «БИГ Констракшн» предлагает вашему вниманию колонны различного поперечного сечения изготовленные как сварным так и прокатным способом.<br>Металлические колонны из сварной балки являются видом металлоконструкций, применяющихся для возведения зданий и сооружений, в монтаже которых предполагается наличие больших пролетов.</p>
 						</div>
-					</nav>					
-					<div class="heading__heading col-sm-9">
-						<h1 class="heading__header">Металлоконструкции</h1>
 					</div>
 				</div>
-			</div>
-			<div class="annotation container">
-				<div class="annotation__wrapper col-sm-offset-3 col-sm-9">
-					<p class="annotation__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste alias illum sint accusamus obcaecati, dolore eum necessitatibus reprehenderit ea maxime, repellat similique temporibus dolorum quasi, eveniet, eaque dignissimos nihil eius. Aliquam, unde ducimus numquam, amet voluptatum porro, eligendi, molestias architecto natus aut laudantium sint! Consequuntur unde quibusdam saepe nesciunt quia harum ratione sint atque dolor! Pariatur, dolor explicabo deserunt commodi.</p>
-					<a href="../../constructor" class="annotation__link my-fancy-button">Сделать запрос</a>					
-				</div>
-			</div>
-			<div id="about" class="about container">
-				<div id="about" class="about__wrapper col-sm-offset-3 col-sm-9">
-					<h2 class="about__heading">О металлоконструкциях</h2>
-					<div class="about__item col-sm-12">
-						<div class="about__left col-sm-3">
-							<img src="" alt="" class="about__img">
-						</div>
-						<div class="about__right col-sm-9">
-							<h3 class="about__header">Первоклассное качество</h3>
-							<p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum provident iusto nulla maxime explicabo harum reprehenderit, eius voluptas voluptates itaque. Eveniet error nisi, nobis ullam odit fugiat amet ad eum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, reprehenderit alias excepturi, nemo dicta vitae quibusdam debitis cupiditate incidunt doloremque facere eius inventore blanditiis, adipisci itaque eveniet voluptates quidem necessitatibus!</p>
+				<div class="features__item">
+					<div class="features__column features__column--left">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/metal/features/2.png" alt="" class="features__img">
+					</div>
+					<div class="features__column features__column--right">
+						<h2 class="features__header">Балки</h2>
+						<div class="features__text">
+							<p>В строительстве производственных, технологических и жилых сооружений одними из наибнлее востребованных профилей являются двутавровые балки.<br>Для расширения используемого в изготовлении металлоконструкций сортамента двутавровых балок, увеличения возможностей возведения зданий и сооружений различной сложности и архитектурных форм, а также уменьшения себестоимости продукции на заводе установлен комплекс оборудования, позволяющий осуществлять законченный цикл изготовления двутавровых балок из листа.</p>
 						</div>
 					</div>
-					<div class="about__item col-sm-12">
-						<div class="about__left col-sm-3">
-							<img src="" alt="" class="about__img">
-						</div>
-						<div class="about__right col-sm-9">
-							<h3 class="about__header">Гарантия</h3>
-							<p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum provident iusto nulla maxime explicabo harum reprehenderit, eius voluptas voluptates itaque. Eveniet error nisi, nobis ullam odit fugiat amet ad eum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, reprehenderit alias excepturi, nemo dicta vitae quibusdam debitis cupiditate incidunt doloremque facere eius inventore blanditiis, adipisci itaque eveniet voluptates quidem necessitatibus!</p>
+				</div>
+				<div class="features__item">
+					<div class="features__column features__column--left">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/metal/features/3.png" alt="" class="features__img">
+					</div>
+					<div class="features__column features__column--right">
+						<h2 class="features__header">Фермы</h2>
+						<div class="features__text">
+							<p>Фермы металлические представляют собой решетчатые конструкции, состоящие из прямолинейных стержней, которые соединяются в узлах. Такие конструкции достаточно легкие и при этом отличаются особой прочностью и надежностью. Применяются фермы металлические для строительства самых разнообразных сооружений, в том числе навесов, вокзалов, больших промышленных зданий, а также мостов и транспортных эстакад.<br>На сегодня, фермы из металлопрофиля классифицируют по разным критериям. Существуют фермы из металла: пространственные (еще их называют объемные) и плоские фермы. В плоских фермах оси стержней расположены в одной плоскости, соответственно в пространственных — наоборот, оси лежат в разных плоскостях.</p>
 						</div>
 					</div>
-					<div class="about__item col-sm-12">
-						<div class="about__left col-sm-3">
-							<img src="" alt="" class="about__img">
-						</div>
-						<div class="about__right col-sm-9">
-							<h3 class="about__header">Совместимость</h3>
-							<p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum provident iusto nulla maxime explicabo harum reprehenderit, eius voluptas voluptates itaque. Eveniet error nisi, nobis ullam odit fugiat amet ad eum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, reprehenderit alias excepturi, nemo dicta vitae quibusdam debitis cupiditate incidunt doloremque facere eius inventore blanditiis, adipisci itaque eveniet voluptates quidem necessitatibus!</p>
+				</div>
+				<div class="features__item">
+					<div class="features__column features__column--left">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/metal/features/4.png" alt="" class="features__img">
+					</div>
+					<div class="features__column features__column--right">
+						<h2 class="features__header">Прогоны</h2>
+						<div class="features__text">
+							<p>Прогоны из металла предназначены для того, чтобы осуществлять крепление кровельных и стеновых конструкций к каркасу. Также прогоны воспринимают все ветровые, снеговые и прочие нагрузки, идущие от вышеперечисленных конструкций. Прогоны могут быть сплошными и решетчатыми – в этом также принципиальное их различие. Первые тяжелее, но проще в изготовлении и монтаже, к тому же, их можно использовать при шаге ферм, начинающимся с 6 метров.<br>Преимущество сплошных в том, что они проще в производстве и монтаже, однако они тяжелее, чем решетчатые. Сплошные прогоны изготавливаются из швеллеров либо из двутавров и используются при габаритах ферм не более 6 м. При этом сплошные прогоны при той же металлоемкости, что и решетчатые, на 10-15% дешевле последних, на чем сказывается технология производства.</p>
 						</div>
 					</div>
-					<div class="about__item col-sm-12">
-						<div class="about__left col-sm-3">
-							<img src="" alt="" class="about__img">
-						</div>
-						<div class="about__right col-sm-9">
-							<h3 class="about__header">Прочность</h3>
-							<p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum provident iusto nulla maxime explicabo harum reprehenderit, eius voluptas voluptates itaque. Eveniet error nisi, nobis ullam odit fugiat amet ad eum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, reprehenderit alias excepturi, nemo dicta vitae quibusdam debitis cupiditate incidunt doloremque facere eius inventore blanditiis, adipisci itaque eveniet voluptates quidem necessitatibus!</p>
-						</div>
-					</div>					
 				</div>
-			</div>
-			<div class="divider divider--1"></div>
-			<div id="galery" class="carousel container">
-				<div class="carousel__wrapper col-sm-offset-3 col-sm-9">
-					<h2 class="carousel__heading">Галерея</h2>
-					<p class="carousel__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus rerum maxime recusandae, ut placeat unde fugiat animi, fuga vel magni atque harum, cupiditate veritatis cumque! Fugiat sapiente assumenda tempora iusto?</p>
-					<div class="carousel__carousel">
-						<div class="carousel-top">
-							<div class="carousel-top__item">1</div>
-							<div class="carousel-top__item">2</div>
-							<div class="carousel-top__item">3</div>
-							<div class="carousel-top__item">4</div>
-							<div class="carousel-top__item">5</div>
-							<div class="carousel-top__item">6</div>
-							<div class="carousel-top__item">7</div>
-							<div class="carousel-top__item">8</div>
-							<div class="carousel-top__item">9</div>
-							<div class="carousel-top__item">0</div>
-						</div>
-						<div class="carousel-bot">
-							<div class="carousel-bot__item">11</div>
-							<div class="carousel-bot__item">22</div>
-							<div class="carousel-bot__item">33</div>
-							<div class="carousel-bot__item">44</div>
-							<div class="carousel-bot__item">55</div>
-							<div class="carousel-bot__item">66</div>
-							<div class="carousel-bot__item">77</div>
-							<div class="carousel-bot__item">88</div>
-							<div class="carousel-bot__item">99</div>
-							<div class="carousel-bot__item">00</div>
-						</div>						
+				<div class="features__item">
+					<div class="features__column features__column--left">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/metal/features/5.png" alt="" class="features__img">
 					</div>
+					<div class="features__column features__column--right">
+						<h2 class="features__header">Прочие строительные элементы</h2>
+						<div class="features__text">
+							<p>Прочие строительные металлоконструкции - это подкрановые балки, элементы бункерных и разгрузочных эстакад, балки площадок, монорельсы, лестницы и ограждения, решетки и навесы.</p>
+						</div>
+					</div>
+				</div>																
+			</div>
+		</section>
+		<section class="add-services">
+			<div class="add-services__wrapper lcw">
+				<h2 class="add-services__header">Производство + доставка + монтаж <span>металлоконструкций</span></h2>
+				<div class="add-services__container">
+					<p class="add-services__text">Компания АО «БИГ Констракшн» осуществляет производство и монтаж металлоконструкций любой сложности и назначения на заказ. В работе используются современные строительные технологии, с помощью которых можно возводить одно- и многопролетные сооружения различной этажности, оснащенные крановым оборудованием и без него. Также возможен монтаж конструкций с пролетами неограниченной длины с учетом всех требований заказчика и необходимой клиенту грузоподъемностью.</p>
+					<p class="add-services__text">Работы по монтажу металлоконструкций выполняют аттестованные специалисты, имеющие опыт промышленного строительства. Бригада прибывает на объект со всей необходимой техникой в течение 5–10 дней. Высокотехнологичное оборудование позволяет выполнять монтаж в довольно короткие сроки.</p>
+					<a href="<?php echo get_permalink( get_page_by_title('Монтаж')->ID ); ?>" class="add-services__link">О монтаже</a>
+					<a href="<?php echo get_permalink( get_page_by_title('Доставка')->ID ); ?>" class="add-services__link">О Доставке</a>
 				</div>
 			</div>
-			<div class="divider divider--2"></div>
-			<div id="info" class="company container">
-				<div class="company__wrapper col-sm-offset-3 col-sm-9">
-					<h2 class="company__heading">About</h2>
-					<p class="company__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam ratione, vel asperiores libero. Temporibus laboriosam quos vel delectus labore voluptas asperiores eos fugiat! Id vel, corrupti dignissimos consectetur quae voluptatum.<br>
-					Similique mollitia delectus totam natus officiis suscipit placeat iure voluptatum distinctio iste. Aliquam tempora provident cumque quaerat, quas eligendi, quo illo error nisi saepe ea, asperiores explicabo. A, asperiores, corrupti.<br>
-					Laboriosam voluptatibus eveniet facilis mollitia, optio ratione alias illum temporibus, voluptates neque aperiam officiis quos magni et veritatis saepe fuga nam vitae totam quibusdam cum voluptas iste. Incidunt, consectetur, labore?<br>
-					Dicta, eligendi facere odit accusamus optio nulla, soluta iure accusantium esse delectus blanditiis, nobis dignissimos voluptas error sit expedita ipsum vero eos quidem. Illo aut earum repudiandae voluptatibus quisquam optio!<br>
-					Voluptatum quos deleniti, quibusdam, omnis tenetur quisquam maiores error sequi eaque quo ducimus perferendis fugit quis, laboriosam fugiat. Eum eius in neque, laudantium officia cum laborum ea, nulla perferendis reiciendis?<br>
-					Sequi facere exercitationem, molestias sunt fugiat assumenda numquam eaque provident quibusdam nulla deserunt iure commodi! Omnis iste ullam alias laborum enim corrupti voluptate nobis, nulla illum ea aliquam, deleniti accusamus!<br>
-					Perspiciatis, consectetur quaerat labore id nemo laboriosam neque soluta eos voluptates non aut dicta nesciunt ipsum doloremque accusantium dolore corporis incidunt error placeat, rem assumenda expedita! Sequi vitae perspiciatis laudantium.<br>
-					Itaque veniam obcaecati ducimus autem ipsam delectus illum necessitatibus velit perferendis modi fuga, qui tempore repudiandae porro nesciunt sint fugit perspiciatis aut. Optio facere tenetur reiciendis rerum dolores autem repellendus.<br>
-					Quos voluptatum fugiat voluptates recusandae maiores ut placeat minus libero, cumque amet cupiditate mollitia doloremque officiis incidunt sequi autem molestiae harum eos odit! Et sapiente rem, cupiditate corrupti temporibus natus.<br>
-					Excepturi a ipsam, mollitia tempore. Ipsa accusantium deleniti mollitia. Iste quisquam facilis eveniet quae nemo delectus ab eligendi explicabo pariatur modi. Mollitia nulla enim nisi provident tempore, beatae quia culpa?</p>
-				</div>
+		</section>
+		<section class="request">
+			<div class="request__wrapper lcw">
+				<h2 class="request__header">Узнайте стоиость вашего проекта</h2>
+				<button class="request__button">Оставить заявку</button>
 			</div>
-		</div><!-- #primary -->
-	</main><!-- #main -->
-
+		</section>
+	</div>
+</main>
 <?php get_footer(); ?>
+
+
+
+

@@ -5,8 +5,8 @@
 				<div class="page-heading__container">
 					<h1 class="page-heading__header"><span>Монтаж</span><br>Металлоконструкций</h1>
 					<p class="page-heading__text">Благодаря легкости стальных конструкций, здание из них можно собрать вручную, без применения спецтехники и строительных машин. Например, 3 - 4 рабочих легко соберут каркас общей площадью 150-200 м2 за 15-20 дней. Такие сроки делают здание из стали по-настоящему быстровозводимым.</p>
-					<a href="" class="page-heading__link">Как построить здание?</a>
-					<a href="" class="page-heading__link page-heading__link--special">Отправить заявку</a>
+					<a href="<?php echo get_permalink( get_page_by_title('Конструктор')->ID ); ?>" class="page-heading__link">Как построить здание?</a>
+					<a href="<?php echo get_permalink( get_page_by_title('Контакты')->ID ); ?>" class="page-heading__link page-heading__link--special">Отправить заявку</a>
 				</div>
 			</div>
 		</header>
