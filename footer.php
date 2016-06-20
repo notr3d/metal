@@ -95,7 +95,10 @@
 					center: center,
 					scrollwheel: false,
 					zoom: 16,
-					mapTypeId: google.maps.MapTypeId.ROADMAP
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					zoomControl: false,
+					mapTypeControl: false,
+					streetViewControl: false
 				};
 				var map = new google.maps.Map(document.getElementById('map'), prop);
 				var marker = new google.maps.Marker({
@@ -103,7 +106,7 @@
 					icon: '<?php echo get_template_directory_uri(); ?>/img/map-icon.png',
 					size: new google.maps.Size(20, 32)
 				});
-				marker.setMap(map);
+				marker.setMap(map);				
 			};
 			google.maps.event.addDomListener(window, 'load', init);
 		</script>

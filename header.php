@@ -25,6 +25,12 @@
 				<div class="site-nav">
 					<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('О компании')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Компания <span class="caret"></span></a>
+						<?php 						
+							wp_nav_menu(array(
+								'theme_location' => 'header-menu-1',
+								'menu_class' => 'site-map',
+							));
+						?>
 						<div class="my-sub-menu my-sub-menu--1">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
@@ -54,6 +60,12 @@
 					</div>
 					<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('Полнокомплектные здания')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Продукция <span class="caret"></span></a>
+						<?php 						
+							wp_nav_menu(array(
+								'theme_location' => 'header-menu-2',
+								'menu_class' => 'site-map',
+							));
+						?>
 						<div class="my-sub-menu my-sub-menu--2">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
@@ -78,6 +90,13 @@
 					</div>
 					<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('Проектирование')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги <span class="caret"></span></a>
+						<?php 						
+							wp_nav_menu(array(
+								'theme_location' => 'header-menu-3',
+								'menu_class' => 'site-map',
+								'menu_id' => 'site-map-special',
+							));
+						?>
 						<div class="my-sub-menu my-sub-menu--3">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
@@ -112,45 +131,18 @@
 						<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-nav__link">Контакты</a>
 					</div>
 				</div>
-				<?php get_search_form(); ?>
-				<button id="search" class="site-header__button site-header__button--search"></button>
-				<button id="site-map" class="site-header__button site-header__button--site-map"></button>
-				<div class="site-map">
-					<div class="site-map__wrapper lcw">
-						<div class="site-map__column">
-							<?php 						
-								wp_nav_menu(array(
-									'theme_location' => 'footer-menu-1',
-									'menu_class' => 'site-map__menu',
-								));
-							?>
-						</div>
-						<div class="site-map__column">
-							<?php 						
-								wp_nav_menu(array(
-									'theme_location' => 'footer-menu-2',
-									'menu_class' => 'site-map__menu',
-								));
-							?>
-						</div>
-						<div class="site-map__column">
-							<?php 						
-								wp_nav_menu(array(
-									'theme_location' => 'footer-menu-3',
-									'menu_class' => 'site-map__menu',
-								));
-							?>
-						</div>
-						<div class="site-map__column">
-							<?php 						
-								wp_nav_menu(array(
-									'theme_location' => 'footer-menu-4',
-									'menu_class' => 'site-map__menu',
-								));
-							?>
-						</div>
-					</div>
+				<div class="site-nav__add">
+					<?php get_search_form(); ?>
+					<button id="search" class="site-header__button site-header__button--search"></button>
+					<button id="site-map" class="site-header__button site-header__button--site-map"></button>
+					<button id="mobile-menu" class="site-header__button site-header__button--mobile-menu"></button>
 				</div>
+				<?php 						
+					wp_nav_menu(array(
+						'theme_location' => 'mobile-menu',
+						'menu_class' => 'mobile-menu',
+					));
+				?>
 			</div>
 		</header>
 		<div class="site-content">

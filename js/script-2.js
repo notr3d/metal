@@ -3,12 +3,12 @@ var siteNavLink = $('.site-nav__link');
 siteNavLink.hover(function(){
 	if (!siteMap.hasClass('opened')) {
 		$(this).addClass('hover');
-		var siteNavSubMenu = $(this).next();
+		var siteNavSubMenu = $(this).next().next();
 		siteNavSubMenu.show();
 	}
 }, function(){
 	$(this).removeClass('hover');
-	var siteNavSubMenu = $(this).next();
+	var siteNavSubMenu = $(this).next().next();
 	siteNavSubMenu.hide();
 });
 
@@ -22,22 +22,25 @@ siteNavSubMenu.hover(function(){
 	$(this).prev().removeClass('hover');
 })
 
-//карта сайта
-var siteMapBtn = $('#site-map');
+//site map
 var siteMap = $('.site-map');
-var siteMapClose = $('.site-map__close');
+var siteMapBtn = $('#site-map');
 siteMapBtn.click(function(){
-	if (!siteMap.hasClass('opened')) {
-		siteMap.slideDown(300);
-		siteMap.addClass('opened');
+	siteMap.slideToggle(300);
+	siteMap.toggleClass('opened');
+	siteMap.parent().prev().toggleClass('active');
+})
+//мобильное меню
+var mobileMenu = $('.mobile-menu');
+var mobileMenuBtn = $('#mobile-menu');
+mobileMenuBtn.click(function(){
+	if (!mobileMenu.hasClass('opened')) {
+		mobileMenu.slideDown(300);
+		mobileMenu.addClass('opened');
 	} else {
-		siteMap.slideUp(300);
-		siteMap.removeClass('opened');
+		mobileMenu.slideUp(300);
+		mobileMenu.removeClass('opened');
 	}
-});
-siteMapClose.click(function(){
-	siteMap.slideUp();
-	siteMap.removeClass('opened');
 });
 
 //мобильное меню
