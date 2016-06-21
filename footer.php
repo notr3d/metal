@@ -5,8 +5,8 @@
 			<div class="site-footer__item">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/email.png" alt="" class="site-footer__img">
 				<a href="mailto:info@bigmsk.ru" class="site-footer__link">info@bigmsk.ru</a><br>
-				<button type="button" class="site-footer__button" data-toggle="modal" data-target="#email">Написать письмо</button>
-				<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-footer__button">Написать письмо</a>
+				<!--<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -34,35 +34,37 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div class="site-footer__item">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/tel.png" alt="" class="site-footer__img">
 				<a href="skype:+74957893686" class="site-footer__link">+7 (495) 789-36-86</a><br>
-				<button type="button" class="site-footer__button" data-toggle="modal" data-target="#callback">Заказать звонок</button>
-				<div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Обратный звонок</h4>
-							</div>
-							<div class="modal-body">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Имя*" required>
-								</div>
-								<div class="form-group">
-									<input type="tel" class="form-control" placeholder="Телефон*" required>
-								</div>
-								<div class="form-group">
-									<textarea rows="3" class="form-control" placeholder="Сообщение..."></textarea>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-primary">Отправить</button>
-								<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-							</div>
+				<button type="button" class="site-footer__button callback__open">Заказать звонок</button>
+				<div class="callback">
+					<div class="callback__wrapper">
+						<div class="callback__headeing">
+							<h2 class="callback__header">Заказать обратный звонок</h2>
 						</div>
+						<div class="callback__body">
+							<form method="post" id="callback" action="javascript:void(null);" onsubmit="sendCallback()">
+								<div class="callback__item">
+									<input type="text" name="name" required>
+									<label for="name">Имя *</label>
+								</div>
+								<div class="callback__item">
+									<input type="tel" name="tel" required>
+									<label for="tel">Телефон *</label>
+								</div>
+								<div class="callback__item">
+									<input type="email" name="email" required>
+									<label for="email">Почта *</label>
+								</div>
+								<div class="callback__item">
+									<input type="submit" class="callback__submit" value="Отправить"> 
+								</div>
+							</form>
+						</div>							
+						<button class="callback__close">×</button>
 					</div>
 				</div>
 			</div>
@@ -111,11 +113,23 @@
 			google.maps.event.addDomListener(window, 'load', init);
 		</script>
 	<?php endif; ?>	
-	<!--
-	<script  src="<?php echo get_template_directory_uri(); ?>/js/three.js"></script>	
-	<script  src="<?php echo get_template_directory_uri(); ?>/js/OrbitControls.js">
-	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js"></script>
-	</script>-->				
+	<script>
+		function sendCallback() {			
+			var callbackForm = $('#callback');
+			var callbackData = callbackForm.serialize();
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo get_template_directory_uri(); ?>/callback.php',
+				data: callbackData,
+				success: function(data) {
+					alert('Ваше сообщение отправлено');
+				},
+				error: function(xhr, str){
+					alert(xhr.responseCode);
+				}
+			});
+		};
+	</script>			
 	<?php wp_footer(); ?>
 	</body>
 </html>

@@ -161,10 +161,7 @@ require get_template_directory() . '/inc/functions-strap.php';
 function register_menus() {
   register_nav_menus(
     array(
-      'header-menu-1' => __( 'Header menu 1' ),
-      'header-menu-2' => __( 'Header menu 2' ),
-      'header-menu-3' => __( 'Header menu 3' ),
-	  'mobile-menu'   => __( 'Mobile menu' )		
+	  'site-map'   => __( 'Site map' )		
     )
   );
 }

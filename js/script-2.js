@@ -3,12 +3,12 @@ var siteNavLink = $('.site-nav__link');
 siteNavLink.hover(function(){
 	if (!siteMap.hasClass('opened')) {
 		$(this).addClass('hover');
-		var siteNavSubMenu = $(this).next().next();
+		var siteNavSubMenu = $(this).next();
 		siteNavSubMenu.show();
 	}
 }, function(){
 	$(this).removeClass('hover');
-	var siteNavSubMenu = $(this).next().next();
+	var siteNavSubMenu = $(this).next();
 	siteNavSubMenu.hide();
 });
 
@@ -20,15 +20,15 @@ siteNavSubMenu.hover(function(){
 }, function(){
 	$(this).hide();
 	$(this).prev().removeClass('hover');
-})
+});
 
 //site map
 var siteMap = $('.site-map');
 var siteMapBtn = $('#site-map');
+var siteNav = $('.site-nav');
 siteMapBtn.click(function(){
 	siteMap.slideToggle(300);
-	siteMap.toggleClass('opened');
-	siteMap.parent().prev().toggleClass('active');
+	siteNav.fadeToggle(300);
 })
 //мобильное меню
 var mobileMenu = $('.mobile-menu');
@@ -43,17 +43,18 @@ mobileMenuBtn.click(function(){
 	}
 });
 
+
 //мобильное меню
 var menuItem = $('.menu-item-has-children');
-menuItem.append('<button class="my-sub-menu__open">');
-var subMenuButton = $('.my-sub-menu__open');
+menuItem.append('<button class="site-map__open">');
+var subMenuButton = $('.site-map__open');
 subMenuButton.click(function(){
 	$(this)
 		.prev()
 		.slideToggle(300);
 	
 	$(this)
-		.toggleClass('my-sub-menu__open--opened');
+		.toggleClass('site-map__open--opened');
 	
 	$(this)
 		.parent()
@@ -71,7 +72,7 @@ subMenuButton.click(function(){
 		.parent()
 		.siblings()
 		.find(subMenuButton)
-		.removeClass('my-sub-menu__open--opened');
+		.removeClass('site-map__open--opened');
 });
 
 //поиск
@@ -114,4 +115,28 @@ $(window).bind('scroll', function(){
         opacity = 1 - offset / end;
     }
     pageHeading.css('opacity', opacity);
+});
+
+//my form
+var modal = $('.callback');
+var modalOpen = $('.callback__open');
+modalOpen.click(function(){
+	modal.fadeIn(300);
+});
+var modalClose = $('.callback__close');
+var modalInput = modal.find('input:not([type="submit"])');
+modalClose.click(function(){
+	modal.fadeOut(300);
+	modalInput.val('');
+	modalInput.removeClass('active error success');	
+});
+modalInput.focusin(function(){
+	$(this).addClass('active');
+});
+modalInput.focusout(function(){
+	if ($(this).val() === '') {
+		$(this).addClass('error');
+	} else {
+		$(this).addClass('success');
+	}
 });

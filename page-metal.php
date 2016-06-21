@@ -84,9 +84,10 @@
 		</section>
 		<section class="request">
 			<div class="request__wrapper lcw">
-				<h2 class="request__header">Узнайте стоиость вашего проекта</h2>
-				<button class="request__button">Оставить заявку</button>
+				<h2 class="request__header">Узнайте стоимость вашего проекта</h2>
+				<button class="request__button" data-toggle="modal" data-target="#callback">Оставить заявку</button>
 			</div>
+			
 		</section>
 	</div>
 </main>
