@@ -41,12 +41,12 @@
 				<a href="skype:+74957893686" class="site-footer__link">+7 (495) 789-36-86</a><br>
 				<button type="button" class="site-footer__button callback__open">Заказать звонок</button>
 				<div class="callback">
-					<div class="callback__wrapper">
-						<div class="callback__headeing">
-							<h2 class="callback__header">Заказать обратный звонок</h2>
-						</div>
+					<div class="callback__bg"></div>
+					<div class="callback__wrapper">							
 						<div class="callback__body">
-							<form method="post" id="callback" action="javascript:void(null);" onsubmit="sendCallback()">
+							<form method="post" id="callback" action="javascript:void(null);" onsubmit="sendCallback()" class="callback__form">
+								<h2 class="callback__header">Заказать обратный звонок</h2>
+								<p class="callback__note">Оставьте заявку и мы свяжемся с вами<br>в ближайшее время</p>
 								<div class="callback__item">
 									<input type="text" name="name" required>
 									<label for="name">Имя *</label>
@@ -65,7 +65,11 @@
 							</form>
 						</div>							
 						<button class="callback__close">×</button>
-					</div>
+						<div class="callback__success">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/callback-success.png" alt="" class="callback__img">
+							<h2 class="callback__header">Ваше сообщение отправлено</h2>
+						</div>
+					</div>					
 				</div>
 			</div>
 			<div class="site-footer__item">
@@ -95,12 +99,15 @@
 			var init = function(){
 				var prop = {
 					center: center,
-					scrollwheel: false,
-					zoom: 16,
+					scrollwheel: true,
+					zoom: 15,
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
-					zoomControl: false,
 					mapTypeControl: false,
-					streetViewControl: false
+					streetViewControl: false,
+					zoomControl: true,
+					zoomControlOptions: {
+						position: google.maps.ControlPosition.RIGHT_CENTER
+					}
 				};
 				var map = new google.maps.Map(document.getElementById('map'), prop);
 				var marker = new google.maps.Marker({
@@ -113,16 +120,28 @@
 			google.maps.event.addDomListener(window, 'load', init);
 		</script>
 	<?php endif; ?>	
-	<script>
+	<script>		
 		function sendCallback() {			
 			var callbackForm = $('#callback');
 			var callbackData = callbackForm.serialize();
+			var sendSuccess = function(){
+				var callbackWrapper = $('.callback__body');
+				callbackWrapper.slideUp();
+				var callbackSuccess = $('.callback__success');
+				callbackSuccess.slideDown();
+				var callbackForm = $('.callback');
+				callbackForm.delay(1500).fadeOut();
+				callbackWrapper.delay(2000).slideDown();
+				callbackSuccess.delay(2000).slideUp();
+				clearCallback();
+			}
 			$.ajax({
 				type: 'POST',
 				url: '<?php echo get_template_directory_uri(); ?>/callback.php',
 				data: callbackData,
 				success: function(data) {
-					alert('Ваше сообщение отправлено');
+					/*alert('Ваше сообщение отправлено');*/
+					sendSuccess();
 				},
 				error: function(xhr, str){
 					alert(xhr.responseCode);

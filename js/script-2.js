@@ -127,8 +127,7 @@ var modalClose = $('.callback__close');
 var modalInput = modal.find('input:not([type="submit"])');
 modalClose.click(function(){
 	modal.fadeOut(300);
-	modalInput.val('');
-	modalInput.removeClass('active error success');	
+	clearCallback();
 });
 modalInput.focusin(function(){
 	$(this).addClass('active');
@@ -140,3 +139,7 @@ modalInput.focusout(function(){
 		$(this).addClass('success');
 	}
 });
+var clearCallback = function(){
+	modalInput.val('');
+	modalInput.removeClass('active error success');	
+}

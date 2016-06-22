@@ -342,7 +342,7 @@
 										</div>
 										<div class="additional__item">
 											<div class="additional__inner">
-												<label for="t-in">Внутренняя температура, °: </label>
+												<label for="t-in">Внутренняя температура, °C: </label>
 												<div class="additional__con">
 													<button type="button" id="t-in-minus" class="additional__button additional__button--minus"></button>
 													<input type="number" name="t-in" id="t-in" min="0" max="35" value="0" disabled>
@@ -352,7 +352,7 @@
 										</div>
 										<div class="additional__item">
 											<div class="additional__inner">
-												<label for="t-out">Внешняя температура, °: </label>
+												<label for="t-out">Внешняя температура, °C: </label>
 												<div class="additional__con">
 													<input type="number" name="t-out" id="t-out" disabled>
 												</div>
@@ -886,7 +886,7 @@
 										<h4 class="result__header">Окна</h4>
 										<div id="r-window-container-1" class="result__window-container">
 											<div class="result__item result__item--2">
-												<span class="result__feature">ширина:</span>
+												<span class="result__feature">Ширина:</span>
 												<span class="result__value" id="r-window-width-1">-</span>
 											</div>
 											<div class="result__item result__item--2">

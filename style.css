@@ -12240,9 +12240,23 @@ main#search {
 }
 .callback {
   display: none;
-  position: relative;
-  background: rgba(255, 255, 255, 0.9);
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+.callback__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.callback__wrapper {
+  position: absolute;
+  padding: 15px 45px;
+  background: rgba(255, 255, 255, 0.9);
   width: 450px;
   left: 50%;
   top: 50%;
@@ -12251,8 +12265,26 @@ main#search {
   border: 1px solid #ccc;
   box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.5);
 }
-.callback__wrapper {
-  padding: 15px;
+@media (max-width: 767px) {
+  .callback__wrapper {
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 15px;
+    box-shadow: none;
+  }
+}
+.callback__success {
+  display: none;
+  padding: 15px 45px;
+}
+.callback__success .callback__header {
+  margin: 0;
+  margin-top: 30px;
+}
+.callback__img {
+  width: 100px;
 }
 .callback__header {
   text-transform: uppercase;
@@ -12263,14 +12295,13 @@ main#search {
   margin: 0;
   margin-bottom: 30px;
 }
+.callback__note {
+  color: #333;
+}
 .callback__item {
   position: relative;
   padding-top: 15px;
   margin-bottom: 15px;
-}
-.callback__item:last-child {
-  padding: 0;
-  margin: 0;
 }
 .callback__item input[type="submit"] {
   color: #333;
@@ -12301,13 +12332,19 @@ main#search {
   color: #333;
   transition: .3s;
 }
+.callback__item input:not([type="submit"]):focus {
+  border-color: blue !important;
+}
+.callback__item input:not([type="submit"]):focus + label {
+  color: blue !important;
+}
 .callback__item input:not([type="submit"]).active {
-  border-color: #2474d0;
+  border-color: blue;
 }
 .callback__item input:not([type="submit"]).active + label {
   padding: 0;
   font-size: 12px;
-  color: #2474d0;
+  color: blue;
 }
 .callback__item input:not([type="submit"]).error {
   border-color: red;

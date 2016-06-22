@@ -727,6 +727,9 @@ var calcThickness = function(){
 		thicknessWallRecInput.val(thicknessWallRec);
 		
 		wallThicknessInput.val(thicknessWallRec);
+		
+		var wallThicknessOutput = $('#r-wall-thickness');
+		wallThicknessOutput.text(thicknessWallRec);
 	};
 	if (roofShealthingInput.val() != 'Профнастил' && roofShealthingInput.val() != null) {
 		RprRoofOutput.val(RprRoof.toFixed(2));
@@ -738,6 +741,9 @@ var calcThickness = function(){
 		thicknessRoofRecInput.val(thicknessRoofRec);
 		
 		roofThicknessInput.val(thicknessRoofRec);
+		
+		var roofThicknessOutput = $('#r-roof-thickness');
+		roofThicknessOutput.text(thicknessRoofRec);
 	};	
 };
 
