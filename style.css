@@ -8585,6 +8585,9 @@ Entry Footer
     height: 300px;
   }
 }
+.map #firstHeading {
+  color: red;
+}
 .news__item {
   margin-bottom: 15px;
   padding: 15px;

@@ -115,8 +115,24 @@
 					icon: '<?php echo get_template_directory_uri(); ?>/img/map-icon.png',
 					size: new google.maps.Size(20, 32)
 				});
-				marker.setMap(map);				
+				marker.setMap(map);	
+					var contentString = '<div class="map-info">'+
+											'<div id="siteNotice">'+
+											'</div>'+
+											'<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+											'<div id="bodyContent">'+
+												'<p>Hello!</p>'+
+											'</div>'+
+										'</div>';
+
+				var infowindow = new google.maps.InfoWindow({
+					content: contentString
+				});
+				marker.addListener('click', function() {
+					infowindow.open(map, marker);
+				});
 			};
+			
 			google.maps.event.addDomListener(window, 'load', init);
 		</script>
 	<?php endif; ?>	

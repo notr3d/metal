@@ -1269,9 +1269,9 @@ inputNumber.change(function(){
 });
 
 //проверка на дробные, округляем в большую сторону
-var numberInput = $('input[type="number"]');
+var numberInput = $('input[type="number"].count-input');
 numberInput.change(function(){
 	var val = $(this).val();
 	val = Math.ceil(val);
 	$(this).val(val);
-})
+});
