@@ -142,4 +142,12 @@ modalInput.focusout(function(){
 var clearCallback = function(){
 	modalInput.val('');
 	modalInput.removeClass('active error success');	
-}
+};
+var fileInput = $('input[type="file"]');
+fileInput.change(function(){
+	var fileName = $(this).val();
+	fileName = fileName.split('\\');
+	fileName = fileName[2];
+	var inputLabel = $(this).next();
+	inputLabel.text(fileName);
+});

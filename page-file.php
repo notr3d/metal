@@ -1,11 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Simple Ajax Contact Form</title>
+<?php get_header(); ?>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style1.css">
+<main class="">
+<div class="content-area">	
+<div class="form-style" id="contact_form">
+    <div class="form-style-heading">Please Contact Us</div>
+    <div id="contact_results"></div>
+    <div id="contact_body">
+        <label><span>Name <span class="required">*</span></span>
+            <input type="text" name="name" id="name" required="false" class="input-field"/>
+        </label>
+        <label><span>Email <span class="required">*</span></span>
+            <input type="email" name="email" required="false" class="input-field"/>
+        </label>
+        <label><span>Phone <span class="required">*</span></span>
+            <input type="text" name="phone1" maxlength="4" placeholder="+91"  required="false" class="tel-number-field"/>&mdash;<input type="text" name="phone2" maxlength="15"  required="false" class="tel-number-field long" />
+        </label>
+        <label><span>Attachment</span>
+            <input type="file" name="file_attach" class="input-field" multiple/>
+        </label>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript">
+            <label for="subject"><span>Regarding</span>
+            <select name="subject" class="select-field">
+            <option value="General Question">General Question</option>
+            <option value="Advertise">Advertisement</option>
+            <option value="Partnership">Partnership Oppertunity</option>
+            </select>
+        </label>
+        <label for="field5"><span>Message <span class="required">*</span></span>
+            <textarea name="message" id="message" class="textarea-field" required="false"></textarea>
+        </label>
+        <label>
+            <span>&nbsp;</span><input type="submit" id="submit_btn" value="Submit" />
+        </label>
+    </div>
+</div>
+</div>
+</main>
+<?php get_footer(); ?>
+<script>
 $(document).ready(function() {
     $("#submit_btn").click(function() { 
        
@@ -69,42 +101,3 @@ $(document).ready(function() {
     });
 });
 </script>
-<link href="<?php echo get_template_directory_uri(); ?>/style1.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-<div class="form-style" id="contact_form">
-    <div class="form-style-heading">Please Contact Us</div>
-    <div id="contact_results"></div>
-    <div id="contact_body">
-        <label><span>Name <span class="required">*</span></span>
-            <input type="text" name="name" id="name" required="false" class="input-field"/>
-        </label>
-        <label><span>Email <span class="required">*</span></span>
-            <input type="email" name="email" required="false" class="input-field"/>
-        </label>
-        <label><span>Phone <span class="required">*</span></span>
-            <input type="text" name="phone1" maxlength="4" placeholder="+91"  required="false" class="tel-number-field"/>&mdash;<input type="text" name="phone2" maxlength="15"  required="false" class="tel-number-field long" />
-        </label>
-        <label><span>Attachment</span>
-            <input type="file" name="file_attach" class="input-field" multiple/>
-        </label>
-
-            <label for="subject"><span>Regarding</span>
-            <select name="subject" class="select-field">
-            <option value="General Question">General Question</option>
-            <option value="Advertise">Advertisement</option>
-            <option value="Partnership">Partnership Oppertunity</option>
-            </select>
-        </label>
-        <label for="field5"><span>Message <span class="required">*</span></span>
-            <textarea name="message" id="message" class="textarea-field" required="false"></textarea>
-        </label>
-        <label>
-            <span>&nbsp;</span><input type="submit" id="submit_btn" value="Submit" />
-        </label>
-    </div>
-</div>
-
-</body>
-</html>

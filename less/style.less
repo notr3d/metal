@@ -312,7 +312,7 @@ main {
 		left: 50%;
 		top: 50%;
 		margin-left: -225px;
-		margin-top: -171px;
+		margin-top: -282px;
 		border: 1px solid #ccc;
 		box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.5);
 		@media @m {
@@ -354,7 +354,16 @@ main {
 		&:last-child {
 			//margin: 0;
 		}
-		input {
+		textarea {
+			width: 100%;
+			background: #eee;
+			resize: vertical;
+			color: #333;
+			padding: 15px;
+			outline: none;
+			border: 2px solid #bebcbe;
+		}
+		input {			
 			&[type="submit"] {
 				color: #333;
 				font-size: 20px;
@@ -364,7 +373,7 @@ main {
 				padding: 15px;
 				outline: none;
 				border: 2px solid @yellow;
-				background: none;
+				background: #fff;
 				text-transform: uppercase;
 				transition: .3s;
 				&:hover {
@@ -377,7 +386,7 @@ main {
 				width: 100%;
 				outline: none;
 				font-size: 16px;
-				background: none;
+				background: #eee;
 				padding: 5px 0;
 				border: none;
 				border-bottom: 2px solid #bebcbe;
@@ -409,7 +418,23 @@ main {
 						color: green;
 					}
 				}
-			}				
+			}	
+			&[type="file"] {
+				display: none;
+				& + label {
+					display: block;
+					background: #fff;
+					border: 2px solid @yellow;
+					color: #333;
+					position: static;
+					pointer-events: all;
+					padding: 5px;
+					&:hover {
+						background: @yellow;
+						color: #fff;
+					}
+				}
+			}
 		}
 		label {
 			position: absolute;

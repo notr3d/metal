@@ -44,25 +44,34 @@
 					<div class="callback__bg"></div>
 					<div class="callback__wrapper">							
 						<div class="callback__body">
-							<form method="post" id="callback" action="javascript:void(null);" onsubmit="sendCallback()" class="callback__form">
-								<h2 class="callback__header">Заказать обратный звонок</h2>
-								<p class="callback__note">Оставьте заявку и мы свяжемся с вами<br>в ближайшее время</p>
-								<div class="callback__item">
-									<input type="text" name="name" required>
-									<label for="name">Имя *</label>
-								</div>
-								<div class="callback__item">
-									<input type="tel" name="tel" required>
-									<label for="tel">Телефон *</label>
-								</div>
-								<div class="callback__item">
-									<input type="email" name="email" required>
-									<label for="email">Почта *</label>
-								</div>
-								<div class="callback__item">
-									<input type="submit" class="callback__submit" value="Отправить"> 
-								</div>
-							</form>
+							<div id="callback__result"></div>
+							<div id="contact_body">
+							<h2 class="callback__header">Заказать обратный звонок</h2>
+								<form class="callback__form" action="javascript:void(null);">
+									<div class="callback__item">
+										<input type="text" name="name" required>
+										<label for="name">Имя *</label>
+									</div>
+									<div class="callback__item">
+										<input type="tel" name="tel" maxlength="17"  required>										
+										<label for="tel">Телефон *</label>
+									</div>
+									<div class="callback__item">
+										<input type="email" name="email" required>
+										<label for="email">Почта *</label>
+									</div>
+									<div class="callback__item">
+										<textarea name="message" rows="3" placeholder="Сообщение"></textarea>
+									</div>
+									<div class="callback__item">
+										<input type="file" name="file" id="file">
+										<label for="file">Приложить файл</label>
+									</div>
+									<div class="callback__item">
+										<input type="submit" id="callback__submit" value="Отправить">
+									</div>
+								</form>
+							</div>
 						</div>							
 						<button class="callback__close">×</button>
 						<div class="callback__success">
@@ -133,34 +142,68 @@
 			google.maps.event.addDomListener(window, 'load', init);
 		</script>
 	<?php endif; ?>	
-	<script>		
-		function sendCallback() {			
-			var callbackForm = $('#callback');
-			var callbackData = callbackForm.serialize();
-			var sendSuccess = function(){
-				var callbackWrapper = $('.callback__body');
-				callbackWrapper.slideUp();
-				var callbackSuccess = $('.callback__success');
-				callbackSuccess.slideDown();
-				var callbackForm = $('.callback');
-				callbackForm.delay(1500).fadeOut();
-				callbackWrapper.delay(2000).slideDown();
-				callbackSuccess.delay(2000).slideUp();
-				clearCallback();
-			}
-			$.ajax({
-				type: 'POST',
-				url: '<?php echo get_template_directory_uri(); ?>/callback.php',
-				data: callbackData,
-				success: function(data) {
-					/*alert('Ваше сообщение отправлено');*/
-					sendSuccess();
-				},
-				error: function(xhr, str){
-					alert(xhr.responseCode);
+	<script>
+	$(document).ready(function() {
+		$("#callback__submit").click(function() { 
+
+			var proceed = true;
+			//simple validation at client's end
+			//loop through each field and we simply change border color to red for invalid fields		
+			$("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
+				$(this).css('border-color',''); 
+				if(!$.trim($(this).val())){ //if this field is empty 
+					$(this).css('border-color','red'); //change border color to red   
+					proceed = false; //set do not proceed flag
 				}
+				//check invalid email
+				var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; 
+				if($(this).attr("type")=="email" && !email_reg.test($.trim($(this).val()))){
+					$(this).css('border-color','red'); //change border color to red   
+					proceed = false; //set do not proceed flag				
+				}	
 			});
-		};
+
+			if(proceed) //everything looks good! proceed...
+			{
+			   //data to be sent to server         
+				var m_data = new FormData();    
+				m_data.append( 'user_name', $('input[name=name]').val());
+				m_data.append( 'user_email', $('input[name=email]').val());
+				m_data.append( 'phone_number', $('input[name=tel]').val());
+				m_data.append( 'subject', $('select[name=subject]').val());
+				m_data.append( 'msg', $('textarea[name=message]').val());
+				m_data.append( 'file_attach', $('input[name=file]')[0].files[0]);
+
+				//instead of $.post() we are using $.ajax()
+				//that's because $.ajax() has more options and flexibly.
+				$.ajax({
+				  url: '<?php echo get_template_directory_uri(); ?>/contact_me.php',
+				  data: m_data,
+				  processData: false,
+				  contentType: false,
+				  type: 'POST',
+				  dataType:'json',
+				  success: function(response){
+					 //load json data from server and output message     
+					if(response.type == 'error'){ //load json data from server and output message     
+						output = '<div class="error">'+response.text+'</div>';
+					}else{
+						output = '<div class="success">'+response.text+'</div>';
+					}
+					$("#callback__result").hide().html(output).slideDown();
+				  }
+				});
+
+
+			}
+		});
+
+		//reset previously set border colors and hide all message on .keyup()
+		$("#contact_form  input[required=true], #contact_form textarea[required=true]").keyup(function() { 
+			$(this).css('border-color',''); 
+			$("#result").slideUp();
+		});
+	});
 	</script>			
 	<?php wp_footer(); ?>
 	</body>

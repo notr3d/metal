@@ -12288,7 +12288,7 @@ main#search {
   left: 50%;
   top: 50%;
   margin-left: -225px;
-  margin-top: -171px;
+  margin-top: -282px;
   border: 1px solid #ccc;
   box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.5);
 }
@@ -12330,6 +12330,15 @@ main#search {
   padding-top: 15px;
   margin-bottom: 15px;
 }
+.callback__item textarea {
+  width: 100%;
+  background: #eee;
+  resize: vertical;
+  color: #333;
+  padding: 15px;
+  outline: none;
+  border: 2px solid #bebcbe;
+}
 .callback__item input[type="submit"] {
   color: #333;
   font-size: 20px;
@@ -12339,7 +12348,7 @@ main#search {
   padding: 15px;
   outline: none;
   border: 2px solid #f9a11b;
-  background: none;
+  background: #fff;
   text-transform: uppercase;
   transition: .3s;
 }
@@ -12352,7 +12361,7 @@ main#search {
   width: 100%;
   outline: none;
   font-size: 16px;
-  background: none;
+  background: #eee;
   padding: 5px 0;
   border: none;
   border-bottom: 2px solid #bebcbe;
@@ -12384,6 +12393,22 @@ main#search {
 }
 .callback__item input:not([type="submit"]).success + label {
   color: green;
+}
+.callback__item input[type="file"] {
+  display: none;
+}
+.callback__item input[type="file"] + label {
+  display: block;
+  background: #fff;
+  border: 2px solid #f9a11b;
+  color: #333;
+  position: static;
+  pointer-events: all;
+  padding: 5px;
+}
+.callback__item input[type="file"] + label:hover {
+  background: #f9a11b;
+  color: #fff;
 }
 .callback__item label {
   position: absolute;
