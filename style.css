@@ -8513,7 +8513,7 @@ Entry Footer
 .contacts__inner {
   background: rgba(255, 255, 255, 0.9);
   height: 100%;
-  padding: 60px 15px;
+  padding: 30px 15px;
 }
 @media (max-width: 767px) {
   .contacts__inner {
@@ -8585,8 +8585,32 @@ Entry Footer
     height: 300px;
   }
 }
-.map #firstHeading {
-  color: red;
+.map .map-info__text {
+  margin: 0;
+  font-size: 20px;
+  color: #444;
+}
+.address {
+  margin-bottom: 30px;
+}
+.address__item {
+  margin-bottom: 15px;
+}
+.address__item h2 {
+  margin: 0;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed';
+  font-weight: bold;
+  font-size: 24px;
+}
+.address__item p {
+  margin: 0;
+  font-size: 16px;
+}
+.address__item a {
+  font-size: 16px;
+  color: #2474d0;
 }
 .news__item {
   margin-bottom: 15px;

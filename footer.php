@@ -100,7 +100,7 @@
 				var prop = {
 					center: center,
 					scrollwheel: true,
-					zoom: 15,
+					zoom: 14,
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
 					mapTypeControl: false,
 					streetViewControl: false,
@@ -117,11 +117,8 @@
 				});
 				marker.setMap(map);	
 					var contentString = '<div class="map-info">'+
-											'<div id="siteNotice">'+
-											'</div>'+
-											'<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-											'<div id="bodyContent">'+
-												'<p>Hello!</p>'+
+											'<div class="map-info__wrapper">'+
+												'<p class="map-info__text"><strong>Адрес:</strong> г. Москва, ул. Ибрагимова, д. 31, офис 308</p>'+
 											'</div>'+
 										'</div>';
 

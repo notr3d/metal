@@ -31,7 +31,7 @@
 	&__inner {		
 		background: rgba(255, 255, 255, 0.9);
 		height: 100%;
-		padding: 60px 15px;
+		padding: 30px 15px;
 		@media @m {
 			padding: 0;
 		}
@@ -95,7 +95,34 @@
 		position: static;
 		height: 300px;
 	}
-	#firstHeading {
-		color: red;
+	.map-info {
+		&__text {
+			margin: 0;
+			font-size: 20px;
+			color: #444;
+		}
+	}
+}
+.address {
+	margin-bottom: 30px;
+	&__item {
+		margin-bottom: 15px;
+		
+		h2 {
+			margin: 0;
+			margin-bottom: 5px;
+			text-transform: uppercase;
+			font-family: 'Open Sans Condensed';
+			font-weight: bold;
+			font-size: 24px;
+		}
+		p {
+			margin: 0;
+			font-size: 16px;
+		}
+		a {
+			font-size: 16px;
+			color: @blue;
+		}
 	}
 }
