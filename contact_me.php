@@ -1,24 +1,20 @@
 <?php
 if($_POST)
 {
-    $to_email       = "lxmrrr@gmail.com"; //Recipient email, Replace with own email here
-	$from_email 	= "noreply@YOUR-DOMAIN.com"; //From email address (eg: no-reply@YOUR-DOMAIN.com)
+    $to_email       = "lxmrrr@gmail.com"; 
+	$from_email 	= "noreply@bigspb.com"; 
 	
-    //check if its an ajax request, exit if not
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
-        $output = json_encode(array( //create JSON data
+        $output = json_encode(array( 
             'type'=>'error',
             'text' => 'Sorry Request must be Ajax POST'
         ));
-        die($output); //exit script outputting json data
+        die($output); 
     }
    
-    //Sanitize input data using PHP filter_var().
     $user_name      = filter_var($_POST["user_name"], FILTER_SANITIZE_STRING);
     $user_email     = filter_var($_POST["user_email"], FILTER_SANITIZE_EMAIL);
-    //$country_code   = filter_var($_POST["country_code"], FILTER_SANITIZE_NUMBER_INT);
     $phone_number   = filter_var($_POST["phone_number"], FILTER_SANITIZE_NUMBER_INT);
-    //$subject        = filter_var($_POST["subject"], FILTER_SANITIZE_STRING);
     $subject        = "Письмо с сайта bigspb.com";
     $message        = filter_var($_POST["msg"], FILTER_SANITIZE_STRING);
    

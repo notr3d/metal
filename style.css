@@ -12405,6 +12405,7 @@ main#search {
   position: static;
   pointer-events: all;
   padding: 5px;
+  cursor: pointer;
 }
 .callback__item input[type="file"] + label:hover {
   background: #f9a11b;
