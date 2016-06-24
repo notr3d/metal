@@ -43,8 +43,7 @@
 				<div class="callback">
 					<div class="callback__bg"></div>
 					<div class="callback__wrapper">							
-						<div class="callback__body">
-							<div id="callback__result"></div>
+						<div class="callback__body">							
 							<div id="contact_body">
 							<h2 class="callback__header">Заказать обратный звонок</h2>
 								<form class="callback__form" action="javascript:void(null);">
@@ -53,7 +52,7 @@
 										<label for="name">Имя *</label>
 									</div>
 									<div class="callback__item">
-										<input type="tel" name="tel" maxlength="17"  required>										
+										<input type="tel" name="tel" maxlength="17"  required>									
 										<label for="tel">Телефон *</label>
 									</div>
 									<div class="callback__item">
@@ -76,14 +75,14 @@
 						<button class="callback__close">×</button>
 						<div class="callback__success">
 							<img src="<?php echo get_template_directory_uri(); ?>/img/callback-success.png" alt="" class="callback__img">
-							<h2 class="callback__header">Ваше сообщение отправлено</h2>
+							<div id="callback__result"></div>
 						</div>
 					</div>					
 				</div>
 			</div>
 			<div class="site-footer__item">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/address.png" alt="" class="site-footer__img">
-				<p class="site-footer__address">г. Москва, ул. Ибрагимова, д. 31,<br>офис 308</p>
+				<p class="site-footer__address">г. Москва, ул. Ибрагимова, д. 31<!--,<br>офис 308--></p>
 			</div>
 		</div>
 		<div class="site-footer__copy">© 2014 «BIG Construction»</div>
@@ -102,7 +101,7 @@
 		<script src="<?php echo get_template_directory_uri(); ?>/js/constructor.js"></script>
 	<?php endif; ?>	
 	<?php if (is_page($page = "Контакты")): ?>
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
 		<script>
 			var center = new google.maps.LatLng(55.789061, 37.729310);
 			var init = function(){
@@ -141,6 +140,20 @@
 			
 			google.maps.event.addDomListener(window, 'load', init);
 		</script>
+		<script>
+			$(document).ready(function(){				
+				var contactsForm = $('#contacts-form');
+				contactsForm.submit(function(e){
+					e.preventDefault();
+					var contactsData = new FormData();    
+					contactsData.append('contacts-name', $('input[name=contacts-name]').val());
+					contactsData.append('contacts-email', $('input[name=contacts-email]').val());
+					contactsData.append('contacts-tel', $('input[name=contacts-tel]').val());
+					contactsData.append('contacts-message', $('textarea[name=contacts-message]').val());
+					contactsData.append('contacts-file', $('input[name=contacts-file]')[0].files[0]);
+				})
+			})
+		</script>
 	<?php endif; ?>	
 	<script>
 	$(document).ready(function() {
@@ -167,17 +180,16 @@
 			{
 			   //data to be sent to server         
 				var m_data = new FormData();    
-				m_data.append( 'user_name', $('input[name=name]').val());
-				m_data.append( 'user_email', $('input[name=email]').val());
-				m_data.append( 'phone_number', $('input[name=tel]').val());
-				m_data.append( 'subject', $('select[name=subject]').val());
-				m_data.append( 'msg', $('textarea[name=message]').val());
+				m_data.append( 'name', $('input[name=name]').val());
+				m_data.append( 'email', $('input[name=email]').val());
+				m_data.append( 'tel', $('input[name=tel]').val());
+				m_data.append( 'message', $('textarea[name=message]').val());
 				m_data.append( 'file_attach', $('input[name=file]')[0].files[0]);
 
 				//instead of $.post() we are using $.ajax()
 				//that's because $.ajax() has more options and flexibly.
 				$.ajax({
-				  url: '<?php echo get_template_directory_uri(); ?>/contact_me.php',
+				  url: '<?php echo get_template_directory_uri(); ?>/callback.php',
 				  data: m_data,
 				  processData: false,
 				  contentType: false,
@@ -190,11 +202,12 @@
 					}else{
 						output = '<div class="success">'+response.text+'</div>';
 					}
+					$('.callback__body').slideUp();
+					$('.callback__success').slideDown();
+					$('.callback').delay(5000).fadeOut();
 					$("#callback__result").hide().html(output).slideDown();
 				  }
 				});
-
-
 			}
 		});
 

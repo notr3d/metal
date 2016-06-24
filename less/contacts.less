@@ -32,6 +32,22 @@
 		background: rgba(255, 255, 255, 0.9);
 		height: 100%;
 		padding: 30px 15px;
+		overflow-y: scroll;
+		&::-webkit-scrollbar { 
+			display: none; 
+		}
+		&::-moz-scrollbar { 
+			display: none; 
+		}
+		&::-ms-scrollbar { 
+			display: none; 
+		}
+		&::-o-scrollbar { 
+			display: none; 
+		}
+		&::scrollbar { 
+			display: none; 
+		}		
 		@media @m {
 			padding: 0;
 		}
@@ -65,7 +81,7 @@
 	}
 	input, textarea {
 		width: 100%;
-		padding: 10px 0;
+		padding: 5px 0;
 		height: auto;
 		border-radius: 0;
 		border: none;
@@ -79,7 +95,7 @@
 			box-shadow: none;
 			border-color: @yellow;
 		}
-	}
+	}	
 }
 .map {
 	position: fixed;

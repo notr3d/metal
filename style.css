@@ -8514,6 +8514,22 @@ Entry Footer
   background: rgba(255, 255, 255, 0.9);
   height: 100%;
   padding: 30px 15px;
+  overflow-y: scroll;
+}
+.contacts__inner::-webkit-scrollbar {
+  display: none;
+}
+.contacts__inner::-moz-scrollbar {
+  display: none;
+}
+.contacts__inner::-ms-scrollbar {
+  display: none;
+}
+.contacts__inner::-o-scrollbar {
+  display: none;
+}
+.contacts__inner::scrollbar {
+  display: none;
 }
 @media (max-width: 767px) {
   .contacts__inner {
@@ -8552,7 +8568,7 @@ Entry Footer
 .contacts input,
 .contacts textarea {
   width: 100%;
-  padding: 10px 0;
+  padding: 5px 0;
   height: auto;
   border-radius: 0;
   border: none;
@@ -12304,11 +12320,12 @@ main#search {
 }
 .callback__success {
   display: none;
-  padding: 15px 45px;
+  padding: 15px;
 }
-.callback__success .callback__header {
-  margin: 0;
+.callback__success .success {
   margin-top: 30px;
+  font-size: 16px;
+  color: #333;
 }
 .callback__img {
   width: 100px;
