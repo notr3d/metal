@@ -10,41 +10,10 @@
 				</div>
 			</div>
 		</section>
-		<div class="content-area content-area--landing">				
-			<section class="features">
-				<div class="features__wrapper lcw">
-					<div class="features__item">
-						<div class="features__column features__column--left">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/buildings/features/1.png" alt="" class="features__img">
-						</div>
-						<div class="features__column features__column--right">
-							<h2 class="features__header">Стеновые сендвич-панели</h2>
-							<div class="features__text">АО «БИГ Констракшнз» производит трехслойные стеновые сэндвич-панели с различными видами металлической облицовки: из оцинкованной стали с полимерным покрытием, из нержавеющей стали, а также из алюминиевых сплавов. В качестве среднего слоя используется негорючая минераловатная плита на основе горных пород базальтовой группы. Стеновые сэндвич-панели производства «БИГ Констракшнз» предназначены для использования в качестве наружных и внутренних стен быстровозводимых зданий, перегородок, противопожарных преград, подшивного потолка.</div>
-						</div>
-					</div>
-					<div class="features__item">
-						<div class="features__column features__column--left">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/buildings/features/2.png" alt="" class="features__img">
-						</div>
-						<div class="features__column features__column--right">
-							<h2 class="features__header">Стеновые сендвич-панели</h2>
-							<div class="features__text">АО «БИГ Констракшнз» производит трехслойные стеновые сэндвич-панели с различными видами металлической облицовки: из оцинкованной стали с полимерным покрытием, из нержавеющей стали, а также из алюминиевых сплавов. В качестве среднего слоя используется негорючая минераловатная плита на основе горных пород базальтовой группы. Стеновые сэндвич-панели производства «БИГ Констракшнз» предназначены для использования в качестве наружных и внутренних стен быстровозводимых зданий, перегородок, противопожарных преград, подшивного потолка.</div>
-						</div>
-					</div>
-					<div class="features__item">
-						<div class="features__column features__column--left">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/buildings/features/3.png" alt="" class="features__img">
-						</div>
-						<div class="features__column features__column--right">
-							<h2 class="features__header">Стеновые сендвич-панели</h2>
-							<div class="features__text">АО «БИГ Констракшнз» производит трехслойные стеновые сэндвич-панели с различными видами металлической облицовки: из оцинкованной стали с полимерным покрытием, из нержавеющей стали, а также из алюминиевых сплавов. В качестве среднего слоя используется негорючая минераловатная плита на основе горных пород базальтовой группы. Стеновые сэндвич-панели производства «БИГ Констракшнз» предназначены для использования в качестве наружных и внутренних стен быстровозводимых зданий, перегородок, противопожарных преград, подшивного потолка.</div>
-						</div>
-					</div>					
-				</div>
-			</section>
+		<div class="content-area content-area--landing">
 			<section class="structures">
 				<div class="structures__wrapper lcw">
-					<h2 class="structures__header">Компания <span>Big Constructions</span> проектирует, производит и поставляет быстровозводимые полнокомплектные здания различного назначения:</h2>
+					<h2 class="structures__header">Компания <span>Big Construction</span> проектирует, производит и поставляет быстровозводимые полнокомплектные здания различного назначения:</h2>
 					<div class="structures__container">
 						<div class="structures__item">
 							<div class="structures__img"></div>
@@ -88,7 +57,42 @@
 						</div>						
 					</div>
 				</div>
-			</section>
+			</section>				
+			<section class="features">
+				<div class="features__wrapper lcw">
+					<div class="features__heading">
+						<h1 class="features__header">Высокопрочные строительные материалы<br><span>собственного производства</span></h1>
+						<p class="features__text">Наличие собственного производства позволяет обеспечить быстрые темпы строительства любых зданий вне зависимости от их назначения, а также контролировать качество строительных материалов из которых будут возводиться полнокомплетные здания. Этот немаловажный выктор выгодно отличает АО «БИГ Констракшн» от множества конкурентов.</p>
+					</div>
+					<div class="features__item">
+						<div class="features__column features__column--left">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/buildings/features/1.png" alt="" class="features__img">
+						</div>
+						<div class="features__column features__column--right">
+							<h2 class="features__header">Стеновые сэндвич-панели</h2>
+							<div class="features__text">АО «БИГ Констракшн» производит трехслойные стеновые сэндвич-панели с различными видами металлической облицовки: из оцинкованной стали с полимерным покрытием, из нержавеющей стали, а также из алюминиевых сплавов. В качестве среднего слоя используется негорючая минераловатная плита на основе горных пород базальтовой группы. Стеновые сэндвич-панели производства «БИГ Констракшн» предназначены для использования в качестве наружных и внутренних стен быстровозводимых зданий, перегородок, противопожарных преград, подшивного потолка.</div>
+						</div>
+					</div>
+					<div class="features__item">
+						<div class="features__column features__column--left">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/buildings/features/2.png" alt="" class="features__img">
+						</div>
+						<div class="features__column features__column--right">
+							<h2 class="features__header">Кровельные сэндвич-панели</h2>
+							<div class="features__text">АО «БИГ Констракшн» производит трехслойные стеновые сэндвич-панели с различными видами металлической облицовки: из оцинкованной стали с полимерным покрытием, из нержавеющей стали, а также из алюминиевых сплавов. В качестве среднего слоя используется негорючая минераловатная плита на основе горных пород базальтовой группы. Стеновые сэндвич-панели производства «БИГ Констракшн» предназначены для использования в качестве наружных и внутренних стен быстровозводимых зданий, перегородок, противопожарных преград, подшивного потолка.</div>
+						</div>
+					</div>
+					<div class="features__item">
+						<div class="features__column features__column--left">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/buildings/features/3.png" alt="" class="features__img">
+						</div>
+						<div class="features__column features__column--right">
+							<h2 class="features__header">Сварная балка</h2>
+							<div class="features__text">АО «БИГ Констракшн» производит трехслойные стеновые сэндвич-панели с различными видами металлической облицовки: из оцинкованной стали с полимерным покрытием, из нержавеющей стали, а также из алюминиевых сплавов. В качестве среднего слоя используется негорючая минераловатная плита на основе горных пород базальтовой группы. Стеновые сэндвич-панели производства «БИГ Констракшн» предназначены для использования в качестве наружных и внутренних стен быстровозводимых зданий, перегородок, противопожарных преград, подшивного потолка.</div>
+						</div>
+					</div>					
+				</div>
+			</section>			
 			<section class="adv">
 				<div class="adv__wrapper lcw">
 					<h2 class="adv__heading">Почему нам доверяют:</h2>

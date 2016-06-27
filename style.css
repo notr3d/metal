@@ -8060,6 +8060,7 @@ Entry Footer
   font-weight: bold;
   color: #fff;
   font-family: 'Open Sans Condensed', sans-serif;
+  text-shadow: 1px 1px 5px black;
 }
 @media (max-width: 767px) {
   .alfa-slider__header {
@@ -8071,6 +8072,7 @@ Entry Footer
   color: #fff;
   margin: 0;
   margin-bottom: 30px;
+  text-shadow: 1px 1px 5px black;
 }
 @media (max-width: 767px) {
   .alfa-slider__text {
@@ -11414,6 +11416,18 @@ canvas {
     padding: 0 15px;
   }
 }
+.buildings .features__heading {
+  font-size: 30px;
+  margin-bottom: 60px;
+}
+.buildings .features__heading span {
+  color: #f9a11b;
+}
+.buildings .features__heading .features__header {
+  border-bottom: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
 .buildings .features__item {
   padding: 30px 0;
 }
@@ -11464,6 +11478,7 @@ canvas {
 .buildings .features__text {
   font-size: 16px;
   text-align: justify;
+  margin: 0;
 }
 .buildings .structures {
   background: #f6f6f6;
