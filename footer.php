@@ -6,35 +6,6 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/email.png" alt="" class="site-footer__img">
 				<a href="mailto:info@bigmsk.ru" class="site-footer__link">info@bigmsk.ru</a><br>
 				<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-footer__button">Написать письмо</a>
-				<!--<div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Написать письмо</h4>
-							</div>
-							<div class="modal-body">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Имя*" required>
-								</div>
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email*" required>
-								</div>
-								<div class="form-group">
-									<input type="tel" class="form-control" placeholder="Телефон">
-								</div>
-
-								<div class="form-group">
-									<textarea rows="10" class="form-control" placeholder="Сообщение..."></textarea>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-primary">Отправить</button>
-								<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-							</div>
-						</div>
-					</div>
-				</div>-->
 			</div>
 			<div class="site-footer__item">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/tel.png" alt="" class="site-footer__img">
@@ -142,27 +113,36 @@
 		</script>
 		<script>
 			$(document).ready(function(){				
-				var contactsForm = $('#contacts-form');
-				contactsForm.submit(function(e){
-					e.preventDefault();
+				$('#contacts-form').submit(function(){
 					var contactsData = new FormData();    
 					contactsData.append('contacts-name', $('input[name=contacts-name]').val());
 					contactsData.append('contacts-email', $('input[name=contacts-email]').val());
 					contactsData.append('contacts-tel', $('input[name=contacts-tel]').val());
 					contactsData.append('contacts-message', $('textarea[name=contacts-message]').val());
 					contactsData.append('contacts-file', $('input[name=contacts-file]')[0].files[0]);
-				})
+					$.ajax({
+						url: '<?php echo get_template_directory_uri(); ?>/contacts.php',
+						data: contactsData,
+						processData: false,
+						contentType: false,
+						type: 'POST',
+						dataType:'json',
+						success: function(){
+							alert(1);
+						}
+					});
+				});
 			})
 		</script>
 	<?php endif; ?>	
 	<script>
 	$(document).ready(function() {
-		$("#callback__submit").click(function() { 
+		$(".callback__form").submit(function() { 
 
 			var proceed = true;
 			//simple validation at client's end
 			//loop through each field and we simply change border color to red for invalid fields		
-			$("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
+			/*$("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
 				$(this).css('border-color',''); 
 				if(!$.trim($(this).val())){ //if this field is empty 
 					$(this).css('border-color','red'); //change border color to red   
@@ -174,23 +154,23 @@
 					$(this).css('border-color','red'); //change border color to red   
 					proceed = false; //set do not proceed flag				
 				}	
-			});
+			});*/
 
 			if(proceed) //everything looks good! proceed...
 			{
 			   //data to be sent to server         
-				var m_data = new FormData();    
-				m_data.append( 'name', $('input[name=name]').val());
-				m_data.append( 'email', $('input[name=email]').val());
-				m_data.append( 'tel', $('input[name=tel]').val());
-				m_data.append( 'message', $('textarea[name=message]').val());
-				m_data.append( 'file_attach', $('input[name=file]')[0].files[0]);
+				var data = new FormData();    
+				data.append('name', $('input[name=name]').val());
+				data.append('email', $('input[name=email]').val());
+				data.append('tel', $('input[name=tel]').val());
+				data.append('message', $('textarea[name=message]').val());
+				data.append('file_attach', $('input[name=file]')[0].files[0]);
 
 				//instead of $.post() we are using $.ajax()
 				//that's because $.ajax() has more options and flexibly.
 				$.ajax({
 				  url: '<?php echo get_template_directory_uri(); ?>/callback.php',
-				  data: m_data,
+				  data: data,
 				  processData: false,
 				  contentType: false,
 				  type: 'POST',

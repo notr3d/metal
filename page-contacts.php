@@ -24,13 +24,13 @@
 							<input type="text" name="contacts-name" placeholder="Ваше имя*" required>		
 						</div>
 						<div class="contacts__item">
-							<input type="email" name="contacts-email" placeholder="Ваш email*">
+							<input type="email" name="contacts-email" placeholder="Ваш email*" required>
 						</div>
 						<div class="contacts__item">
 							<input type="tel" name="contacts-tel" placeholder="Ваш телефон">
 						</div>
 						<div class="contacts__item">
-							<textarea rows="1" placeholder="Ваше сообщение..."></textarea>
+							<textarea rows="1" name="contacts-message" placeholder="Ваше сообщение..."></textarea>
 						</div>
 						<div class="contacts__item">
 							<input type="file" name="contacts-file">
