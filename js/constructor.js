@@ -275,13 +275,12 @@ $('#heightMin').text(heightMin);
 $('#heightMax').text(heightMax);
 
 calcDimension();
+
 };
 
 $(document).ready(function(){
 	StructureTypeInit();
 });
-
-var	roofAngle = 20; //угол крыши (пока константа, плюс крыша ровная)
 	
 //основная функция подсчета----------------------------------------------
 var	calcDimension = function(){ 
@@ -296,6 +295,15 @@ var	calcDimension = function(){
 	widthOutput.text(width);
 	lengthOutput.text(length);
 	heightOutput.text(height);
+	
+	var roofAngle = 20; //если здание КРС то угол кровли 30 градусов
+	if (currentStructureType == 'structure-type-7') {
+		roofAngle = 30;
+	} else {
+		roofAngle = 20;
+	}
+	var roofAngleOutput = $('#roof-angle');
+	roofAngleOutput.text(roofAngle);
 	
 	var botRoofAngle = Math.sin(roofAngle * (Math.PI / 180)); 
 	var topRoofAngle = Math.sin((180 - roofAngle * 2) * (Math.PI / 180));
@@ -316,6 +324,16 @@ var	calcDimension = function(){
 	var fullRoofArea = ((roofWidth * length * 2) + (lengthCorniceArea * 2) + (widthCorniceArea * 4) + (AngleCorniceArea * 4)).toFixed(2);
 	roofAreaOutput.text(fullRoofArea + ' м').append('<sup>2</sup>');
 	ResultRoofAreaOutput.text(fullRoofArea + ' м').append('<sup>2</sup>');	
+	
+	var volume = 0;
+	var volumeWall = 0;
+	var volumeRoof = 0;
+	volumeWall = width * length * height;
+	volumeRoof = (width * length * roofHeight)/2;
+	volume = volumeWall + volumeRoof;
+	volume = volume.toFixed(2) + ' м';
+	volumeOutput.text(volume).append('<sup>3</sup>');
+	ResultVolumeOutput.text(volume).append('<sup>3</sup>');
 };
 
 //number
@@ -984,7 +1002,7 @@ var windowTypeQuantityMinus = $('#window-type-minus'),
 
 var typeChange = function(e){
 	e--;
-	windowBlock = '<div id="appearance-block-' + e + '" class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-' + e + '" id="window-width-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-' + e + '" id="window-height-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-' + e + '" id="window-quantity-' + e + '" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="window-reinforce-' + e + '" name="reinforce-window-' + e + '" class="window-reinforce-input"><label for="window-reinforce-' + e + '">Не учитывать стоимость</label></div><button type="button" class="appearance__delete">x</button></div>';
+	windowBlock = '<div id="appearance-block-' + e + '" class="appearance__block"><div class="appearance__dimension"><div class="appearance__count"><h4>Ширина: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-width-' + e + '" id="window-width-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__count"><h4>Высота: </h4><button type="button" class="window-button--minus">-</button><input type="number" name="window-height-' + e + '" id="window-height-' + e + '" class="window-input" min="0" max="10"><button type="button" class="window-button--plus">+</button></div></div><div class="appearance__count"><h4>Количество: </h4><button type="button" class="window-button--minus">-</button><input type="number" class="window-input" name="window-quantity-' + e + '" id="window-quantity-' + e + '" min="0" max="10"><button type="button" class="window-button--plus">+</button></div><div class="appearance__reinforce"><input type="checkbox" id="window-reinforce-' + e + '" name="reinforce-window-' + e + '" class="window-reinforce-input"><label for="window-reinforce-' + e + '">Не учитывать стоимость</label></div><button type="button" class="appearance__delete">×</button></div>';
 };
 
 var windowButtonInit = function(){
@@ -1053,7 +1071,13 @@ var windowButtonInit = function(){
 		} else {
 			result.text('Нет');
 		};
-	});
+	});	
+	var windowBlockCount = $('.appearance__block');
+	if (windowBlockCount.length < 2) {
+		$('.appearance__delete').hide();
+	} else {
+		$('.appearance__delete').show();
+	}
 };
 
 windowButtonInit();
