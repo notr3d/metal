@@ -37,12 +37,12 @@
 										<span class="my-sub-menu__text">О нас</span>
 									</a>
 								</div>
-								<div class="my-sub-menu__item my-sub-menu__item--link">
+								<!--<div class="my-sub-menu__item my-sub-menu__item--link">
 									<a href="<?php echo get_permalink( get_page_by_title('Производство')->ID ); ?>" class="my-sub-menu__link">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/2.png" alt="" class="my-sub-menu__img">
 										<span class="my-sub-menu__text">Производство</span>
 									</a>
-								</div>
+								</div>-->
 								<!--<div class="my-sub-menu__item my-sub-menu__item--link">
 									<a href="<?php echo get_permalink( get_page_by_title('Заказчики')->ID ); ?>" class="my-sub-menu__link">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/3.png" alt="" class="my-sub-menu__img">
@@ -53,11 +53,11 @@
 						</div>
 					</div>
 					<div class="site-nav__item">
-						<a href="<?php echo get_permalink( get_page_by_title('Полнокомплектные здания')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Продукция</a>
+						<a href="<?php echo get_permalink( get_page_by_title('Полнокомплектные здания')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги</a>
 						<div class="my-sub-menu my-sub-menu--2">
 							<div class="my-sub-menu__wrapper lcw">
 								<div class="my-sub-menu__item my-sub-menu__item--heading">
-									<h3 class="my-sub-menu__header">Продукция</h3>
+									<h3 class="my-sub-menu__header">Услуги</h3>
 									<p class="my-sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
 								</div>
 								<div class="my-sub-menu__item my-sub-menu__item--link">
@@ -72,11 +72,17 @@
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/5.png" alt="" class="my-sub-menu__img">
 										<span class="my-sub-menu__text">Металлоконструкции</span>
 									</a>
+								</div>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="<?php echo get_permalink( get_page_by_title('Проектирование')->ID ); ?>" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/6.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Проектирование</span>
+									</a>
 								</div>								
 							</div>
 						</div>
 					</div>
-					<div class="site-nav__item">
+					<!--<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('Проектирование')->ID ); ?>" class="site-nav__link site-nav__link--has-children">Услуги</a>
 						<div class="my-sub-menu my-sub-menu--3">
 							<div class="my-sub-menu__wrapper lcw">
@@ -104,10 +110,10 @@
 								</div>								
 							</div>
 						</div>
-					</div>
-					<div class="site-nav__item">
+					</div>-->
+					<!--<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('конструктор')->ID ); ?>" class="site-nav__link">Конструктор</a>
-					</div>
+					</div>-->
 					<div class="site-nav__item">
 						<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-nav__link">Контакты</a>
 					</div>

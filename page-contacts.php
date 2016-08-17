@@ -19,7 +19,8 @@
 							<p>г. Москва, ул. Ибрагимова,<!--<br>--> д. 31<!--, офис 308--></p>
 						</div>
 					</div>
-					<form action="" id="contacts-form" class="contacts__form">
+					<button class="my-fancy-button callback__open">Связаться с нами</button>
+					<!--<form action="" id="contacts-form" class="contacts__form">
 						<div class="contacts__item">
 							<input type="text" name="contacts-name" placeholder="Ваше имя*" required>		
 						</div>
@@ -38,7 +39,7 @@
 						<div class="contacts__item">
 							<button type="submit" class="my-fancy-button">Отправить</button>
 						</div>						
-					</form>
+					</form>-->
 				</div>
 			</div>
 			<div class="map">
