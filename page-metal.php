@@ -6,7 +6,7 @@
 				<h1 class="page-heading__header">Строительные<br><span>Металлоконструкции</span></h1>
 				<p class="page-heading__text">Меньший вес, простота изготовления, легкость монтажа, прочность и надежности в эксплуатации...
 				Металлоконструкции обладают множеством преимуществ перед другими строительными материалами.</p>
-				<a href="<?php echo get_permalink( get_page_by_title('Конструктор')->ID ); ?>" class="page-heading__link">Как построить здание?</a>
+				<!--<a href="<?php echo get_permalink( get_page_by_title('Конструктор')->ID ); ?>" class="page-heading__link">Как построить здание?</a>-->
 				<a href="<?php echo get_permalink( get_page_by_title('Контакты')->ID ); ?>" class="page-heading__link page-heading__link--special">Отправить заявку</a>
 			</div>
 		</div>
@@ -77,18 +77,18 @@
 				<div class="add-services__container">
 					<p class="add-services__text">Компания АО «БИГ Констракшн» осуществляет производство и монтаж металлоконструкций любой сложности и назначения на заказ. В работе используются современные строительные технологии, с помощью которых можно возводить одно- и многопролетные сооружения различной этажности, оснащенные крановым оборудованием и без него. Также возможен монтаж конструкций с пролетами неограниченной длины с учетом всех требований заказчика и необходимой клиенту грузоподъемностью.</p>
 					<p class="add-services__text">Работы по монтажу металлоконструкций выполняют аттестованные специалисты, имеющие опыт промышленного строительства. Бригада прибывает на объект со всей необходимой техникой в течение 5–10 дней. Высокотехнологичное оборудование позволяет выполнять монтаж в довольно короткие сроки.</p>
-					<a href="<?php echo get_permalink( get_page_by_title('Монтаж')->ID ); ?>" class="add-services__link">О монтаже</a>
-					<a href="<?php echo get_permalink( get_page_by_title('Доставка')->ID ); ?>" class="add-services__link">О Доставке</a>
+					<!--<a href="<?php echo get_permalink( get_page_by_title('Монтаж')->ID ); ?>" class="add-services__link">О монтаже</a>
+					<a href="<?php echo get_permalink( get_page_by_title('Доставка')->ID ); ?>" class="add-services__link">О Доставке</a>-->
 				</div>
 			</div>
 		</section>
-		<section class="request">
+		<!--<section class="request">
 			<div class="request__wrapper lcw">
 				<h2 class="request__header">Узнайте стоимость вашего проекта</h2>
 				<button class="request__button" data-toggle="modal" data-target="#callback">Оставить заявку</button>
 			</div>
 			
-		</section>
+		</section>-->
 	</div>
 </main>
 <?php get_footer(); ?>

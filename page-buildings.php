@@ -5,7 +5,7 @@
 				<div class="page-heading__container">
 					<h1 class="page-heading__header"><span>Полнокомплектные здания </span><br>из высокопрочных материалов собственного производства</h1>
 					<p class="page-heading__text">На высокоточном заводском оборудовании методом холодного проката и точной резки производятся комплектующие, из которых в дальнейшем монтируется здание.</p>
-					<a href="<?php echo get_permalink( get_page_by_title('Конструктор')->ID ); ?>" class="page-heading__link">Как построить здание?</a>
+					<!--<a href="<?php echo get_permalink( get_page_by_title('Конструктор')->ID ); ?>" class="page-heading__link">Как построить здание?</a>-->
 					<a href="<?php echo get_permalink( get_page_by_title('Контакты')->ID ); ?>" class="page-heading__link page-heading__link--special">Отправить заявку</a>
 				</div>
 			</div>
