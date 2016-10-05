@@ -15,9 +15,6 @@
 	<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	<meta name="yandex-verification" content="7955c531346cf4cb" />
-	<meta name="google-site-verification" content="PL6BEgz5AmDvRtQXV1tgIkxbyZH-732Pzkytf2BxTvM" />
-	<meta name='wmail-verification' content='3820ccc998cbac0b36aefa9a80dbea3b' />
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -64,12 +61,6 @@
 									<p class="my-sub-menu__note">Многолетний опыт строительства быстровозводимых зданий, собственные заводы изготовители и сотни благодарных клиентов</p>
 								</div>
 								<div class="my-sub-menu__item my-sub-menu__item--link">
-									<a href="<?php echo get_permalink( get_page_by_title('Проектирование')->ID ); ?>" class="my-sub-menu__link">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/9.jpg" alt="" class="my-sub-menu__img">
-										<span class="my-sub-menu__text">Проектирование</span>
-									</a>
-								</div>								
-								<div class="my-sub-menu__item my-sub-menu__item--link">
 									<a href="<?php echo get_permalink( get_page_by_title('Полнокомплектные здания')->ID ); ?>" class="my-sub-menu__link">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/4.png" alt="" class="my-sub-menu__img">
 										<span class="my-sub-menu__text">Полнокомплектные</span>
@@ -82,6 +73,12 @@
 										<span class="my-sub-menu__text">Металлоконструкции</span>
 									</a>
 								</div>
+								<div class="my-sub-menu__item my-sub-menu__item--link">
+									<a href="<?php echo get_permalink( get_page_by_title('Проектирование')->ID ); ?>" class="my-sub-menu__link">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/header/menu/6.png" alt="" class="my-sub-menu__img">
+										<span class="my-sub-menu__text">Проектирование</span>
+									</a>
+								</div>								
 							</div>
 						</div>
 					</div>
@@ -121,8 +118,8 @@
 						<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-nav__link">Контакты</a>
 					</div>
 				</div>
-				<?php //get_search_form(); ?>
-				<!--<button id="search" class="site-header__button site-header__button--search"></button>-->
+				<?php get_search_form(); ?>
+				<button id="search" class="site-header__button site-header__button--search"></button>
 				<button id="site-map" class="site-header__button site-header__button--site-map"></button>				
 			</div>
 			<div class="site-map">

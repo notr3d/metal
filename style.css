@@ -7431,8 +7431,9 @@ Entry Footer
 }
 .site-map__container .menu-item {
   list-style: none;
-  flex-basis: 33%;
-  flex-grow: 1;
+  flex-basis: 20%;
+  border: 1px solid white;
+  padding: 16px;
   margin: 8px;
 }
 @media (max-width: 767px) {
@@ -7443,6 +7444,7 @@ Entry Footer
 }
 .site-map__container .menu-item a {
   font-size: 16px;
+  text-decoration: underline;
   text-transform: uppercase;
   color: #fff;
 }
@@ -8062,12 +8064,11 @@ Entry Footer
 }
 .alfa-slider__content {
   position: relative;
-  height: 100vh;
-  padding-bottom: 160px;
+  height: 100%;
 }
 .alfa-slider__container {
   position: absolute;
-  bottom: 175px;
+  bottom: -660px;
   width: 75%;
   left: 65px;
 }
@@ -8508,16 +8509,14 @@ Entry Footer
   }
 }
 @media (max-width: 767px) {
+  .contacts {
+    padding-bottom: 235px;
+  }
 }
 .contacts .content-area {
   padding: 0;
   background: none;
   height: 100vh;
-}
-@media (max-width: 767px) {
-  .contacts .content-area {
-    height: auto;
-  }
 }
 @media (max-width: 767px) {
   .contacts__wrapper {
@@ -8540,7 +8539,6 @@ Entry Footer
     display: block;
     padding: 0;
     padding-top: 80px;
-    margin-bottom: 15px;
   }
 }
 .contacts__inner {
@@ -8632,7 +8630,6 @@ Entry Footer
   .map {
     position: static;
     height: 300px;
-    margin-bottom: 15px;
   }
 }
 .map .map-info__text {
@@ -10927,6 +10924,7 @@ canvas {
   background: #f9a11b;
   color: #000;
   border-color: #f9a11b;
+  margin-left: auto;
 }
 .metal .page-heading__link--special:hover {
   border-color: #fff;
@@ -11441,6 +11439,7 @@ canvas {
   background: #f9a11b;
   color: #000;
   border-color: #f9a11b;
+  margin-left: auto;
 }
 .buildings .page-heading__link--special:hover {
   border-color: #fff;
@@ -11768,6 +11767,7 @@ canvas {
   background: #f9a11b;
   color: #000;
   border-color: #f9a11b;
+  margin-left: auto;
 }
 .designing .page-heading__link--special:hover {
   border-color: #fff;
@@ -12201,8 +12201,7 @@ body {
   width: 50%;
 }
 .my-fancy-button {
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
   background: #2474d0;
   color: #fff;
   border-radius: 3px;
