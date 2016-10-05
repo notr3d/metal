@@ -178,7 +178,7 @@
 										<output id=roofAreaOutput></output>
 										<div class="info-block">
 											<span class="info-block__text">i</span>
-											<div class="info-block__inner">Площадь кровли рассчитывается при уклоне крыши <span id="roof-angle">20</span>°</div>
+											<div class="info-block__inner">Площадь кровли рассчитывается при уклоне крыши 20°</div>
 										</div>
 									</div>
 								</div>
@@ -735,7 +735,7 @@
 													<input type="checkbox" id="window-reinforce-1" name ="window-reinforce-1" class="window-reinforce-input" disabled>
 													<label for="window-reinforce-1">Не учитывать стоимость</label>
 												</div>
-												<button type="button" class="appearance__delete" disabled>×</button>
+												<button type="button" class="appearance__delete" disabled>x</button>
 											</div>
 										</div>
 									</div>
