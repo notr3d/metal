@@ -7112,6 +7112,8 @@ Entry Footer
   flex-wrap: wrap;
   align-items: center;
 }
+@media (max-width: 767px) {
+}
 .site-header__logo {
   background: url(img/header/site-logo.png) no-repeat left center;
   background-size: contain;
@@ -7430,7 +7432,9 @@ Entry Footer
 .site-map__container .menu-item {
   list-style: none;
   flex-basis: 20%;
-  margin-bottom: 5px;
+  border: 1px solid white;
+  padding: 16px;
+  margin: 8px;
 }
 @media (max-width: 767px) {
   .site-map__container .menu-item {
@@ -8024,7 +8028,7 @@ Entry Footer
   margin: 0;
 }
 .alfa-slider__item {
-  height: 100vh;
+  min-height: 100vh;
   background: #eee no-repeat;
   background-size: cover;
 }
@@ -8032,7 +8036,31 @@ Entry Footer
   background-image: url(img/header/slider/1.jpg);
 }
 .alfa-slider__item--2 {
-  background-image: url(img/header/slider/1.jpg);
+  background-image: url(img/header/slider/2.jpg);
+}
+.alfa-slider__item--3 {
+  background-image: url(img/header/slider/3.jpg);
+}
+.alfa-slider__item--4 {
+  background-image: url(img/header/slider/4.jpg);
+}
+.alfa-slider__item--5 {
+  background-image: url(img/header/slider/5.jpg);
+}
+.alfa-slider__item--6 {
+  background-image: url(img/header/slider/6.jpg);
+}
+.alfa-slider__item--7 {
+  background-image: url(img/header/slider/7.jpg);
+}
+.alfa-slider__item--8 {
+  background-image: url(img/header/slider/8.jpg);
+}
+.alfa-slider__item--9 {
+  background-image: url(img/header/slider/9.jpg);
+}
+.alfa-slider__item--10 {
+  background-image: url(img/header/slider/10.jpg);
 }
 .alfa-slider__content {
   position: relative;
@@ -8040,7 +8068,7 @@ Entry Footer
 }
 .alfa-slider__container {
   position: absolute;
-  bottom: 205px;
+  bottom: -660px;
   width: 75%;
   left: 65px;
 }
@@ -8897,13 +8925,11 @@ Entry Footer
   width: 19.9%;
   margin-right: 1px;
   margin-bottom: 1px;
-  height: 205px;
   background: #858688;
 }
 @media (max-width: 767px) {
   .constructor .structure-type__item {
     width: 49.6%;
-    height: 156px;
   }
 }
 .constructor .structure-type__item label {
@@ -8980,7 +9006,7 @@ Entry Footer
   }
 }
 .constructor .dimension__item--output output {
-  flex-basis: 33.333333%;
+  flex-basis: 35%;
 }
 @media (max-width: 767px) {
   .constructor .dimension__item--output output {
@@ -9016,10 +9042,7 @@ Entry Footer
   padding: 10px 15px;
   width: 170px;
   text-align: left;
-  bottom: -88px;
-  left: 50%;
   color: #fff;
-  margin-left: -85px;
   transition: .3s;
 }
 .constructor .dimension__item--output .info-block__inner::before {
@@ -9029,14 +9052,38 @@ Entry Footer
   height: 12px;
   background: #222;
   position: absolute;
-  top: -6px;
-  left: 0;
-  left: 50%;
-  margin-left: -6px;
   transform: rotate(45deg);
+}
+@media (min-width: 1080px) {
+  .constructor .dimension__item--output .info-block__inner::before {
+    top: -6px;
+    left: 50%;
+    margin-left: -6px;
+  }
+}
+@media (max-width: 767px) {
+  .constructor .dimension__item--output .info-block__inner::before {
+    top: 50%;
+    margin-top: -6px;
+    right: -6px;
+  }
 }
 .constructor .dimension__item--output .info-block__inner.active {
   opacity: 1;
+}
+@media (min-width: 1080px) {
+  .constructor .dimension__item--output .info-block__inner {
+    bottom: -88px;
+    left: 50%;
+    margin-left: -85px;
+  }
+}
+@media (max-width: 767px) {
+  .constructor .dimension__item--output .info-block__inner {
+    right: 100%;
+    top: 0;
+    margin-top: -20px;
+  }
 }
 @media (max-width: 767px) {
   .constructor .dimension__item {
@@ -9664,6 +9711,12 @@ Entry Footer
 .constructor .appearance__item--special .appearance__block--disabled {
   display: none;
 }
+@media (max-width: 767px) {
+  .constructor .appearance__item--special .appearance__block {
+    border-top: 15px solid #ddd;
+    padding-top: 15px;
+  }
+}
 .constructor .appearance__item--special .appearance__count {
   display: -webkit-flex;
   display: -moz-flex;
@@ -9902,8 +9955,9 @@ Entry Footer
   border: none;
   color: #f9a11b;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0;
+  right: 0;
+  font-size: 20px;
 }
 .constructor .color {
   position: relative;
@@ -10850,6 +10904,8 @@ canvas {
   margin-bottom: 30px;
   flex-basis: 100%;
 }
+@media (max-width: 767px) {
+}
 .metal .page-heading__link {
   display: inline-block;
   width: 220px;
@@ -11690,6 +11746,8 @@ canvas {
   margin: 0;
   margin-bottom: 30px;
   flex-basis: 100%;
+}
+@media (max-width: 767px) {
 }
 .designing .page-heading__link {
   display: inline-block;
