@@ -8,7 +8,7 @@
 					<div class="address">
 						<div class="address__item">
 							<h2>Телефон</h2>
-							<p>+7 (495) 789-36-86</p>
+							<p>+7 (495) 726-57-22</p>
 						</div>
 						<!--<div class="address__item">
 							<h2>Эл. почта</h2>

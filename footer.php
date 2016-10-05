@@ -10,7 +10,7 @@
 			</div>
 			<div class="site-footer__item">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/tel.png" alt="" class="site-footer__img">
-				<a href="skype:+74957893686" class="site-footer__link">+7 (495) 789-36-86</a><br>
+				<a href="skype:+74957893686" class="site-footer__link">+7 (495) 726-57-22</a><br>
 				<button type="button" class="site-footer__button callback__open">Заказать звонок</button>
 				<div class="callback">
 					<div class="callback__bg"></div>
