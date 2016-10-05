@@ -5,8 +5,7 @@
 			<div class="site-footer__item">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/email.png" alt="" class="site-footer__img">
 				<a href="mailto:info@bigmsk.ru" class="site-footer__link">info@bigmsk.ru</a><br>
-				<!--<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-footer__button">Написать письмо</a>-->
-				<button type="button" class="site-footer__button callback__open">Написать письмо</button>
+				<a href="<?php echo get_permalink( get_page_by_title('контакты')->ID ); ?>" class="site-footer__button">Написать письмо</a>
 			</div>
 			<div class="site-footer__item">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/footer/tel.png" alt="" class="site-footer__img">
@@ -73,7 +72,7 @@
 		<script src="<?php echo get_template_directory_uri(); ?>/js/constructor.js"></script>
 	<?php endif; ?>	
 	<?php if (is_page($page = "Контакты")): ?>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD3ukqE55fjlhfvdlOgolw4O2QarP4iFDw"></script>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
 		<script>
 			var center = new google.maps.LatLng(55.789061, 37.729310);
 			var init = function(){
