@@ -7432,9 +7432,9 @@ Entry Footer
 .site-map__container .menu-item {
   list-style: none;
   flex-basis: 20%;
-  border: 1px solid white;
-  padding: 16px;
-  margin: 8px;
+  /*border: 1px solid white;
+			padding: 16px;
+			margin: 8px;*/
 }
 @media (max-width: 767px) {
   .site-map__container .menu-item {
